@@ -5,11 +5,8 @@ import {
 	Route,
 } from "react-router-dom";
 
-import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 
 import theme from './context/theme';
 import Fabrics from './components/pages/fabrics/Fabrics';
