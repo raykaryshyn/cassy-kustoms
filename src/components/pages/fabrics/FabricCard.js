@@ -66,7 +66,7 @@ export default function FabricCard(props) {
     if (gridView) {
         return (
             <Card className={classes.root}>
-                <CardActionArea className={classes.gridMedia}>
+                <CardActionArea className={classes.gridMedia} disableRipple>
                     <CardMedia
                         component="img"
                         alt="Contemplative Reptile"
@@ -86,7 +86,7 @@ export default function FabricCard(props) {
     } else {
         return (
             <Card className={classes.root}>
-                <CardActionArea className={classes.listActionArea}>
+                <CardActionArea className={classes.listActionArea} disableRipple>
                     <div className={classes.listActionAreaInner}>
                         <div className={[classes.gridMedia, classes.listMedia].join(' ')}>
                             <CardMedia

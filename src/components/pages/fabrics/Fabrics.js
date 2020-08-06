@@ -8,11 +8,12 @@ import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import canStore from '../../../functions/canStore';
 import Page from '../Page';
 import FabricCard from './FabricCard';
+import Dialog from './FabricDialog';
 
 
 
 
-export default function FullWidthGrid() {
+export default function Fabrics() {
     const [gridView, setGridViewState] = React.useState(
         canStore() && localStorage.getItem('gridView') !== null ?
             localStorage.getItem('gridView') === 'true' :
@@ -74,7 +75,7 @@ export default function FullWidthGrid() {
             {gridView ?
                 <Grid container spacing={4} className={classes.grid}>
                     <Grid item xs={12} sm={6} md={4}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
                         <FabricCard gridView={gridView} />
