@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles({
     page: {
-        marginTop: '2rem',
+        marginTop: '2.5rem',
     },
     title: {
         textAlign: 'center',

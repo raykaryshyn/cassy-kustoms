@@ -31,12 +31,12 @@ const theme = createMuiTheme({
         h6: { fontFamily: fonts.serif },
     },
     shape: {
-        borderRadius: 13,
+        borderRadius: 20,
     },
     palette: {
         type: 'light',
         background: {
-            default: '#fafbfc',
+            default: '#fff',
         },
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {
