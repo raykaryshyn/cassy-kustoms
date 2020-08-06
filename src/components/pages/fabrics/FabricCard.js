@@ -5,51 +5,98 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import theme from '../../../context/theme';
 
-const useStyles = makeStyles({
-    root: {
-        background: 'none',
-        boxShadow: 'none',
-    },
-    media: {
-        borderRadius: theme.shape.borderRadius,
-        overflow: 'hidden',
-    },
-    content: {
-        background: 'none',
-        padding: '5px 0',
-        '&:last-child': {
-            paddingBottom: '5px',
+
+
+export default function FabricCard(props) {
+    const gridView = props.gridView;
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            background: gridView ? 'none' : '#fff',
+            boxShadow: gridView ? 'none' : theme.shadow(8,0,2,'rgba(0,0,0,0.13)'),
+            transition: gridView ? 'none' : theme.transitions.create('box-shadow'),
+            '&:hover': {
+                boxShadow: gridView ? 'none' : theme.shadow(16,0,2,'rgba(0,0,0,0.13)'),
+            },
         },
-    },
-    title: {
-        fontSize: '1.4rem',
-        color: 'rgba(0,0,0,0.8)',
-        fontWeight: 500,
-    },
-});
-
-export default function ImgMediaCard() {
+        gridMedia: {
+            borderRadius: theme.shape.borderRadius,
+            overflow: 'hidden',
+        },
+        listActionArea: {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+        },
+        listMedia: {
+            height: 125,
+            width: 125,
+            marginRight: 15,
+        },
+        listImage: {
+            height: '100%',
+            width: 125,
+        },
+        gridContent: {
+            padding: '5px 0',
+            '&:last-child': {
+                paddingBottom: '5px',
+            },
+        },
+        listContent: {
+            padding: 0,
+        },
+        title: {
+            fontSize: '1.4rem',
+            color: 'rgba(0,0,0,0.75)',
+            fontWeight: 500,
+        },
+    }));
     const classes = useStyles();
 
-    return (
-        <Card className={classes.root}>
-            <CardActionArea className={classes.media}>
-                <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="300"
-                    image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-                    title="Contemplative Reptile"
-                />
-            </CardActionArea>
+    if (gridView) {
+        return (
+            <Card className={classes.root}>
+                <CardActionArea className={classes.gridMedia}>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="300"
+                        image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                        title="Contemplative Reptile"
+                    />
+                </CardActionArea>
 
-            <CardContent className={classes.content}>
-                <Typography gutterBottom className={classes.title}>
-                    Po Ko Dot
-                </Typography>
-            </CardContent>
-        </Card>
-    );
+                <CardContent className={classes.gridContent}>
+                    <Typography gutterBottom className={classes.title}>
+                        Po Ko Dot
+                    </Typography>
+                </CardContent>
+            </Card>
+        );
+    } else {
+        return (
+            <Card className={classes.root}>
+                <CardActionArea className={classes.listActionArea}>
+                    <div className={[classes.gridMedia, classes.listMedia].join(' ')}>
+                        <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="300"
+                            image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                            title="Contemplative Reptile"
+                            className={classes.listImage}
+                        />
+                    </div>
+
+                    <CardContent className={classes.listContent}>
+                        <Typography className={classes.title}>
+                            Po Ko Dot
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+        );
+    }
 }

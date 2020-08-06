@@ -2,6 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const fonts = {
     sansSerif: [
+        '"Poppins"',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -36,7 +37,7 @@ const theme = createMuiTheme({
     palette: {
         type: 'light',
         background: {
-            default: '#fff',
+            default: '#fafbfc',
         },
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {

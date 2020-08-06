@@ -12,6 +12,8 @@ import theme from './context/theme';
 import Fabrics from './components/pages/fabrics/Fabrics';
 import Page from './components/pages/Page';
 
+import './App.css';
+
 
 
 
