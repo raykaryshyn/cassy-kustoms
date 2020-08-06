@@ -28,6 +28,7 @@ export default function FabricCard(props) {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'flex-start',
+            alignItems: 'center',
         },
         listMedia: {
             height: 125,
