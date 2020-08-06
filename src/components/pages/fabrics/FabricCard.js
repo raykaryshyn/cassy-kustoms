@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, duration } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -21,8 +21,14 @@ export default function FabricCard(props) {
             },
         },
         gridMedia: {
-            borderRadius: theme.shape.borderRadius,
+            borderRadius: gridView ? theme.shape.borderRadius : 0,
             overflow: 'hidden',
+            '& img': {
+                transition: theme.transitions.create('transform', {duration: 500}),
+            },
+            '&:hover img': {
+                transform: 'scale(1.1)',
+            },
         },
         listActionArea: {
             width: '100%',
