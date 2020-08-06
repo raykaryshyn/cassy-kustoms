@@ -34,7 +34,7 @@ export default function FabricDialog(props) {
 
   return (
     <div>
-      <a onClick={() => handleClickOpen()}>{props.children}</a>
+      <div onClick={() => handleClickOpen()}>{props.children}</div>
       <Dialog
         open={open}
         onClose={handleClose}
