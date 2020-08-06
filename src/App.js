@@ -5,44 +5,34 @@ import {
 	Route,
 } from "react-router-dom";
 
+import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 import theme from './context/theme';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Fabrics from './components/pages/fabrics/Fabrics';
+import Page from './components/pages/Page';
 
 
 
 
 export default function App() {
-	const useStyles = makeStyles({
-		page: {
-			marginTop: '2rem',
-		},
-		title: {
-			textAlign: 'center',
-		},
-	});
-	const classes = useStyles();
-
 	return (
 		<Router>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
 
-				<Container maxWidth="sm" className={classes.page}>
-					<Switch>
-						<Route exact path="/fabrics">
-							<Typography variant="h2" component="h1" className={classes.title}>Fabrics</Typography>
-						</Route>
+				<Switch>
+					<Route exact path="/fabrics">
+						<Fabrics />
+					</Route>
 
-						<Route exact path="*">
-							<Typography variant="h2" component="h1" className={classes.title}>Under Development</Typography>
-						</Route>
-					</Switch>
-				</Container>
+					<Route exact path="*">
+						<Page title="Under Development" />
+					</Route>
+				</Switch>
 			</ThemeProvider>
 		</Router >
 	);
