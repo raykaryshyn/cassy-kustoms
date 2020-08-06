@@ -47,6 +47,7 @@ export default function FabricCard(props) {
         },
         listContent: {
             padding: 0,
+            height: '100%',
         },
         title: {
             fontSize: '1.4rem',
