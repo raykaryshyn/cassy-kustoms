@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import Page from '../Page';
@@ -12,7 +11,7 @@ import FabricCard from './FabricCard';
 
 const useStyles = makeStyles((theme) => ({
     grid: {
-        marginTop: '0.25rem',
+        marginTop: '0',
         justifyContent: 'center',
     },
 }));
