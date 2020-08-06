@@ -1,27 +1,34 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const fontFamily = [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-].join(', ');
+const fonts = {
+    sansSerif: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+    ].join(', '),
+    serif: [
+        'Amiri',
+        'serif',
+    ].join(', '),
+};
 
 const theme = createMuiTheme({
     typography: {
-        fontFamily: fontFamily,
-        /* h1: fontFamily,
-        h2: fontFamily,
-        h3: fontFamily,
-        h4: fontFamily,
-        h5: fontFamily,
-        h6: fontFamily, */
+        fonts: fonts,
+        fontFamily: fonts.sansSerif,
+        h1: { fontFamily: fonts.serif },
+        h2: { fontFamily: fonts.serif },
+        h3: { fontFamily: fonts.serif },
+        h4: { fontFamily: fonts.serif },
+        h5: { fontFamily: fonts.serif },
+        h6: { fontFamily: fonts.serif },
     },
     shape: {
         borderRadius: 13,
@@ -29,7 +36,7 @@ const theme = createMuiTheme({
     palette: {
         type: 'light',
         background: {
-            default: '#fafafa',
+            default: '#fafbfc',
         },
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {
