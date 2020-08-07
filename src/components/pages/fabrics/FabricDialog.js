@@ -68,8 +68,8 @@ export default function FabricDialog(props) {
 
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
-  const style = didLoad ? {} : { opacity: 0, width: 0, height: 0 };
-
+  const style = didLoad ? {} : { opacity: 0 };
+  const style2 = didLoad ? {} : { display: 'none' };
   return (
     <div>
       <div onClick={() => handleClickOpen()}>{props.children}</div>
@@ -83,8 +83,10 @@ export default function FabricDialog(props) {
       >
         <DialogTitle className={classes.title}>Subscribe</DialogTitle>
         <DialogContent dividers={false} className={classes.content}>
-          <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image}
-            style={style} onLoad={() => setLoad(true)} />
+          <div style={style2}>
+            <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image}
+              style={style} onLoad={() => setLoad(true)} />
+          </div>
           {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
         </DialogContent>
         <DialogActions>
