@@ -69,7 +69,7 @@ export default function FabricDialog(props) {
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
   const style = didLoad ? {} : { opacity: 0 };
-  const style2 = didLoad ? {} : { display: 'none' };
+  const style2 = didLoad ? {} : { visibility: 'hidden' };
   return (
     <div>
       <div onClick={() => handleClickOpen()}>{props.children}</div>
