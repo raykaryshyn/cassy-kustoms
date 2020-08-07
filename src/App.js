@@ -54,10 +54,6 @@ export default function App() {
 
 				<form
 					name="contact"
-					method="post"
-					action="/"
-					data-netlify="true"
-					data-netlify-honeypot="bot-field"
 					onSubmit={handleSubmit}
 				>
 					{/* The `form-name` hidden field is required to support form submissions without JavaScript */}
