@@ -22,6 +22,7 @@ export default function ContactDialog() {
 
     const handleClose = () => {
         setOpen(false);
+        setFormValid({name: true, email: true, message: true});
     };
 
     const useStyles = makeStyles((theme) => ({
@@ -74,6 +75,10 @@ export default function ContactDialog() {
                 backgroundColor: 'rgba(0, 0, 0, 0.06)',
             },
         },
+        sendIcon: {
+            fontSize: '1.25rem',
+            marginRight: '8px',
+        },
     }));
     const classes = useStyles();
 
@@ -83,26 +88,73 @@ export default function ContactDialog() {
             .join("&");
     }
 
+    function ValidateEmail(emailAddr) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(emailAddr)) {
+            return (true)
+        }
+        return (false)
+    }
+
     const [formState, setFormState] = React.useState({});
     const handleChange = e => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
     };
+    const [formValid, setFormValid] = React.useState({name: true, email: true, message: true});
+    const updateFormValid = (id, value) => {
+        setFormValid(prevState => ({ ...prevState, [id]: value }));
+        console.log(id, value);
+    };
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-                "form-name": form.getAttribute("name"),
-                ...formState
+        var formName = formState.hasOwnProperty('name') ? formState['name'] : '';
+        var formEmail = formState.hasOwnProperty('email') ? formState['email'] : '';
+        var formMessage = formState.hasOwnProperty('message') ? formState['message'] : '';
+
+        let formFlag = true;
+        if (formName.trim() == null || formName.trim() === "" || formName === " ") {
+            console.log('formName error');
+            formFlag = false;
+            updateFormValid('name', false);
+        } else {
+            updateFormValid('name', true);
+        }
+        if (formEmail === "" || !ValidateEmail(formEmail)) {
+            console.log('formEmail error');
+            formFlag = false;
+            updateFormValid('email', false);
+        } else {
+            updateFormValid('email', true);
+        }
+        if (formMessage.trim() == null || formMessage.trim() === "" || formMessage === " ") {
+            console.log('formMessage error');
+            formFlag = false;
+            updateFormValid('message', false);
+        } else {
+            updateFormValid('message', true);
+        }
+        
+        if (formFlag) {
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({
+                    "form-name": form.getAttribute("name"),
+                    ...formState
+                })
             })
-        })
-            .then(() => {
-                console.log(formState);
-            })
-            .catch(error => alert(error));
+                .then(() => {
+                    console.log(formState);
+                    handleClose();
+                    setFormState({});
+                })
+                .catch(error => (error));
+        }
     };
+
+    const formNameRef = React.createRef();
+    const formEmailRef = React.createRef();
+    const formMessageRef = React.createRef();
 
     return (
         <div>
@@ -129,17 +181,17 @@ export default function ContactDialog() {
                                     <input name="bot-field" onChange={handleChange} />
                                 </label>
                             </p>
-                            <TextField label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} />
-                            <TextField label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} />
-                            <TextField label="Message" multiline rows={4} variant="filled" name="message" onChange={handleChange} className={classes.formItem} />
+                            <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
+                            <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
+                            <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
                         </div>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
                             Cancel
                         </Button>
-                        <Button variant="contained" color="primary" type="submit" onClick={handleClose} className={classes.button}>
-                            <SendIcon /> Send
+                        <Button variant="contained" color="primary" type="submit" className={classes.button}>
+                            <SendIcon className={classes.sendIcon} /> Send
                         </Button>
                     </DialogActions>
                 </form>

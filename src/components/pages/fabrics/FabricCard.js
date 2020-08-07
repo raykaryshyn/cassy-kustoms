@@ -100,7 +100,7 @@ export default function FabricCard(props) {
         gridContent: {
             padding: '5px 0',
             '&:last-child': {
-                paddingBottom: '5px',
+                paddingBottom: '0',
             },
         },
         listContent: {
