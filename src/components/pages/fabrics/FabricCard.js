@@ -96,7 +96,7 @@ export default function FabricCard(props) {
                         component="img"
                         alt="Contemplative Reptile"
                         height="300"
-                        image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                        image="image.jpg"
                         title="Contemplative Reptile"
                     />
                 </CardActionArea>
@@ -119,7 +119,7 @@ export default function FabricCard(props) {
                                     component="img"
                                     alt="Contemplative Reptile"
                                     height="300"
-                                    image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                                    image="image.jpg"
                                     title="Contemplative Reptile"
                                     className={classes.listImage}
                                 />
@@ -128,7 +128,7 @@ export default function FabricCard(props) {
                             <CardContent className={classes.listContent}>
                                 <Typography className={classes.title}>
                                     Po Ko Dot
-                        </Typography>
+                                </Typography>
                             </CardContent>
                         </div>
                     </CardActionArea>

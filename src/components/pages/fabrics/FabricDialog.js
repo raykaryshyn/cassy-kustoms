@@ -8,6 +8,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -34,12 +36,29 @@ export default function FabricDialog(props) {
   }, [open]);
 
   const useStyles = makeStyles((theme) => ({
+    root: {
+      width: 'calc(100% - 30px)',
+      maxWidth: '960px !important',
+      margin: '30px 15px',
+    },
     title: {
+      padding: '6px',
       '& .MuiTypography-root': {
+        display: 'flex',
+        alignItems: 'center',
         fontFamily: theme.typography.fontFamily,
         fontSize: '1.33rem',
         lineHeight: 1.43,
       },
+    },
+    header: {
+      flex: 1,
+      paddingLeft: '12px',
+    },
+    headerWrapper: {
+      display: 'block',
+      maxWidth: '80%',
+      wordBreak: 'break-all',
     },
     content: {
       padding: 0,
@@ -69,7 +88,7 @@ export default function FabricDialog(props) {
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
   const style = didLoad ? {} : { opacity: 0 };
-  const style2 = didLoad ? {flex: 1} : { visibility: 'hidden' };
+  const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
   return (
     <>
       <div onClick={() => handleClickOpen()}>{props.children}</div>
@@ -80,11 +99,23 @@ export default function FabricDialog(props) {
         TransitionComponent={Transition}
         fullWidth={true}
         maxWidth='md'
+        classes={{ paper: classes.root }}
       >
-        <DialogTitle className={classes.title}>Subscribe</DialogTitle>
+        <DialogTitle className={classes.title}>
+          <span className={classes.header}><span className={classes.headerWrapper}>Po Ko Dot</span></span>
+          <IconButton
+            edge="start"
+            className={[classes.hamburger, classes.actionButton].join(' ')}
+            color="inherit"
+            onClick={handleClose}
+            disableRipple
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
         <DialogContent dividers={false} className={classes.content}>
           <div style={style2}>
-            <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image}
+            <img src="image.jpg" alt="Turtle" className={classes.image}
               style={style} onLoad={() => setLoad(true)} />
           </div>
           {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
