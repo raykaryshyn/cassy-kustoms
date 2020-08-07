@@ -37,7 +37,7 @@ export default function Fabrics() {
             alignItems: 'center',
         },
         toggleButton: {
-            fontSize: 34,
+            fontSize: '34px',
             cursor: 'pointer',
             margin: '0 5px',
             color: 'rgba(0,0,0,0.25)',

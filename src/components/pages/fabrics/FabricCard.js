@@ -86,6 +86,8 @@ export default function FabricCard(props) {
     }));
     const classes = useStyles();
 
+    
+
     if (gridView) {
         return (
             <Card className={classes.root}>
