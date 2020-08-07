@@ -7,7 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import Skeleton from '@material-ui/lab/Skeleton';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -43,11 +43,18 @@ export default function FabricDialog(props) {
     },
     content: {
       padding: 0,
+      display: 'flex',
+      justifyContent: 'center',
     },
     image: {
       width: '100%',
       height: 'auto',
       display: 'block',
+      transition: theme.transitions.create('opacity'),
+      opacity: 1,
+    },
+    spinnerWrapper: {
+      padding: 10,
     },
     loader: {
       height: '400px',
@@ -61,7 +68,7 @@ export default function FabricDialog(props) {
 
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
-  const style = didLoad ? {} : { visibility: 'hidden' };
+  const style = didLoad ? {} : { opacity: 0, width: 0 };
 
   return (
     <div>
@@ -76,9 +83,9 @@ export default function FabricDialog(props) {
       >
         <DialogTitle className={classes.title}>Subscribe</DialogTitle>
         <DialogContent dividers={false} className={classes.content}>
-        <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image}
+          <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image}
             style={style} onLoad={() => setLoad(true)} />
-          {!didLoad ? <Skeleton animation="wave" variant="rect" className={classes.loader} /> : ''}
+          {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.button}>
