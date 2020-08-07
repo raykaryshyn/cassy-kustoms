@@ -70,7 +70,8 @@ export default function Fabrics() {
     }));
     const classes = useStyles();
 
-    console.log(fabricsList);
+
+    const fabrics = fabricsList;
 
     return (
         <Page title="Fabrics">
@@ -93,38 +94,22 @@ export default function Fabrics() {
 
             {gridView ?
                 <Grid container spacing={4} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
+                    {fabrics.map((fabric, i) => {
+                        return (
+                            <Grid item xs={12} sm={6} md={4} key={i}>
+                                <Dialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></Dialog>
+                            </Grid>
+                        );
+                    })}
                 </Grid> :
                 <Grid container spacing={2} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
-                    <Grid item xs={12} md={6}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Dialog><FabricCard gridView={gridView} /></Dialog>
-                    </Grid>
+                    {fabrics.map((fabric, i) => {
+                        return (
+                            <Grid item xs={12} md={6} key={i}>
+                                <Dialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></Dialog>
+                            </Grid>
+                        );
+                    })}
                 </Grid>
             }
             <Fab className={classes.fab}>

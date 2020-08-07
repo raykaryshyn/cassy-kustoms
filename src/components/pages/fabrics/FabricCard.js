@@ -9,6 +9,9 @@ import Typography from '@material-ui/core/Typography';
 
 
 export default function FabricCard(props) {
+    const name = props.fabric.name;
+    const image = props.fabric.image;
+
     const gridView = props.gridView;
 
     const useStyles = makeStyles((theme) => ({
@@ -124,7 +127,7 @@ export default function FabricCard(props) {
                         component="img"
                         alt="Contemplative Reptile"
                         height="300"
-                        image="image.jpg"
+                        image={image}
                         title="Contemplative Reptile"
                         className={classes.gridImage}
                     />
@@ -132,7 +135,7 @@ export default function FabricCard(props) {
 
                 <CardContent className={classes.gridContent}>
                     <Typography gutterBottom className={classes.title}>
-                        Po Ko Dot
+                    {name}
                     </Typography>
                 </CardContent>
             </Card>
@@ -148,7 +151,7 @@ export default function FabricCard(props) {
                                     component="img"
                                     alt="Contemplative Reptile"
                                     height="300"
-                                    image="image.jpg"
+                                    image={image}
                                     title="Contemplative Reptile"
                                     className={classes.listImage}
                                 />
@@ -156,7 +159,7 @@ export default function FabricCard(props) {
 
                             <CardContent className={classes.listContent}>
                                 <Typography className={classes.title}>
-                                    Po Ko Dot
+                                    {name}
                                 </Typography>
                             </CardContent>
                         </div>

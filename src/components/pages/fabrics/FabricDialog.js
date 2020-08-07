@@ -16,6 +16,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function FabricDialog(props) {
+  const name = props.fabric.name;
+  const image = props.fabric.image;
+
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -102,7 +105,7 @@ export default function FabricDialog(props) {
         keepMounted
       >
         <DialogTitle className={classes.title}>
-          <span className={classes.header}><span className={classes.headerWrapper}>Po Ko Dot</span></span>
+          <span className={classes.header}><span className={classes.headerWrapper}>{name}</span></span>
           <IconButton
             edge="start"
             className={[classes.hamburger, classes.actionButton].join(' ')}
@@ -115,7 +118,7 @@ export default function FabricDialog(props) {
         </DialogTitle>
         <DialogContent dividers={false} className={classes.content}>
           <div style={style2}>
-            <img src="image.jpg" alt="Turtle" className={classes.image}
+            <img src={image} alt="Turtle" className={classes.image}
               style={style} onLoad={() => setLoad(true)} />
           </div>
           {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
