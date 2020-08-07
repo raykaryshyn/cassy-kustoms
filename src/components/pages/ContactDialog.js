@@ -165,13 +165,13 @@ export default function ContactDialog() {
             <Fab className={classes.fab} onClick={handleClickOpen}>
                 <ModeCommentIcon />
             </Fab>
-            <form
+            
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
+                <form
                 name="contact"
                 onSubmit={handleSubmit}
                 id="contact-form"
             >
-                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
-
                     <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                     <DialogContentText className={classes.text}>
                             Please fill out the form below to get in touch with me.
@@ -200,9 +200,9 @@ export default function ContactDialog() {
                             <SendIcon className={classes.sendIcon} /> Send
                         </Button>
                     </DialogActions>
-
+                    </form>
                 </Dialog>
-            </form>
+            
         </div>
     );
 }
