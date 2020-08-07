@@ -69,9 +69,9 @@ export default function FabricDialog(props) {
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
   const style = didLoad ? {} : { opacity: 0 };
-  const style2 = didLoad ? {} : { visibility: 'hidden' };
+  const style2 = didLoad ? {flex: 1} : { visibility: 'hidden' };
   return (
-    <div>
+    <>
       <div onClick={() => handleClickOpen()}>{props.children}</div>
       <Dialog
         open={open}
@@ -95,6 +95,6 @@ export default function FabricDialog(props) {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }
