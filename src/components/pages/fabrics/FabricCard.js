@@ -13,13 +13,23 @@ export default function FabricCard(props) {
 
     const useStyles = makeStyles((theme) => ({
         listCardWrapper: {
-            /* cursor: 'pointer',
-            '& .MuiCard-root': {
-                transition: gridView ? 'none' : theme.transitions.create('transform'),
+            cursor: 'pointer',
+            [theme.breakpoints.up('md')]: {
+                '& .MuiCard-root': {
+                    transition: gridView ? 'none' : theme.transitions.create('transform'),
+                },
+                '&:hover .MuiCard-root': {
+                    transform: gridView ? 'none' : 'scale(0.98)',
+                },
             },
-            '&:hover .MuiCard-root': {
-                transform: gridView ? 'none' : 'scale(0.98)',
-            }, */
+            [theme.breakpoints.down('md')]: {
+                '& .MuiCard-root': {
+                    transition: gridView ? 'none' : theme.transitions.create('transform', { duration: 200 }),
+                },
+                '&:active .MuiCard-root': {
+                    transform: gridView ? 'none' : 'scale(0.98)',
+                },
+            },
         },
         root: {
             background: gridView ? 'none' : '#fff',
@@ -35,14 +45,26 @@ export default function FabricCard(props) {
             overflow: 'hidden',
             position: 'relative',
             zIndex: 0,
-            /* '& img': {
-                transition: theme.transitions.create('transform', { duration: 500 }),
-                borderRadius: gridView ? theme.shape.borderRadius : 0,
-                overflow: 'hidden',
+            [theme.breakpoints.up('md')]: {
+                '& img': {
+                    transition: theme.transitions.create('transform', { duration: 400 }),
+                    borderRadius: gridView ? theme.shape.borderRadius : 0,
+                    overflow: 'hidden',
+                },
+                '&:hover img': {
+                    transform: gridView ? 'scale(0.94)' : 'none',
+                },
             },
-            '&:hover img': {
-                transform: gridView ? 'scale(0.92)' : 'none',
-            }, */
+            [theme.breakpoints.down('md')]: {
+                '& img': {
+                    transition: theme.transitions.create('transform', { duration: 200 }),
+                    borderRadius: gridView ? theme.shape.borderRadius : 0,
+                    overflow: 'hidden',
+                },
+                '&:active img': {
+                    transform: gridView ? 'scale(0.975)' : 'none',
+                },
+            },
             '&:hover .MuiCardActionArea-focusHighlight': {
                 opacity: 0.06,
             },
@@ -86,7 +108,7 @@ export default function FabricCard(props) {
     }));
     const classes = useStyles();
 
-    
+
 
     if (gridView) {
         return (
