@@ -165,19 +165,16 @@ export default function ContactDialog() {
             <Fab className={classes.fab} onClick={handleClickOpen}>
                 <ModeCommentIcon />
             </Fab>
-            
-                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
-                <form
-                name="contact"
-                onSubmit={handleSubmit}
-            >
-                    <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
-                    <DialogContentText className={classes.text}>
-                            Please fill out the form below to get in touch with me.
-                    </DialogContentText>
-                    <DialogContent dividers={true}>
-                        
 
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
+
+                <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
+                <DialogContentText className={classes.text}>
+                    Please fill out the form below to get in touch with me.
+                    </DialogContentText>
+                <DialogContent dividers={true}>
+
+                    <form name="contact" onSubmit={handleSubmit}>
                         <div className={classes.formLayout}>
                             <input type="hidden" name="form-name" value="contact" />
                             <p hidden>
@@ -190,18 +187,19 @@ export default function ContactDialog() {
                             <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
                             <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
                         </div>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button type="button" onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
-                            Cancel
-                        </Button>
-                        <Button variant="contained" color="primary" type="submit" className={classes.button}>
-                            <SendIcon className={classes.sendIcon} /> Send
-                        </Button>
-                    </DialogActions>
+
                     </form>
-                </Dialog>
-            
+                </DialogContent>
+                <DialogActions>
+                    <Button type="button" onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
+                        Cancel
+                        </Button>
+                    <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
+                        <SendIcon className={classes.sendIcon} /> Send
+                        </Button>
+                </DialogActions>
+            </Dialog>
+
         </div>
     );
 }
