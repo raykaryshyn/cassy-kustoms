@@ -39,6 +39,37 @@ export default function ContactDialog() {
                 background: theme.palette.primary.dark,
             },
         },
+        title: {
+            paddingLeft: 24,
+            paddingTop: 24,
+            paddingBottom: 10,
+            '& .MuiTypography-root': {
+                display: 'flex',
+                alignItems: 'center',
+                fontFamily: theme.typography.fontFamily,
+                fontSize: '1.33rem',
+                lineHeight: 1.43,
+            },
+        },
+        header: {
+            flex: 1,
+        },
+        headerWrapper: {
+            display: 'block',
+            maxWidth: '80%',
+            wordBreak: 'break-all',
+        },
+        button: {
+            fontWeight: 600,
+            padding: '6px 16px',
+        },
+        formLayout: {
+            display: 'flex',
+            flexDirection: 'column',
+        },
+        formItem: {
+            margin: '10px 0',
+        },
     }));
     const classes = useStyles();
 
@@ -69,8 +100,6 @@ export default function ContactDialog() {
             .catch(error => alert(error));
     };
 
-    const nameRef = React.createRef();
-
     return (
         <div>
             <Fab className={classes.fab} onClick={handleClickOpen}>
@@ -82,36 +111,30 @@ export default function ContactDialog() {
                     onSubmit={handleSubmit}
                     id="contact-form"
                 >
-                    <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+                    <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We will send updates
-                            occasionally.
-          </DialogContentText>
+                            To contact me, please fill out the form below.
+                        </DialogContentText>
 
-                        <input type="hidden" name="form-name" value="contact" />
-                        <p hidden>
-                            <label>
-                                Don’t fill this out:{" "}
-                                <input name="bot-field" onChange={handleChange} />
-                            </label>
-                        </p>
-                        <TextField ref={nameRef} label="Name" variant="outlined" type="text" name="name" onChange={handleChange} />
-                        <TextField label="Email" variant="outlined" type="email" name="email" onChange={handleChange} />
-                        <TextField
-                            label="Message"
-                            multiline
-                            rows={4}
-                            variant="outlined"
-                            name="message"
-                            onChange={handleChange}
-                        />
+                        <div className={classes.formLayout}>
+                            <input type="hidden" name="form-name" value="contact" />
+                            <p hidden>
+                                <label>
+                                    Don’t fill this out:{" "}
+                                    <input name="bot-field" onChange={handleChange} />
+                                </label>
+                            </p>
+                            <TextField label="Name" variant="outlined" type="text" name="name" onChange={handleChange} className={classes.formItem} />
+                            <TextField label="Email" variant="outlined" type="email" name="email" onChange={handleChange} className={classes.formItem} />
+                            <TextField label="Message" multiline rows={4} variant="outlined" name="message" onChange={handleChange} className={classes.formItem} />
+                        </div>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose}>
-                            Save Draft
+                        <Button onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
+                            Cancel
                         </Button>
-                        <Button variant="contained" color="primary" type="submit" onClick={handleClose}>
+                        <Button variant="contained" color="primary" type="submit" onClick={handleClose} className={classes.button}>
                             <SendIcon /> Send
                         </Button>
                     </DialogActions>

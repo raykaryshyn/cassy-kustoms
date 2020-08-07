@@ -86,7 +86,7 @@ export default function FabricDialog(props) {
     },
     button: {
       fontWeight: 600,
-      padding: '6px 18px',
+      padding: '6px 16px',
     },
   }));
   const classes = useStyles();
