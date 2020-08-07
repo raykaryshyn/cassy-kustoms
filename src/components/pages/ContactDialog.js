@@ -69,7 +69,6 @@ export default function ContactDialog() {
         formLayout: {
             display: 'flex',
             flexDirection: 'column',
-            paddingTop: 3,
         },
         formItem: {
             margin: '8px 0',
@@ -80,6 +79,9 @@ export default function ContactDialog() {
         sendIcon: {
             fontSize: '1.25rem',
             marginRight: '8px',
+        },
+        content: {
+            paddingTop: 0,
         },
     }));
     const classes = useStyles();
@@ -166,7 +168,7 @@ export default function ContactDialog() {
                 <ModeCommentIcon />
             </Fab>
 
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm'>
 
                 <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                 <DialogContentText className={classes.text + ' ' + classes.header}>
@@ -174,7 +176,7 @@ export default function ContactDialog() {
                         Please fill out the form below to get in touch with me.
                     </span>
                 </DialogContentText>
-                <DialogContent dividers={true}>
+                <DialogContent dividers={false} className={classes.content}>
 
                     <form name="contact" onSubmit={handleSubmit}>
                         <div className={classes.formLayout}>
