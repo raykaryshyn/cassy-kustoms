@@ -20,6 +20,7 @@ export default function FabricDialog(props) {
   };
   const handleClose = () => {
     setOpen(false);
+    setLoad(false);
   };
 
   const descriptionElementRef = React.useRef(null);
