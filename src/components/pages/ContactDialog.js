@@ -42,7 +42,7 @@ export default function ContactDialog() {
         title: {
             paddingLeft: 24,
             paddingTop: 24,
-            paddingBottom: 10,
+            paddingBottom: 4,
             '& .MuiTypography-root': {
                 display: 'flex',
                 alignItems: 'center',
@@ -66,9 +66,13 @@ export default function ContactDialog() {
         formLayout: {
             display: 'flex',
             flexDirection: 'column',
+            paddingTop: 3,
         },
         formItem: {
-            margin: '10px 0',
+            margin: '8px 0',
+            '& .MuiInputBase-formControl': {
+                backgroundColor: 'rgba(0, 0, 0, 0.06)',
+            },
         },
     }));
     const classes = useStyles();
@@ -125,9 +129,9 @@ export default function ContactDialog() {
                                     <input name="bot-field" onChange={handleChange} />
                                 </label>
                             </p>
-                            <TextField label="Name" variant="outlined" type="text" name="name" onChange={handleChange} className={classes.formItem} />
-                            <TextField label="Email" variant="outlined" type="email" name="email" onChange={handleChange} className={classes.formItem} />
-                            <TextField label="Message" multiline rows={4} variant="outlined" name="message" onChange={handleChange} className={classes.formItem} />
+                            <TextField label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} />
+                            <TextField label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} />
+                            <TextField label="Message" multiline rows={4} variant="filled" name="message" onChange={handleChange} className={classes.formItem} />
                         </div>
                     </DialogContent>
                     <DialogActions>
