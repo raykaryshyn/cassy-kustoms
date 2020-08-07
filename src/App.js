@@ -40,7 +40,7 @@ export default function App() {
 				...formState
 			})
 		})
-			.then(() => console.log(form.getAttribute("action")))
+			.then(() => console.log(formState))
 			.catch(error => alert(error));
 	};
 	return (
@@ -58,7 +58,6 @@ export default function App() {
 					name="contact"
 					onSubmit={handleSubmit}
 				>
-
 					<input type="hidden" name="form-name" value="contact" />
 					<p hidden>
 						<label>
@@ -66,14 +65,14 @@ export default function App() {
 							<input name="bot-field" onChange={handleChange} />
 						</label>
 					</p>
-					<TextField id="outlined-basic" label="Name" variant="outlined" type="text" name="name" onChange={handleChange} />
-					<TextField id="outlined-basic" label="Email" variant="outlined" type="email" name="email" onChange={handleChange} />
+					<TextField label="Name" variant="outlined" type="text" name="name" onChange={handleChange} />
+					<TextField label="Email" variant="outlined" type="email" name="email" onChange={handleChange} />
 					<TextField
-						id="outlined-multiline-static"
 						label="Message"
 						multiline
 						rows={4}
 						variant="outlined"
+						name="message"
 						onChange={handleChange}
 					/>
 					<Button variant="contained" color="primary" type="submit">
