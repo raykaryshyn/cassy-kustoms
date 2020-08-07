@@ -32,7 +32,7 @@ const theme = createMuiTheme({
         h6: { fontFamily: fonts.serif },
     },
     shape: {
-        borderRadius: 10,
+        borderRadius: 15,
     },
     palette: {
         type: 'light',
