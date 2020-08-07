@@ -22,7 +22,7 @@ export default function ContactDialog() {
 
     const handleClose = () => {
         setOpen(false);
-        setFormValid({name: true, email: true, message: true});
+        setFormValid({ name: true, email: true, message: true });
     };
 
     const useStyles = makeStyles((theme) => ({
@@ -43,7 +43,7 @@ export default function ContactDialog() {
         title: {
             paddingLeft: 24,
             paddingTop: 24,
-            paddingBottom: 4,
+            paddingBottom: 0,
             '& .MuiTypography-root': {
                 display: 'flex',
                 alignItems: 'center',
@@ -59,6 +59,10 @@ export default function ContactDialog() {
             display: 'block',
             maxWidth: '80%',
             wordBreak: 'break-all',
+        },
+        text: {
+            paddingLeft: 24,
+            fontSize: '0.9rem',
         },
         button: {
             fontWeight: 600,
@@ -99,7 +103,7 @@ export default function ContactDialog() {
     const handleChange = e => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
     };
-    const [formValid, setFormValid] = React.useState({name: true, email: true, message: true});
+    const [formValid, setFormValid] = React.useState({ name: true, email: true, message: true });
     const updateFormValid = (id, value) => {
         setFormValid(prevState => ({ ...prevState, [id]: value }));
         console.log(id, value);
@@ -133,7 +137,7 @@ export default function ContactDialog() {
         } else {
             updateFormValid('message', true);
         }
-        
+
         if (formFlag) {
             fetch("/", {
                 method: "POST",
@@ -161,17 +165,19 @@ export default function ContactDialog() {
             <Fab className={classes.fab} onClick={handleClickOpen}>
                 <ModeCommentIcon />
             </Fab>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <form
-                    name="contact"
-                    onSubmit={handleSubmit}
-                    id="contact-form"
-                >
+            <form
+                name="contact"
+                onSubmit={handleSubmit}
+                id="contact-form"
+            >
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
+
                     <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            To contact me, please fill out the form below.
-                        </DialogContentText>
+                    <DialogContentText className={classes.text}>
+                            Please fill out the form below to get in touch with me.
+                    </DialogContentText>
+                    <DialogContent dividers={true}>
+                        
 
                         <div className={classes.formLayout}>
                             <input type="hidden" name="form-name" value="contact" />
@@ -190,12 +196,13 @@ export default function ContactDialog() {
                         <Button onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
                             Cancel
                         </Button>
-                        <Button variant="contained" color="primary" type="submit" className={classes.button}>
+                        <Button variant="contained" color="primary" type="submit" onClick={handleSubmit} className={classes.button}>
                             <SendIcon className={classes.sendIcon} /> Send
                         </Button>
                     </DialogActions>
-                </form>
-            </Dialog>
+
+                </Dialog>
+            </form>
         </div>
     );
 }
