@@ -39,9 +39,13 @@ export default function FabricDialog(props) {
         lineHeight: 1.43,
       },
     },
+    content: {
+      padding: 0,
+    },
     image: {
       width: '100%',
       height: 'auto',
+      display: 'block',
     },
     button: {
       fontWeight: 600,
@@ -62,7 +66,7 @@ export default function FabricDialog(props) {
         maxWidth='md'
       >
         <DialogTitle className={classes.title}>Subscribe</DialogTitle>
-        <DialogContent dividers={true}>
+        <DialogContent dividers={true} className={classes.content}>
           <img src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" alt="Turtle" className={classes.image} />
         </DialogContent>
         <DialogActions>
