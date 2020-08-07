@@ -54,8 +54,8 @@ export default function Fabrics() {
         },
         fab: {
             position: 'fixed',
-            right: 40,
-            bottom: 40,
+            right: 35,
+            bottom: 35,
             [theme.breakpoints.down('xs')]: {
                 right: 25,
                 bottom: 25,
