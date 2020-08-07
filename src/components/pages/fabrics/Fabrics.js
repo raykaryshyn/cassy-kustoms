@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListIcon from '@material-ui/icons/List';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import Fab from '@material-ui/core/Fab';
+import ModeCommentIcon from '@material-ui/icons/ModeComment';
 
 import canStore from '../../../functions/canStore';
 import Page from '../Page';
@@ -48,6 +50,16 @@ export default function Fabrics() {
             color: theme.palette.info.dark,
             '&:hover': {
                 color: theme.palette.info.dark,
+            },
+        },
+        fab: {
+            position: 'fixed',
+            right: 40,
+            bottom: 40,
+            background: theme.palette.info.main,
+            color: '#fff',
+            '&:hover': {
+                background: theme.palette.info.dark,
             },
         },
     }));
@@ -108,6 +120,9 @@ export default function Fabrics() {
                     </Grid>
                 </Grid>
             }
+            <Fab className={classes.fab}>
+                <ModeCommentIcon />
+            </Fab>
         </Page>
     );
 }

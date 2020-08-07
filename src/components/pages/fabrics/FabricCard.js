@@ -12,6 +12,15 @@ export default function FabricCard(props) {
     const gridView = props.gridView;
 
     const useStyles = makeStyles((theme) => ({
+        listCardWrapper: {
+            cursor: 'pointer',
+            '& .MuiCard-root': {
+                transition: gridView ? 'none' : theme.transitions.create('transform'),
+            },
+            '&:hover .MuiCard-root': {
+                transform: gridView ? 'none' : 'scale(0.98)',
+            },
+        },
         root: {
             background: gridView ? 'none' : '#fff',
             boxShadow: gridView ? 'none' : theme.shadow(8, 0, 2, 'rgba(0,0,0,0.13)'),
@@ -21,7 +30,7 @@ export default function FabricCard(props) {
                 boxShadow: gridView ? 'none' : theme.shadow(16, 0, 2, 'rgba(0,0,0,0.13)'),
             },
             '& img': {
-                transition: theme.transitions.create('transform', {duration: 500}),
+                transition: theme.transitions.create('transform', { duration: 500 }),
                 borderRadius: gridView ? theme.shape.borderRadius : 0,
                 overflow: 'hidden',
             },
@@ -29,14 +38,14 @@ export default function FabricCard(props) {
                 transform: gridView ? 'scale(0.92)' : 'none',
             },
             '&:hover .MuiCardActionArea-focusHighlight': {
-                opacity: 0.06,
+                opacity: gridView ? 0.06 : 0.03,
             },
         },
         gridMedia: {
             borderRadius: gridView ? theme.shape.borderRadius : 0,
             overflow: 'hidden',
             position: 'relative',
-            zIndex: 0,            
+            zIndex: 0,
         },
         listActionArea: {
             width: '100%',
@@ -99,28 +108,30 @@ export default function FabricCard(props) {
         );
     } else {
         return (
-            <Card className={classes.root}>
-                <CardActionArea className={classes.listActionArea} disableRipple>
-                    <div className={classes.listActionAreaInner}>
-                        <div className={[classes.gridMedia, classes.listMedia].join(' ')}>
-                            <CardMedia
-                                component="img"
-                                alt="Contemplative Reptile"
-                                height="300"
-                                image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-                                title="Contemplative Reptile"
-                                className={classes.listImage}
-                            />
-                        </div>
+            <div className={classes.listCardWrapper}>
+                <Card className={classes.root}>
+                    <CardActionArea className={classes.listActionArea} disableRipple>
+                        <div className={classes.listActionAreaInner}>
+                            <div className={[classes.gridMedia, classes.listMedia].join(' ')}>
+                                <CardMedia
+                                    component="img"
+                                    alt="Contemplative Reptile"
+                                    height="300"
+                                    image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                                    title="Contemplative Reptile"
+                                    className={classes.listImage}
+                                />
+                            </div>
 
-                        <CardContent className={classes.listContent}>
-                            <Typography className={classes.title}>
-                                Po Ko Dot
+                            <CardContent className={classes.listContent}>
+                                <Typography className={classes.title}>
+                                    Po Ko Dot
                         </Typography>
-                        </CardContent>
-                    </div>
-                </CardActionArea>
-            </Card>
+                            </CardContent>
+                        </div>
+                    </CardActionArea>
+                </Card>
+            </div>
         );
     }
 }
