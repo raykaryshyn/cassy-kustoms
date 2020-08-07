@@ -66,14 +66,15 @@ export default function App() {
 							<input name="bot-field" onChange={handleChange} />
 						</label>
 					</p>
-					<TextField id="outlined-basic" label="Name" variant="outlined" type="text" name="name" />
-					<TextField id="outlined-basic" label="Email" variant="outlined" type="email" name="email" />
+					<TextField id="outlined-basic" label="Name" variant="outlined" type="text" name="name" onChange={handleChange} />
+					<TextField id="outlined-basic" label="Email" variant="outlined" type="email" name="email" onChange={handleChange} />
 					<TextField
 						id="outlined-multiline-static"
 						label="Message"
 						multiline
 						rows={4}
 						variant="outlined"
+						onChange={handleChange}
 					/>
 					<Button variant="contained" color="primary" type="submit">
 						<SendIcon /> Send
