@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, duration } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -69,7 +69,7 @@ export default function FabricDialog(props) {
       width: '100%',
       height: 'auto',
       display: 'block',
-      transition: theme.transitions.create('opacity'),
+      transition: theme.transitions.create('opacity', {duration: 500}),
       opacity: 1,
     },
     spinnerWrapper: {
