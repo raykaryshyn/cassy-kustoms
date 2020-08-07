@@ -86,9 +86,13 @@ export default function FabricCard(props) {
             width: 125,
             marginRight: 15,
         },
+        gridImage: {
+            background: 'rgba(0,0,0,0.06)',
+        },
         listImage: {
             height: '100%',
             width: 125,
+            background: 'rgba(0,0,0,0.06)',
         },
         gridContent: {
             padding: '5px 0',
@@ -122,6 +126,7 @@ export default function FabricCard(props) {
                         height="300"
                         image="image.jpg"
                         title="Contemplative Reptile"
+                        className={classes.gridImage}
                     />
                 </CardActionArea>
 
