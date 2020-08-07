@@ -35,14 +35,14 @@ export default function FabricCard(props) {
             overflow: 'hidden',
             position: 'relative',
             zIndex: 0,
-            '& img': {
+            /* '& img': {
                 transition: theme.transitions.create('transform', { duration: 500 }),
                 borderRadius: gridView ? theme.shape.borderRadius : 0,
                 overflow: 'hidden',
             },
             '&:hover img': {
                 transform: gridView ? 'scale(0.92)' : 'none',
-            },
+            }, */
             '&:hover .MuiCardActionArea-focusHighlight': {
                 opacity: 0.06,
             },
