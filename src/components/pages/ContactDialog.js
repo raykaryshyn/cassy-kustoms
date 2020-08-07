@@ -41,8 +41,6 @@ export default function ContactDialog() {
             },
         },
         title: {
-            paddingLeft: 24,
-            paddingTop: 24,
             paddingBottom: 0,
             '& .MuiTypography-root': {
                 display: 'flex',
