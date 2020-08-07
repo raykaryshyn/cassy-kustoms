@@ -58,7 +58,7 @@ export default function ContactDialog() {
         headerWrapper: {
             display: 'block',
             maxWidth: '80%',
-            wordBreak: 'break-all',
+            wordBreak: 'break-word',
         },
         text: {
             paddingLeft: 24,
@@ -171,9 +171,11 @@ export default function ContactDialog() {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='paper' fullWidth={true} maxWidth='sm'>
 
                 <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
-                <DialogContentText className={classes.text}>
-                    Please fill out the form below to get in touch with me.
-                    </DialogContentText>
+                <DialogContentText className={classes.text + ' ' + classes.header}>
+                    <span className={classes.headerWrapper}>
+                        Please fill out the form below to get in touch with me.
+                    </span>
+                </DialogContentText>
                 <DialogContent dividers={true}>
 
                     <form name="contact" onSubmit={handleSubmit}>
