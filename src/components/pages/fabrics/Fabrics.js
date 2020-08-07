@@ -89,7 +89,7 @@ export default function Fabrics() {
             </div>
 
             {gridView ?
-                <Grid container spacing={4} className={classes.grid}>
+                <Grid container spacing={4} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
                     <Grid item xs={12} sm={6} md={4}>
                         <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
@@ -106,7 +106,7 @@ export default function Fabrics() {
                         <FabricCard gridView={gridView} />
                     </Grid>
                 </Grid> :
-                <Grid container spacing={3} className={classes.grid}>
+                <Grid container spacing={3} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
                     <Grid item xs={12} md={6}>
                         <FabricCard gridView={gridView} />
                     </Grid>
