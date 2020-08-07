@@ -56,6 +56,10 @@ export default function Fabrics() {
             position: 'fixed',
             right: 40,
             bottom: 40,
+            [theme.breakpoints.down('xs')]: {
+                right: 25,
+                bottom: 25,
+            },
             background: theme.palette.info.main,
             color: '#fff',
             '&:hover': {
