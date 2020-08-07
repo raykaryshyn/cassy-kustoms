@@ -13,13 +13,13 @@ export default function FabricCard(props) {
 
     const useStyles = makeStyles((theme) => ({
         listCardWrapper: {
-            cursor: 'pointer',
+            /* cursor: 'pointer',
             '& .MuiCard-root': {
                 transition: gridView ? 'none' : theme.transitions.create('transform'),
             },
             '&:hover .MuiCard-root': {
                 transform: gridView ? 'none' : 'scale(0.98)',
-            },
+            }, */
         },
         root: {
             background: gridView ? 'none' : '#fff',
@@ -29,6 +29,12 @@ export default function FabricCard(props) {
             '&:hover': {
                 boxShadow: gridView ? 'none' : theme.shadow(16, 0, 2, 'rgba(0,0,0,0.13)'),
             },
+        },
+        gridMedia: {
+            borderRadius: gridView ? theme.shape.borderRadius : 0,
+            overflow: 'hidden',
+            position: 'relative',
+            zIndex: 0,
             '& img': {
                 transition: theme.transitions.create('transform', { duration: 500 }),
                 borderRadius: gridView ? theme.shape.borderRadius : 0,
@@ -38,14 +44,8 @@ export default function FabricCard(props) {
                 transform: gridView ? 'scale(0.92)' : 'none',
             },
             '&:hover .MuiCardActionArea-focusHighlight': {
-                opacity: gridView ? 0.06 : 0.03,
+                opacity: 0.06,
             },
-        },
-        gridMedia: {
-            borderRadius: gridView ? theme.shape.borderRadius : 0,
-            overflow: 'hidden',
-            position: 'relative',
-            zIndex: 0,
         },
         listActionArea: {
             width: '100%',
