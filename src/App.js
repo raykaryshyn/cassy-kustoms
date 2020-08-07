@@ -13,7 +13,9 @@ import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
 
-
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import SendIcon from '@material-ui/icons/Send';
 
 
 function encode(data) {
@@ -56,7 +58,7 @@ export default function App() {
 					name="contact"
 					onSubmit={handleSubmit}
 				>
-					{/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+
 					<input type="hidden" name="form-name" value="contact" />
 					<p hidden>
 						<label>
@@ -64,27 +66,18 @@ export default function App() {
 							<input name="bot-field" onChange={handleChange} />
 						</label>
 					</p>
-					<p>
-						<label>
-							Your name:<br />
-							<input type="text" name="name" onChange={handleChange} />
-						</label>
-					</p>
-					<p>
-						<label>
-							Your email:<br />
-							<input type="email" name="email" onChange={handleChange} />
-						</label>
-					</p>
-					<p>
-						<label>
-							Message:<br />
-							<textarea name="message" onChange={handleChange} />
-						</label>
-					</p>
-					<p>
-						<button type="submit">Send</button>
-					</p>
+					<TextField id="outlined-basic" label="Name" variant="outlined" type="text" name="name" />
+					<TextField id="outlined-basic" label="Email" variant="outlined" type="email" name="email" />
+					<TextField
+						id="outlined-multiline-static"
+						label="Message"
+						multiline
+						rows={4}
+						variant="outlined"
+					/>
+					<Button variant="contained" color="primary" type="submit">
+						<SendIcon /> Send
+					</Button>
 				</form>
 			</ThemeProvider>
 		</Router >
