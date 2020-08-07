@@ -4,14 +4,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListIcon from '@material-ui/icons/List';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import Fab from '@material-ui/core/Fab';
-import ModeCommentIcon from '@material-ui/icons/ModeComment';
+/* import Fab from '@material-ui/core/Fab';
+import ModeCommentIcon from '@material-ui/icons/ModeComment'; */
 
 import canStore from '../../../functions/canStore';
 import Page from '../Page';
 import FabricCard from './FabricCard';
 import Dialog from './FabricDialog';
 import fabricsList from './fabricsList';
+import ContactDialog from '../ContactDialog';
 
 
 
@@ -112,9 +113,7 @@ export default function Fabrics() {
                     })}
                 </Grid>
             }
-            <Fab className={classes.fab}>
-                <ModeCommentIcon />
-            </Fab>
+            <ContactDialog />
         </Page>
     );
 }

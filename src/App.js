@@ -13,20 +13,20 @@ import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
 
-import TextField from '@material-ui/core/TextField';
+/* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import SendIcon from '@material-ui/icons/Send';
+import SendIcon from '@material-ui/icons/Send'; */
 
 
-function encode(data) {
+/* function encode(data) {
 	return Object.keys(data)
 		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
 		.join("&");
-}
+} */
 
 export default function App() {
-	const [formState, setFormState] = React.useState({});
-	const handleChange = e => {
+	/* const [formState, setFormState] = React.useState({}); */
+	/* const handleChange = e => {
 		setFormState({ ...formState, [e.target.name]: e.target.value });
 	};
 	const handleSubmit = e => {
@@ -42,7 +42,7 @@ export default function App() {
 		})
 			.then(() => console.log(formState))
 			.catch(error => alert(error));
-	};
+	}; */
 	return (
 		<Router>
 			<ThemeProvider theme={theme}>
@@ -54,7 +54,7 @@ export default function App() {
 					</Route>
 				</Switch>
 
-				<form
+				{/* <form
 					name="contact"
 					onSubmit={handleSubmit}
 				>
@@ -78,7 +78,7 @@ export default function App() {
 					<Button variant="contained" color="primary" type="submit">
 						<SendIcon /> Send
 					</Button>
-				</form>
+				</form> */}
 			</ThemeProvider>
 		</Router >
 	);

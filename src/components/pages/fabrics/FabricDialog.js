@@ -22,6 +22,9 @@ export default function FabricDialog(props) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
+    document.querySelectorAll('.MuiDialog-container.MuiDialog-scrollBody').forEach(elm => {
+      elm.scrollTo(0, 0);
+    });
   };
   const handleClose = () => {
     setOpen(false);
