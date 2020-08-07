@@ -26,7 +26,7 @@ export default function Fabrics() {
 
     const useStyles = makeStyles((theme) => ({
         grid: {
-            marginTop: '4px',
+            marginTop: '8px',
             justifyContent: gridView ? 'center' : 'flex-start',
         },
         toggleViewWrapper: {
@@ -38,16 +38,16 @@ export default function Fabrics() {
             fontSize: 34,
             cursor: 'pointer',
             margin: '0 5px',
-            color: 'rgba(0,0,0,0.33)',
+            color: 'rgba(0,0,0,0.25)',
             '&:hover': {
-                color: 'rgba(0,0,0,0.5)',
+                color: 'rgba(0,0,0,0.45)',
             },
             transition: theme.transitions.create('color'),
         },
         activeToggleButton: {
-            color: 'rgba(0,0,0,1)',
+            color: theme.palette.info.dark,
             '&:hover': {
-                color: 'rgba(0,0,0,1)',
+                color: theme.palette.info.dark,
             },
         },
     }));
@@ -90,7 +90,7 @@ export default function Fabrics() {
                         <FabricCard gridView={gridView} />
                     </Grid>
                 </Grid> :
-                <Grid container spacing={4} className={classes.grid}>
+                <Grid container spacing={3} className={classes.grid}>
                     <Grid item xs={12} md={6}>
                         <FabricCard gridView={gridView} />
                     </Grid>

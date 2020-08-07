@@ -16,24 +16,27 @@ export default function FabricCard(props) {
             background: gridView ? 'none' : '#fff',
             boxShadow: gridView ? 'none' : theme.shadow(8, 0, 2, 'rgba(0,0,0,0.13)'),
             transition: gridView ? 'none' : theme.transitions.create('box-shadow'),
+            cursor: 'pointer',
             '&:hover': {
                 boxShadow: gridView ? 'none' : theme.shadow(16, 0, 2, 'rgba(0,0,0,0.13)'),
+            },
+            '& img': {
+                transition: theme.transitions.create('transform', {duration: 500}),
+                borderRadius: gridView ? theme.shape.borderRadius : 0,
+                overflow: 'hidden',
+            },
+            '&:hover img': {
+                transform: gridView ? 'scale(0.92)' : 'none',
+            },
+            '&:hover .MuiCardActionArea-focusHighlight': {
+                opacity: 0.06,
             },
         },
         gridMedia: {
             borderRadius: gridView ? theme.shape.borderRadius : 0,
             overflow: 'hidden',
             position: 'relative',
-            zIndex: 0,
-            '& img': {
-                transform: 'rotate(0)',
-                transition: theme.transitions.create('transform', {duration: 500}),
-                borderRadius: gridView ? theme.shape.borderRadius : 0,
-                overflow: 'hidden',
-            },
-            '&:hover img': {
-                transform: 'scale(1.1)',
-            },
+            zIndex: 0,            
         },
         listActionArea: {
             width: '100%',
