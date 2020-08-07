@@ -68,7 +68,7 @@ export default function FabricDialog(props) {
 
   const [didLoad, setLoad] = React.useState(false);
   console.log(didLoad);
-  const style = didLoad ? {} : { opacity: 0, width: 0 };
+  const style = didLoad ? {} : { opacity: 0, width: 0, height: 0 };
 
   return (
     <div>
