@@ -21,10 +21,12 @@ export default function FabricCard(props) {
             },
         },
         gridMedia: {
-            borderRadius: gridView ? theme.shape.borderRadius : 0,
-            overflow: 'hidden',
+            /* borderRadius: gridView ? theme.shape.borderRadius : 0,
+            overflow: 'hidden', */
             '& img': {
                 transition: theme.transitions.create('transform', {duration: 500}),
+                borderRadius: gridView ? theme.shape.borderRadius : 0,
+                overflow: 'hidden',
             },
             '&:hover img': {
                 transform: 'scale(1.1)',
