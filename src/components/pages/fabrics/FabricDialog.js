@@ -22,7 +22,7 @@ export default function FabricDialog(props) {
   };
   const handleClose = () => {
     setOpen(false);
-    setLoad(false);
+    /* setLoad(false); */
   };
 
   const descriptionElementRef = React.useRef(null);
@@ -86,7 +86,6 @@ export default function FabricDialog(props) {
   const classes = useStyles();
 
   const [didLoad, setLoad] = React.useState(false);
-  console.log(didLoad);
   const style = didLoad ? {} : { opacity: 0 };
   const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
   return (
@@ -100,6 +99,7 @@ export default function FabricDialog(props) {
         fullWidth={true}
         maxWidth='md'
         classes={{ paper: classes.root }}
+        keepMounted
       >
         <DialogTitle className={classes.title}>
           <span className={classes.header}><span className={classes.headerWrapper}>Po Ko Dot</span></span>

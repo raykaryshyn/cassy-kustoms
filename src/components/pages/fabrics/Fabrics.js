@@ -11,6 +11,7 @@ import canStore from '../../../functions/canStore';
 import Page from '../Page';
 import FabricCard from './FabricCard';
 import Dialog from './FabricDialog';
+import fabricsList from './fabricsList';
 
 
 
@@ -69,6 +70,8 @@ export default function Fabrics() {
     }));
     const classes = useStyles();
 
+    console.log(fabricsList);
+
     return (
         <Page title="Fabrics">
             <div className={classes.toggleViewWrapper}>
@@ -94,33 +97,33 @@ export default function Fabrics() {
                         <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                 </Grid> :
                 <Grid container spacing={3} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
                     <Grid item xs={12} md={6}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <FabricCard gridView={gridView} />
+                        <Dialog><FabricCard gridView={gridView} /></Dialog>
                     </Grid>
                 </Grid>
             }
