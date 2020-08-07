@@ -170,7 +170,6 @@ export default function ContactDialog() {
                 <form
                 name="contact"
                 onSubmit={handleSubmit}
-                id="contact-form"
             >
                     <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                     <DialogContentText className={classes.text}>
@@ -193,10 +192,10 @@ export default function ContactDialog() {
                         </div>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
+                        <Button type="button" onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
                             Cancel
                         </Button>
-                        <Button variant="contained" color="primary" type="submit" onClick={handleSubmit} className={classes.button}>
+                        <Button variant="contained" color="primary" type="submit" className={classes.button}>
                             <SendIcon className={classes.sendIcon} /> Send
                         </Button>
                     </DialogActions>
