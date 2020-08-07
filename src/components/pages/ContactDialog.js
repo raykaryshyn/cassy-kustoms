@@ -109,8 +109,9 @@ export default function ContactDialog() {
         console.log(id, value);
     };
     const handleSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
+        /* e.preventDefault(); */
+        /* const form = e.target; */
+        const form = 'contact';
         var formName = formState.hasOwnProperty('name') ? formState['name'] : '';
         var formEmail = formState.hasOwnProperty('email') ? formState['email'] : '';
         var formMessage = formState.hasOwnProperty('message') ? formState['message'] : '';
@@ -143,7 +144,8 @@ export default function ContactDialog() {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({
-                    "form-name": form.getAttribute("name"),
+                    /* "form-name": form.getAttribute("name"), */
+                    "form-name": form,
                     ...formState
                 })
             })
@@ -152,7 +154,7 @@ export default function ContactDialog() {
                     handleClose();
                     setFormState({});
                 })
-                .catch(error => (error));
+                .catch(error => console.log(error));
         }
     };
 
