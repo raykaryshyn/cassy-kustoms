@@ -24,6 +24,7 @@ export default function FabricCard(props) {
             borderRadius: gridView ? theme.shape.borderRadius : 0,
             overflow: 'hidden',
             '& img': {
+                transform: 'rotate(0)',
                 transition: theme.transitions.create('transform', {duration: 500}),
                 borderRadius: gridView ? theme.shape.borderRadius : 0,
                 overflow: 'hidden',
