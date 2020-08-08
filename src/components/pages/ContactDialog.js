@@ -77,7 +77,14 @@ export default function ContactDialog() {
         formItem: {
             margin: '8px 0',
             '& .MuiInputBase-formControl': {
-                backgroundColor: 'rgba(0, 0, 0, 0.06)',
+                backgroundColor: 'rgba(0, 0, 0, 0.07)',
+                borderRadius: theme.shape.borderRadius,
+                '&:before': {
+                    border: 'none',
+                },
+                '&:after': {
+                    border: 'none',
+                },
             },
         },
         sendIcon: {

@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import canStore from '../../../functions/canStore';
 import Page from '../Page';
 import FabricCard from './FabricCard';
-import Dialog from './FabricDialog';
+import FabricDialog from './FabricDialog';
 import fabricsList from './fabricsList';
 import ContactDialog from '../ContactDialog';
 import FabricsSettings from './FabricsSettings';
@@ -40,8 +40,8 @@ export default function Fabrics() {
     const useStyles = makeStyles((theme) => ({
         grid: {
             marginTop: '30px',
-            [theme.breakpoints.down(711)]: {
-                marginTop: '15px',
+            [theme.breakpoints.down(784)]: {
+                marginTop: '13px',
             },
             justifyContent: 'center',
         },
@@ -80,39 +80,38 @@ export default function Fabrics() {
         if (selectedColors.length === 0) {
             return true;
         }
-
         for (let i = 0; i < colors.length; i++) {
-
             for (let j = 0; j < selectedColors.length; j++) {
-
-                // Compare the element of each and 
-                // every element from both of the 
-                // arrays 
                 if (colors[i] === selectedColors[j]) {
-
-                    // Return if common element found 
                     return true;
                 }
             }
         }
-
         return false;
     };
+
+    const gridRef = React.useRef();
 
     return (
         <FabricsContext.Provider value={{ context }}>
             <Page title="Fabrics">
                 <FabricsSettings />
-
-                {gridView ?
-                    <Grid container spacing={4} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
+                <Grid container spacing={4} className={classes.grid} ref={gridRef}>
+                    <>
                         {fabrics.map((fabric, i) => {
-                            console.log(shouldShow(fabric.colors));
                             if (shouldShow(fabric.colors)) {
                                 return (
-                                    <Grid item xs={12} sm={6} md={4} key={i}>
-                                        <Dialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></Dialog>
-                                    </Grid>
+                                    <React.Fragment key={i}>
+                                        {gridView ?
+                                            <Grid item xs={12} sm={6} md={4}>
+                                                <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                            </Grid>
+                                            :
+                                            <Grid item xs={12} sm={6} md={4}>
+                                                <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                            </Grid>
+                                        }
+                                    </React.Fragment>
                                 );
                             } else {
                                 return (
@@ -120,23 +119,8 @@ export default function Fabrics() {
                                 );
                             }
                         })}
-                    </Grid> :
-                    <Grid container spacing={2} className={[classes.grid, 'animate__animated', 'animate__fadeIn'].join(' ')}>
-                        {fabrics.map((fabric, i) => {
-                            if (shouldShow(fabric.colors)) {
-                                return (
-                                    <Grid item xs={12} md={6} key={i}>
-                                        <Dialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></Dialog>
-                                    </Grid>
-                                );
-                            } else {
-                                return (
-                                    ''
-                                );
-                            }
-                        })}
-                    </Grid>
-                }
+                    </>
+                </Grid>
                 <ContactDialog />
             </Page>
         </FabricsContext.Provider>

@@ -22,16 +22,16 @@ export default function FabricsSettings() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            [theme.breakpoints.down(711)]: {
+            [theme.breakpoints.down(784)]: {
                 justifyContent: 'flex-start',
                 overflowX: 'auto',
-                paddingBottom: '10px',
+                paddingBottom: '13px',
             },
         },
         toggleButton: {
             fontSize: '34px',
             cursor: 'pointer',
-            margin: '0 4px',
+            margin: '4px 4px 0',
             color: 'rgba(0,0,0,0.25)',
             '&:hover': {
                 color: 'rgba(0,0,0,0.45)',

@@ -158,9 +158,15 @@ export default function FabricCard(props) {
                         {name}
                     </Typography>
                     <div className={classes.colors}>
-                        {colors.map((color, i) => (
-                            <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
-                        ))}
+                        {colors.map((color, i) => {
+                            if (color !== 'rainbow') {
+                                return (
+                                    <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                                );
+                            } else {
+                                return (<React.Fragment key={i}></React.Fragment>);
+                            }
+                        })}
                     </div>
                 </CardContent>
             </Card>
@@ -187,9 +193,15 @@ export default function FabricCard(props) {
                                     {name}
                                 </Typography>
                                 <div className={classes.colors}>
-                                    {colors.map((color, i) => (
-                                        <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
-                                    ))}
+                                    {colors.map((color, i) => {
+                                        if (color !== 'rainbow') {
+                                            return (
+                                                <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                                            );
+                                        } else {
+                                            return (<React.Fragment key={i}></React.Fragment>);
+                                        }
+                                    })}
                                 </div>
                             </CardContent>
                         </div>

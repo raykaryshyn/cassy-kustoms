@@ -2,12 +2,12 @@ const fabricsList = [
     {
         name: 'One',
         image: 'image.jpg',
-        colors: ['red', 'orange'],
+        colors: ['red', 'orange', 'rainbow'],
     },
     {
         name: 'Two',
         image: 'image.jpg',
-        colors: ['green', 'yellow'],
+        colors: ['green', 'yellow', 'rainbow'],
     },
     {
         name: 'Three',
@@ -22,7 +22,7 @@ const fabricsList = [
     {
         name: 'Five',
         image: 'image.jpg',
-        colors: ['red', 'blue'],
+        colors: ['red', 'blue', 'rainbow'],
     },
 ];
 

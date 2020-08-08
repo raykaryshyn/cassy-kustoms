@@ -2,7 +2,7 @@
 .checkboxContainer {
     display: block;
     position: relative;
-    padding-left: 30px;
+    padding-left: 35px;
     margin-right: 5px;
     cursor: pointer;
     font-size: 22px;
@@ -10,8 +10,8 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     margin-top: 1px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -34,8 +34,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
     /* background-color: #2196F3; */
     border-radius: 50%;
     transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -75,13 +75,13 @@
 
 /* Style the checkmark/indicator */
 .checkboxContainer .checkmark:after {
-    left: 10px;
-    top: 5.25px;
-    width: 9px;
-    height: 15px;
+    left: 11.4px;
+    top: 6.5px;
+    width: 10.5px;
+    height: 17px;
     border: solid rgba(0, 0, 0, 0.87);
-    border-width: 0 3px 3px 0;
+    border-width: 0 3.5px 3.5px 0;
+    transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
 }

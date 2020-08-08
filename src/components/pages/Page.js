@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     title: {
         fontSize: '4.2rem',
         textAlign: 'center',
+        lineHeight: 1.1,
     },
 });
 
