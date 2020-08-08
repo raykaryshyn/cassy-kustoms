@@ -88,6 +88,20 @@ export default function FabricsSettings() {
         settingsWrapper: {
             position: 'relative',
             [theme.breakpoints.down(784)]: {
+                '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    zIndex: 1,
+                    top: 0,
+                    left: 0,
+                    bottom: 15,
+                    pointerEvents: 'none',
+                    backgroundImage: 'linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
+                    width: '10%',
+                },
+                '&.no-before:before': {
+                    display: 'none',
+                },
                 '&:after': {
                     content: '""',
                     position: 'absolute',
@@ -98,12 +112,10 @@ export default function FabricsSettings() {
                     pointerEvents: 'none',
                     backgroundImage: 'linear-gradient(to left, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
                     width: '10%',
-                    opacity: 1,
-                    transition: theme.transitions.create('opacity', { duration: '150ms' }),
                 },
                 '&.no-after:after': {
-                    opacity: 0,
-                }
+                    display: 'none',
+                },
             },
         },
     }));
@@ -122,6 +134,13 @@ export default function FabricsSettings() {
     const handleScroller = () => {
         const el = scrollerRef.current;
         const wrap = scrollerWrapperRef.current;
+        
+        if (el.scrollLeft === 0) {
+            wrap.classList.add('no-before');
+        } else {
+            wrap.classList.remove('no-before');
+        }
+        
         if (el.scrollWidth - (el.scrollLeft + el.clientWidth) === 0) {
             wrap.classList.add('no-after');
         } else {
@@ -130,7 +149,7 @@ export default function FabricsSettings() {
     };
 
     return (
-        <div className={classes.settingsWrapper} ref={scrollerWrapperRef}>
+        <div className={[classes.settingsWrapper, 'no-before'].join(' ')} ref={scrollerWrapperRef}>
             <div className={classes.toggleViewWrapper} ref={scrollerRef} onScroll={handleScroller}>
                 <div className={classes.setting}>
                     <p>View:</p>
