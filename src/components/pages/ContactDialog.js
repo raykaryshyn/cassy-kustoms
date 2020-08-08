@@ -185,12 +185,6 @@ export default function ContactDialog() {
                     <form name="contact" onSubmit={handleSubmit}>
                         <div className={classes.formLayout}>
                             <input type="hidden" name="form-name" value="contact" />
-                            <p hidden>
-                                <label>
-                                    Don’t fill this out:{" "}
-                                    <input name="bot-field" onChange={handleChange} />
-                                </label>
-                            </p>
                             <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
                             <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
                             <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
