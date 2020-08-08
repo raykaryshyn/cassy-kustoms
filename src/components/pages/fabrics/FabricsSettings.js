@@ -135,13 +135,13 @@ export default function FabricsSettings() {
         const el = scrollerRef.current;
         const wrap = scrollerWrapperRef.current;
         
-        if (el.scrollLeft === 0) {
+        if (el.scrollLeft >= 0) {
             wrap.classList.add('no-before');
         } else {
             wrap.classList.remove('no-before');
         }
         
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) === 0) {
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) >= 0) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
