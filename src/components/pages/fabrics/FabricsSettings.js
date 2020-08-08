@@ -49,6 +49,9 @@ export default function FabricsSettings() {
             '& p': {
                 margin: 0,
             },
+            '&:last-of-type': {
+                marginRight: 0,
+            }
         },
         settingWrapper: {
             display: 'flex',
@@ -64,6 +67,14 @@ export default function FabricsSettings() {
         },
     }));
     const classes = useStyles();
+
+    const handleCheck = (e, id) => {
+        if (e.target.checked) {
+            selectColor(id);
+        } else {
+            unselectColor(id);
+        }
+    };
 
     return (
         <div className={classes.toggleViewWrapper}>
@@ -92,8 +103,8 @@ export default function FabricsSettings() {
                 <div className={classes.settingWrapper}>
                     {Object.entries(colors).map(([id, color]) => (
                         <label className="checkboxContainer" key={id}>
-                            <input type="checkbox" onChange={(e) => console.log(id, e.target.checked)} />
-                            <span style={{ backgroundColor: color }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : ''].join(' ')}></span>
+                            <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
+                            <span style={{ backgroundColor: color, border: color === '#fff' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : ''].join(' ')}></span>
                         </label>
                     ))}
                 </div>

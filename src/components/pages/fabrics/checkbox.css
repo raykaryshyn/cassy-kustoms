@@ -60,7 +60,7 @@
   
   /* Style the checkmark/indicator */
   .checkboxContainer .checkmark:after {
-    left: 10.5px;
+    left: 9.75px;
     top: 5.25px;
     width: 9px;
     height: 15px;

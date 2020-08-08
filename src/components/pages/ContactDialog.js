@@ -39,6 +39,10 @@ export default function ContactDialog() {
             '&:hover': {
                 background: theme.palette.primary.dark,
             },
+
+        },
+        fabIcon: {
+            fontSize: '1.8rem',
         },
         title: {
             paddingBottom: 0,
@@ -165,7 +169,7 @@ export default function ContactDialog() {
     return (
         <div>
             <Fab className={classes.fab} onClick={handleClickOpen}>
-                <ModeCommentIcon />
+                <ModeCommentIcon className={classes.fabIcon} />
             </Fab>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm'>
