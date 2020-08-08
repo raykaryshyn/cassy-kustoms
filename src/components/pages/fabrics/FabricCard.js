@@ -9,13 +9,14 @@ import Typography from '@material-ui/core/Typography';
 import { FabricsContext } from './FabricsContext';
 
 
-
 export default function FabricCard(props) {
     const context = React.useContext(FabricsContext).context;
-    console.log(context.colors);
+    const selectedColors = context.selectedColors;
 
     const name = props.fabric.name;
     const image = props.fabric.image;
+    const colors = props.fabric.colors;
+    console.log(colors);
 
     const gridView = props.gridView;
 
@@ -107,6 +108,9 @@ export default function FabricCard(props) {
             '&:last-child': {
                 paddingBottom: '0',
             },
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
         },
         listContent: {
             padding: 0,
@@ -119,6 +123,19 @@ export default function FabricCard(props) {
             color: 'rgba(0,0,0,0.75)',
             fontWeight: 500,
         },
+        gridTitle: {
+            margin: 0,
+        },
+        colors: {
+            display: 'flex',
+        },
+        colorCircle: {
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            backgroundColor: 'blue',
+            marginRight: '4px',
+        }
     }));
     const classes = useStyles();
 
@@ -138,9 +155,14 @@ export default function FabricCard(props) {
                 </CardActionArea>
 
                 <CardContent className={classes.gridContent}>
-                    <Typography gutterBottom className={classes.title}>
-                    {name}
+                    <Typography gutterBottom className={[classes.title, classes.gridTitle].join(' ')}>
+                        {name}
                     </Typography>
+                    <div className={classes.colors}>
+                        {colors.map((color, i) => (
+                            <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                        ))}
+                    </div>
                 </CardContent>
             </Card>
         );
@@ -165,6 +187,11 @@ export default function FabricCard(props) {
                                 <Typography className={classes.title}>
                                     {name}
                                 </Typography>
+                                <div className={classes.colors}>
+                                    {colors.map((color, i) => (
+                                        <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                                    ))}
+                                </div>
                             </CardContent>
                         </div>
                     </CardActionArea>
