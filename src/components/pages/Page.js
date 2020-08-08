@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         marginTop: '2.66rem',
     },
     title: {
-        fontSize: '4.2rem',
+        fontSize: '4.3rem',
         textAlign: 'center',
         lineHeight: 1.1,
     },
