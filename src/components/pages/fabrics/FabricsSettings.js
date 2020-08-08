@@ -22,6 +22,10 @@ export default function FabricsSettings() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
+            [theme.breakpoints.down(675)]: {
+                justifyContent: 'flex-start',
+                overflowX: 'auto',
+            },
         },
         toggleButton: {
             fontSize: '34px',
