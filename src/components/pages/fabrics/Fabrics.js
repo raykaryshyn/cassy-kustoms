@@ -96,33 +96,39 @@ export default function Fabrics() {
         <FabricsContext.Provider value={{ context }}>
             <Page title="Fabrics">
                 <FabricsSettings />
-                <Grid container spacing={4} className={classes.grid} ref={gridRef}>
-                    <>
+
+                {gridView ?
+                    <Grid container spacing={4} className={classes.grid} ref={gridRef}>
                         {fabrics.map((fabric, i) => {
                             if (shouldShow(fabric.colors)) {
                                 return (
-                                    <React.Fragment key={i}>
-                                        {gridView ?
-                                            <Grid item xs={12} sm={6} md={4}>
-                                                <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
-                                            </Grid>
-                                            :
-                                            <Grid item xs={12} sm={6} md={4}>
-                                                <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
-                                            </Grid>
-                                        }
-                                    </React.Fragment>
-                                );
+                                    <Grid item xs={12} sm={6} md={4} key={i}>
+                                        <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                    </Grid>
+                                )
                             } else {
-                                return (
-                                    ''
-                                );
+                                return '';
                             }
                         })}
-                    </>
-                </Grid>
+                    </Grid>
+                    :
+                    <Grid container spacing={2} className={classes.grid} ref={gridRef}>
+                        {fabrics.map((fabric, i) => {
+                            if (shouldShow(fabric.colors)) {
+                                return (
+                                    <Grid item xs={12} md={6} key={i}>
+                                        <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                    </Grid>
+                                )
+                            } else {
+                                return '';
+                            }
+                        })}
+                    </Grid>
+                }
+
                 <ContactDialog />
             </Page>
-        </FabricsContext.Provider>
+        </FabricsContext.Provider >
     );
 }
