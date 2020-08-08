@@ -96,7 +96,7 @@ export default function FabricsSettings() {
                     right: 0,
                     bottom: 15,
                     pointerEvents: 'none',
-                    backgroundImage: 'linear-gradient(to left, rgba(250,250,250,0.9) 0%, rgba(250,250,250,0) 100%)',
+                    backgroundImage: 'linear-gradient(to left, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
                     width: '10%',
                     opacity: 1,
                     transition: theme.transitions.create('opacity', { duration: '150ms' }),
