@@ -11,7 +11,6 @@ import { FabricsContext } from './FabricsContext';
 
 export default function FabricCard(props) {
     const context = React.useContext(FabricsContext).context;
-    const selectedColors = context.selectedColors;
 
     const name = props.fabric.name;
     const image = props.fabric.image;
