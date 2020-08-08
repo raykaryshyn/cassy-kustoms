@@ -6,9 +6,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+import { FabricsContext } from './FabricsContext';
+
 
 
 export default function FabricCard(props) {
+    const context = React.useContext(FabricsContext).context;
+    console.log(context.colors);
+
     const name = props.fabric.name;
     const image = props.fabric.image;
 
@@ -116,7 +121,6 @@ export default function FabricCard(props) {
         },
     }));
     const classes = useStyles();
-
 
 
     if (gridView) {
