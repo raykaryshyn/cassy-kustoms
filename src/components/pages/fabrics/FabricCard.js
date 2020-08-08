@@ -15,7 +15,6 @@ export default function FabricCard(props) {
     const name = props.fabric.name;
     const image = props.fabric.image;
     const colors = props.fabric.colors;
-    console.log(colors);
 
     const gridView = props.gridView;
 
@@ -39,6 +38,9 @@ export default function FabricCard(props) {
                 '&:active .MuiCard-root': {
                     transform: gridView ? 'none' : 'scale(0.966)',
                 },
+            },
+            '&:first-of-type': {
+                paddingTop: 12,
             },
         },
         root: {

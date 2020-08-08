@@ -112,7 +112,7 @@ export default function Fabrics() {
                         })}
                     </Grid>
                     :
-                    <Grid container spacing={2} className={classes.grid} ref={gridRef}>
+                    <Grid container spacing={1} className={classes.grid} ref={gridRef}>
                         {fabrics.map((fabric, i) => {
                             if (shouldShow(fabric.colors)) {
                                 return (

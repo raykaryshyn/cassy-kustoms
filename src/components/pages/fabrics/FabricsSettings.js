@@ -26,6 +26,7 @@ export default function FabricsSettings() {
                 justifyContent: 'flex-start',
                 overflowX: 'auto',
                 paddingBottom: '13px',
+
             },
         },
         toggleButton: {
@@ -83,6 +84,28 @@ export default function FabricsSettings() {
                 borderColor: '#fff !important',
             },
         },
+
+        settingsWrapper: {
+            position: 'relative',
+            [theme.breakpoints.down(784)]: {
+                '&:after': {
+                    content: '""',
+                    position: 'absolute',
+                    zIndex: 1,
+                    top: 0,
+                    right: 0,
+                    bottom: 15,
+                    pointerEvents: 'none',
+                    backgroundImage: 'linear-gradient(to left, rgba(250,250,250,0.9) 0%, rgba(250,250,250,0) 100%)',
+                    width: '10%',
+                    opacity: 1,
+                    transition: theme.transitions.create('opacity', { duration: '150ms' }),
+                },
+                '&.no-after:after': {
+                    opacity: 0,
+                }
+            },
+        },
     }));
     const classes = useStyles();
 
@@ -94,38 +117,54 @@ export default function FabricsSettings() {
         }
     };
 
-    return (
-        <div className={classes.toggleViewWrapper}>
-            <div className={classes.setting}>
-                <p>View:</p>
-                <div className={classes.settingWrapper}>
-                    <ViewModuleIcon
-                        className={[
-                            classes.toggleButton,
-                            gridView ? classes.activeToggleButton : '',
-                        ].join(' ')}
-                        onClick={() => setGridView(true)}
-                    />
-                    <ListIcon
-                        className={[
-                            classes.toggleButton,
-                            !gridView ? classes.activeToggleButton : '',
-                        ].join(' ')}
-                        onClick={() => setGridView(false)}
-                    />
-                </div>
-            </div>
+    const scrollerRef = React.useRef();
+    const scrollerWrapperRef = React.useRef();
+    const handleScroller = () => {
+        const el = scrollerRef.current;
+        const wrap = scrollerWrapperRef.current;
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) === 0) {
+            wrap.classList.add('no-after');
+        } else {
+            wrap.classList.remove('no-after');
+        }
+    };
 
-            <div className={classes.setting}>
-                <p>Color Filter:</p>
-                <div className={classes.settingWrapper}>
-                    {Object.entries(colors).map(([id, color]) => (
-                        <label className="checkboxContainer" key={id}>
-                            <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
-                            <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? classes.rainbowCheckbox : '', id === 'rainbow' && selectedColors.includes(id) ? classes.rainbowCheckboxChecked : ''].join(' ')}></span>
-                        </label>
-                    ))}
+    return (
+        <div className={classes.settingsWrapper} ref={scrollerWrapperRef}>
+            <div className={classes.toggleViewWrapper} ref={scrollerRef} onScroll={handleScroller}>
+                <div className={classes.setting}>
+                    <p>View:</p>
+                    <div className={classes.settingWrapper}>
+                        <ViewModuleIcon
+                            className={[
+                                classes.toggleButton,
+                                gridView ? classes.activeToggleButton : '',
+                            ].join(' ')}
+                            onClick={() => setGridView(true)}
+                        />
+                        <ListIcon
+                            className={[
+                                classes.toggleButton,
+                                !gridView ? classes.activeToggleButton : '',
+                            ].join(' ')}
+                            onClick={() => setGridView(false)}
+                        />
+                    </div>
                 </div>
+
+                <div className={classes.setting}>
+                    <p>Color Filter:</p>
+                    <div className={classes.settingWrapper}>
+                        {Object.entries(colors).map(([id, color]) => (
+                            <label className="checkboxContainer" key={id}>
+                                <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
+                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? classes.rainbowCheckbox : '', id === 'rainbow' && selectedColors.includes(id) ? classes.rainbowCheckboxChecked : ''].join(' ')}></span>
+                            </label>
+                        ))}
+                    </div>
+                </div>
+
+
             </div>
         </div>
     );
