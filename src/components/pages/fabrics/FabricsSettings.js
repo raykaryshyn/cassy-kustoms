@@ -22,9 +22,10 @@ export default function FabricsSettings() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            [theme.breakpoints.down(675)]: {
+            [theme.breakpoints.down(711)]: {
                 justifyContent: 'flex-start',
                 overflowX: 'auto',
+                paddingBottom: '10px',
             },
         },
         toggleButton: {
@@ -51,11 +52,12 @@ export default function FabricsSettings() {
         setting: {
             marginRight: 50,
             '& p': {
-                margin: 0,
+                margin: '0 0 2px 0',
+                color: 'rgba(0,0,0,0.7)',
             },
             '&:last-of-type': {
                 marginRight: 0,
-            }
+            },
         },
         settingWrapper: {
             display: 'flex',
@@ -65,6 +67,18 @@ export default function FabricsSettings() {
         },
 
         lightCheckmark: {
+            '&:after': {
+                borderColor: '#fff !important',
+            },
+        },
+
+        rainbowCheckbox: {
+            background: 'url("rainbow.jpg") no-repeat',
+            backgroundSize: '100%',
+        },
+        rainbowCheckboxChecked: {
+            background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url("rainbow.jpg") no-repeat',
+            backgroundSize: '100%',
             '&:after': {
                 borderColor: '#fff !important',
             },
@@ -108,7 +122,7 @@ export default function FabricsSettings() {
                     {Object.entries(colors).map(([id, color]) => (
                         <label className="checkboxContainer" key={id}>
                             <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
-                            <span style={{ backgroundColor: color, border: color === '#fff' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : ''].join(' ')}></span>
+                            <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? classes.rainbowCheckbox : '', id === 'rainbow' && selectedColors.includes(id) ? classes.rainbowCheckboxChecked : ''].join(' ')}></span>
                         </label>
                     ))}
                 </div>
