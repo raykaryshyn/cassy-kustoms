@@ -154,6 +154,9 @@ export default function FabricCard(props) {
         colors: {
             display: 'flex',
         },
+        listColors: {
+            paddingTop: '3px',
+        },
         colorCircle: {
             width: '12px',
             height: '12px',
@@ -167,7 +170,7 @@ export default function FabricCard(props) {
             right: '10px',
             background: theme.palette.error.main,
             color: 'white',
-            padding: '6px 12px',
+            padding: '6px 8px',
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
@@ -181,12 +184,12 @@ export default function FabricCard(props) {
         listLimited: {
             background: theme.palette.error.main,
             color: 'white',
-            padding: '5px 10px',
+            padding: '5px 8px',
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
             marginLeft: '12px',
-            fontSize: '0.75rem',
+            fontSize: '0.8rem',
         },
     }));
     const classes = useStyles();
@@ -259,7 +262,7 @@ export default function FabricCard(props) {
                                         : ''
                                     }
                                 </div>
-                                <div className={classes.colors}>
+                                <div className={[classes.colors, classes.listColors].join(' ')}>
                                     {colors.map((color, i) => {
                                         if (color !== 'rainbow') {
                                             return (

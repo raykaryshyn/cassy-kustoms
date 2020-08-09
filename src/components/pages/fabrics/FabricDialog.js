@@ -18,6 +18,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FabricDialog(props) {
   const name = props.fabric.name;
   const image = props.fabric.image;
+  const limited = props.fabric.limited;
 
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -48,13 +49,13 @@ export default function FabricDialog(props) {
       margin: '30px 15px',
     },
     title: {
-      padding: '6px',
+      padding: '12px',
       '& .MuiTypography-root': {
         display: 'flex',
         alignItems: 'center',
         fontFamily: theme.typography.fontFamily,
         fontSize: '1.33rem',
-        lineHeight: 1.43,
+        lineHeight: 1.25,
       },
     },
     header: {
@@ -64,7 +65,7 @@ export default function FabricDialog(props) {
     headerWrapper: {
       display: 'block',
       maxWidth: '80%',
-      wordBreak: 'break-all',
+      wordBreak: 'break-word',
     },
     content: {
       padding: 0,
@@ -75,7 +76,7 @@ export default function FabricDialog(props) {
       width: '100%',
       height: 'auto',
       display: 'block',
-      transition: theme.transitions.create('opacity', {duration: 500}),
+      transition: theme.transitions.create('opacity', { duration: 500 }),
       opacity: 1,
     },
     spinnerWrapper: {
@@ -87,7 +88,29 @@ export default function FabricDialog(props) {
     button: {
       fontWeight: 600,
       padding: '6px 16px',
+
+      '&:hover': {
+        background: 'rgba(0,0,0,0.06)',
+      }
     },
+
+    limited: {
+      background: theme.palette.error.main,
+      color: 'white',
+      padding: '6px 8px',
+      borderRadius: '5px',
+      fontFamily: theme.typography.fontFamily,
+      fontSize: '0.8rem',
+      lineHeight: '0.75rem',
+      display: 'inline-block',
+    },
+
+    actionButton: {
+      padding: '6px',
+      '&:hover': {
+        background: 'rgba(0,0,0,0.06)',
+      }
+    }
   }));
   const classes = useStyles();
 
@@ -108,10 +131,15 @@ export default function FabricDialog(props) {
         keepMounted
       >
         <DialogTitle className={classes.title}>
-          <span className={classes.header}><span className={classes.headerWrapper}>{name}</span></span>
+          <span className={classes.header}>
+            <span className={classes.headerWrapper}>{name}</span>
+            {limited ?
+              <div className={classes.limited}>Limited</div>
+              : ''}
+          </span>
           <IconButton
             edge="start"
-            className={[classes.hamburger, classes.actionButton].join(' ')}
+            className={[classes.actionButton].join(' ')}
             color="inherit"
             onClick={handleClose}
             disableRipple
