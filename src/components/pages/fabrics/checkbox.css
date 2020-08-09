@@ -84,3 +84,15 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
 }
+
+
+.rainbowCheckbox {
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+    background: url(./rainbow.jpg) no-repeat;
+    background-size: 100%;
+}
+.rainbowCheckboxChecked {
+    background: radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+    background: radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url(./rainbow.jpg) no-repeat;
+    background-size: 100%;
+}

@@ -79,12 +79,12 @@ export default function FabricsSettings() {
         },
 
         rainbowCheckbox: {
-            background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
-            backgroundSize: '100%',
+            /* background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
+            backgroundSize: '100%', */
         },
         rainbowCheckboxChecked: {
-            background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
-            backgroundSize: '100%',
+            /* background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
+            backgroundSize: '100%', */
             '&:after': {
                 borderColor: '#fff !important',
             },
@@ -206,7 +206,7 @@ export default function FabricsSettings() {
                         {Object.entries(colors).map(([id, color]) => (
                             <label className="checkboxContainer" key={id}>
                                 <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
-                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? classes.rainbowCheckbox : '', id === 'rainbow' && selectedColors.includes(id) ? classes.rainbowCheckboxChecked : ''].join(' ')}></span>
+                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? [classes.rainbowCheckbox, 'rainbowCheckbox'].join(' ') : '', id === 'rainbow' && selectedColors.includes(id) ? [classes.rainbowCheckboxChecked, 'rainbowCheckboxChecked'].join(' ') : ''].join(' ')}></span>
                             </label>
                         ))}
                     </div>
