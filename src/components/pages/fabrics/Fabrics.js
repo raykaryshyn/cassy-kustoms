@@ -44,6 +44,7 @@ export default function Fabrics() {
                 marginTop: '13px',
             },
             justifyContent: 'center',
+            marginBottom: '80px',
         },
         fab: {
             position: 'fixed',
@@ -59,6 +60,11 @@ export default function Fabrics() {
                 background: theme.palette.info.dark,
             },
         },
+        gridListItem: {
+            '&:last-of-type': {
+                paddingBottom: 30,
+            },
+        }
     }));
     const classes = useStyles();
 
@@ -116,7 +122,7 @@ export default function Fabrics() {
                         {fabrics.map((fabric, i) => {
                             if (shouldShow(fabric.colors)) {
                                 return (
-                                    <Grid item xs={12} md={6} key={i}>
+                                    <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
                                         <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
                                     </Grid>
                                 )
