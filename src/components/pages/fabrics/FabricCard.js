@@ -59,7 +59,6 @@ export default function FabricCard(props) {
             zIndex: 0,
             paddingTop: '75%',
             height: 0,
-            position: 'relative',
             '& img': {
                 position: 'absolute',
                 top: 0,

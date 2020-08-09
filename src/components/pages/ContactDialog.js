@@ -39,7 +39,7 @@ export default function ContactDialog() {
             '&:hover': {
                 background: theme.palette.primary.dark,
             },
-
+            zIndex: 2,
         },
         fabIcon: {
             fontSize: '1.8rem',
