@@ -55,7 +55,7 @@ export default function FabricDialog(props) {
         alignItems: 'center',
         fontFamily: theme.typography.fontFamily,
         fontSize: '1.33rem',
-        lineHeight: 1.25,
+        lineHeight: '1.75rem',
       },
     },
     header: {
@@ -64,7 +64,7 @@ export default function FabricDialog(props) {
     },
     headerWrapper: {
       display: 'block',
-      maxWidth: '80%',
+      maxWidth: '90%',
       wordBreak: 'break-word',
     },
     content: {
@@ -103,6 +103,7 @@ export default function FabricDialog(props) {
       fontSize: '0.8rem',
       lineHeight: '0.75rem',
       display: 'inline-block',
+      /* marginBottom: '5px', */
     },
 
     actionButton: {

@@ -44,6 +44,10 @@ export default function FabricCard(props) {
                 paddingTop: 12,
             },
         },
+        gridCard: {
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+        },
         root: {
             background: gridView ? 'none' : '#fff',
             boxShadow: gridView ? 'none' : theme.shadow(8, 0, 2, 'rgba(0,0,0,0.13)'),
@@ -60,6 +64,7 @@ export default function FabricCard(props) {
             zIndex: 0,
             paddingTop: '75%',
             height: 0,
+            marginBottom: 0,
             '& img': {
                 position: 'absolute',
                 top: 0,
@@ -103,7 +108,7 @@ export default function FabricCard(props) {
         },
         listActionArea: {
             width: '100%',
-            height: '100%',            
+            height: '100%',
             paddingRight: '15px',
         },
         listActionAreaInner: {
@@ -144,7 +149,7 @@ export default function FabricCard(props) {
             fontSize: '1.275rem',
             color: 'rgba(0,0,0,0.75)',
             fontWeight: 500,
-            lineHeight: '1.75rem',
+            lineHeight: '1.45rem',
         },
         gridTitle: {
             margin: 0,
@@ -155,7 +160,7 @@ export default function FabricCard(props) {
             display: 'flex',
         },
         listColors: {
-            paddingTop: '3px',
+            paddingTop: '6.66px',
         },
         colorCircle: {
             width: '12px',
@@ -175,6 +180,7 @@ export default function FabricCard(props) {
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
             boxShadow: theme.shadows[5],
+            fontSize: '0.8rem',
         },
         listTitleWrapper: {
             display: 'flex',
@@ -188,8 +194,9 @@ export default function FabricCard(props) {
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
-            marginLeft: '12px',
             fontSize: '0.8rem',
+            marginBottom: '6px',
+            display: 'inline-block',
         },
     }));
     const classes = useStyles();
@@ -197,7 +204,7 @@ export default function FabricCard(props) {
 
     if (gridView) {
         return (
-            <Card className={classes.root}>
+            <Card className={[classes.root, classes.gridCard].join(' ')}>
                 <CardActionArea className={classes.gridMedia} disableRipple>
                     <CardMedia
                         component="img"
@@ -251,16 +258,16 @@ export default function FabricCard(props) {
                             </div>
 
                             <CardContent className={classes.listContent}>
+                                {limited ?
+                                    <div className={[classes.listLimited].join(' ')}>
+                                        Limited
+                                    </div>
+                                    : ''
+                                }
                                 <div className={classes.listTitleWrapper}>
                                     <Typography className={classes.title}>
                                         {name}
                                     </Typography>
-                                    {limited ?
-                                        <div className={[classes.listLimited].join(' ')}>
-                                            Limited
-                                    </div>
-                                        : ''
-                                    }
                                 </div>
                                 <div className={[classes.colors, classes.listColors].join(' ')}>
                                     {colors.map((color, i) => {
