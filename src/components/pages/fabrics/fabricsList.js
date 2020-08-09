@@ -66,7 +66,7 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Twentith Fabric Choice',
+        name: 'Twelfth Fabric Choice',
         image: 'image.jpg',
         colors: ['green', 'yellow', 'rainbow'],
         limited: true,
@@ -114,7 +114,7 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Twentyith Fabric Choice',
+        name: 'Twentieth Fabric Choice',
         image: 'image.jpg',
         colors: ['red', 'blue', 'rainbow'],
         limited: false,
