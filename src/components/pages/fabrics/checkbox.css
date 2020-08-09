@@ -38,16 +38,20 @@
 }
 
 @media (min-width: 960px) {
+
     /* On mouse-over, add a grey background color */
     .checkboxContainer:hover input~.checkmark {
         /* background-color: #ccc; */
         opacity: 0.8;
     }
+
     .checkboxContainer:last-of-type {
         margin-right: 0;
     }
 }
+
 @media (max-width: 960px) {
+
     /* On mouse-over, add a grey background color */
     .checkboxContainer:active input~.checkmark {
         /* background-color: #ccc; */
@@ -87,12 +91,13 @@
 
 
 .rainbowCheckbox {
-    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
     background: url(./rainbow.jpg) no-repeat;
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
     background-size: 100%;
 }
+
 .rainbowCheckboxChecked {
-    background: radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
-    background: radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url(./rainbow.jpg) no-repeat;
+    background: radial-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), url(./rainbow.jpg) no-repeat;
+    background: radial-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
     background-size: 100%;
 }
