@@ -74,11 +74,11 @@ export default function FabricsSettings() {
         },
 
         rainbowCheckbox: {
-            background: 'url("rainbow.jpg") no-repeat',
+            background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
             backgroundSize: '100%',
         },
         rainbowCheckboxChecked: {
-            background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), url("rainbow.jpg") no-repeat',
+            background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
             backgroundSize: '100%',
             '&:after': {
                 borderColor: '#fff !important',
