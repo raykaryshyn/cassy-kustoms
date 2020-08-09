@@ -26,7 +26,8 @@ export default function FabricsSettings() {
                 justifyContent: 'flex-start',
                 overflowX: 'auto',
                 paddingBottom: '13px',
-
+                marginLeft: '-24px',
+                paddingLeft: '24px',
             },
         },
         toggleButton: {
@@ -88,12 +89,12 @@ export default function FabricsSettings() {
         settingsWrapper: {
             position: 'relative',
             [theme.breakpoints.down(784)]: {
-                '&:before': {
+                /* '&:before': {
                     content: '""',
                     position: 'absolute',
                     zIndex: 1,
                     top: 0,
-                    left: 0,
+                    left: '-16px',
                     bottom: 15,
                     pointerEvents: 'none',
                     backgroundImage: 'linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
@@ -101,13 +102,13 @@ export default function FabricsSettings() {
                 },
                 '&.no-before:before': {
                     display: 'none',
-                },
+                }, */
                 '&:after': {
                     content: '""',
                     position: 'absolute',
                     zIndex: 1,
                     top: 0,
-                    right: 0,
+                    right: '-24px',
                     bottom: 15,
                     pointerEvents: 'none',
                     backgroundImage: 'linear-gradient(to left, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
@@ -132,21 +133,38 @@ export default function FabricsSettings() {
     const scrollerRef = React.useRef();
     const scrollerWrapperRef = React.useRef();
     const handleScroller = () => {
-        const el = scrollerRef.current;
-        const wrap = scrollerWrapperRef.current;
-        
+        let el = scrollerRef.current;
+        let wrap = scrollerWrapperRef.current;
+
         if (el.scrollLeft <= 0) {
             wrap.classList.add('no-before');
         } else {
             wrap.classList.remove('no-before');
         }
-        
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 0) {
+
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 1) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
         }
     };
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            let el = scrollerRef.current;
+            if (window.innerWidth <= 784) {
+                el.style.width = document.documentElement.clientWidth + 'px';
+            } else {
+                el.style.width = '';
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    });
 
     return (
         <div className={[classes.settingsWrapper, 'no-before'].join(' ')} ref={scrollerWrapperRef}>
