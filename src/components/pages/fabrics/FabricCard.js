@@ -131,9 +131,9 @@ export default function FabricCard(props) {
             background: 'rgba(0,0,0,0.06)',
         },
         gridContent: {
-            padding: '5px 0',
+            padding: '6px 0 16px',
             '&:last-child': {
-                paddingBottom: '0',
+                padding: '6px 0 16px',
             },
             display: 'flex',
             justifyContent: 'space-between',

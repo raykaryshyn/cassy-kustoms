@@ -62,7 +62,7 @@ export default function Fabrics() {
         },
         gridListItem: {
             '&:last-of-type': {
-                paddingBottom: 30,
+                paddingBottom: 40,
             },
         }
     }));
