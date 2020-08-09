@@ -57,6 +57,14 @@ export default function FabricCard(props) {
             overflow: 'hidden',
             position: 'relative',
             zIndex: 0,
+            paddingTop: '75%',
+            height: 0,
+            position: 'relative',
+            '& img': {
+                position: 'absolute',
+                top: 0,
+                height: '100%',
+            },
             [theme.breakpoints.up('md')]: {
                 '& img': {
                     transition: theme.transitions.create('transform', { duration: 400 }),
@@ -179,7 +187,7 @@ export default function FabricCard(props) {
                 <Card className={classes.root}>
                     <CardActionArea className={classes.listActionArea} disableRipple>
                         <div className={classes.listActionAreaInner}>
-                            <div className={[classes.gridMedia, classes.listMedia].join(' ')}>
+                            <div className={[classes.listMedia].join(' ')}>
                                 <CardMedia
                                     component="img"
                                     alt="Contemplative Reptile"
