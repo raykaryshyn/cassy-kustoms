@@ -170,6 +170,7 @@ export default function FabricsSettings() {
         };
 
         handleResize();
+        handleScroller();
         window.addEventListener('resize', handleResize)
         return _ => {
             window.removeEventListener('resize', handleResize)
@@ -177,7 +178,7 @@ export default function FabricsSettings() {
     });
 
     return (
-        <div className={[classes.settingsWrapper, 'no-before'].join(' ')} ref={scrollerWrapperRef}>
+        <div className={[classes.settingsWrapper, 'no-after'].join(' ')} ref={scrollerWrapperRef}>
             <div className={classes.toggleViewWrapper} ref={scrollerRef} onScroll={handleScroller}>
                 <div className={classes.setting}>
                     <p>View:</p>
