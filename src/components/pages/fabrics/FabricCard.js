@@ -64,7 +64,7 @@ export default function FabricCard(props) {
             zIndex: 0,
             paddingTop: '75%',
             height: 0,
-            marginBottom: 0,
+            marginBottom: 2,
             '& img': {
                 position: 'absolute',
                 top: 0,
@@ -175,7 +175,7 @@ export default function FabricCard(props) {
             right: '10px',
             background: theme.palette.error.main,
             color: 'white',
-            padding: '6px 8px',
+            padding: '6px 10px',
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
@@ -190,7 +190,7 @@ export default function FabricCard(props) {
         listLimited: {
             background: theme.palette.error.main,
             color: 'white',
-            padding: '5px 8px',
+            padding: '5px 10px',
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,

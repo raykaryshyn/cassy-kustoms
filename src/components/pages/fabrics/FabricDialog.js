@@ -97,13 +97,13 @@ export default function FabricDialog(props) {
     limited: {
       background: theme.palette.error.main,
       color: 'white',
-      padding: '6px 8px',
+      padding: '5px 10px',
       borderRadius: '5px',
       fontFamily: theme.typography.fontFamily,
       fontSize: '0.8rem',
       lineHeight: '0.75rem',
-      display: 'inline-block',
-      /* marginBottom: '5px', */
+      display: 'table',
+      marginTop: '4px',
     },
 
     actionButton: {
