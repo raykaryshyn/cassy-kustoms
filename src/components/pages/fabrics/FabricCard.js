@@ -15,6 +15,7 @@ export default function FabricCard(props) {
     const name = props.fabric.name;
     const image = props.fabric.image;
     const colors = props.fabric.colors;
+    const limited = props.fabric.limited;
 
     const gridView = props.gridView;
 
@@ -73,6 +74,12 @@ export default function FabricCard(props) {
                 '&:hover img': {
                     transform: gridView ? 'scale(0.94)' : 'none',
                 },
+                '& .gridLimited': {
+                    transition: theme.transitions.create('transform', { duration: 400 }),
+                },
+                '&:hover .gridLimited': {
+                    transform: 'translate(-9px, 7px)',
+                },
             },
             [theme.breakpoints.down('md')]: {
                 '& img': {
@@ -83,6 +90,12 @@ export default function FabricCard(props) {
                 '&:active img': {
                     transform: gridView ? 'scale(0.966)' : 'none',
                 },
+                '& .gridLimited': {
+                    transition: theme.transitions.create('transform', { duration: 66 }),
+                },
+                '&:active .gridLimited': {
+                    transform: 'translate(-9px, 7px)',
+                },
             },
             '&:hover .MuiCardActionArea-focusHighlight': {
                 opacity: 0.06,
@@ -90,7 +103,8 @@ export default function FabricCard(props) {
         },
         listActionArea: {
             width: '100%',
-            height: '100%',
+            height: '100%',            
+            paddingRight: '15px',
         },
         listActionAreaInner: {
             display: 'flex',
@@ -127,12 +141,15 @@ export default function FabricCard(props) {
             },
         },
         title: {
-            fontSize: '1.4rem',
+            fontSize: '1.275rem',
             color: 'rgba(0,0,0,0.75)',
             fontWeight: 500,
+            lineHeight: '1.75rem',
         },
         gridTitle: {
             margin: 0,
+            maxWidth: '75%',
+            wordBreak: 'break-word',
         },
         colors: {
             display: 'flex',
@@ -143,7 +160,34 @@ export default function FabricCard(props) {
             borderRadius: '50%',
             backgroundColor: 'blue',
             marginRight: '4px',
-        }
+        },
+        gridLimited: {
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            background: theme.palette.error.main,
+            color: 'white',
+            padding: '6px 12px',
+            borderRadius: '5px',
+            lineHeight: '0.75rem',
+            fontFamily: theme.typography.fontFamily,
+            boxShadow: theme.shadows[5],
+        },
+        listTitleWrapper: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        listLimited: {
+            background: theme.palette.error.main,
+            color: 'white',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            lineHeight: '0.75rem',
+            fontFamily: theme.typography.fontFamily,
+            marginLeft: '12px',
+            fontSize: '0.75rem',
+        },
     }));
     const classes = useStyles();
 
@@ -160,6 +204,12 @@ export default function FabricCard(props) {
                         title="Contemplative Reptile"
                         className={classes.gridImage}
                     />
+                    {limited ?
+                        <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
+                            Limited
+                    </div>
+                        : ''
+                    }
                 </CardActionArea>
 
                 <CardContent className={classes.gridContent}>
@@ -198,9 +248,17 @@ export default function FabricCard(props) {
                             </div>
 
                             <CardContent className={classes.listContent}>
-                                <Typography className={classes.title}>
-                                    {name}
-                                </Typography>
+                                <div className={classes.listTitleWrapper}>
+                                    <Typography className={classes.title}>
+                                        {name}
+                                    </Typography>
+                                    {limited ?
+                                        <div className={[classes.listLimited].join(' ')}>
+                                            Limited
+                                    </div>
+                                        : ''
+                                    }
+                                </div>
                                 <div className={classes.colors}>
                                     {colors.map((color, i) => {
                                         if (color !== 'rainbow') {

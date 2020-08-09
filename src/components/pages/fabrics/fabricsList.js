@@ -1,28 +1,33 @@
 const fabricsList = [
     {
-        name: 'One',
+        name: 'First Fabric Choice',
         image: 'image.jpg',
         colors: ['red', 'orange', 'rainbow'],
+        limited: false,
     },
     {
-        name: 'Two',
+        name: 'Second Fabric Choice',
         image: 'image.jpg',
         colors: ['green', 'yellow', 'rainbow'],
+        limited: true,
     },
     {
-        name: 'Three',
+        name: 'Third Fabric Choice',
         image: 'image.jpg',
         colors: ['purple', 'white'],
+        limited: true,
     },
     {
-        name: 'Four',
+        name: 'Fourth Fabric Choice',
         image: 'image.jpg',
         colors: ['black', 'pink'],
+        limited: false,
     },
     {
-        name: 'Five',
+        name: 'Fifth Fabric Choice',
         image: 'image.jpg',
         colors: ['red', 'blue', 'rainbow'],
+        limited: false,
     },
 ];
 
