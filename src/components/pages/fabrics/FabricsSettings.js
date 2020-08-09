@@ -151,7 +151,8 @@ export default function FabricsSettings() {
             wrap.classList.remove('no-before');
         }
 
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 1) {
+        console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 7) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
