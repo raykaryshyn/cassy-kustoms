@@ -94,6 +94,12 @@ export default function ContactDialog() {
         content: {
             paddingTop: 0,
         },
+
+        dialogPaper: {
+            width: 'calc(100% - 30px)',
+            margin: '30px 15px',
+            maxWidth: '600px !important',
+        },
     }));
     const classes = useStyles();
 
@@ -179,7 +185,7 @@ export default function ContactDialog() {
                 <ModeCommentIcon className={classes.fabIcon} />
             </Fab>
 
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm'>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm' classes={{paper: classes.dialogPaper}}>
 
                 <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                 <DialogContentText className={classes.text + ' ' + classes.header}>

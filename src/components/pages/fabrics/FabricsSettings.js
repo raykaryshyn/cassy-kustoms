@@ -48,9 +48,9 @@ export default function FabricsSettings() {
             },
         },
         activeToggleButton: {
-            color: '#222',
+            color: theme.palette.text.primary,
             '&:hover': {
-                color: '#222',
+                color: theme.palette.text.primary,
             },
         },
 
@@ -59,7 +59,7 @@ export default function FabricsSettings() {
             marginRight: 50,
             '& p': {
                 margin: '0 0 2px 0',
-                color: 'rgba(0,0,0,0.7)',
+                color: theme.palette.text.secondary,
             },
             '&:last-of-type': {
                 marginRight: 0,

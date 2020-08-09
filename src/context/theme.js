@@ -37,12 +37,16 @@ const theme = createMuiTheme({
     palette: {
         type: 'light',
         background: {
-            default: '#fafafa',
+            default: '#fcfcfc',
+        },
+        text: {
+            primary: '#02111B',
+            secondary: '#4c575e',
         },
         primary: {
-            main: '#2196f3',
-            dark: '#1976d2',
-            light: '#64b5f6',
+            main: '#1481BA',
+            dark: '#106998',
+            light: '#189ee7',
         }
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {
