@@ -16,10 +16,6 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.checkboxContainer:last-of-type {
-    margin-right: 0;
-}
-
 /* Hide the browser's default checkbox */
 .checkboxContainer input {
     position: absolute;
@@ -46,6 +42,9 @@
     .checkboxContainer:hover input~.checkmark {
         /* background-color: #ccc; */
         opacity: 0.8;
+    }
+    .checkboxContainer:last-of-type {
+        margin-right: 0;
     }
 }
 @media (max-width: 960px) {

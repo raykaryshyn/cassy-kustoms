@@ -29,6 +29,10 @@ export default function FabricsSettings() {
                 marginLeft: '-24px',
                 paddingLeft: '24px',
             },
+            [theme.breakpoints.down(600)]: {
+                marginLeft: '-16px',
+                paddingLeft: '16px',
+            },
         },
         toggleButton: {
             fontSize: '34px',
@@ -116,6 +120,11 @@ export default function FabricsSettings() {
                 },
                 '&.no-after:after': {
                     display: 'none',
+                },
+            },
+            [theme.breakpoints.down(600)]: {
+                '&:after': {
+                    right: '-16px',
                 },
             },
         },
