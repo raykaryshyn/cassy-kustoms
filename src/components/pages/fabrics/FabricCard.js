@@ -173,7 +173,7 @@ export default function FabricCard(props) {
             },
         },
         title: {
-            fontSize: '1.15rem',
+            fontSize: '1.175rem',
             color: 'rgba(0,0,0,0.75)',
             fontWeight: 500,
             lineHeight: '1.45rem',
@@ -227,16 +227,17 @@ export default function FabricCard(props) {
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
             fontSize: '0.8rem',
-            marginBottom: '6px',
+            marginBottom: '5px',
             display: 'inline-block',
         },
 
         number: {
             color: 'rgba(0, 0, 0, 0.5)',
-            paddingRight: 10,
+            paddingRight: 9,
             display: 'block',
             wordBreak: 'keep-all',
-            fontSize: '1.1rem',
+            fontSize: '1.075rem',
+            paddingTop: 0.8,
         },
     }));
     const classes = useStyles();

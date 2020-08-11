@@ -121,6 +121,7 @@ export default function FabricDialog(props) {
       paddingRight: 10,
       display: 'block',
       wordBreak: 'keep-all',
+      paddingTop: 0.75,
     },
   }));
   const classes = useStyles();
