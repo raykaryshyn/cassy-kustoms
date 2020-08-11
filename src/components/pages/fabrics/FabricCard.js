@@ -237,7 +237,7 @@ export default function FabricCard(props) {
             display: 'block',
             wordBreak: 'keep-all',
             fontSize: '1.075rem',
-            paddingTop: 0.8,
+            lineHeight: 1.35,
         },
     }));
     const classes = useStyles();

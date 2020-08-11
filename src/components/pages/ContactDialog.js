@@ -67,7 +67,7 @@ export default function ContactDialog() {
             fontSize: '0.9rem',
         },
         button: {
-            fontWeight: 600,
+            fontWeight: 400,
             padding: '6px 16px',
         },
         formLayout: {
