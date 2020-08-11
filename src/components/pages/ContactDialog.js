@@ -75,7 +75,7 @@ export default function ContactDialog() {
             flexDirection: 'column',
         },
         formItem: {
-            margin: '8px 0',
+            margin: '6px 0',
             '& .MuiInputBase-formControl': {
                 backgroundColor: 'rgba(0, 0, 0, 0.07)',
                 borderRadius: theme.shape.borderRadius,
