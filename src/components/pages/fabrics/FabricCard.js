@@ -253,10 +253,10 @@ export default function FabricCard(props) {
                 <CardActionArea className={classes.gridMedia} disableRipple>
                     <CardMedia
                         component="img"
-                        alt="Contemplative Reptile"
+                        alt={name}
                         height="300"
                         image={image}
-                        title="Contemplative Reptile"
+                        title={name}
                         className={classes.gridImage}
                     />
                     {limited ?
@@ -294,10 +294,10 @@ export default function FabricCard(props) {
                             <div className={[classes.listMedia].join(' ')}>
                                 <CardMedia
                                     component="img"
-                                    alt="Contemplative Reptile"
+                                    alt={name}
                                     height="300"
                                     image={image}
-                                    title="Contemplative Reptile"
+                                    title={name}
                                     className={classes.listImage}
                                 />
                             </div>
