@@ -161,7 +161,7 @@ export default function FabricCard(props) {
             },
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: 'flex-start',
         },
         listContent: {
             padding: 0,
@@ -188,8 +188,11 @@ export default function FabricCard(props) {
         colors: {
             display: 'flex',
         },
+        gridColors: {
+            paddingTop: '6px',
+        },
         listColors: {
-            paddingTop: '6.66px',
+            paddingTop: '5.5px',
         },
         colorCircle: {
             width: '12px',
@@ -267,11 +270,11 @@ export default function FabricCard(props) {
                     <Typography gutterBottom className={[classes.title, classes.gridTitle].join(' ')}>
                         <span className={classes.number}>#{id}</span> {name}
                     </Typography>
-                    <div className={classes.colors}>
+                    <div className={[classes.colors, classes.gridColors].join(' ')}>
                         {colors.map((color, i) => {
                             if (color !== 'rainbow') {
                                 return (
-                                    <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                                    <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : color === 'yellow' ? '1px solid rgba(0,0,0,0.075)' : 'none' }} key={i}></div>
                                 );
                             } else {
                                 return (<React.Fragment key={i}></React.Fragment>);
@@ -314,7 +317,7 @@ export default function FabricCard(props) {
                                     {colors.map((color, i) => {
                                         if (color !== 'rainbow') {
                                             return (
-                                                <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : 'none' }} key={i}></div>
+                                                <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : color === 'yellow' ? '1px solid rgba(0,0,0,0.075)' : 'none' }} key={i}></div>
                                             );
                                         } else {
                                             return (<React.Fragment key={i}></React.Fragment>);

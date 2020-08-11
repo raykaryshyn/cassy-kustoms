@@ -185,7 +185,7 @@ export default function FabricsSettings() {
                         {Object.entries(colors).map(([id, color]) => (
                             <label className="checkboxContainer" key={id}>
                                 <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
-                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? 'rainbowCheckbox' : '', id === 'rainbow' && selectedColors.includes(id) ? [classes.rainbowCheckboxChecked, 'rainbowCheckboxChecked'].join(' ') : ''].join(' ')}></span>
+                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid rgb(187, 187, 187)' : id === 'yellow' ? '1px solid rgba(0,0,0,0.075)' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? 'rainbowCheckbox' : '', id === 'rainbow' && selectedColors.includes(id) ? [classes.rainbowCheckboxChecked, 'rainbowCheckboxChecked'].join(' ') : ''].join(' ')}></span>
                             </label>
                         ))}
                     </div>
