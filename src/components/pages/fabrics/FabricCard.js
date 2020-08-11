@@ -240,8 +240,8 @@ export default function FabricCard(props) {
             display: 'block',
             wordBreak: 'keep-all',
             fontSize: '1.075rem',
-            lineHeight: '0.9rem',
-            paddingTop: '0.25rem',
+            /* lineHeight: '0.9rem',
+            paddingTop: '0.25rem', */
         },
     }));
     const classes = useStyles();
