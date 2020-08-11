@@ -241,7 +241,7 @@ export default function FabricCard(props) {
             wordBreak: 'keep-all',
             fontSize: '1.075rem',
             lineHeight: '0.9rem',
-            paddingTop: 4.25,
+            paddingTop: '0.25rem',
         },
     }));
     const classes = useStyles();
