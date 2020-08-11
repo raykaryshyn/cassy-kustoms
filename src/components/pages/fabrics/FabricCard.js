@@ -192,7 +192,7 @@ export default function FabricCard(props) {
             paddingTop: '6px',
         },
         listColors: {
-            paddingTop: '5.5px',
+            paddingTop: '3px',
         },
         colorCircle: {
             width: '12px',
@@ -230,7 +230,7 @@ export default function FabricCard(props) {
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
             fontSize: '0.8rem',
-            marginBottom: '5px',
+            marginBottom: '8px',
             display: 'inline-block',
         },
 
@@ -240,7 +240,7 @@ export default function FabricCard(props) {
             display: 'block',
             wordBreak: 'keep-all',
             fontSize: '1.075rem',
-            lineHeight: 1.35,
+            lineHeight: '1.425rem',
         },
     }));
     const classes = useStyles();
