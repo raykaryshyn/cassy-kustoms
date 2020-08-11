@@ -64,6 +64,11 @@ export default function Fabrics() {
             '&:last-of-type': {
                 paddingBottom: 40,
             },
+            [theme.breakpoints.down('xs')]: {
+                '&:last-of-type': {
+                    paddingBottom: 25,
+                },                
+            },
         }
     }));
     const classes = useStyles();
@@ -109,7 +114,7 @@ export default function Fabrics() {
                             if (shouldShow(fabric.colors)) {
                                 return (
                                     <Grid item xs={12} sm={6} md={4} key={i}>
-                                        <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                        <FabricDialog fabric={fabric} id={i+1}><FabricCard gridView={gridView} fabric={fabric} id={i+1} /></FabricDialog>
                                     </Grid>
                                 )
                             } else {
@@ -118,12 +123,12 @@ export default function Fabrics() {
                         })}
                     </Grid>
                     :
-                    <Grid container spacing={1} className={classes.grid} ref={gridRef}>
+                    <Grid container spacing={2} className={classes.grid} ref={gridRef}>
                         {fabrics.map((fabric, i) => {
                             if (shouldShow(fabric.colors)) {
                                 return (
                                     <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
-                                        <FabricDialog fabric={fabric}><FabricCard gridView={gridView} fabric={fabric} /></FabricDialog>
+                                        <FabricDialog fabric={fabric} id={i+1}><FabricCard gridView={gridView} fabric={fabric} id={i+1} /></FabricDialog>
                                     </Grid>
                                 )
                             } else {

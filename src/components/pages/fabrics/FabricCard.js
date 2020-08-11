@@ -16,6 +16,7 @@ export default function FabricCard(props) {
     const image = props.fabric.image;
     const colors = props.fabric.colors;
     const limited = props.fabric.limited;
+    const id = props.id;
 
     const gridView = props.gridView;
 
@@ -40,8 +41,16 @@ export default function FabricCard(props) {
                     transform: gridView ? 'none' : 'scale(0.966)',
                 },
             },
-            '&:first-of-type': {
-                paddingTop: 12,
+            [theme.breakpoints.down('xs')]: {
+                marginBottom: 2,
+                '& .MuiCard-root': {
+                    background: 'none',
+                    borderRadius: 0,
+                    boxShadow: 'none',
+                },
+                '&:active .MuiCard-root': {
+                    transform: gridView ? 'none' : 'scale(0.966)',
+                },
             },
         },
         gridCard: {
@@ -53,9 +62,9 @@ export default function FabricCard(props) {
             boxShadow: gridView ? 'none' : theme.shadow(8, 0, 2, 'rgba(0,0,0,0.13)'),
             transition: gridView ? 'none' : theme.transitions.create('box-shadow'),
             cursor: 'pointer',
-            '&:hover': {
+            /* '&:hover': {
                 boxShadow: gridView ? 'none' : theme.shadow(16, 0, 2, 'rgba(0,0,0,0.13)'),
-            },
+            }, */
         },
         gridMedia: {
             borderRadius: gridView ? theme.shape.borderRadius : 0,
@@ -110,6 +119,12 @@ export default function FabricCard(props) {
             width: '100%',
             height: '100%',
             paddingRight: '15px',
+            [theme.breakpoints.down('xs')]: {
+                padding: 0,
+                '&:hover .MuiCardActionArea-focusHighlight': {
+                    opacity: 0,
+                },
+            },
         },
         listActionAreaInner: {
             display: 'flex',
@@ -121,6 +136,10 @@ export default function FabricCard(props) {
             height: 125,
             width: 125,
             marginRight: 15,
+            [theme.breakpoints.down('xs')]: {
+                height: 100,
+                width: 100,
+            },
         },
         gridImage: {
             background: 'rgba(0,0,0,0.06)',
@@ -129,6 +148,11 @@ export default function FabricCard(props) {
             height: '100%',
             width: 125,
             background: 'rgba(0,0,0,0.06)',
+            [theme.breakpoints.down('xs')]: {
+                height: '100%',
+                width: '100%',
+                borderRadius: theme.shape.borderRadius,
+            },
         },
         gridContent: {
             padding: '6px 0 16px',
@@ -143,6 +167,9 @@ export default function FabricCard(props) {
             padding: 0,
             '&:last-child': {
                 paddingBottom: 0,
+            },
+            [theme.breakpoints.down('xs')]: {
+                maxWidth: 'calc(100% - 115px)',
             },
         },
         title: {
@@ -186,6 +213,9 @@ export default function FabricCard(props) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
+            [theme.breakpoints.down('xs')]: {
+                wordBreak: 'break-word',
+            },
         },
         listLimited: {
             background: theme.palette.error.main,
@@ -197,6 +227,12 @@ export default function FabricCard(props) {
             fontSize: '0.8rem',
             marginBottom: '6px',
             display: 'inline-block',
+        },
+
+        number: {
+            color: 'rgba(0, 0, 0, 0.5)',
+            fontSize: '1.1rem',
+            paddingRight: 3,
         },
     }));
     const classes = useStyles();
@@ -217,14 +253,14 @@ export default function FabricCard(props) {
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
                             Limited
-                    </div>
+                        </div>
                         : ''
                     }
                 </CardActionArea>
 
                 <CardContent className={classes.gridContent}>
                     <Typography gutterBottom className={[classes.title, classes.gridTitle].join(' ')}>
-                        {name}
+                        <span className={classes.number}>#{id}</span> {name}
                     </Typography>
                     <div className={classes.colors}>
                         {colors.map((color, i) => {
@@ -266,7 +302,7 @@ export default function FabricCard(props) {
                                 }
                                 <div className={classes.listTitleWrapper}>
                                     <Typography className={classes.title}>
-                                        {name}
+                                        <span className={classes.number}>#{id}</span> {name}
                                     </Typography>
                                 </div>
                                 <div className={[classes.colors, classes.listColors].join(' ')}>

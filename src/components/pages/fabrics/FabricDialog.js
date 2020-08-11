@@ -19,6 +19,7 @@ export default function FabricDialog(props) {
   const name = props.fabric.name;
   const image = props.fabric.image;
   const limited = props.fabric.limited;
+  const id = props.id;
 
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -111,7 +112,13 @@ export default function FabricDialog(props) {
       '&:hover': {
         background: 'rgba(0,0,0,0.06)',
       }
-    }
+    },
+
+    number: {
+      color: 'rgba(0, 0, 0, 0.5)',
+      fontSize: '1.1rem',
+      paddingRight: 3,
+    },
   }));
   const classes = useStyles();
 
@@ -133,7 +140,7 @@ export default function FabricDialog(props) {
       >
         <DialogTitle className={classes.title}>
           <span className={classes.header}>
-            <span className={classes.headerWrapper}>{name}</span>
+            <span className={classes.headerWrapper}><span className={classes.number}>#{id}</span> {name}</span>
             {limited ?
               <div className={classes.limited}>Limited</div>
               : ''}

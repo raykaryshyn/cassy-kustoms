@@ -77,14 +77,7 @@ export default function FabricsSettings() {
                 borderColor: '#fff !important',
             },
         },
-
-        rainbowCheckbox: {
-            /* background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
-            backgroundSize: '100%', */
-        },
         rainbowCheckboxChecked: {
-            /* background: 'radial-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)), conic-gradient(red, yellow, lime, aqua, blue, magenta, red), url("rainbow.jpg") no-repeat',
-            backgroundSize: '100%', */
             '&:after': {
                 borderColor: '#fff !important',
             },
@@ -93,20 +86,6 @@ export default function FabricsSettings() {
         settingsWrapper: {
             position: 'relative',
             [theme.breakpoints.down(784)]: {
-                /* '&:before': {
-                    content: '""',
-                    position: 'absolute',
-                    zIndex: 1,
-                    top: 0,
-                    left: '-16px',
-                    bottom: 15,
-                    pointerEvents: 'none',
-                    backgroundImage: 'linear-gradient(to right, rgba(250,250,250,1) 0%, rgba(250,250,250,0) 100%)',
-                    width: '10%',
-                },
-                '&.no-before:before': {
-                    display: 'none',
-                }, */
                 '&:after': {
                     content: '""',
                     position: 'absolute',
@@ -206,7 +185,7 @@ export default function FabricsSettings() {
                         {Object.entries(colors).map(([id, color]) => (
                             <label className="checkboxContainer" key={id}>
                                 <input type="checkbox" checked={selectedColors.includes(id)} onChange={(e) => handleCheck(e, id)} />
-                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? [classes.rainbowCheckbox, 'rainbowCheckbox'].join(' ') : '', id === 'rainbow' && selectedColors.includes(id) ? [classes.rainbowCheckboxChecked, 'rainbowCheckboxChecked'].join(' ') : ''].join(' ')}></span>
+                                <span style={{ backgroundColor: color, border: id === 'white' ? '1px solid #bbb' : 'none' }} className={["checkmark", theme.palette.getContrastText(color) === "#fff" ? classes.lightCheckmark : '', id === 'rainbow' ? 'rainbowCheckbox' : '', id === 'rainbow' && selectedColors.includes(id) ? [classes.rainbowCheckboxChecked, 'rainbowCheckboxChecked'].join(' ') : ''].join(' ')}></span>
                             </label>
                         ))}
                     </div>
