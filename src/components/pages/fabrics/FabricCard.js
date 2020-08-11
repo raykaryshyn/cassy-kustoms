@@ -177,6 +177,8 @@ export default function FabricCard(props) {
             color: 'rgba(0,0,0,0.75)',
             fontWeight: 500,
             lineHeight: '1.45rem',
+            display: 'flex',
+            alignItems: 'center',
         },
         gridTitle: {
             margin: 0,
@@ -232,7 +234,8 @@ export default function FabricCard(props) {
         number: {
             color: 'rgba(0, 0, 0, 0.5)',
             fontSize: '1.1rem',
-            paddingRight: 3,
+            paddingRight: 8,
+            display: 'block',
         },
     }));
     const classes = useStyles();

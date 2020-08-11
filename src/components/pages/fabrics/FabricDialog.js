@@ -64,9 +64,10 @@ export default function FabricDialog(props) {
       paddingLeft: '12px',
     },
     headerWrapper: {
-      display: 'block',
       maxWidth: '90%',
       wordBreak: 'break-word',
+      display: 'flex',
+      alignItems: 'center',
     },
     content: {
       padding: 0,
@@ -117,7 +118,8 @@ export default function FabricDialog(props) {
     number: {
       color: 'rgba(0, 0, 0, 0.5)',
       fontSize: '1.1rem',
-      paddingRight: 3,
+      paddingRight: 8,
+      display: 'block',
     },
   }));
   const classes = useStyles();
