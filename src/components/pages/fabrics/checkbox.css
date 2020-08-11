@@ -57,6 +57,10 @@
         /* background-color: #ccc; */
         opacity: 0.8;
     }
+
+    .checkboxContainer:last-of-type {
+        margin-right: 11px;
+    }
 }
 
 /* When the checkbox is checked, add a blue background */
