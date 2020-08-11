@@ -230,7 +230,7 @@ export default function FabricCard(props) {
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
             fontSize: '0.8rem',
-            marginBottom: '8px',
+            marginBottom: '10px',
             display: 'inline-block',
         },
 
@@ -239,7 +239,7 @@ export default function FabricCard(props) {
             paddingRight: 9,
             display: 'block',
             wordBreak: 'keep-all',
-            fontSize: '1.075rem',
+            fontSize: '1.07rem',
             /* lineHeight: '0.9rem',
             paddingTop: '0.25rem', */
         },
