@@ -120,25 +120,26 @@ export default function FabricsSettings() {
 
     const scrollerRef = React.useRef();
     const scrollerWrapperRef = React.useRef();
-    const handleScroller = () => {
-        let el = scrollerRef.current;
-        let wrap = scrollerWrapperRef.current;
-
-        if (el.scrollLeft <= 0) {
-            wrap.classList.add('no-before');
-        } else {
-            wrap.classList.remove('no-before');
-        }
-
-        console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
-            wrap.classList.add('no-after');
-        } else {
-            wrap.classList.remove('no-after');
-        }
-    };
 
     React.useEffect(() => {
+        const handleScroller = () => {
+            let el = scrollerRef.current;
+            let wrap = scrollerWrapperRef.current;
+
+            if (el.scrollLeft <= 0) {
+                wrap.classList.add('no-before');
+            } else {
+                wrap.classList.remove('no-before');
+            }
+
+            console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
+            if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
+                wrap.classList.add('no-after');
+            } else {
+                wrap.classList.remove('no-after');
+            }
+        };
+
         const handleResize = () => {
             let el = scrollerRef.current;
             if (window.innerWidth <= 664) {
@@ -150,11 +151,12 @@ export default function FabricsSettings() {
             handleScroller();
         };
 
-        handleScroller();
         handleResize();
-        window.addEventListener('resize', handleResize)
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', handleResize);
         return _ => {
-            window.removeEventListener('resize', handleResize)
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('orientationchange', handleResize);
         }
     });
 
