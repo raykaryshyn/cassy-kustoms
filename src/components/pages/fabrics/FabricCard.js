@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+/* import CardMedia from '@material-ui/core/CardMedia'; */
 import Typography from '@material-ui/core/Typography';
 
 import { FabricsContext } from './FabricsContext';
@@ -294,14 +294,15 @@ export default function FabricCard(props) {
                     <CardActionArea className={classes.listActionArea} disableRipple>
                         <div className={classes.listActionAreaInner}>
                             <div className={[classes.listMedia].join(' ')}>
-                                <CardMedia
+                                {/* <CardMedia
                                     component="img"
                                     alt={name}
                                     height="300"
                                     image={image}
                                     title={name}
                                     className={classes.listImage}
-                                />
+                                /> */}
+                                <ImageLoader src={image} className={classes.listImage} />
                             </div>
 
                             <CardContent className={classes.listContent}>
