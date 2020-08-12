@@ -125,13 +125,6 @@ export default function FabricsSettings() {
         let el = scrollerRef.current;
         let wrap = scrollerWrapperRef.current;
 
-        if (el.scrollLeft <= 0) {
-            wrap.classList.add('no-before');
-        } else {
-            wrap.classList.remove('no-before');
-        }
-
-        console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
         if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
             wrap.classList.add('no-after');
         } else {
@@ -140,6 +133,7 @@ export default function FabricsSettings() {
     };
 
     const handleResize = () => {
+        console.log('turned');
         let el = scrollerRef.current;
         if (window.innerWidth <= 664) {
             el.style.width = document.documentElement.clientWidth + 'px';
@@ -152,7 +146,7 @@ export default function FabricsSettings() {
 
     React.useEffect(() => {      
         handleResize();
-        
+
         window.addEventListener('resize', handleResize);
         window.addEventListener('orientationchange', handleResize);
         return _ => {

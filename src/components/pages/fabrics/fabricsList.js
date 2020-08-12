@@ -24,13 +24,13 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Grey',
+        name: 'Pale Blue',
         image: 'fabrics/DSC_0561_Original.jpg',
-        colors: ['grey'],
+        colors: ['blue'],
         limited: false,
     },
     {
-        name: 'Pale Light Blue',
+        name: 'Light Blue',
         image: 'fabrics/DSC_0566_Original.jpg',
         colors: ['blue'],
         limited: false,
@@ -146,7 +146,7 @@ const fabricsList = [
     {
         name: 'Thick Multicolor Strips',
         image: 'fabrics/IMG_0418.jpg',
-        colors: ['red', 'yellow', 'green', 'purple', 'white'],
+        colors: ['red', 'yellow', 'green', 'purple', 'white', 'rainbow'],
         limited: true,
     },
     {
@@ -194,7 +194,7 @@ const fabricsList = [
     {
         name: 'Multicolor Dandelions',
         image: 'fabrics/IMG_0419.jpg',
-        colors: ['pink', 'orange', 'yellow', 'blue', 'brown', 'white'],
+        colors: ['pink', 'orange', 'yellow', 'blue', 'brown', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -240,39 +240,39 @@ const fabricsList = [
         limited: true,
     },
     {
-        name: 'Blue Paisley',
+        name: 'Blue Floral Paisley',
         image: 'fabrics/IMG_0415.jpg',
-        colors: ['blue', 'green', 'brown'],
+        colors: ['blue', 'green', 'brown', 'rainbow'],
         limited: false,
     },
     {
-        name: 'Light Blue Floral Bouquets',
+        name: 'Light Blue Bouquets',
         image: 'fabrics/IMG_0407.jpg',
-        colors: ['blue', 'pink', 'white', 'green'],
+        colors: ['blue', 'pink', 'white', 'green', 'rainbow'],
         limited: false,
     },
     {
         name: 'Teal Diamonds',
         image: 'fabrics/IMG_0408.jpg',
-        colors: ['blue', 'yellow', 'white'],
+        colors: ['blue', 'green', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Navy Spring',
         image: 'fabrics/IMG_0409.jpg',
-        colors: ['blue', 'green', 'orange', 'pink', 'white'],
+        colors: ['blue', 'green', 'orange', 'pink', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Navy Floral',
         image: 'fabrics/IMG_0411.jpg',
-        colors: ['blue', 'yellow', 'white'],
+        colors: ['blue', 'yellow', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Owls & Butterflies',
         image: 'fabrics/IMG_0412.jpg',
-        colors: ['red', 'blue', 'white'],
+        colors: ['red', 'blue', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -284,7 +284,7 @@ const fabricsList = [
     {
         name: 'Bird Circles',
         image: 'fabrics/IMG_0410.jpg',
-        colors: ['blue', 'white', 'pink', 'yellow', 'green'],
+        colors: ['blue', 'white', 'pink', 'yellow', 'green', 'rainbow'],
         limited: false,
     },
     {
@@ -296,25 +296,25 @@ const fabricsList = [
     {
         name: 'Red & Blue Birds',
         image: 'fabrics/IMG_0441.jpg',
-        colors: ['blue', 'red', 'brown', 'white', 'orange'],
+        colors: ['blue', 'red', 'brown', 'white', 'orange', 'rainbow'],
         limited: true,
     },
     {
         name: 'Flowers',
         image: 'fabrics/IMG_0424.jpg',
-        colors: ['yellow', 'brown', 'purple', 'pink', 'red', 'white'],
+        colors: ['yellow', 'brown', 'purple', 'pink', 'red', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Flowers & Birds',
         image: 'fabrics/IMG_0422.jpg',
-        colors: ['brown', 'red', 'pink', 'blue', 'yellow', 'green', 'white'],
+        colors: ['brown', 'red', 'pink', 'blue', 'yellow', 'green', 'white', 'rainbow'],
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Light Nature Motif',
         image: 'fabrics/IMG_0421.jpg',
-        colors: ['pink', 'red', 'brown', 'white', 'yellow'],
+        colors: ['pink', 'red', 'brown', 'white', 'yellow', 'rainbow'],
         limited: false,
     },
     {
@@ -324,7 +324,7 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Pink Elegance',
         image: 'fabrics/IMG_0429.jpg',
         colors: ['pink', 'brown', 'white'],
         limited: false,
@@ -336,21 +336,21 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Feather Swirls',
         image: 'fabrics/IMG_0427.jpg',
-        colors: ['black', 'brown', 'pink', 'purple', 'green', 'blue'],
+        colors: ['black', 'brown', 'pink', 'purple', 'green', 'blue', 'rainbow'],
         limited: false,
     },
     {
         name: 'Galaxy',
         image: 'fabrics/IMG_0438.jpg',
-        colors: ['blue', 'pink', 'yellow', 'black', 'white'],
+        colors: ['blue', 'pink', 'yellow', 'black', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Camouflage Lizards',
         image: 'fabrics/IMG_0442.jpg',
-        colors: ['red', 'blue', 'brown', 'white'],
+        colors: ['red', 'blue', 'brown', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -362,37 +362,37 @@ const fabricsList = [
     {
         name: 'Pastel Ladybugs',
         image: 'fabrics/IMG_0430.jpg',
-        colors: ['pink', 'blue', 'yellow', 'brown', 'grey', 'white'],
+        colors: ['pink', 'blue', 'yellow', 'brown', 'grey', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Unicorns',
         image: 'fabrics/IMG_0431.jpg',
-        colors: ['blue', 'green', 'brown', 'white', 'grey'],
+        colors: ['blue', 'green', 'brown', 'white', 'grey', 'rainbow'],
         limited: false,
     },
     {
         name: 'Dr. Suess',
         image: 'fabrics/IMG_0433.jpg',
-        colors: ['white', 'yellow', 'brown', 'green', 'red', 'blue', 'pink', 'black', 'orange'],
+        colors: ['white', 'yellow', 'brown', 'green', 'red', 'blue', 'pink', 'black', 'orange', 'rainbow'],
         limited: false,
     },
     {
         name: 'Robots & Rockets',
         image: 'fabrics/IMG_0434.jpg',
-        colors: ['white', 'red', 'blue', 'green', 'yellow'],
+        colors: ['white', 'red', 'blue', 'green', 'yellow', 'rainbow'],
         limited: false,
     },
     {
         name: 'Tinker Bell',
         image: 'fabrics/IMG_0432.jpg',
-        colors: ['green', 'blue', 'pink', 'purple', 'white'],
+        colors: ['green', 'blue', 'pink', 'purple', 'white', 'rainbow'],
         limited: false,
     },
     {
         name: 'Acorns & Leaves',
         image: 'fabrics/IMG_0425.jpg',
-        colors: ['brown', 'red', 'white'],
+        colors: ['brown', 'red', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -404,25 +404,25 @@ const fabricsList = [
     {
         name: 'Seashells',
         image: 'fabrics/IMG_0436.jpg',
-        colors: ['blue', 'brown', 'yellow', 'orange'],
+        colors: ['blue', 'brown', 'yellow', 'orange', 'rainbow'],
         limited: true,
     },
     {
         name: 'Architecture & Nature',
         image: 'fabrics/IMG_0437.jpg',
-        colors: ['brown', 'orange', 'yellow', 'black', 'green'],
+        colors: ['brown', 'orange', 'yellow', 'black', 'green', 'rainbow'],
         limited: false,
     },
     {
         name: 'Buttons',
         image: 'fabrics/IMG_0439.jpg',
-        colors: ['blue', 'pink', 'red', 'brown', 'yellow'],
+        colors: ['blue', 'pink', 'red', 'brown', 'yellow', 'rainbow'],
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Dark Nature',
         image: 'fabrics/IMG_0440.jpg',
-        colors: ['blue'],
+        colors: ['black', 'blue', 'yellow', 'pink', 'white', 'red', 'rainbow'],
         limited: false,
     },
 
