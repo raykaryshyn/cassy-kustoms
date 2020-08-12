@@ -146,7 +146,7 @@ export default function FabricCard(props) {
             background: 'rgba(0,0,0,0.06)',
             display: 'block',
             width: '100%',
-            /* objectFit: 'cover', */
+            objectFit: 'cover',
         },
         listImage: {
             height: '100%',
