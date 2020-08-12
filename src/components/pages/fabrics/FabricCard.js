@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { FabricsContext } from './FabricsContext';
-import ImageLoader from '../../ImageLoader';
+/* import ImageLoader from '../../ImageLoader'; */
 
 
 export default function FabricCard(props) {
