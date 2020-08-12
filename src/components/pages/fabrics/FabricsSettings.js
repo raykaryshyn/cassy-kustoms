@@ -121,37 +121,38 @@ export default function FabricsSettings() {
     const scrollerRef = React.useRef();
     const scrollerWrapperRef = React.useRef();
 
-    React.useEffect(() => {
-        const handleScroller = () => {
-            let el = scrollerRef.current;
-            let wrap = scrollerWrapperRef.current;
+    const handleScroller = () => {
+        let el = scrollerRef.current;
+        let wrap = scrollerWrapperRef.current;
 
-            if (el.scrollLeft <= 0) {
-                wrap.classList.add('no-before');
-            } else {
-                wrap.classList.remove('no-before');
-            }
+        if (el.scrollLeft <= 0) {
+            wrap.classList.add('no-before');
+        } else {
+            wrap.classList.remove('no-before');
+        }
 
-            console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
-            if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
-                wrap.classList.add('no-after');
-            } else {
-                wrap.classList.remove('no-after');
-            }
-        };
+        console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
+            wrap.classList.add('no-after');
+        } else {
+            wrap.classList.remove('no-after');
+        }
+    };
 
-        const handleResize = () => {
-            let el = scrollerRef.current;
-            if (window.innerWidth <= 664) {
-                el.style.width = document.documentElement.clientWidth + 'px';
-            } else {
-                el.style.width = '';
-            }
+    const handleResize = () => {
+        let el = scrollerRef.current;
+        if (window.innerWidth <= 664) {
+            el.style.width = document.documentElement.clientWidth + 'px';
+        } else {
+            el.style.width = '';
+        }
 
-            handleScroller();
-        };
+        handleScroller();
+    };
 
+    React.useEffect(() => {      
         handleResize();
+        
         window.addEventListener('resize', handleResize);
         window.addEventListener('orientationchange', handleResize);
         return _ => {
