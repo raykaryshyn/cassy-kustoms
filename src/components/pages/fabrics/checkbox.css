@@ -37,7 +37,7 @@
     transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 664px) {
 
     /* On mouse-over, add a grey background color */
     .checkboxContainer:hover input~.checkmark {
@@ -50,7 +50,7 @@
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 664px) {
 
     /* On mouse-over, add a grey background color */
     .checkboxContainer:active input~.checkmark {
@@ -59,14 +59,19 @@
     }
 
     .checkboxContainer:last-of-type {
-        margin-right: 11px;
+        margin-right: 24px;
+    }
+}
+@media (max-width: 600px) {
+    .checkboxContainer:last-of-type {
+        margin-right: 16px;
     }
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkboxContainer input:checked~.checkmark {
-    /* background-color: #2196F3; */
-}
+/* .checkboxContainer input:checked~.checkmark {
+    background-color: #2196F3;
+} */
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {

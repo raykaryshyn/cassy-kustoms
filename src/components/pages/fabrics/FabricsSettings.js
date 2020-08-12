@@ -22,7 +22,7 @@ export default function FabricsSettings() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            [theme.breakpoints.down(784)]: {
+            [theme.breakpoints.down(665)]: {
                 justifyContent: 'flex-start',
                 overflowX: 'auto',
                 paddingBottom: '13px',
@@ -85,7 +85,7 @@ export default function FabricsSettings() {
 
         settingsWrapper: {
             position: 'relative',
-            [theme.breakpoints.down(784)]: {
+            [theme.breakpoints.down(664)]: {
                 '&:after': {
                     content: '""',
                     position: 'absolute',
@@ -101,7 +101,7 @@ export default function FabricsSettings() {
                     display: 'none',
                 },
             },
-            [theme.breakpoints.down(600)]: {
+            [theme.breakpoints.down('xs')]: {
                 '&:after': {
                     right: '-16px',
                 },
@@ -131,7 +131,7 @@ export default function FabricsSettings() {
         }
 
         console.log(el.scrollWidth - (el.scrollLeft + el.clientWidth));
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 7) {
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
@@ -141,15 +141,16 @@ export default function FabricsSettings() {
     React.useEffect(() => {
         const handleResize = () => {
             let el = scrollerRef.current;
-            if (window.innerWidth <= 784) {
+            if (window.innerWidth <= 664) {
                 el.style.width = document.documentElement.clientWidth + 'px';
             } else {
                 el.style.width = '';
             }
+
+            handleScroller();
         };
 
         handleResize();
-        handleScroller();
         window.addEventListener('resize', handleResize)
         return _ => {
             window.removeEventListener('resize', handleResize)
