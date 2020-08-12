@@ -81,40 +81,32 @@ export default function FabricCard(props) {
                 height: '100%',
             },
             [theme.breakpoints.up('md')]: {
-                '& img': {
-                    transition: theme.transitions.create('transform', { duration: 400 }),
-                    borderRadius: gridView ? theme.shape.borderRadius : 0,
-                    overflow: 'hidden',
+                transition: theme.transitions.create('transform', { duration: 400 }),
+                '&:hover': {
+                    transform: (gridView ? 'scale(0.94)' : 'none'),
                 },
-                '&:hover img': {
-                    transform: gridView ? 'scale(0.94)' : 'none',
-                },
-                '& .gridLimited': {
+                /* '& .gridLimited': {
                     transition: theme.transitions.create('transform', { duration: 400 }),
                 },
                 '&:hover .gridLimited': {
                     transform: 'translate(-9px, 7px)',
-                },
+                }, */
             },
             [theme.breakpoints.down('md')]: {
-                '& img': {
-                    transition: theme.transitions.create('transform', { duration: 66 }),
-                    borderRadius: gridView ? theme.shape.borderRadius : 0,
-                    overflow: 'hidden',
+                transition: theme.transitions.create('transform', { duration: 66 }),
+                '&:active': {
+                    transform: (gridView ? 'scale(0.966)' : 'none'),
                 },
-                '&:active img': {
-                    transform: gridView ? 'scale(0.966)' : 'none',
-                },
-                '& .gridLimited': {
+                /* '& .gridLimited': {
                     transition: theme.transitions.create('transform', { duration: 66 }),
                 },
                 '&:active .gridLimited': {
                     transform: 'translate(-9px, 7px)',
-                },
+                }, */
             },
-            '&:hover .MuiCardActionArea-focusHighlight': {
+            /* '&:hover .MuiCardActionArea-focusHighlight': {
                 opacity: 0.06,
-            },
+            }, */
         },
         listActionArea: {
             width: '100%',
@@ -150,7 +142,7 @@ export default function FabricCard(props) {
             height: 'auto !important',
             position: 'absolute',
             top: '50%',
-            transform: 'translateY(-50%)',
+            transform: 'translateY(-25%)',
         },
         listImage: {
             height: '100%',

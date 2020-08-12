@@ -3,7 +3,7 @@ const fabricsList = [
         name: 'Grey',
         image: 'fabrics/DSC_0561_Original.jpg',
         colors: ['grey'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Faux Denim',
