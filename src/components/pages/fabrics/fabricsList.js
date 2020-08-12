@@ -3,7 +3,7 @@ const fabricsList = [
         name: 'Grey',
         image: 'fabrics/DSC_0561_Original.jpg',
         colors: ['grey'],
-        limited: true,
+        limited: false,
     },
     {
         name: 'Faux Denim',
@@ -27,12 +27,6 @@ const fabricsList = [
         name: 'Pale Lightblue',
         image: 'fabrics/DSC_0566_Original.jpg',
         colors: ['lightblue'],
-        limited: false,
-    },
-    {
-        name: 'Grey',
-        image: 'fabrics/DSC_0567_Original.jpg',
-        colors: ['grey'],
         limited: false,
     },
     {
@@ -247,7 +241,7 @@ const fabricsList = [
     },
     {
         name: 'Blue Paisley',
-        image: 'fabrics/IMG_0414.jpg',
+        image: 'fabrics/IMG_0415.jpg',
         colors: ['lightblue'],
         limited: false,
     },
