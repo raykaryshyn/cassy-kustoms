@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { FabricsContext } from './FabricsContext';
-/* import ImageLoader from '../../ImageLoader'; */
+import ImageLoader from '../../ImageLoader';
 
 
 export default function FabricCard(props) {
@@ -267,8 +267,8 @@ export default function FabricCard(props) {
                         title={name}
                         className={classes.gridImage}
                     /> */}
-                    {/* <ImageLoader src={image} className={classes.gridImage} /> */}
-                    <img src={image} height="300" alt={name} className={classes.gridImage} />
+                    <ImageLoader src={image} className={classes.gridImage} />
+                    {/* <img src={image} height="300" alt={name} className={classes.gridImage} /> */}
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
                             Limited
