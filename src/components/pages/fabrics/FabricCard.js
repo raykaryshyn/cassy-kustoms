@@ -190,6 +190,10 @@ export default function FabricCard(props) {
         },
         gridColors: {
             paddingTop: '6px',
+            maxWidth: '25%',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'flex-end',
         },
         listColors: {
             paddingTop: '3px',
@@ -200,6 +204,11 @@ export default function FabricCard(props) {
             borderRadius: '50%',
             backgroundColor: 'blue',
             marginRight: '4px',
+            marginBottom: '4px',
+        },
+        gridColorCircle: {
+            marginRight: 0,
+            marginLeft: '4px',
         },
         gridLimited: {
             position: 'absolute',
@@ -211,7 +220,7 @@ export default function FabricCard(props) {
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
-            boxShadow: theme.shadows[5],
+            boxShadow: '0 0 10px rgba(0,0,0,0.5)',
             fontSize: '0.8rem',
         },
         listTitleWrapper: {
@@ -277,7 +286,7 @@ export default function FabricCard(props) {
                         {colors.map((color, i) => {
                             if (color !== 'rainbow') {
                                 return (
-                                    <div className={classes.colorCircle} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : color === 'yellow' ? '1px solid rgba(0,0,0,0.075)' : 'none' }} key={i}></div>
+                                    <div className={[classes.colorCircle, classes.gridColorCircle].join(' ')} style={{ backgroundColor: context.colors[color], border: color === 'white' ? '1px solid rgb(187, 187, 187)' : color === 'yellow' ? '1px solid rgba(0,0,0,0.075)' : 'none' }} key={i}></div>
                                 );
                             } else {
                                 return (<React.Fragment key={i}></React.Fragment>);
