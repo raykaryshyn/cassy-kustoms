@@ -17,15 +17,11 @@ import grey from '@material-ui/core/colors/grey';
 export const settings = {
     colors: {
         rainbow: 'rgba(0,0,0,0)',
-        red: red[500],
-        pink: pink[500],
+        red: '#f00',
+        pink: '#ff69b4',
         orange: orange[500],
         yellow: yellow[500],
-        lightgreen: lightGreen[500],
         green: green[500],
-        teal: teal[500],
-        cyan: cyan[500],
-        lightblue: lightBlue[400],
         blue: blue[600],
         purple: purple[500],
         brown: brown[500],

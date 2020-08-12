@@ -3,12 +3,12 @@ const fabricsList = [
         name: 'Black',
         image: 'fabrics/DSC_0573_Original.jpg',
         colors: ['black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Faux Denim',
         image: 'fabrics/DSC_0562_Original.jpg',
-        colors: ['grey'],
+        colors: ['blue', 'grey', 'black'],
         limited: false,
     },
     {
@@ -30,9 +30,9 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Pale Lightblue',
+        name: 'Pale Light Blue',
         image: 'fabrics/DSC_0566_Original.jpg',
-        colors: ['lightblue'],
+        colors: ['blue'],
         limited: false,
     },
     {
@@ -44,7 +44,7 @@ const fabricsList = [
     {
         name: 'Teal',
         image: 'fabrics/DSC_0564_Original.jpg',
-        colors: ['teal'],
+        colors: ['blue', 'green'],
         limited: false,
     },
     {
@@ -66,7 +66,7 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Hot Pink',
+        name: 'Pink',
         image: 'fabrics/DSC_0577_Original.jpg',
         colors: ['pink'],
         limited: false,
@@ -81,7 +81,7 @@ const fabricsList = [
         name: 'Black Mini Polka Dots',
         image: 'fabrics/IMG_0396.jpg',
         colors: ['black', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Grey Polka Dots',
@@ -93,7 +93,7 @@ const fabricsList = [
         name: 'Brown Polka Dots',
         image: 'fabrics/IMG_0394.jpg',
         colors: ['brown', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Green Polka Dots',
@@ -108,28 +108,28 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Pink Thingies',
+        name: 'Pink Fleur-de-lis',
         image: 'fabrics/IMG_0399.jpg',
         colors: ['pink', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Small Gold Flowers',
         image: 'fabrics/IMG_0387.jpg',
-        colors: ['grey', 'yellow'],
+        colors: ['yellow'],
         limited: false,
     },
     {
         name: 'Small Floral',
         image: 'fabrics/IMG_0389.jpg',
-        colors: ['grey', 'yellow'],
+        colors: ['yellow'],
         limited: false,
     },
     {
         name: 'Pink Gingham',
         image: 'fabrics/IMG_0398.jpg',
         colors: ['pink', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Yellow Gingham',
@@ -138,16 +138,16 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Multicolor Stripes',
+        name: 'Thin Multicolor Stripes',
         image: 'fabrics/IMG_0397.jpg',
         colors: ['red', 'yellow', 'lightgreen', 'lightblue', 'purple', 'white', 'rainbow'],
         limited: false,
     },
     {
-        name: 'Thick Multi Strips',
+        name: 'Thick Multicolor Strips',
         image: 'fabrics/IMG_0418.jpg',
         colors: ['purple', 'red', 'green', 'yellow', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Purple & Pink Zigzags',
@@ -156,15 +156,15 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Orange & Navy Squiggles',
         image: 'fabrics/IMG_0443.jpg',
-        colors: ['lightblue'],
+        colors: ['orange', 'blue'],
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Orange & Navy Diamonds',
         image: 'fabrics/IMG_0444.jpg',
-        colors: ['lightblue'],
+        colors: ['orange', 'blue'],
         limited: false,
     },
     {
@@ -176,7 +176,7 @@ const fabricsList = [
     {
         name: 'Name',
         image: 'fabrics/IMG_0445.jpg',
-        colors: ['lightblue'],
+        colors: ['green'],
         limited: false,
     },
     {
@@ -188,7 +188,7 @@ const fabricsList = [
     {
         name: 'Brown Mandalas',
         image: 'fabrics/IMG_0416.jpg',
-        colors: ['lightblue'],
+        colors: ['brown', 'white'],
         limited: false,
     },
     {
@@ -207,37 +207,37 @@ const fabricsList = [
         name: 'Pink Hawaiian',
         image: 'fabrics/IMG_0402.jpg',
         colors: ['pink', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Red Hawaiian',
         image: 'fabrics/IMG_0400.jpg',
         colors: ['red', 'white'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Grey Paisley',
         image: 'fabrics/IMG_0403.jpg',
         colors: ['grey', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Green Paisley',
         image: 'fabrics/IMG_0404.jpg',
         colors: ['green', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Deep Purple Paisley',
         image: 'fabrics/IMG_0405.jpg',
         colors: ['purple', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Light Purple Paisley',
         image: 'fabrics/IMG_0406.jpg',
         colors: ['purple', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Blue Paisley',
@@ -294,10 +294,10 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Red & Blue Birds',
         image: 'fabrics/IMG_0441.jpg',
-        colors: ['lightblue'],
-        limited: false,
+        colors: ['blue', 'red', 'white'],
+        limited: true,
     },
     {
         name: 'Name',
@@ -357,7 +357,7 @@ const fabricsList = [
         name: 'Red Paws & Bones',
         image: 'fabrics/IMG_0401.jpg',
         colors: ['red', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Name',
@@ -396,16 +396,16 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Name',
+        name: 'Coffee',
         image: 'fabrics/IMG_0435.jpg',
-        colors: ['lightblue'],
-        limited: false,
+        colors: ['brown', 'white', 'black'],
+        limited: true,
     },
     {
-        name: 'Name',
+        name: 'Seashells',
         image: 'fabrics/IMG_0436.jpg',
-        colors: ['lightblue'],
-        limited: false,
+        colors: ['blue', 'brown', 'yellow', 'orange'],
+        limited: true,
     },
     {
         name: 'Name',
