@@ -150,6 +150,7 @@ export default function FabricsSettings() {
             handleScroller();
         };
 
+        handleScroller();
         handleResize();
         window.addEventListener('resize', handleResize)
         return _ => {
