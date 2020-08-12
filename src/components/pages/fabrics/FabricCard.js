@@ -145,7 +145,7 @@ export default function FabricCard(props) {
             transform: 'translateY(-25%)',
         },
         listImage: {
-            height: '100%',
+            height: 'auto',
             width: 125,
             background: 'rgba(0,0,0,0.06)',
             [theme.breakpoints.down('xs')]: {
