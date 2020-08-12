@@ -88,7 +88,7 @@ export default function FabricDialog(props) {
       height: '400px',
     },
     button: {
-      fontWeight: 600,
+      fontWeight: 400,
       padding: '6px 16px',
 
       '&:hover': {
@@ -140,7 +140,6 @@ export default function FabricDialog(props) {
         fullWidth={true}
         maxWidth='md'
         classes={{ paper: classes.root }}
-        keepMounted
       >
         <DialogTitle className={classes.title}>
           <span className={classes.header}>

@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import { FabricsContext } from './FabricsContext';
+import ImageLoader from '../../ImageLoader';
 
 
 export default function FabricCard(props) {
@@ -143,6 +144,9 @@ export default function FabricCard(props) {
         },
         gridImage: {
             background: 'rgba(0,0,0,0.06)',
+            display: 'block',
+            width: '100%',
+            /* objectFit: 'cover', */
         },
         listImage: {
             height: '100%',
@@ -251,14 +255,15 @@ export default function FabricCard(props) {
         return (
             <Card className={[classes.root, classes.gridCard].join(' ')}>
                 <CardActionArea className={classes.gridMedia} disableRipple>
-                    <CardMedia
+                    {/* <CardMedia
                         component="img"
                         alt={name}
                         height="300"
                         image={image}
                         title={name}
                         className={classes.gridImage}
-                    />
+                    /> */}
+                    <ImageLoader src={image} className={classes.gridImage} />
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
                             Limited
