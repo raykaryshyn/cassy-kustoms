@@ -146,7 +146,11 @@ export default function FabricCard(props) {
             background: 'rgba(0,0,0,0.06)',
             display: 'block',
             width: '100%',
-            objectFit: 'cover',
+            /* objectFit: 'cover', */
+            height: 'auto !important',
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
         },
         listImage: {
             height: '100%',
@@ -263,7 +267,8 @@ export default function FabricCard(props) {
                         title={name}
                         className={classes.gridImage}
                     /> */}
-                    <ImageLoader src={image} className={classes.gridImage} />
+                    {/* <ImageLoader src={image} className={classes.gridImage} /> */}
+                    <img src={image} height="300" alt={name} className={classes.gridImage} />
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
                             Limited
