@@ -43,7 +43,7 @@ export default function FabricCard(props) {
                 },
             },
             [theme.breakpoints.down('xs')]: {
-                marginBottom: 2,
+                marginBottom: 3,
                 '& .MuiCard-root': {
                     background: 'none',
                     borderRadius: 0,

@@ -125,7 +125,7 @@ export default function FabricsSettings() {
         let el = scrollerRef.current;
         let wrap = scrollerWrapperRef.current;
 
-        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 24) {
+        if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 16) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
@@ -133,7 +133,6 @@ export default function FabricsSettings() {
     };
 
     const handleResize = () => {
-        console.log('turned');
         let el = scrollerRef.current;
         if (window.innerWidth <= 664) {
             el.style.width = document.documentElement.clientWidth + 'px';
