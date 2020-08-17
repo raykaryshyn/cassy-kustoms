@@ -14,7 +14,7 @@ export default function FabricCard(props) {
     const context = React.useContext(FabricsContext).context;
 
     const name = props.fabric.name;
-    const image = props.fabric.image;
+    const image = props.fabric.thumbnail;
     const colors = props.fabric.colors;
     const limited = props.fabric.limited;
     const id = props.id;
@@ -268,8 +268,8 @@ export default function FabricCard(props) {
                         title={name}
                         className={classes.gridImage}
                     /> */}
-                    <ImageLoader src={image} className={classes.gridImage} />
-                    {/* <img src={image} height="300" alt={name} className={classes.gridImage} /> */}
+                    {/* <ImageLoader src={image} className={classes.gridImage} /> */}
+                    <img src={image} height="300" alt={name} className={classes.gridImage} />
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
                             Limited
