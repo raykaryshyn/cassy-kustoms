@@ -144,7 +144,7 @@ export default function FabricsSettings() {
         } else {
             el.style.width = '';
         }
-
+        alert('resize');
         /* handleScroller(); */
     };
 
