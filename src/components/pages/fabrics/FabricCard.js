@@ -220,7 +220,7 @@ export default function FabricCard(props) {
             borderRadius: '5px',
             lineHeight: '0.75rem',
             fontFamily: theme.typography.fontFamily,
-            boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+            boxShadow: '0 0 8px rgba(0,0,0,0.4)',
             fontSize: '0.8rem',
         },
         listTitleWrapper: {
