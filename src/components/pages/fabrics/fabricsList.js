@@ -455,6 +455,13 @@ const fabricsList = [
         limited: false,
     },
     {
+        name: 'Lizards',
+        image: '/fabrics/IMG-0777.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-0777.jpg',
+        colors: ['white', 'green', 'blue'],
+        limited: true,
+    },
+    {
         name: 'Hawaiian Red',
         image: '/fabrics/IMG_0400.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0400.jpg',
