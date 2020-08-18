@@ -132,6 +132,8 @@ export default function FabricCard(props) {
             [theme.breakpoints.down('xs')]: {
                 height: 100,
                 width: 100,
+                borderRadius: theme.shape.borderRadius,
+                overflow: 'hidden',
             },
         },
         gridImage: {
@@ -143,15 +145,16 @@ export default function FabricCard(props) {
             position: 'absolute',
             top: '50%',
             transform: 'translateY(-25%)',
+            ':hover .MuiCardActionArea-focusHighlight': {
+                opacity: 0,
+            }
         },
         listImage: {
             height: 'auto',
             width: 125,
             background: 'rgba(0,0,0,0.06)',
             [theme.breakpoints.down('xs')]: {
-                height: '100%',
                 width: '100%',
-                borderRadius: theme.shape.borderRadius,
             },
         },
         gridContent: {

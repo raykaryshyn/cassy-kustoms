@@ -38,7 +38,7 @@ export default function Nav(props) {
 
         return React.cloneElement(children, {
             elevation: trigger ? 4: 0,
-            style: trigger ? { boxShadow: theme.shadow(10,0,0,'rgba(0,0,0,0.25)') } : { boxShadow: 'none' },
+            style: trigger ? { boxShadow: theme.shadow(10,0,0,'rgba(0,0,0,0.2)') } : { boxShadow: 'none' },
         });
     }
 
