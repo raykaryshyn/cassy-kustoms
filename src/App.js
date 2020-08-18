@@ -12,6 +12,7 @@ import theme from './context/theme';
 import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
+import Nav from './components/Nav';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -47,6 +48,8 @@ export default function App() {
 		<Router>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
+
+				<Nav />
 
 				<Switch>
 					<Route exact path="*">

@@ -20,6 +20,9 @@ export default function FabricsSettings() {
     const useStyles = makeStyles((theme) => ({
         toggleViewWrapper: {
             marginTop: '6px',
+            [theme.breakpoints.up('md')]: {
+                marginTop: '4px',
+            },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',

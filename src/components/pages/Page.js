@@ -9,10 +9,7 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
     page: {
-        marginTop: '2.5rem',
-        [theme.breakpoints.up('md')]: {
-            marginTop: '3rem',
-        },
+        marginTop: '2rem',
     },
     header: {
         display: 'flex',
