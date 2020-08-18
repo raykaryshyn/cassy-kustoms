@@ -121,7 +121,7 @@ export default function FabricDialog(props) {
       paddingRight: 10,
       display: 'block',
       wordBreak: 'keep-all',
-      lineHeight: '1.7rem',
+      lineHeight: 1.46,
     },
   }));
   const classes = useStyles();

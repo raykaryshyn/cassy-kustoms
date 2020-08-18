@@ -39,9 +39,9 @@ export default function Fabrics() {
 
     const useStyles = makeStyles((theme) => ({
         grid: {
-            marginTop: '45px',
+            marginTop: '50px',
             [theme.breakpoints.down(664)]: {
-                marginTop: '13px',
+                marginTop: '25px',
             },
             justifyContent: 'center',
             marginBottom: '80px',

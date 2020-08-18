@@ -155,9 +155,9 @@ export default function FabricCard(props) {
             },
         },
         gridContent: {
-            padding: '6px 0 16px',
+            padding: '6px 0 10px',
             '&:last-child': {
-                padding: '6px 0 16px',
+                padding: '6px 0 10px',
             },
             display: 'flex',
             justifyContent: 'space-between',

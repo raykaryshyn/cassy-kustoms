@@ -19,6 +19,7 @@ export default function FabricsSettings() {
 
     const useStyles = makeStyles((theme) => ({
         toggleViewWrapper: {
+            marginTop: '6px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-start',
@@ -35,9 +36,9 @@ export default function FabricsSettings() {
             },
         },
         toggleButton: {
-            fontSize: '34px',
+            fontSize: '36px',
             cursor: 'pointer',
-            margin: '4px 4px 0',
+            margin: '2px 4px 0',
             color: 'rgba(0,0,0,0.25)',
             '&:hover': {
                 color: 'rgba(0,0,0,0.45)',
@@ -57,6 +58,7 @@ export default function FabricsSettings() {
 
         setting: {
             marginRight: 50,
+            fontWeight: 500,
             '& p': {
                 margin: '0 0 2px 0',
                 color: theme.palette.text.secondary,

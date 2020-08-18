@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const fonts = {
     sansSerif: [
-        '"Rubik"',
+        '"Inter"',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -15,8 +15,17 @@ const fonts = {
         '"Segoe UI Symbol"',
     ].join(', '),
     serif: [
-        '"Amiri"',
-        'serif',
+        '"Inter"',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
     ].join(', '),
 };
 
@@ -24,12 +33,12 @@ const theme = createMuiTheme({
     typography: {
         fonts: fonts,
         fontFamily: fonts.sansSerif,
-        h1: { fontFamily: fonts.serif },
+        /* h1: { fontFamily: fonts.serif },
         h2: { fontFamily: fonts.serif },
         h3: { fontFamily: fonts.serif },
         h4: { fontFamily: fonts.serif },
         h5: { fontFamily: fonts.serif },
-        h6: { fontFamily: fonts.serif },
+        h6: { fontFamily: fonts.serif }, */
     },
     shape: {
         borderRadius: 15,
@@ -40,8 +49,8 @@ const theme = createMuiTheme({
             default: '#fcfcfc',
         },
         text: {
-            primary: '#02111B',
-            secondary: '#4c575e',
+            primary: '#222222',
+            secondary: '#666666',
         },
         primary: {
             main: '#1481BA',

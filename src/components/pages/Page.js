@@ -7,16 +7,35 @@ import Container from '@material-ui/core/Container';
 
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     page: {
-        marginTop: '2.66rem',
+        marginTop: '2.5rem',
+        [theme.breakpoints.up('md')]: {
+            marginTop: '3rem',
+        },
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100%',
     },
     title: {
-        fontSize: '4.3rem',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '52px',
+        },
+        [theme.breakpoints.up('md')]: {
+            fontSize: '58px',
+        },
+        [theme.breakpoints.up('lg')]: {
+            fontSize: '62px',
+        },
         textAlign: 'center',
         lineHeight: 1.1,
+        fontWeight: 700,
+        letterSpacing: '-2px',
+        display: 'inline-block',
     },
-});
+}));
 
 export default function Page(props) {
     const classes = useStyles();
@@ -26,13 +45,15 @@ export default function Page(props) {
             maxWidth="lg"
             className={classes.page}
         >
-            <Typography
-                variant="h2"
-                component="h1"
-                className={classes.title}
-            >
-                {props.title}
-            </Typography>
+            <div className={classes.header}>
+                <Typography
+                    variant="h2"
+                    component="h1"
+                    className={classes.title}
+                >
+                    {props.title}
+                </Typography>
+            </div>
 
             {props.children}
         </Container>
