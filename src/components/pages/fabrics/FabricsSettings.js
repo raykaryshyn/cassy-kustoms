@@ -127,14 +127,14 @@ export default function FabricsSettings() {
     const scrollerWrapperRef = React.useRef();
 
     const handleScroller = () => {
-        let el = scrollerRef.current;
+        /* let el = scrollerRef.current;
         let wrap = scrollerWrapperRef.current;
 
         if (el.scrollWidth - (el.scrollLeft + el.clientWidth) <= 16) {
             wrap.classList.add('no-after');
         } else {
             wrap.classList.remove('no-after');
-        }
+        } */
     };
 
     const handleResize = () => {
@@ -145,7 +145,7 @@ export default function FabricsSettings() {
             el.style.width = '';
         }
 
-        handleScroller();
+        /* handleScroller(); */
     };
 
     React.useEffect(() => {      
