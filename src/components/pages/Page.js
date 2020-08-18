@@ -31,8 +31,8 @@ const useStyles = makeStyles(theme => ({
         },
         textAlign: 'center',
         lineHeight: 1.1,
-        fontWeight: 700,
-        letterSpacing: '-2px',
+        fontWeight: 600,
+        letterSpacing: '-3px',
         display: 'inline-block',
     },
 }));
