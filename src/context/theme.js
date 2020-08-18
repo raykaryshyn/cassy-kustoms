@@ -15,7 +15,7 @@ const fonts = {
         '"Segoe UI Symbol"',
     ].join(', '),
     serif: [
-        'Amiri',
+        '"Amiri"',
         'serif',
     ].join(', '),
 };
