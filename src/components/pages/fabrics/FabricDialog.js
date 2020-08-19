@@ -71,8 +71,8 @@ export default function FabricDialog(props) {
     },
     content: {
       padding: 0,
-      display: 'flex',
-      justifyContent: 'center',
+      position: 'relative',
+      minHeight: 65,
     },
     image: {
       width: '100%',
@@ -83,6 +83,10 @@ export default function FabricDialog(props) {
     },
     spinnerWrapper: {
       padding: 10,
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     },
     loader: {
       height: '400px',

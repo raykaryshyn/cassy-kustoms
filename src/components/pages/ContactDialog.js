@@ -67,7 +67,9 @@ export default function ContactDialog() {
             fontSize: '0.9rem',
         },
         button: {
-            fontWeight: 400,
+            '& .MuiButton-label': {
+                fontWeight: 500,
+            },
             padding: '6px 16px',
         },
         formLayout: {
