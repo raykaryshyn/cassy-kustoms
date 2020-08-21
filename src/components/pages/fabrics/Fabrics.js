@@ -12,6 +12,7 @@ import ContactDialog from '../ContactDialog';
 import FabricsSettings from './FabricsSettings';
 
 import { FabricsContext, settings } from './FabricsContext';
+import { Typography } from '@material-ui/core';
 
 
 
@@ -38,10 +39,19 @@ export default function Fabrics() {
     };
 
     const useStyles = makeStyles((theme) => ({
+        subTitle: {
+            fontWeight: 400,
+            fontSize: 48,
+            textAlign: 'center',
+            lineHeight: 1,
+            marginBottom: 10,
+            letterSpacing: -2,
+            textTransform: 'none',
+        },
         grid: {
-            marginTop: '50px',
+            marginTop: '33px',
             [theme.breakpoints.down(664)]: {
-                marginTop: '25px',
+                marginTop: '12px',
             },
             justifyContent: 'center',
             marginBottom: '80px',
@@ -67,9 +77,15 @@ export default function Fabrics() {
             [theme.breakpoints.down('xs')]: {
                 '&:last-of-type': {
                     paddingBottom: 25,
-                },                
+                },
             },
-        }
+        },
+        info: {
+            maxWidth: 800,
+            margin: '10px auto 100px',
+            textAlign: 'center',
+            fontStyle: 'italics',
+        },
     }));
     const classes = useStyles();
 
@@ -105,7 +121,20 @@ export default function Fabrics() {
 
     return (
         <FabricsContext.Provider value={{ context }}>
-            <Page title="Fabrics">
+            <Page title="Face Masks">
+                <Typography className={classes.info}>
+                    Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
+
+                    {/* to order a custom mask:
+                    1️⃣Pick a fabric (more fabric choices in “face mask fabric choices” story highlights)
+                    2️⃣Send me your nose to ear and nose to chin measurements (I will send you reference images for this)
+
+                    $5 per mask
+
+                    $3-$8 shipping */}
+                </Typography>
+
+                <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                 <FabricsSettings />
 
                 {gridView ?
@@ -114,7 +143,7 @@ export default function Fabrics() {
                             if (shouldShow(fabric.colors)) {
                                 return (
                                     <Grid item xs={12} sm={6} md={4} key={i}>
-                                        <FabricDialog fabric={fabric} id={i+1}><FabricCard gridView={gridView} fabric={fabric} id={i+1} /></FabricDialog>
+                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
                                     </Grid>
                                 )
                             } else {
@@ -128,7 +157,7 @@ export default function Fabrics() {
                             if (shouldShow(fabric.colors)) {
                                 return (
                                     <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
-                                        <FabricDialog fabric={fabric} id={i+1}><FabricCard gridView={gridView} fabric={fabric} id={i+1} /></FabricDialog>
+                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
                                     </Grid>
                                 )
                             } else {

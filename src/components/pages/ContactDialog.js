@@ -52,6 +52,7 @@ export default function ContactDialog() {
                 fontFamily: theme.typography.fontFamily,
                 fontSize: '1.33rem',
                 lineHeight: 1.43,
+                textTransform: 'none',
             },
         },
         header: {

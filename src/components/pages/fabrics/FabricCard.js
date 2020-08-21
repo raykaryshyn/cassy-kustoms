@@ -178,7 +178,7 @@ export default function FabricCard(props) {
         title: {
             fontSize: '1.175rem',
             color: 'rgba(0,0,0,0.75)',
-            fontWeight: 500,
+            fontWeight: 600,
             lineHeight: '1.45rem',
             display: 'flex',
             alignItems: 'flex-start',

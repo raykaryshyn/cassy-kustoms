@@ -37,8 +37,8 @@ export default function Nav(props) {
         });
 
         return React.cloneElement(children, {
-            elevation: trigger ? 4: 0,
-            style: trigger ? { boxShadow: theme.shadow(10,0,0,'rgba(0,0,0,0.2)') } : { boxShadow: 'none' },
+            elevation: trigger ? 4 : 0,
+            style: trigger ? { boxShadow: theme.shadow(10, 0, 0, 'rgba(0,0,0,0.2)') } : { boxShadow: 'none' },
         });
     }
 
@@ -59,7 +59,7 @@ export default function Nav(props) {
                     <Container
                         maxWidth="lg">
                         <Toolbar className={classes.toolbar}>
-                            <Typography variant="h6">Cassy (CK) Kustoms</Typography>
+                            <Typography variant="h6" style={{ textTransform: 'none' }}>Cassy (CK) Kustoms</Typography>
                         </Toolbar>
                     </Container>
                 </AppBar>

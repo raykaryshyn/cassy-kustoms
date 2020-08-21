@@ -62,6 +62,7 @@ export default function FabricDialog(props) {
     header: {
       flex: 1,
       paddingLeft: '12px',
+      textTransform: 'none',
     },
     headerWrapper: {
       maxWidth: '90%',
@@ -110,6 +111,7 @@ export default function FabricDialog(props) {
       lineHeight: '0.75rem',
       display: 'table',
       marginTop: '4px',
+      textTransform: 'none',
     },
 
     actionButton: {

@@ -30,10 +30,14 @@ const useStyles = makeStyles(theme => ({
             fontSize: '62px',
         },
         textAlign: 'center',
-        lineHeight: 1.1,
+        lineHeight: 1,
         fontWeight: 600,
-        letterSpacing: '-3px',
         display: 'inline-block',
+        letterSpacing: -2,
+        wordSpacing: 10,
+        background: '-webkit-linear-gradient(45deg, #555, #222)',
+        '-webkit-background-clip': 'text',
+        '-webkit-text-fill-color': 'transparent',
     },
 }));
 

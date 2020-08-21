@@ -1,38 +1,49 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const systemFont = [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+].join(',');
+
+const bodyFonts = [
+    /* '"Inter"', */
+    '"Nunito Sans"',
+    systemFont
+].join(',');
+
+const headerFonts = [
+    '"Nunito Sans"',
+    systemFont
+].join(',');
+
 const fonts = {
-    sansSerif: [
-        '"Inter"',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-    ].join(', '),
-    serif: [
-        '"Inter"',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-    ].join(', '),
+    body: bodyFonts,
+    header: headerFonts,
+};
+
+const headerTypography = {
+    fontFamily: fonts.header,
+    textTransform: 'uppercase',
 };
 
 const theme = createMuiTheme({
     typography: {
         fonts: fonts,
-        fontFamily: fonts.sansSerif,
+        fontFamily: fonts.body,        
+        h1: headerTypography,
+        h2: headerTypography,
+        h3: headerTypography,
+        h4: headerTypography,
+        h5: headerTypography,
+        h6: headerTypography,
     },
     shape: {
         borderRadius: 10,
