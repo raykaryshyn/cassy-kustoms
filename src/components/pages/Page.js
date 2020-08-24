@@ -35,9 +35,9 @@ const useStyles = makeStyles(theme => ({
         display: 'inline-block',
         letterSpacing: -2,
         wordSpacing: 10,
-        background: '-webkit-linear-gradient(45deg, #555, #222)',
+        /* background: '-webkit-linear-gradient(45deg, #555, #222)',
         '-webkit-background-clip': 'text',
-        '-webkit-text-fill-color': 'transparent',
+        '-webkit-text-fill-color': 'transparent', */
         marginTop: 25,
     },
 }));

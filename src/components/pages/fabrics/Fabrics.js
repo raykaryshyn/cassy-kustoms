@@ -84,7 +84,7 @@ export default function Fabrics() {
         },
         info: {
             maxWidth: 800,
-            margin: '10px auto 20px',
+            margin: '10px auto 25px',
             textAlign: 'center',
             fontStyle: 'italic',
         },
@@ -92,16 +92,26 @@ export default function Fabrics() {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            width: '90%',
             margin: '0 auto 125px',
+            width: '100%',
+            justifyContent: 'center',
         },
-        cardWrapper: {
-            width: '50%',
+        cardWrapper: {       
+            flex: '1 1 400px',
+            maxWidth: '400px',
             padding: 5,
         },
         title: {
             fontFamily: theme.typography.fonts.body,
             textTransform: 'none',
+        },
+        cardContent: {
+            marginTop: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            '& li': {
+                margin: '2px 0',
+            }
         },
     }));
     const classes = useStyles();
@@ -139,39 +149,37 @@ export default function Fabrics() {
     return (
         <FabricsContext.Provider value={{ context }}>
             <Page title="Face Masks">
-                <Typography className={classes.info}>
-                    Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
-                </Typography>
-                <div className={classes.cards}>
-                    <div className={classes.cardWrapper}>
-                        <Card className={classes.card} variant="outlined">
-                            <CardContent>
-                                <Typography variant="h5" component="h2" className={classes.title}>
-                                    Ordering a Mask
+                    <Typography className={classes.info}>
+                        Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
+                    </Typography>
+                    <div className={classes.cards}>
+                        <div className={classes.cardWrapper}>
+                            <Card className={classes.card} variant="outlined">
+                                <CardContent>
+                                    <Typography variant="h5" component="h2" className={classes.title}>
+                                        How to Order
                                 </Typography>
-                                <Typography variant="body2" component="p">
-                                    - Pick a fabric
-                                    <br />
-                                    - Send me your nose to ear and nose to chin measurements
+                                    <ol className={classes.cardContent}>
+                                        <li>Pick a fabric</li>
+                                        <li>Contact me for measurement instructions</li>
+                                    </ol>
+                                </CardContent>
+                            </Card>
+                        </div>
+                        <div className={classes.cardWrapper}>
+                            <Card className={classes.card} variant="outlined">
+                                <CardContent>
+                                    <Typography variant="h5" component="h2" className={classes.title}>
+                                        Pricing
                                 </Typography>
-                            </CardContent>
-                        </Card>
+                                    <ul className={classes.cardContent}>
+                                        <li>$5 per mask</li>
+                                        <li>$3 - $8 shipping</li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </div>
                     </div>
-                    <div className={classes.cardWrapper}>
-                        <Card className={classes.card} variant="outlined">
-                            <CardContent>
-                                <Typography variant="h5" component="h2" className={classes.title}>
-                                    Pricing
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    - $5 per mask
-                                    <br />
-                                    - $3-$8 shipping
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
 
                 <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                 <FabricsSettings />
