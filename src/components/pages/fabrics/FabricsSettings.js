@@ -61,7 +61,7 @@ export default function FabricsSettings() {
 
         setting: {
             marginRight: 50,
-            fontWeight: 500,
+            fontWeight: 400,
             '& p': {
                 margin: '0 0 2px 0',
                 color: theme.palette.text.secondary,

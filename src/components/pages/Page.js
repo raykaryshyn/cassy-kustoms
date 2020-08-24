@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         [theme.breakpoints.down('sm')]: {
-            fontSize: '52px',
+            fontSize: '55px',
         },
         [theme.breakpoints.up('md')]: {
             fontSize: '58px',
@@ -31,13 +31,14 @@ const useStyles = makeStyles(theme => ({
         },
         textAlign: 'center',
         lineHeight: 1,
-        fontWeight: 600,
+        fontWeight: 400,
         display: 'inline-block',
         letterSpacing: -2,
         wordSpacing: 10,
         background: '-webkit-linear-gradient(45deg, #555, #222)',
         '-webkit-background-clip': 'text',
         '-webkit-text-fill-color': 'transparent',
+        marginTop: 25,
     },
 }));
 

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 import canStore from '../../../functions/canStore';
 import Page from '../Page';
@@ -40,7 +42,7 @@ export default function Fabrics() {
 
     const useStyles = makeStyles((theme) => ({
         subTitle: {
-            fontWeight: 400,
+            fontWeight: 300,
             fontSize: 48,
             textAlign: 'center',
             lineHeight: 1,
@@ -82,9 +84,24 @@ export default function Fabrics() {
         },
         info: {
             maxWidth: 800,
-            margin: '10px auto 100px',
+            margin: '10px auto 20px',
             textAlign: 'center',
-            fontStyle: 'italics',
+            fontStyle: 'italic',
+        },
+        cards: {
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            width: '90%',
+            margin: '0 auto 125px',
+        },
+        cardWrapper: {
+            width: '50%',
+            padding: 5,
+        },
+        title: {
+            fontFamily: theme.typography.fonts.body,
+            textTransform: 'none',
         },
     }));
     const classes = useStyles();
@@ -124,15 +141,37 @@ export default function Fabrics() {
             <Page title="Face Masks">
                 <Typography className={classes.info}>
                     Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
-
-                    {/* to order a custom mask:
-                    1️⃣Pick a fabric (more fabric choices in “face mask fabric choices” story highlights)
-                    2️⃣Send me your nose to ear and nose to chin measurements (I will send you reference images for this)
-
-                    $5 per mask
-
-                    $3-$8 shipping */}
                 </Typography>
+                <div className={classes.cards}>
+                    <div className={classes.cardWrapper}>
+                        <Card className={classes.card} variant="outlined">
+                            <CardContent>
+                                <Typography variant="h5" component="h2" className={classes.title}>
+                                    Ordering a Mask
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    - Pick a fabric
+                                    <br />
+                                    - Send me your nose to ear and nose to chin measurements
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <div className={classes.cardWrapper}>
+                        <Card className={classes.card} variant="outlined">
+                            <CardContent>
+                                <Typography variant="h5" component="h2" className={classes.title}>
+                                    Pricing
+                                </Typography>
+                                <Typography variant="body2" component="p">
+                                    - $5 per mask
+                                    <br />
+                                    - $3-$8 shipping
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
 
                 <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                 <FabricsSettings />

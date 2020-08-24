@@ -14,13 +14,12 @@ const systemFont = [
 ].join(',');
 
 const bodyFonts = [
-    /* '"Inter"', */
-    '"Nunito Sans"',
+    '"Roboto"',
     systemFont
 ].join(',');
 
 const headerFonts = [
-    '"Nunito Sans"',
+    '"Roboto Condensed"',
     systemFont
 ].join(',');
 
@@ -58,9 +57,9 @@ const theme = createMuiTheme({
             secondary: '#666666',
         },
         primary: {
-            main: '#1481BA',
-            dark: '#106998',
-            light: '#189ee7',
+            main: '#008080',
+            dark: '#008080',
+            light: '#008080',
         }
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {

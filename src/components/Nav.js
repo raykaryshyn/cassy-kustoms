@@ -8,7 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 import Container from '@material-ui/core/Container';
-import theme from '../context/theme';
+/* import theme from '../context/theme'; */
 
 
 
@@ -16,8 +16,8 @@ export default function Nav(props) {
 
     const useStyles = makeStyles((theme) => ({
         root: {
-            background: 'white',
-            color: theme.palette.text.primary,
+            background: theme.palette.primary.main,
+            color: 'white',
         },
         toolbar: {
             padding: 0,
@@ -38,7 +38,7 @@ export default function Nav(props) {
 
         return React.cloneElement(children, {
             elevation: trigger ? 4 : 0,
-            style: trigger ? { boxShadow: theme.shadow(10, 0, 0, 'rgba(0,0,0,0.2)') } : { boxShadow: 'none' },
+            /* style: trigger ? { boxShadow: theme.shadow(10, 0, 0, 'rgba(0,0,0,0.2)') } : { boxShadow: 'none' }, */
         });
     }
 
