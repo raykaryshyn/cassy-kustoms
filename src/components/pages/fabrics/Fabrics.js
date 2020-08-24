@@ -96,7 +96,7 @@ export default function Fabrics() {
             width: '100%',
             justifyContent: 'center',
         },
-        cardWrapper: {       
+        cardWrapper: {
             flex: '1 1 400px',
             maxWidth: '400px',
             padding: 5,
@@ -112,6 +112,12 @@ export default function Fabrics() {
             '& li': {
                 margin: '2px 0',
             }
+        },
+        contactLink: {
+            display: 'inline',
+            textDecoration: 'underline',
+            color: theme.palette.primary.main,
+            cursor: 'pointer',
         },
     }));
     const classes = useStyles();
@@ -149,37 +155,37 @@ export default function Fabrics() {
     return (
         <FabricsContext.Provider value={{ context }}>
             <Page title="Face Masks">
-                    <Typography className={classes.info}>
-                        Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
+                <Typography className={classes.info}>
+                    Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
                     </Typography>
-                    <div className={classes.cards}>
-                        <div className={classes.cardWrapper}>
-                            <Card className={classes.card} variant="outlined">
-                                <CardContent>
-                                    <Typography variant="h5" component="h2" className={classes.title}>
-                                        How to Order
+                <div className={classes.cards}>
+                    <div className={classes.cardWrapper}>
+                        <Card className={classes.card} variant="outlined">
+                            <CardContent>
+                                <Typography variant="h5" component="h2" className={classes.title}>
+                                    How to Order
                                 </Typography>
-                                    <ol className={classes.cardContent}>
-                                        <li>Pick a fabric</li>
-                                        <li>Contact me for measurement instructions</li>
-                                    </ol>
-                                </CardContent>
-                            </Card>
-                        </div>
-                        <div className={classes.cardWrapper}>
-                            <Card className={classes.card} variant="outlined">
-                                <CardContent>
-                                    <Typography variant="h5" component="h2" className={classes.title}>
-                                        Pricing
-                                </Typography>
-                                    <ul className={classes.cardContent}>
-                                        <li>$5 per mask</li>
-                                        <li>$3 - $8 shipping</li>
-                                    </ul>
-                                </CardContent>
-                            </Card>
-                        </div>
+                                <ol className={classes.cardContent}>
+                                    <li>Pick a fabric</li>
+                                    <li><ContactDialog className={classes.contactLink}>Contact me</ContactDialog> for measurement instructions</li>
+                                </ol>
+                            </CardContent>
+                        </Card>
                     </div>
+                    <div className={classes.cardWrapper}>
+                        <Card className={classes.card} variant="outlined">
+                            <CardContent>
+                                <Typography variant="h5" component="h2" className={classes.title}>
+                                    Pricing
+                                </Typography>
+                                <ul className={classes.cardContent}>
+                                    <li>$5 per mask</li>
+                                    <li>$3 - $8 shipping</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
 
                 <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                 <FabricsSettings />

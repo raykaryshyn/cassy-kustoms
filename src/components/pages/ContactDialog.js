@@ -13,7 +13,7 @@ import ModeCommentIcon from '@material-ui/icons/ModeComment';
 
 import SendIcon from '@material-ui/icons/Send';
 
-export default function ContactDialog() {
+export default function ContactDialog(props) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -183,12 +183,18 @@ export default function ContactDialog() {
     const formMessageRef = React.createRef();
 
     return (
-        <div>
-            <Fab className={classes.fab} onClick={handleClickOpen}>
-                <ModeCommentIcon className={classes.fabIcon} />
-            </Fab>
+        <>
+            {props.children ?
+                <div onClick={handleClickOpen} className={props.className}>
+                    {props.children}
+                </div>
+                :
+                <Fab className={classes.fab} onClick={handleClickOpen}>
+                    <ModeCommentIcon className={classes.fabIcon} />
+                </Fab>
+            }
 
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm' classes={{paper: classes.dialogPaper}}>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm' classes={{ paper: classes.dialogPaper }}>
 
                 <DialogTitle id="form-dialog-title" className={classes.title}><span className={classes.header}><span className={classes.headerWrapper}>Contact</span></span></DialogTitle>
                 <DialogContentText className={classes.text + ' ' + classes.header}>
@@ -218,6 +224,6 @@ export default function ContactDialog() {
                 </DialogActions>
             </Dialog>
 
-        </div>
+        </>
     );
 }
