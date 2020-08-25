@@ -34,10 +34,10 @@ export default function ContactDialog(props) {
                 right: 25,
                 bottom: 25,
             },
-            background: theme.palette.primary.main,
+            background: theme.palette.secondary.main,
             color: '#fff',
             '&:hover': {
-                background: theme.palette.primary.dark,
+                background: theme.palette.secondary.main,
             },
             zIndex: 2,
         },

@@ -36,7 +36,7 @@ const headerTypography = {
 const theme = createMuiTheme({
     typography: {
         fonts: fonts,
-        fontFamily: fonts.body,        
+        fontFamily: fonts.body,
         h1: headerTypography,
         h2: headerTypography,
         h3: headerTypography,
@@ -57,10 +57,15 @@ const theme = createMuiTheme({
             secondary: '#666666',
         },
         primary: {
-            main: '#008080',
+            main: '#006770',
             dark: '#008080',
             light: '#008080',
-        }
+        },
+        secondary: {
+            main: '#ce4842',
+            dark: '#008080',
+            light: '#008080',
+        },
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {
         return `${x}px ${y}px ${s}px 0px ${c}`;

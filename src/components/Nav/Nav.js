@@ -16,11 +16,10 @@ export default function Nav(props) {
     const useStyles = makeStyles((theme) => ({
         rootBig: {
             background: 'white',
-            /* color: 'white', */
         },
         rootSmall: {
             transform: 'translateY(-100px)',
-            transition: theme.transitions.create('transform'),
+            transition: theme.transitions.create('transform', {duration: 555}),
         },
         showSmall: {
             transform: 'translateY(0)',
@@ -30,7 +29,7 @@ export default function Nav(props) {
         },
         bigLogo: {
             width: '100%',
-            maxWidth: 800,
+            maxWidth: 750,
             margin: '40px auto 0',
         },
         smallLogo: {
