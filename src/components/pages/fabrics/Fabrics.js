@@ -100,6 +100,9 @@ export default function Fabrics() {
             flex: '1 1 400px',
             maxWidth: '400px',
             padding: 5,
+            '& ul': {
+                paddingInlineStart: '15px',
+            },
         },
         title: {
             fontFamily: theme.typography.fonts.body,
@@ -109,9 +112,30 @@ export default function Fabrics() {
             marginTop: 5,
             display: 'flex',
             flexDirection: 'column',
+            margin: '0 0 0 15px',
+            padding: 0,
             '& li': {
-                margin: '2px 0',
-            }
+                margin: '3px 0',
+                fontSize: '1rem',
+                marginLeft: 0,
+            },
+            '& li.oli': {                
+                paddingRight: 0,
+                listStyleType: 'none',
+                counterIncrement: 'step-counter',
+            },
+            '& li.oli:before': {
+                content: 'counter(step-counter)',
+                marginRight: '8px',
+                fontSize: '1rem',
+                backgroundColor: 'rgb(200,200,200)',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '0 8px',
+                borderRadius: '3px',
+                transform: 'scale(0.8)',
+                display: 'inline-block',
+            },
         },
         contactLink: {
             display: 'inline',
@@ -166,8 +190,8 @@ export default function Fabrics() {
                                     How to Order
                                 </Typography>
                                 <ol className={classes.cardContent}>
-                                    <li>Pick a fabric</li>
-                                    <li><ContactDialog className={classes.contactLink}>Contact me</ContactDialog> for measurement instructions</li>
+                                    <li className="oli">Pick a fabric</li>
+                                    <li className="oli"><ContactDialog className={classes.contactLink}>Contact me</ContactDialog> for measurement instructions</li>
                                 </ol>
                             </CardContent>
                         </Card>
@@ -179,8 +203,8 @@ export default function Fabrics() {
                                     Pricing
                                 </Typography>
                                 <ul className={classes.cardContent}>
-                                    <li>$5 per mask</li>
-                                    <li>$3 - $8 shipping</li>
+                                    <li className="uli">$5 per mask</li>
+                                    <li className="uli">$3 - $8 shipping</li>
                                 </ul>
                             </CardContent>
                         </Card>
