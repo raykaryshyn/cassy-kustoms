@@ -12,7 +12,7 @@ import theme from './context/theme';
 import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';

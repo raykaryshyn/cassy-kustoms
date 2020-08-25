@@ -73,7 +73,7 @@ export default function FabricDialog(props) {
     content: {
       padding: 0,
       position: 'relative',
-      minHeight: 65,
+      minHeight: 68,
     },
     image: {
       width: '100%',
@@ -93,12 +93,11 @@ export default function FabricDialog(props) {
       height: '400px',
     },
     button: {
-      fontWeight: 400,
+      fontWeight: 500,
       padding: '6px 16px',
-
       '&:hover': {
         background: 'rgba(0,0,0,0.06)',
-      }
+      },
     },
 
     limited: {
@@ -118,7 +117,7 @@ export default function FabricDialog(props) {
       padding: '6px',
       '&:hover': {
         background: 'rgba(0,0,0,0.06)',
-      }
+      },
     },
 
     number: {
