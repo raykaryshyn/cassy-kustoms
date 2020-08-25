@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 import Container from '@material-ui/core/Container';
 import { ReactComponent as Logo } from '../cassy_kustoms_logo.svg';
@@ -20,6 +18,8 @@ export default function Nav(props) {
         rootSmall: {
             transform: 'translateY(-100px)',
             transition: theme.transitions.create('transform', {duration: 555}),
+            background: 'linear-gradient(0, rgb(0, 138, 145), rgb(11, 82, 91))',
+            boxShadow: '0 0 7px rgba(11, 82, 91, 0.8)',
         },
         showSmall: {
             transform: 'translateY(0)',
@@ -40,35 +40,10 @@ export default function Nav(props) {
                 fill: '#fff',
             },
             padding: 10,
+            filter: 'drop-shadow(0 0 19px rgb(11, 82, 91))',
         },
     }));
     const classes = useStyles();
-
-    function ElevationScroll(props) {
-        const { children, window } = props;
-        // Note that you normally won't need to set the window ref as useScrollTrigger
-        // will default to window.
-        // This is only being set here because the demo is in an iframe.
-        const trigger = useScrollTrigger({
-            disableHysteresis: true,
-            threshold: 0,
-            target: window ? window() : undefined,
-        });
-
-        return React.cloneElement(children, {
-            elevation: trigger ? 4 : 0,
-            /* style: trigger ? { boxShadow: theme.shadow(10, 0, 0, 'rgba(0,0,0,0.2)') } : { boxShadow: 'none' }, */
-        });
-    }
-
-    ElevationScroll.propTypes = {
-        children: PropTypes.element.isRequired,
-        /**
-         * Injected by the documentation to work in an iframe.
-         * You won't need it on your project.
-         */
-        window: PropTypes.func,
-    };
 
     const bigLogoRef = React.useRef();
     const rootSmallRef = React.useRef();
@@ -92,7 +67,6 @@ export default function Nav(props) {
 
     return (
         <React.Fragment>
-            {/* <ElevationScroll {...props}> */}
             <AppBar position="static" elevation={0} className={classes.rootBig}>
                 <Container maxWidth="lg">
                     <Toolbar className={classes.toolbar}>
@@ -100,10 +74,8 @@ export default function Nav(props) {
                     </Toolbar>
                 </Container>
             </AppBar>
-            {/* </ElevationScroll> */}
-            {/* <Toolbar /> */}
 
-            <AppBar elevation={4} className={classes.rootSmall} ref={rootSmallRef}>
+            <AppBar elevation={0} className={classes.rootSmall} ref={rootSmallRef}>
                 <Container maxWidth="lg">
                     <Toolbar className={classes.toolbar}>
                         <Logo className={classes.smallLogo} ref={smallLogoRef} />

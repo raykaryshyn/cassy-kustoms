@@ -30,9 +30,13 @@ export default function ContactDialog(props) {
             position: 'fixed',
             right: 35,
             bottom: 35,
-            [theme.breakpoints.down('xs')]: {
+            [theme.breakpoints.down('md')]: {
                 right: 25,
                 bottom: 25,
+            },
+            [theme.breakpoints.down('xs')]: {
+                right: 20,
+                bottom: 20,
             },
             background: theme.palette.secondary.main,
             color: '#fff',
