@@ -248,12 +248,10 @@ export default function FabricCard(props) {
 
         number: {
             color: 'rgba(0, 0, 0, 0.5)',
-            paddingRight: 9,
+            paddingRight: 7,
             display: 'block',
             wordBreak: 'keep-all',
-            fontSize: '1.07rem',
-            /* lineHeight: '0.9rem',
-            paddingTop: '0.25rem', */
+            transform: 'scale(0.85)',
         },
     }));
     const classes = useStyles();

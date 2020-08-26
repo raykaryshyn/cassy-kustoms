@@ -122,11 +122,10 @@ export default function FabricDialog(props) {
 
     number: {
       color: 'rgba(0, 0, 0, 0.5)',
-      fontSize: '1.2rem',
       paddingRight: 10,
       display: 'block',
       wordBreak: 'keep-all',
-      lineHeight: 1.46,
+      transform: 'scale(0.85)',
     },
   }));
   const classes = useStyles();

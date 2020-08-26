@@ -30,7 +30,7 @@ export default function Nav(props) {
         bigLogo: {
             width: '100%',
             maxWidth: 750,
-            margin: '40px auto 0',
+            margin: '25px auto 0',
         },
         smallLogo: {
             width: '100%',
@@ -41,6 +41,9 @@ export default function Nav(props) {
             },
             padding: 10,
             filter: 'drop-shadow(0 0 19px rgb(11, 82, 91))',
+            [theme.breakpoints.down('xs')]: {
+                maxWidth: 240,
+            },
         },
     }));
     const classes = useStyles();

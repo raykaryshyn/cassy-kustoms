@@ -6,15 +6,16 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import canStore from '../../../functions/canStore';
-import Page from '../Page';
 import FabricCard from './FabricCard';
 import FabricDialog from './FabricDialog';
 import fabricsList from './fabricsList';
 import ContactDialog from '../ContactDialog';
 import FabricsSettings from './FabricsSettings';
+import Container from '@material-ui/core/Container';
 
 import { FabricsContext, settings } from './FabricsContext';
 import { Typography } from '@material-ui/core';
+import PaintLine from '../../paintStroke.png';
 
 
 
@@ -41,6 +42,34 @@ export default function Fabrics() {
     };
 
     const useStyles = makeStyles((theme) => ({
+        paintLine: {
+            display: 'block',
+            width: '100%',
+            height: 20,
+            [theme.breakpoints.down(1560)]: {
+                width: 'auto',
+            },
+        },
+        paintLineTop: {
+            marginTop: 25,
+        },
+        paintLineBottom: {
+            transform: 'scale(-1, -1)',
+            marginBottom: 25,
+            float: 'right',
+        },
+        header: {
+            background: '#c8e1e0',
+            padding: '20px 0',
+            color: '#005861',
+        },
+        mainTitle: {
+            textAlign: 'center',
+            fontSize: '2.2rem',
+            letterSpacing: '0.3rem',
+            wordSpacing: '0.3rem',
+            marginBottom: '0.66rem',
+        },
         subTitle: {
             fontWeight: 300,
             fontSize: 48,
@@ -83,10 +112,12 @@ export default function Fabrics() {
             },
         },
         info: {
-            maxWidth: 800,
-            margin: '10px auto 25px',
+            maxWidth: 700,
+            margin: '0 auto',
             textAlign: 'center',
-            fontStyle: 'italic',
+            fontFamily: theme.typography.fonts.header,
+            fontSize: '1.1rem',
+            padding: '0 10px 0.66rem',
         },
         cards: {
             display: 'flex',
@@ -119,7 +150,7 @@ export default function Fabrics() {
                 fontSize: '1rem',
                 marginLeft: 0,
             },
-            '& li.oli': {                
+            '& li.oli': {
                 paddingRight: 0,
                 listStyleType: 'none',
                 counterIncrement: 'step-counter',
@@ -178,10 +209,18 @@ export default function Fabrics() {
 
     return (
         <FabricsContext.Provider value={{ context }}>
-            <Page title="Face Masks">
-                <Typography className={classes.info}>
-                    Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
-                    </Typography>
+            <div style={{ overflow: 'hidden' }}>
+                <img src={PaintLine} className={[classes.paintLine, classes.paintLineTop].join(' ')} alt="Paint Line" />
+                <div className={classes.header}>
+                    <Typography variant="h3" component="h1" className={classes.mainTitle}>Face Masks</Typography>
+                    <Typography className={classes.info}>
+                        Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
+                </Typography>
+                </div>
+                <img src={PaintLine} className={[classes.paintLine, classes.paintLineBottom].join(' ')} alt="Paint Line" />
+            </div>
+
+            <Container maxWidth="lg">
                 <div className={classes.cards}>
                     <div className={classes.cardWrapper}>
                         <Card className={classes.card} variant="outlined">
@@ -243,9 +282,8 @@ export default function Fabrics() {
                         })}
                     </Grid>
                 }
-
-                <ContactDialog />
-            </Page>
+            </Container>
+            <ContactDialog />
         </FabricsContext.Provider >
     );
 }
