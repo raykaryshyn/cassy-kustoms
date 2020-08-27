@@ -296,7 +296,7 @@ export default function Fabrics() {
         addOrderFabrics: addOrderFabrics,
         removeOrderFabrics: removeOrderFabrics,
     };
-    console.log(orderFabrics);
+    /* console.log(orderFabrics); */
 
     const shouldShow = (colors) => {
         if (selectedColors.length === 0) {
@@ -323,18 +323,105 @@ export default function Fabrics() {
     };
 
 
+    function ValidateEmail(emailAddr) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(emailAddr)) {
+            return (true)
+        }
+        return (false)
+    }
     const formEmailRef = React.createRef();
-    const emailValid = true;
-    /* const [emailValid, setEmailValid] = React.useState(true); */
+    const [emailValid, setEmailValid] = React.useState(true);
 
-    /* const [email, setEmail] = React.useState(
+    const [email, setEmail] = React.useState(
         ''
-    ); */
+    );
     const handleEmailChange = e => {
-        /* setEmail(e.target.value); */
+        setEmail(e.target.value);
     };
+    function encode(data) {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+    }
     const handleSubmit = e => {
+        const inputs = fabricsRef.current.getElementsByTagName('input');
+
+        let mes2;
+        if (inputs.length !== Object.keys(mes).length) {
+            let newMes = {};
+            Object.keys(inputs).forEach(i => {
+                if (!mes.hasOwnProperty(inputs[i].name)) {
+                    newMes = { ...newMes, [inputs[i].name]: { value: inputs[i].value, valid: !isNaN(inputs[i].value) } };
+                }
+            });
+            setMes({ ...mes, ...newMes });
+            mes2 = { ...mes, ...newMes };
+        } else {
+            mes2 = { ...mes };
+        }
+
+        let newMes2 = { ...mes2 };
+        for (let i = 0; i < inputs.length; ++i) {
+            let val = mes2[inputs[i].name].value;
+            if (val.trim() == null || val.trim() === "" || val === " " || isNaN(val)) {
+                newMes2 = { ...newMes2, [inputs[i].name]: { value: inputs[i].value, valid: false } };
+            } else {
+                newMes2 = { ...newMes2, [inputs[i].name]: { value: inputs[i].value, valid: true } };
+            }
+        }
+        setMes({ ...mes2, ...newMes2 });
+
+        let allMesValid = true;
+        let checkMesObj = { ...mes2, ...newMes2 };
+        if (Object.keys(checkMesObj).length === 0) allMesValid = false;
+        Object.keys({ ...mes2, ...newMes2 }).forEach(i => {
+            if (!checkMesObj[i].valid) {
+                allMesValid = false;
+            }
+        });
+
+        let emailValid = true;
+        if (email === "" || !ValidateEmail(email)) {
+            emailValid = false;
+            setEmailValid(false);
+        } else {
+            setEmailValid(true);
+        }
+
+        if (emailValid && allMesValid) {
+            console.log("ready to go");
+            const body = {
+                'email': email,
+                'measurements': 'here ya go.'
+            }
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({
+                    "form-name": 'order',
+                    ...body
+                })
+            })
+                .then(() => {
+                    console.log(body);
+                    cancelOrder();
+                })
+                .catch(error => console.log(error));
+        } else {
+            console.log("errors.");
+        }
     };
+
+
+    const [mes, setMes] = React.useState({});
+    const handleMes = e => {
+        setMes({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
+        console.log({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
+    };
+
+
+    const fabricsRef = React.useRef();
+
 
     return (
         <FabricsContext.Provider value={{ context }}>
@@ -403,7 +490,7 @@ export default function Fabrics() {
                                 <input type="hidden" name="form-name" value="order" />
                                 <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
                             </form>
-                            <div className={classes.myOrderFabrics}>
+                            <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                 {orderFabrics ?
                                     Object.keys(orderFabrics).map((fabric, i) => {
                                         const fabricObj = fabricsList.find(obj => {
@@ -421,16 +508,24 @@ export default function Fabrics() {
                                                     <OutlinedInput
                                                         endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                         labelWidth={0}
+                                                        onChange={handleMes}
+                                                        name={orderFabrics[fabric] + '__ear'}
+                                                        error={mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !mes[orderFabrics[fabric] + '__ear'].valid : false}
                                                     />
                                                 </FormControl>
+                                                {mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!mes[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
 
                                                 <FormControl variant="outlined">
                                                     <FormHelperText>Nose to Chin</FormHelperText>
                                                     <OutlinedInput
                                                         endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                         labelWidth={0}
+                                                        onChange={handleMes}
+                                                        name={orderFabrics[fabric] + '__chin'}
+                                                        error={mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !mes[orderFabrics[fabric] + '__chin'].valid : false}
                                                     />
                                                 </FormControl>
+                                                {mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!mes[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
 
                                                 <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
                                             </div>
