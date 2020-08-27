@@ -13,6 +13,7 @@ import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
 import Nav from './components/Nav/Nav';
+import Home from './components/pages/Home';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -52,36 +53,13 @@ export default function App() {
 				<Nav />
 
 				<Switch>
-					<Route exact path="*">
+					<Route exact path="/masks">
 						<Fabrics />
 					</Route>
+					<Route exact path="*">
+						<Home />
+					</Route>
 				</Switch>
-
-				{/* <form
-					name="contact"
-					onSubmit={handleSubmit}
-				>
-					<input type="hidden" name="form-name" value="contact" />
-					<p hidden>
-						<label>
-							Don’t fill this out:{" "}
-							<input name="bot-field" onChange={handleChange} />
-						</label>
-					</p>
-					<TextField label="Name" variant="outlined" type="text" name="name" onChange={handleChange} />
-					<TextField label="Email" variant="outlined" type="email" name="email" onChange={handleChange} />
-					<TextField
-						label="Message"
-						multiline
-						rows={4}
-						variant="outlined"
-						name="message"
-						onChange={handleChange}
-					/>
-					<Button variant="contained" color="primary" type="submit">
-						<SendIcon /> Send
-					</Button>
-				</form> */}
 			</ThemeProvider>
 		</Router >
 	);
