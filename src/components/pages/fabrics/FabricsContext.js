@@ -28,6 +28,11 @@ export const settings = {
     unselectColor: () => { },
     gridView: true,
     toggleGridView: () => { },
+
+    orderWorking: false,
+    orderFabrics: {},
+    addOrderFabrics: () => { },
+    removeOrderFabrics: () => { },
 };
 
 export const FabricsContext = React.createContext({

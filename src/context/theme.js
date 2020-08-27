@@ -67,8 +67,8 @@ const theme = createMuiTheme({
             light: '#008080',
         },
     },
-    shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)') => {
-        return `${x}px ${y}px ${s}px 0px ${c}`;
+    shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)', z = 0) => {
+        return `${x}px ${y}px ${s}px ${z}px ${c}`;
     },
 });
 export default theme;

@@ -12,10 +12,12 @@ import fabricsList from './fabricsList';
 import ContactDialog from '../ContactDialog';
 import FabricsSettings from './FabricsSettings';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 
 import { FabricsContext, settings } from './FabricsContext';
 import { Typography } from '@material-ui/core';
 import PaintLine from '../../paintStroke.png';
+import FabricsCounter from './FabricsCounter';
 
 
 
@@ -39,6 +41,16 @@ export default function Fabrics() {
     const setGridView = (state) => {
         setGridViewState(state);
         if (canStore()) localStorage.setItem('gridView', state);
+    };
+
+    const [orderWorking, setOrderWorkingState] = React.useState(
+        canStore() && localStorage.getItem('orderWorking') !== null ?
+            localStorage.getItem('orderWorking') === 'true' :
+            false
+    );
+    const setOrderWorking = (state) => {
+        setOrderWorkingState(state);
+        if (canStore()) localStorage.setItem('orderWorking', state);
     };
 
     const useStyles = makeStyles((theme) => ({
@@ -134,6 +146,8 @@ export default function Fabrics() {
             '& ul': {
                 paddingInlineStart: '15px',
             },
+
+            margin: '0 auto',
         },
         title: {
             fontFamily: theme.typography.fonts.body,
@@ -174,6 +188,29 @@ export default function Fabrics() {
             color: theme.palette.primary.main,
             cursor: 'pointer',
         },
+        beginOrderBtn: {
+            boxShadow: 'none',
+            background: 'rgba(206, 72, 66, 1)',
+            color: '#fff',
+            '&:hover': {
+                background: 'rgba(206, 72, 66, 1)',
+                boxShadow: theme.shadow(0, 0, 0, 'rgba(206, 72, 66, .3)', 3.5),
+            },
+            margin: '0 auto',
+            fontSize: '1.1rem',
+            display: 'block',
+            padding: '7px 20px',
+            fontFamily: 'Roboto Condensed',
+        },
+        myOrder: {
+            marginBottom: '125px',
+        },
+        myOrderResults: {
+            border: '1px solid rgba(0, 0, 0, 0.12)',
+        },
+        myOrderFabrics: {
+            display: 'flex',
+        }
     }));
     const classes = useStyles();
 
@@ -182,6 +219,21 @@ export default function Fabrics() {
 
 
 
+    const [orderFabrics, setOrderFabricsState] = React.useState(
+        canStore() && localStorage.getItem('orderFabrics') !== null ?
+            JSON.parse(localStorage.getItem('orderFabrics')) :
+            {}
+    );
+    const setOrderFabrics = (fabrics) => {
+        setOrderFabricsState(fabrics);
+        if (canStore()) localStorage.setItem('orderFabrics', JSON.stringify(fabrics));
+    };
+    const addOrderFabrics = (fabric) => {
+        setOrderFabrics({ ...orderFabrics, [fabric]: orderFabrics[fabric] ? orderFabrics[fabric] + 1 : 1 });
+    };
+    const removeOrderFabrics = (fabric) => {
+        setOrderFabrics({ ...orderFabrics, [fabric]: orderFabrics[fabric] || orderFabrics[fabric] > 0 ? orderFabrics[fabric] - 1 : 0 });
+    };
     const context = {
         ...settings,
         selectedColors: selectedColors,
@@ -189,7 +241,12 @@ export default function Fabrics() {
         unselectColor: unselectColor,
         gridView: gridView,
         setGridView: setGridView,
+        orderWorking: orderWorking,
+        orderFabrics: orderFabrics,
+        addOrderFabrics: addOrderFabrics,
+        removeOrderFabrics: removeOrderFabrics,
     };
+    console.log(orderFabrics);
 
     const shouldShow = (colors) => {
         if (selectedColors.length === 0) {
@@ -207,6 +264,19 @@ export default function Fabrics() {
 
     const gridRef = React.useRef();
 
+    const cancelOrder = () => {
+        setOrderWorking(false);
+        setOrderFabrics({});
+        if (canStore()) {
+            localStorage.removeItem('orderFabrics');
+            for (const key in localStorage) {
+                if (key.includes('fabric__')) {
+                    localStorage.removeItem(key);
+                }
+            }
+        }
+    };
+
     return (
         <FabricsContext.Provider value={{ context }}>
             <div style={{ overflow: 'hidden' }}>
@@ -221,7 +291,7 @@ export default function Fabrics() {
             </div>
 
             <Container maxWidth="lg">
-                <div className={classes.cards}>
+                {/* <div className={classes.cards}>
                     <div className={classes.cardWrapper}>
                         <Card className={classes.card} variant="outlined">
                             <CardContent>
@@ -248,6 +318,47 @@ export default function Fabrics() {
                             </CardContent>
                         </Card>
                     </div>
+                </div> */}
+
+                <div className={classes.myOrder}>
+                    <div className={classes.cardWrapper}>
+                        <Card className={classes.card} variant="outlined">
+                            <CardContent>
+                                <Typography variant="h5" component="h2" className={classes.title}>
+                                    Pricing
+                                </Typography>
+                                <ul className={classes.cardContent}>
+                                    <li className="uli">$5 per mask</li>
+                                    <li className="uli">$3 - $8 shipping</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''}
+
+                    {orderWorking ?
+                        <div className={classes.myOrderResults}>
+                            <Typography variant="h5" component="h1">My Order</Typography>
+                            <div className={classes.myOrderFabrics}>
+                                {orderFabrics ?
+                                    Object.entries(orderFabrics, (fabric) => {
+                                        return (
+                                            {/* <p>
+                                                {fabric}
+                                            </p> */}
+                                        );
+                                    })
+                                    :
+                                    ''
+                                }
+                            </div>
+                            <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
+                            <Button variant="contained">Submit</Button>
+                        </div>
+                        :
+                        ''
+                    }
                 </div>
 
                 <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
@@ -260,6 +371,7 @@ export default function Fabrics() {
                                 return (
                                     <Grid item xs={12} sm={6} md={4} key={i}>
                                         <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+                                        {orderWorking ? <FabricsCounter id={i} /> : ''}
                                     </Grid>
                                 )
                             } else {
@@ -274,6 +386,7 @@ export default function Fabrics() {
                                 return (
                                     <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
                                         <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+                                        {orderWorking ? <FabricsCounter id={i} /> : ''}
                                     </Grid>
                                 )
                             } else {
