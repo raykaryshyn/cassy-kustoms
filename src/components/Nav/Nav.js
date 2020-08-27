@@ -10,7 +10,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Popper from '@material-ui/core/Popper';
-import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import List from '@material-ui/core/List';
@@ -241,7 +240,6 @@ export default function Nav(props) {
                         >
                             {({ TransitionProps }) => (
                                 <ClickAwayListener onClickAway={hidePopper}>
-                                    <Grow {...TransitionProps}>
                                         <div className={classes.popperWrapper}>
                                             <Paper className={classes.popperPaper} ref={popperRef}>
                                                 <List>
@@ -268,7 +266,6 @@ export default function Nav(props) {
                                                 </List>
                                             </Paper>
                                         </div>
-                                    </Grow>
                                 </ClickAwayListener>
                             )}
                         </Popper>
