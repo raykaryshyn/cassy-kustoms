@@ -374,7 +374,7 @@ export default function Fabrics() {
         let allMesValid = true;
         let checkMesObj = { ...mes2, ...newMes2 };
         if (Object.keys(checkMesObj).length === 0) allMesValid = false;
-        Object.keys({ ...mes2, ...newMes2 }).forEach(i => {
+        Object.keys(checkMesObj).forEach(i => {
             if (!checkMesObj[i].valid) {
                 allMesValid = false;
             }
@@ -390,9 +390,19 @@ export default function Fabrics() {
 
         if (emailValid && allMesValid) {
             console.log("ready to go");
+            let measurements = () => {
+                var out = '';
+                Object.keys(checkMesObj).forEach(i => {
+                    out += i;
+                    out += ': ';
+                    out += checkMesObj[i].value + ' in';
+                    out += '\n';
+                });
+                return out;
+            };
             const body = {
                 'email': email,
-                'measurements': 'here ya go.'
+                'measurements': measurements(),
             }
             fetch("/", {
                 method: "POST",
@@ -404,7 +414,7 @@ export default function Fabrics() {
             })
                 .then(() => {
                     console.log(body);
-                    cancelOrder();
+                    /* cancelOrder(); */
                 })
                 .catch(error => console.log(error));
         } else {
