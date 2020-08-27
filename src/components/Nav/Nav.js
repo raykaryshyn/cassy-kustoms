@@ -31,11 +31,12 @@ export default function Nav(props) {
             const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
             if (showSmall) {
                 rootSmallRef.current.classList.add(classes.showSmall);
-                dropdRef.current.style.display = '';
+                /* dropdRef.current.style.display = ''; */
             } else {
                 rootSmallRef.current.classList.remove(classes.showSmall);
-                dropdRef.current.classList.remove(classes.showDropd);
-                dropdRef.current.style.display = 'none';
+                /* dropdRef.current.classList.remove(classes.showDropd);
+                dropdRef.current.style.display = 'none'; */
+                setDropd(false);
             }
         }
 
@@ -254,6 +255,7 @@ export default function Nav(props) {
                             color="inherit"
                             /* onClick={togglePopper} */
                             onClick={toggleDropd}
+                            disableRipple
                         >
                             {dropd ? <CloseIcon /> : <MenuIcon />}
                         </IconButton>
