@@ -93,6 +93,9 @@ export default function ContactDialog(props) {
                     border: 'none',
                 },
             },
+            '& .MuiFilledInput-input:-webkit-autofill': {
+                borderRadius: theme.shape.borderRadius,
+            },
         },
         sendIcon: {
             fontSize: '1.25rem',
@@ -168,7 +171,6 @@ export default function ContactDialog(props) {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({
-                    /* "form-name": form.getAttribute("name"), */
                     "form-name": form,
                     ...formState
                 })
@@ -215,16 +217,15 @@ export default function ContactDialog(props) {
                             <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
                             <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
                         </div>
-
                     </form>
                 </DialogContent>
                 <DialogActions>
                     <Button type="button" onClick={handleClose} className={classes.button} style={{ fontWeight: 400 }}>
                         Cancel
-                        </Button>
+                    </Button>
                     <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
                         <SendIcon className={classes.sendIcon} /> Send
-                        </Button>
+                    </Button>
                 </DialogActions>
             </Dialog>
 

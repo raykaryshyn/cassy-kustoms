@@ -30,7 +30,7 @@ export const settings = {
     toggleGridView: () => { },
 
     orderWorking: false,
-    orderFabrics: {},
+    orderFabrics: [],
     addOrderFabrics: () => { },
     removeOrderFabrics: () => { },
 };

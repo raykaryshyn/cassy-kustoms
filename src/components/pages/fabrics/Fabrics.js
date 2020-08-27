@@ -18,6 +18,11 @@ import { FabricsContext, settings } from './FabricsContext';
 import { Typography } from '@material-ui/core';
 import PaintLine from '../../paintStroke.png';
 import FabricsCounter from './FabricsCounter';
+import TextField from '@material-ui/core/TextField';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 
 
@@ -210,7 +215,23 @@ export default function Fabrics() {
         },
         myOrderFabrics: {
             display: 'flex',
-        }
+            flexDirection: 'column',
+        },
+        formItem: {
+            margin: '6px 0',
+            '& .MuiInputBase-formControl': {
+                borderRadius: theme.shape.borderRadius,
+                '&:before': {
+                    border: 'none',
+                },
+                '&:after': {
+                    border: 'none',
+                },
+            },
+            '& .MuiFilledInput-input:-webkit-autofill': {
+                borderRadius: theme.shape.borderRadius,
+            },
+        },
     }));
     const classes = useStyles();
 
@@ -222,17 +243,46 @@ export default function Fabrics() {
     const [orderFabrics, setOrderFabricsState] = React.useState(
         canStore() && localStorage.getItem('orderFabrics') !== null ?
             JSON.parse(localStorage.getItem('orderFabrics')) :
-            {}
+            []
     );
     const setOrderFabrics = (fabrics) => {
+        for (const fabric in fabrics) {
+            if (fabrics[fabric] === 0) {
+                delete fabrics[fabric]
+            }
+        }
         setOrderFabricsState(fabrics);
         if (canStore()) localStorage.setItem('orderFabrics', JSON.stringify(fabrics));
     };
     const addOrderFabrics = (fabric) => {
-        setOrderFabrics({ ...orderFabrics, [fabric]: orderFabrics[fabric] ? orderFabrics[fabric] + 1 : 1 });
+        let clone = orderFabrics.slice(0);
+
+        let num = 0;
+        for (const f in orderFabrics) {
+            if (orderFabrics[f].split('__')[0] === fabric) {
+                num += 1;
+            }
+        }
+
+        let name = fabric + '__' + num;
+        clone.push(name);
+        setOrderFabrics(clone);
     };
     const removeOrderFabrics = (fabric) => {
-        setOrderFabrics({ ...orderFabrics, [fabric]: orderFabrics[fabric] || orderFabrics[fabric] > 0 ? orderFabrics[fabric] - 1 : 0 });
+        let clone = orderFabrics.slice(0);
+
+        if (fabric.split('__').length === 1) {
+            for (var i = orderFabrics.length - 1; i >= 0; i--) {
+                if (orderFabrics[i].split('__')[0] === fabric) {
+                    clone.splice(i, 1);
+                    setOrderFabrics(clone);
+                    break;
+                }
+            }
+        } else {
+            clone = clone.filter(item => item !== fabric);
+            setOrderFabrics(clone);
+        }
     };
     const context = {
         ...settings,
@@ -266,15 +316,23 @@ export default function Fabrics() {
 
     const cancelOrder = () => {
         setOrderWorking(false);
-        setOrderFabrics({});
+        setOrderFabrics([]);
         if (canStore()) {
             localStorage.removeItem('orderFabrics');
-            for (const key in localStorage) {
-                if (key.includes('fabric__')) {
-                    localStorage.removeItem(key);
-                }
-            }
         }
+    };
+
+
+    const formEmailRef = React.createRef();
+    const [emailValid, setEmailValid] = React.useState(true);
+
+    const [email, setEmail] = React.useState(
+        ''
+    );
+    const handleEmailChange = e => {
+        setEmail(e.target.value);
+    };
+    const handleSubmit = e => {
     };
 
     return (
@@ -340,13 +398,41 @@ export default function Fabrics() {
                     {orderWorking ?
                         <div className={classes.myOrderResults}>
                             <Typography variant="h5" component="h1">My Order</Typography>
+                            <form name="order" onSubmit={handleSubmit}>
+                                <input type="hidden" name="form-name" value="order" />
+                                <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
+                            </form>
                             <div className={classes.myOrderFabrics}>
                                 {orderFabrics ?
-                                    Object.entries(orderFabrics, (fabric) => {
+                                    Object.keys(orderFabrics).map((fabric, i) => {
+                                        const fabricObj = fabricsList.find(obj => {
+                                            return obj.name === orderFabrics[fabric].split('__')[0]
+                                        });
                                         return (
-                                            {/* <p>
-                                                {fabric}
-                                            </p> */}
+                                            <div key={i}>
+                                                <p>{fabricObj.name}</p>
+                                                <img
+                                                    src={fabricObj.thumbnail}
+                                                    alt={fabricObj.name}
+                                                />
+                                                <FormControl variant="outlined">
+                                                    <FormHelperText>Nose to Ear</FormHelperText>
+                                                    <OutlinedInput
+                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                        labelWidth={0}
+                                                    />
+                                                </FormControl>
+
+                                                <FormControl variant="outlined">
+                                                    <FormHelperText>Nose to Chin</FormHelperText>
+                                                    <OutlinedInput
+                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                        labelWidth={0}
+                                                    />
+                                                </FormControl>
+
+                                                <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
+                                            </div>
                                         );
                                     })
                                     :
@@ -354,7 +440,7 @@ export default function Fabrics() {
                                 }
                             </div>
                             <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
-                            <Button variant="contained">Submit</Button>
+                            <Button variant="contained" onClick={handleSubmit}>Submit</Button>
                         </div>
                         :
                         ''
