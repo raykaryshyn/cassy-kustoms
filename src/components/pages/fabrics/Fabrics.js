@@ -324,13 +324,14 @@ export default function Fabrics() {
 
 
     const formEmailRef = React.createRef();
-    const [emailValid, setEmailValid] = React.useState(true);
+    const emailValid = true;
+    /* const [emailValid, setEmailValid] = React.useState(true); */
 
-    const [email, setEmail] = React.useState(
+    /* const [email, setEmail] = React.useState(
         ''
-    );
+    ); */
     const handleEmailChange = e => {
-        setEmail(e.target.value);
+        /* setEmail(e.target.value); */
     };
     const handleSubmit = e => {
     };
