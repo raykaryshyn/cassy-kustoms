@@ -414,7 +414,7 @@ export default function Fabrics() {
             })
                 .then(() => {
                     console.log(body);
-                    /* cancelOrder(); */
+                    cancelOrder();
                 })
                 .catch(error => console.log(error));
         } else {
