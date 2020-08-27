@@ -7,7 +7,6 @@ import Container from '@material-ui/core/Container';
 import { ReactComponent as Logo } from '../cassy_kustoms_logo.svg';
 import { Link, NavLink } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Popper from '@material-ui/core/Popper';
 import Paper from '@material-ui/core/Paper';
@@ -219,7 +218,7 @@ export default function Nav(props) {
                             color="inherit"
                             onClick={togglePopper}
                         >
-                            {popperOpen ? <CloseIcon /> : <MenuIcon />}
+                            <MenuIcon />
                         </IconButton>
                         <Popper
                             id={popperID}
@@ -240,32 +239,32 @@ export default function Nav(props) {
                         >
                             {({ TransitionProps }) => (
                                 <ClickAwayListener onClickAway={hidePopper}>
-                                        <div className={classes.popperWrapper}>
-                                            <Paper className={classes.popperPaper} ref={popperRef}>
-                                                <List>
-                                                    <NavLink
-                                                        exact
-                                                        to='/about'
-                                                        className={classes.popperNavLink}
-                                                        activeClassName={classes.activePopperNavLink}
-                                                    >
-                                                        <ListItem>
-                                                            <ListItemText primary='About' />
-                                                        </ListItem>
-                                                    </NavLink>
-                                                    <NavLink
-                                                        exact
-                                                        to='/services'
-                                                        className={classes.popperNavLink}
-                                                        activeClassName={classes.activePopperNavLink}
-                                                    >
-                                                        <ListItem>
-                                                            <ListItemText primary='Services' />
-                                                        </ListItem>
-                                                    </NavLink>
-                                                </List>
-                                            </Paper>
-                                        </div>
+                                    <div className={classes.popperWrapper}>
+                                        <Paper className={classes.popperPaper} ref={popperRef}>
+                                            <List>
+                                                <NavLink
+                                                    exact
+                                                    to='/about'
+                                                    className={classes.popperNavLink}
+                                                    activeClassName={classes.activePopperNavLink}
+                                                >
+                                                    <ListItem>
+                                                        <ListItemText primary='About' />
+                                                    </ListItem>
+                                                </NavLink>
+                                                <NavLink
+                                                    exact
+                                                    to='/services'
+                                                    className={classes.popperNavLink}
+                                                    activeClassName={classes.activePopperNavLink}
+                                                >
+                                                    <ListItem>
+                                                        <ListItemText primary='Services' />
+                                                    </ListItem>
+                                                </NavLink>
+                                            </List>
+                                        </Paper>
+                                    </div>
                                 </ClickAwayListener>
                             )}
                         </Popper>
