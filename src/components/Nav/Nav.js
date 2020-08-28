@@ -104,43 +104,53 @@ export default function Nav(props) {
         bigNavLinks: {
             display: 'flex',
             flexDirection: 'row',
+            marginTop: 7,
         },
         bigNavLink: {
-            fontSize: 20,
+            fontSize: 20.5,
             textDecoration: 'none',
-            color: theme.palette.text.secondary,
-            fontFamily: theme.typography.fonts.header,
+            color: '#006770',
             textTransform: 'uppercase',
             margin: '5px 20px',
             '&.active': {
-                color: theme.palette.secondary.main,
+                color: '#004950',
             },
+            '&:hover': {
+                color: '#004950',
+            },
+            letterSpacing: '0.175rem',
+            fontFamily: theme.typography.fonts.header,
+            transition: theme.transitions.create('color', { duration: 250 }),
         },
         smallNavLinks: {
             display: 'flex',
             flexDirection: 'row',
-            [theme.breakpoints.down(550)]: {
+            [theme.breakpoints.down(670)]: {
                 display: 'none',
             },
         },
         smallNavLink: {
             fontSize: 18,
             textDecoration: 'none',
-            color: '#fff',
-            fontFamily: theme.typography.fonts.header,
+            color: '#91c4c1',
             textTransform: 'uppercase',
-            margin: '5px 20px',
-            opacity: 0.8,
+            marginLeft: 45,
             '&.active': {
-                opacity: 1,
+                color: '#fff',
             },
+            '&:hover': {
+                color: '#fff',
+            },
+            fontFamily: theme.typography.fonts.header,
+            letterSpacing: '0.175rem',
+            transition: theme.transitions.create('color', { duration: 250 }),
         },
         hamburger: {
             '& .MuiSvgIcon-root': {
                 width: 30,
                 height: 30,
             },
-            [theme.breakpoints.up(550)]: {
+            [theme.breakpoints.up(670)]: {
                 display: 'none',
             },
         },
@@ -156,7 +166,7 @@ export default function Nav(props) {
             display: 'block',
             fontSize: 16,
             textDecoration: 'none',
-            color: '#fff',
+            color: '#91c4c1',
             fontFamily: theme.typography.fonts.header,
             textTransform: 'uppercase',
             opacity: 0.8,
@@ -164,8 +174,9 @@ export default function Nav(props) {
                 padding: '0 0 18px',
             },
             '&.active': {
-                opacity: 1,
+                color: '#fff',
             },
+            transition: theme.transitions.create('color', { duration: 250 }),
         },
     }));
     const classes = useStyles();
@@ -193,7 +204,7 @@ export default function Nav(props) {
                     for (let i = 0; i < elms.length; i++) {
                         elms[i].classList.remove('active');
                     }
-                } else if (window.scrollY >= document.getElementById('about').offsetTop && window.scrollY < document.getElementById('services').offsetTop - 1) {
+                } else if (window.scrollY >= document.getElementById('about').offsetTop - 1 && window.scrollY < document.getElementById('services').offsetTop - 1) {
                     const elms1 = document.querySelectorAll("a[href='/#services']");
                     for (let i = 0; i < elms1.length; i++) {
                         elms1[i].classList.remove('active');
