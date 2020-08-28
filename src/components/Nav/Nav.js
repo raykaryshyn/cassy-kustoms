@@ -173,6 +173,20 @@ export default function Nav(props) {
 
     const location = useLocation();
 
+    const handleLinkClick = (e) => {
+        e.preventDefault();
+        if (!document.getElementById('about') || !document.getElementById('services')) {
+            window.location.href = '/';
+        } else if (document.getElementById('about') && document.getElementById('services')) {
+            const id = e.currentTarget.href.split('#')[1];
+            const elmTop = document.getElementById(id).offsetTop;
+            window.scrollTo({
+                top: elmTop,
+                behavior: "smooth"
+            });
+        }
+    };
+
     return (
         <React.Fragment>
             <AppBar position="static" elevation={0} className={classes.rootBig}>
@@ -180,8 +194,8 @@ export default function Nav(props) {
                     <Toolbar className={classes.bigToolbar}>
                         <Link className={classes.bigLogo} to="/" onClick={smoothScrollToTop}><Logo ref={bigLogoRef} /></Link>
                         <div className={classes.bigNavLinks}>
-                            <a href="/#about" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeBigNavLink : ""].join(' ')}>About</a>
-                            <a href="/#services" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeBigNavLink : ""].join(' ')}>Services</a>
+                            <a href="/#about" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeBigNavLink : ""].join(' ')} onClick={handleLinkClick}>About</a>
+                            <a href="/#services" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeBigNavLink : ""].join(' ')} onClick={handleLinkClick}>Services</a>
                         </div>
                     </Toolbar>
                 </Container>
@@ -192,8 +206,8 @@ export default function Nav(props) {
                     <Toolbar className={classes.smallToolbar}>
                         <Link className={classes.smallLogo} to="/" onClick={smoothScrollToTop}><Logo ref={smallLogoRef} /></Link>
                         <div className={classes.smallNavLinks}>
-                            <a href="/#about" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeSmallNavLink : ""].join(' ')}>About</a>
-                            <a href="/#services" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeSmallNavLink : ""].join(' ')}>Services</a>
+                            <a href="/#about" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeSmallNavLink : ""].join(' ')} onClick={handleLinkClick}>About</a>
+                            <a href="/#services" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeSmallNavLink : ""].join(' ')} onClick={handleLinkClick}>Services</a>
                         </div>
                         <IconButton
                             edge="end"
@@ -210,7 +224,7 @@ export default function Nav(props) {
                         <a
                             href='/#about'
                             className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeDropdownNavLink : ""].join(' ')}
-                            onClick={hideDropd}
+                            onClick={() => { handleLinkClick(); hideDropd(); }}
                         >
                             <ListItem>
                                 <ListItemText primary='About' />
@@ -219,7 +233,7 @@ export default function Nav(props) {
                         <a
                             href='/#services'
                             className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeDropdownNavLink : ""].join(' ')}
-                            onClick={hideDropd}
+                            onClick={() => { handleLinkClick(); hideDropd(); }}
                         >
                             <ListItem>
                                 <ListItemText primary='Services' />
