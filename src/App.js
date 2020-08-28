@@ -53,7 +53,7 @@ export default function App() {
 				<Nav />
 
 				<Switch>
-					<Route exact path="/masks">
+					<Route path="/masks">
 						<Fabrics />
 					</Route>
 					<Route exact path="*">
