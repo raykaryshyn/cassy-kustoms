@@ -184,7 +184,7 @@ export default function Nav(props) {
     const handleLinkClick = (e) => {
         e.preventDefault();
         if (!document.getElementById('about') || !document.getElementById('services')) {
-            window.location.href = '/';
+            window.location.href = e.currentTarget.href;
         } else if (document.getElementById('about') && document.getElementById('services')) {
             const id = e.currentTarget.href.split('#')[1];
             const elmTop = document.getElementById(id).offsetTop;
