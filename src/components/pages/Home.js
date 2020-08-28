@@ -3,13 +3,14 @@ import ContactForm from './ContactForm';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import PaintLine from '../paintStroke.png';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
             background: 'linear-gradient(-45deg, #dc6658, rgb(0, 138, 145))',
             marginTop: 40,
-            padding: '50px 0',
+            padding: '75px 0 85px',
         },
         welcomeTitle: {
             textAlign: 'center',
@@ -19,6 +20,21 @@ export default function Home() {
         welcomeBody: {
             color: '#fff',
             textAlign: 'center',
+        },
+        paintLine: {
+            display: 'block',
+            width: '100%',
+            height: 20,
+            [theme.breakpoints.down(1560)]: {
+                width: 'auto',
+            },
+        },
+        welcomePaintLine: {
+            /* transform: 'translateY(-10px)', */
+            marginTop: -10,
+        },
+        aboutSection: {
+            background: '#c8e3e2',
         },
     }));
     const classes = useStyles();
@@ -48,7 +64,8 @@ export default function Home() {
                     </Typography>
                 </Container>
             </div>
-            <div style={{ height: '100vh' }} id="about" className="section">About</div>
+            <img src={PaintLine} className={[classes.paintLine, classes.welcomePaintLine].join(' ')} alt="Paint Line" />
+            <div id="about" className={["section", classes.aboutSection].join(' ')}>About</div>
             <div style={{ height: '100vh' }} id="services" className="section">Services</div>
             <div style={{ height: '100vh' }} id="contact" className="section">
                 <Container maxWidth="lg" style={{ paddingTop: '50px' }}>
