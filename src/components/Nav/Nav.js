@@ -143,9 +143,10 @@ export default function Nav(props) {
             marginLeft: 45,
             '&.active': {
                 color: '#fff',
+                textShadow: '0 0 8px rgb(11, 82, 91)',
             },
             '&:hover': {
-                color: '#fff',
+                color: 'rgba(255,255,255,0.9)',
             },
             fontFamily: theme.typography.fonts.header,
             letterSpacing: '0.175rem',
@@ -187,6 +188,7 @@ export default function Nav(props) {
             },
             '&.active': {
                 color: '#fff',
+                textShadow: '0 0 8px rgb(11, 82, 91)',
             },
             transition: theme.transitions.create('color', { duration: 250 }),
         },
