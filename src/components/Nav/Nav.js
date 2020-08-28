@@ -111,7 +111,7 @@ export default function Nav(props) {
         bigNavLink: {
             fontSize: 19,
             textDecoration: 'none',
-            color: '#006770',
+            color: '#489c98',
             textTransform: 'uppercase',
             margin: '5px 20px',
             '&.active': {
