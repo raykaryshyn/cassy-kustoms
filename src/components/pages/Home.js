@@ -10,7 +10,7 @@ export default function Home() {
         welcomeSection: {
             background: 'linear-gradient(-45deg, #dc6658, rgb(0, 138, 145))',
             marginTop: 40,
-            padding: '75px 0 85px',
+            padding: '75px 0 0',
         },
         welcomeTitle: {
             textAlign: 'center',
@@ -20,6 +20,7 @@ export default function Home() {
         welcomeBody: {
             color: '#fff',
             textAlign: 'center',
+            marginBottom: 10,
         },
         paintLine: {
             display: 'block',
@@ -36,14 +37,17 @@ export default function Home() {
         aboutSection: {
             background: '#c8e3e2',
         },
+        sectionGoto: {
+            display: 'block',
+        }
     }));
     const classes = useStyles();
 
     React.useLayoutEffect(() => {
         const handleResize = () => {
-            const sections = document.getElementsByClassName('section');
+            const sections = document.getElementsByClassName(classes.sectionGoto);
             for (let i = 0; i < sections.length; i++) {
-                sections[i].style.paddingTop = document.getElementById('navSmall').getBoundingClientRect().height + 'px';
+                sections[i].style.height = document.getElementById('navSmall').getBoundingClientRect().height + 'px';
             }
         }
 
@@ -63,11 +67,14 @@ export default function Home() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas interdum massa, quis tincidunt sem sagittis in. Suspendisse suscipit libero quis arcu condimentum lacinia. Donec eget augue in libero commodo auctor.
                     </Typography>
                 </Container>
+                <div className={classes.sectionGoto} id="about">&nbsp;</div>
             </div>
             <img src={PaintLine} className={[classes.paintLine, classes.welcomePaintLine].join(' ')} alt="Paint Line" />
-            <div id="about" className={["section", classes.aboutSection].join(' ')}>About</div>
-            <div style={{ height: '100vh' }} id="services" className="section">Services</div>
-            <div style={{ height: '100vh' }} id="contact" className="section">
+            <div className={["section", classes.aboutSection].join(' ')}>About</div>
+            <div className={classes.sectionGoto} id="services">&nbsp;</div>
+            <div style={{ height: '100vh' }}>Services</div>
+            <div className={classes.sectionGoto} id="contact">&nbsp;</div>
+            <div style={{ height: '100vh' }}>
                 <Container maxWidth="lg" style={{ paddingTop: '50px' }}>
                     <Typography variant="h3" component="h2" style={{ textAlign: 'center' }}>Contact</Typography>
                 </Container>
