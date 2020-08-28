@@ -1,5 +1,4 @@
 import React from 'react';
-import Page from './Page';
 
 export default function Home() {
     React.useEffect(() => {
@@ -18,10 +17,23 @@ export default function Home() {
         return () => window.removeEventListener('scroll', handleScroll);
     });
 
+    React.useLayoutEffect(() => {
+        const handleResize = () => {
+            const sections = document.getElementsByClassName('section');
+            for (let i = 0; i < sections.length; i++) {
+                console.log(sections[i].style.paddingTop = document.getElementById('navSmall').getBoundingClientRect().height + 'px');
+            }
+        }
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    });
+
     return (
-        <Page>
-            <div style={{ height: '100vh' }} id="about">About</div>
-            <div style={{ height: '100vh' }} id="services">Services</div>
-        </Page>
+        <>
+            <div style={{ height: '100vh' }} id="about" className="section">About</div>
+            <div style={{ height: '100vh' }} id="services" className="section">Services</div>
+        </>
     );
 }

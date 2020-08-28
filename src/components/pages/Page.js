@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+/* import Typography from '@material-ui/core/Typography'; */
 import Container from '@material-ui/core/Container';
 
 
@@ -9,10 +9,10 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
     page: {
-        marginTop: '2.25rem',
+        /* marginTop: '2.25rem',
         [theme.breakpoints.up('md')]: {
             marginTop: '2.5rem',
-        },
+        }, */
     },
     header: {
         display: 'flex',
@@ -50,7 +50,7 @@ export default function Page(props) {
             maxWidth="lg"
             className={classes.page}
         >
-            <div className={classes.header}>
+            {/* <div className={classes.header}>
                 <Typography
                     variant="h2"
                     component="h1"
@@ -58,7 +58,7 @@ export default function Page(props) {
                 >
                     {props.title}
                 </Typography>
-            </div>
+            </div> */}
 
             {props.children}
         </Container>

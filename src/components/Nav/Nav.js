@@ -5,14 +5,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import Container from '@material-ui/core/Container';
 import { ReactComponent as Logo } from '../cassy_kustoms_logo.svg';
-import { Link, NavLink } from 'react-router-dom';
-/* import { HashLink as Link, NavHashLink as NavLink } from 'react-router-hash-link'; */
+import { Link } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-/* import Popper from '@material-ui/core/Popper';
-import Paper from '@material-ui/core/Paper';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'; */
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -41,11 +37,8 @@ export default function Nav(props) {
             const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
             if (showSmall) {
                 rootSmallRef.current.classList.add(classes.showSmall);
-                /* dropdRef.current.style.display = ''; */
             } else {
                 rootSmallRef.current.classList.remove(classes.showSmall);
-                /* dropdRef.current.classList.remove(classes.showDropd);
-                dropdRef.current.style.display = 'none'; */
                 setDropd(false);
             }
         }
@@ -54,41 +47,6 @@ export default function Nav(props) {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     });
-
-    /* POPPER */
-    // Create 'popperAnchor' hook
-    /* const [popperAnchor, setPopperAnchor] = React.useState(null); */ // Default hidden (null element)
-    // Toggle popperAnchor
-    /* const togglePopper = (event) => {
-        setPopperAnchor(popperAnchor ? null : event.currentTarget);
-    }; */
-    /* const popperOpen = Boolean(popperAnchor); */ // True if popper anchor element exists
-    /* const popperID = popperOpen ? 'APIPopper' : undefined; */
-    // Hide popper
-    /* const hidePopper = () => { */
-    /* setPopperAnchor(null); */ // Hide by setting popper anchor element to null
-    /* }; */
-    // Create reference for popper
-    /* const popperRef = React.useRef(null); */
-    // Set maxHeight of popper after component renders
-    /* React.useEffect(() => {
-        const handleResize = () => {
-            if (popperOpen) {
-                const buffer = 14;
-                popperRef.current.style.maxHeight =
-                    window.innerHeight
-                    - props.navRef.current.offsetHeight
-                    - buffer
-                    + 'px';
-            }
-        }
-
-        handleResize();
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    }); */
 
     const [dropd, setDropd] = React.useState(false);
     const toggleDropd = () => {
@@ -210,33 +168,6 @@ export default function Nav(props) {
         activeDropdownNavLink: {
             opacity: 1,
         },
-
-        /* popperWrapper: {
-            [theme.breakpoints.up(550)]: {
-                display: 'none',
-            },
-            padding: '0.5rem 0.225rem 1rem',
-        },
-        popperPaper: {
-            background: 'rgb(11, 82, 91)',
-            transform: 'translateY(-0.5rem)',
-            fontSize: '0.9rem',
-            boxShadow: '0 0 8px rgba(0, 0, 0, 0.5)',
-            overflowY: 'auto',
-        },
-        popperNavLink: {
-            display: 'block',
-            fontSize: 16,
-            textDecoration: 'none',
-            color: '#fff',
-            fontFamily: theme.typography.fonts.header,
-            textTransform: 'uppercase',
-            opacity: 0.8,
-            '& .MuiListItem-root': {
-                textAlign: 'center',
-                padding: '8px 26px',
-            },
-        }, */
     }));
     const classes = useStyles();
 
@@ -256,7 +187,7 @@ export default function Nav(props) {
                 </Container>
             </AppBar>
 
-            <AppBar elevation={0} className={classes.rootSmall} ref={rootSmallRef}>
+            <AppBar elevation={0} className={classes.rootSmall} ref={rootSmallRef} id="navSmall">
                 <Container maxWidth="lg">
                     <Toolbar className={classes.smallToolbar}>
                         <Link className={classes.smallLogo} to="/" onClick={smoothScrollToTop}><Logo ref={smallLogoRef} /></Link>
@@ -297,6 +228,6 @@ export default function Nav(props) {
                     </List>
                 </Container>
             </AppBar>
-        </React.Fragment >
+        </React.Fragment>
     );
 }
