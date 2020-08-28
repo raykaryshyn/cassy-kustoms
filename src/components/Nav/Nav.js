@@ -25,6 +25,11 @@ export default function Nav(props) {
             window.scrollTo(0, c - c / 8);
         } */
         vanillaSmoothie.scrollTop({ easing: 'easeOutQuad' });
+
+        const elms = document.getElementsByClassName('navLink');
+        for (let i = 0; i < elms.length; i++) {
+            elms[i].classList.remove('active');
+        }
     }
 
     const bigLogoRef = React.useRef();
@@ -146,7 +151,7 @@ export default function Nav(props) {
                 textShadow: '0 0 8px rgb(11, 82, 91)',
             },
             '&:hover': {
-                color: 'rgba(255,255,255,0.9)',
+                color: 'rgba(255,255,255,0.8)',
             },
             fontFamily: theme.typography.fonts.header,
             letterSpacing: '0.175rem',
@@ -197,7 +202,7 @@ export default function Nav(props) {
 
     const handleLinkClick = (e) => {
         e.preventDefault();
-        if (!document.getElementById('about') || !document.getElementById('services')) {
+        if (!document.getElementById('about') || !document.getElementById('services') || !document.getElementById('contact')) {
             window.location.href = e.currentTarget.href;
         } else if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
             const id = e.currentTarget.href.split('#')[1];
@@ -256,21 +261,6 @@ export default function Nav(props) {
                     const elms3 = document.querySelectorAll("a[href='/#contact']");
                     for (let i = 0; i < elms3.length; i++) {
                         elms3[i].classList.add('active');
-                    }
-                }
-            } else {
-                if (window.location.pathname === '/masks') {
-                    const elms1 = document.querySelectorAll("a[href='/#about']");
-                    for (let i = 0; i < elms1.length; i++) {
-                        elms1[i].classList.remove('active');
-                    }
-                    const elms2 = document.querySelectorAll("a[href='/#services']");
-                    for (let i = 0; i < elms2.length; i++) {
-                        elms2[i].classList.add('active');
-                    }
-                    const elms3 = document.querySelectorAll("a[href='/#contact']");
-                    for (let i = 0; i < elms3.length; i++) {
-                        elms3[i].classList.remove('active');
                     }
                 }
             }
