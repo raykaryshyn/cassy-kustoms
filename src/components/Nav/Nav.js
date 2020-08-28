@@ -12,20 +12,19 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import {
-    useLocation
-} from "react-router-dom";
+import vanillaSmoothie from 'vanilla-smoothie';
 
 
 
 export default function Nav(props) {
 
     function smoothScrollToTop() {
-        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        /* const c = document.documentElement.scrollTop || document.body.scrollTop;
         if (c > 0) {
             window.requestAnimationFrame(smoothScrollToTop);
             window.scrollTo(0, c - c / 8);
-        }
+        } */
+        vanillaSmoothie.scrollTop({ easing: 'easeOutQuad' });
     }
 
     const bigLogoRef = React.useRef();
@@ -113,9 +112,9 @@ export default function Nav(props) {
             fontFamily: theme.typography.fonts.header,
             textTransform: 'uppercase',
             margin: '5px 20px',
-        },
-        activeBigNavLink: {
-            color: theme.palette.secondary.main,
+            '&.active': {
+                color: theme.palette.secondary.main,
+            },
         },
         smallNavLinks: {
             display: 'flex',
@@ -132,9 +131,9 @@ export default function Nav(props) {
             textTransform: 'uppercase',
             margin: '5px 20px',
             opacity: 0.8,
-        },
-        activeSmallNavLink: {
-            opacity: 1,
+            '&.active': {
+                opacity: 1,
+            },
         },
         hamburger: {
             '& .MuiSvgIcon-root': {
@@ -164,14 +163,12 @@ export default function Nav(props) {
             '& .MuiListItem-root': {
                 padding: '0 0 18px',
             },
-        },
-        activeDropdownNavLink: {
-            opacity: 1,
+            '&.active': {
+                opacity: 1,
+            },
         },
     }));
     const classes = useStyles();
-
-    const location = useLocation();
 
     const handleLinkClick = (e) => {
         e.preventDefault();
@@ -180,12 +177,53 @@ export default function Nav(props) {
         } else if (document.getElementById('about') && document.getElementById('services')) {
             const id = e.currentTarget.href.split('#')[1];
             const elmTop = document.getElementById(id).offsetTop;
-            window.scrollTo({
+            /* window.scrollTo({
                 top: elmTop,
                 behavior: "smooth"
-            });
+            }); */
+            vanillaSmoothie.scrollTo(elmTop, { easing: 'easeOutQuad' });
         }
     };
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (document.getElementById('about') && document.getElementById('services')) {
+                if (window.scrollY === 0 || window.scrollY < document.getElementById('about').offsetTop - 1) {
+                    const elms = document.getElementsByClassName('navLink');
+                    for (let i = 0; i < elms.length; i++) {
+                        elms[i].classList.remove('active');
+                    }
+                } else if (window.scrollY >= document.getElementById('about').offsetTop && window.scrollY < document.getElementById('services').offsetTop - 1) {
+                    const elms1 = document.querySelectorAll("a[href='/#services']");
+                    for (let i = 0; i < elms1.length; i++) {
+                        elms1[i].classList.remove('active');
+                    }
+                    const elms2 = document.querySelectorAll("a[href='/#about']");
+                    for (let i = 0; i < elms2.length; i++) {
+                        elms2[i].classList.add('active');
+                    }
+                } else if (window.scrollY >= document.getElementById('services').offsetTop - 1) {
+                    const elms1 = document.querySelectorAll("a[href='/#services']");
+                    for (let i = 0; i < elms1.length; i++) {
+                        elms1[i].classList.add('active');
+                    }
+                    const elms2 = document.querySelectorAll("a[href='/#about']");
+                    for (let i = 0; i < elms2.length; i++) {
+                        elms2[i].classList.remove('active');
+                    }
+                }
+            }
+        }
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
+
+    const handleDropdClick = (e) => {
+        handleLinkClick(e);
+        hideDropd();
+    }
 
     return (
         <React.Fragment>
@@ -194,8 +232,8 @@ export default function Nav(props) {
                     <Toolbar className={classes.bigToolbar}>
                         <Link className={classes.bigLogo} to="/" onClick={smoothScrollToTop}><Logo ref={bigLogoRef} /></Link>
                         <div className={classes.bigNavLinks}>
-                            <a href="/#about" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeBigNavLink : ""].join(' ')} onClick={handleLinkClick}>About</a>
-                            <a href="/#services" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeBigNavLink : ""].join(' ')} onClick={handleLinkClick}>Services</a>
+                            <a href="/#about" className={['navLink', classes.bigNavLink].join(' ')} onClick={handleLinkClick}>About</a>
+                            <a href="/#services" className={['navLink', classes.bigNavLink].join(' ')} onClick={handleLinkClick}>Services</a>
                         </div>
                     </Toolbar>
                 </Container>
@@ -206,14 +244,13 @@ export default function Nav(props) {
                     <Toolbar className={classes.smallToolbar}>
                         <Link className={classes.smallLogo} to="/" onClick={smoothScrollToTop}><Logo ref={smallLogoRef} /></Link>
                         <div className={classes.smallNavLinks}>
-                            <a href="/#about" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeSmallNavLink : ""].join(' ')} onClick={handleLinkClick}>About</a>
-                            <a href="/#services" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeSmallNavLink : ""].join(' ')} onClick={handleLinkClick}>Services</a>
+                            <a href="/#about" className={['navLink', classes.smallNavLink].join(' ')} onClick={handleLinkClick}>About</a>
+                            <a href="/#services" className={['navLink', classes.smallNavLink].join(' ')} onClick={handleLinkClick}>Services</a>
                         </div>
                         <IconButton
                             edge="end"
                             className={classes.hamburger}
                             color="inherit"
-                            /* onClick={togglePopper} */
                             onClick={toggleDropd}
                             disableRipple
                         >
@@ -223,8 +260,8 @@ export default function Nav(props) {
                     <List className={classes.dropdown} ref={dropdRef}>
                         <a
                             href='/#about'
-                            className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeDropdownNavLink : ""].join(' ')}
-                            onClick={() => { handleLinkClick(); hideDropd(); }}
+                            className={['navLink', classes.dropdownNavLink].join(' ')}
+                            onClick={handleDropdClick}
                         >
                             <ListItem>
                                 <ListItemText primary='About' />
@@ -232,8 +269,8 @@ export default function Nav(props) {
                         </a>
                         <a
                             href='/#services'
-                            className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeDropdownNavLink : ""].join(' ')}
-                            onClick={() => { handleLinkClick(); hideDropd(); }}
+                            className={['navLink', classes.dropdownNavLink].join(' ')}
+                            onClick={handleDropdClick}
                         >
                             <ListItem>
                                 <ListItemText primary='Services' />
