@@ -11,6 +11,7 @@ export default function Home() {
             background: 'linear-gradient(-45deg, #dc6658, rgb(0, 138, 145))',
             marginTop: 40,
             padding: '75px 0 0',
+            overflow: 'hidden',
         },
         welcomeTitle: {
             textAlign: 'center',
@@ -30,9 +31,15 @@ export default function Home() {
                 width: 'auto',
             },
         },
+        paintLineWrapper: {
+            overflow: 'hidden',
+        },
         welcomePaintLine: {
-            /* transform: 'translateY(-10px)', */
             marginTop: -10,
+        },
+        aboutBottomPaintLine: {
+            transform: 'scale(-1, -1)',
+            float: 'right',
         },
         aboutSection: {
             background: '#c8e3e2',
@@ -43,12 +50,21 @@ export default function Home() {
     }));
     const classes = useStyles();
 
+    function viewportToPixels(value) {
+        var parts = value.match(/([0-9.]+)(vh|vw)/)
+        var q = Number(parts[1])
+        var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+        return side * (q / 100)
+    }
+
     React.useLayoutEffect(() => {
         const handleResize = () => {
             const sections = document.getElementsByClassName(classes.sectionGoto);
             for (let i = 0; i < sections.length; i++) {
                 sections[i].style.height = document.getElementById('navSmall').getBoundingClientRect().height + 'px';
             }
+
+            document.getElementById('contactContainer').style.height = (viewportToPixels('100vh') - document.getElementById('navSmall').getBoundingClientRect().height) + 'px';
         }
 
         handleResize();
@@ -69,12 +85,13 @@ export default function Home() {
                 </Container>
                 <div className={classes.sectionGoto} id="about">&nbsp;</div>
             </div>
-            <img src={PaintLine} className={[classes.paintLine, classes.welcomePaintLine].join(' ')} alt="Paint Line" />
-            <div className={["section", classes.aboutSection].join(' ')}>About</div>
+            <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+            <div className={[classes.aboutSection].join(' ')}>About</div>
+            <div className={[classes.paintLineWrapper, classes.aboutBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
             <div className={classes.sectionGoto} id="services">&nbsp;</div>
             <div style={{ height: '100vh' }}>Services</div>
             <div className={classes.sectionGoto} id="contact">&nbsp;</div>
-            <div style={{ height: '100vh' }}>
+            <div id="contactContainer">
                 <Container maxWidth="lg" style={{ paddingTop: '50px' }}>
                     <Typography variant="h3" component="h2" style={{ textAlign: 'center' }}>Contact</Typography>
                 </Container>
