@@ -8,7 +8,7 @@ import PaintLine from '../paintStroke.png';
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
-            background: 'linear-gradient(-45deg, #dc6658, rgb(0, 138, 145))',
+            background: 'linear-gradient(-45deg, #ce4842, rgb(0, 138, 145))',
             marginTop: 40,
             padding: '75px 0 0',
             overflow: 'hidden',

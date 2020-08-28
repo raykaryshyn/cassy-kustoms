@@ -115,10 +115,10 @@ export default function Nav(props) {
             textTransform: 'uppercase',
             margin: '5px 20px',
             '&.active': {
-                color: '#004950',
+                color: '#ce4842',
             },
             '&:hover': {
-                color: '#004950',
+                color: '#ce4842',
             },
             letterSpacing: '0.175rem',
             fontFamily: theme.typography.fonts.header,
