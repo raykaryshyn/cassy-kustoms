@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
 import { ReactComponent as Logo } from '../cassy_kustoms_logo.svg';
 import { Link, NavLink } from 'react-router-dom';
+/* import { HashLink as Link, NavHashLink as NavLink } from 'react-router-hash-link'; */
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,12 +16,21 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'; */
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {
+    useLocation
+} from "react-router-dom";
 
 
 
 export default function Nav(props) {
 
-
+    function smoothScrollToTop() {
+        const c = document.documentElement.scrollTop || document.body.scrollTop;
+        if (c > 0) {
+            window.requestAnimationFrame(smoothScrollToTop);
+            window.scrollTo(0, c - c / 8);
+        }
+    }
 
     const bigLogoRef = React.useRef();
     const rootSmallRef = React.useRef();
@@ -84,6 +94,9 @@ export default function Nav(props) {
     const toggleDropd = () => {
         setDropd(!dropd);
     };
+    const hideDropd = () => {
+        setDropd(false);
+    };
 
     const dropdRef = React.useRef();
 
@@ -126,7 +139,7 @@ export default function Nav(props) {
             padding: '10px 10px 10px 0',
             filter: 'drop-shadow(0 0 19px rgb(11, 82, 91))',
             [theme.breakpoints.down('xs')]: {
-                maxWidth: 240,
+                maxWidth: 220,
             },
             marginLeft: -4,
         },
@@ -227,15 +240,17 @@ export default function Nav(props) {
     }));
     const classes = useStyles();
 
+    const location = useLocation();
+
     return (
         <React.Fragment>
             <AppBar position="static" elevation={0} className={classes.rootBig}>
                 <Container maxWidth="lg">
                     <Toolbar className={classes.bigToolbar}>
-                        <Link className={classes.bigLogo} to="/"><Logo ref={bigLogoRef} /></Link>
+                        <Link className={classes.bigLogo} to="/" onClick={smoothScrollToTop}><Logo ref={bigLogoRef} /></Link>
                         <div className={classes.bigNavLinks}>
-                            <NavLink to="/about" className={classes.bigNavLink} activeClassName={classes.activeBigNavLink}>About</NavLink>
-                            <NavLink to="/services" className={classes.bigNavLink} activeClassName={classes.activeBigNavLink}>Services</NavLink>
+                            <a href="/#about" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeBigNavLink : ""].join(' ')}>About</a>
+                            <a href="/#services" className={[classes.bigNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeBigNavLink : ""].join(' ')}>Services</a>
                         </div>
                     </Toolbar>
                 </Container>
@@ -244,10 +259,10 @@ export default function Nav(props) {
             <AppBar elevation={0} className={classes.rootSmall} ref={rootSmallRef}>
                 <Container maxWidth="lg">
                     <Toolbar className={classes.smallToolbar}>
-                        <Link className={classes.smallLogo} to="/"><Logo ref={smallLogoRef} /></Link>
+                        <Link className={classes.smallLogo} to="/" onClick={smoothScrollToTop}><Logo ref={smallLogoRef} /></Link>
                         <div className={classes.smallNavLinks}>
-                            <NavLink to="/about" className={classes.smallNavLink} activeClassName={classes.activeSmallNavLink}>About</NavLink>
-                            <NavLink to="/services" className={classes.smallNavLink} activeClassName={classes.activeSmallNavLink}>Services</NavLink>
+                            <a href="/#about" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeSmallNavLink : ""].join(' ')}>About</a>
+                            <a href="/#services" className={[classes.smallNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeSmallNavLink : ""].join(' ')}>Services</a>
                         </div>
                         <IconButton
                             edge="end"
@@ -259,76 +274,26 @@ export default function Nav(props) {
                         >
                             {dropd ? <CloseIcon /> : <MenuIcon />}
                         </IconButton>
-                        {/* <Popper
-                            id={popperID}
-                            open={popperOpen}
-                            anchorEl={popperAnchor}
-                            transition
-                            placement="bottom"
-                            disablePortal={true}
-                            modifiers={{
-                                flip: {
-                                    enabled: false,
-                                },
-                                preventOverflow: {
-                                    enabled: true,
-                                    boundariesElement: 'scrollParent',
-                                },
-                            }}
-                        >
-                            {({ TransitionProps }) => (
-                                <ClickAwayListener onClickAway={hidePopper}>
-                                    <div className={classes.popperWrapper}>
-                                        <Paper className={classes.popperPaper} ref={popperRef}>
-                                            <List>
-                                                <NavLink
-                                                    exact
-                                                    to='/about'
-                                                    className={classes.popperNavLink}
-                                                    activeClassName={classes.activePopperNavLink}
-                                                >
-                                                    <ListItem>
-                                                        <ListItemText primary='About' />
-                                                    </ListItem>
-                                                </NavLink>
-                                                <NavLink
-                                                    exact
-                                                    to='/services'
-                                                    className={classes.popperNavLink}
-                                                    activeClassName={classes.activePopperNavLink}
-                                                >
-                                                    <ListItem>
-                                                        <ListItemText primary='Services' />
-                                                    </ListItem>
-                                                </NavLink>
-                                            </List>
-                                        </Paper>
-                                    </div>
-                                </ClickAwayListener>
-                            )}
-                        </Popper> */}
                     </Toolbar>
                     <List className={classes.dropdown} ref={dropdRef}>
-                        <NavLink
-                            exact
-                            to='/about'
-                            className={classes.dropdownNavLink}
-                            activeClassName={classes.activeDropdownNavLink}
+                        <a
+                            href='/#about'
+                            className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#about" ? classes.activeDropdownNavLink : ""].join(' ')}
+                            onClick={hideDropd}
                         >
                             <ListItem>
                                 <ListItemText primary='About' />
                             </ListItem>
-                        </NavLink>
-                        <NavLink
-                            exact
-                            to='/services'
-                            className={classes.dropdownNavLink}
-                            activeClassName={classes.activeDropdownNavLink}
+                        </a>
+                        <a
+                            href='/#services'
+                            className={[classes.dropdownNavLink, `${location.pathname}${location.hash}` === "/#services" ? classes.activeDropdownNavLink : ""].join(' ')}
+                            onClick={hideDropd}
                         >
                             <ListItem>
                                 <ListItemText primary='Services' />
                             </ListItem>
-                        </NavLink>
+                        </a>
                     </List>
                 </Container>
             </AppBar>
