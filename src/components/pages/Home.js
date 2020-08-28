@@ -1,21 +1,13 @@
 import React from 'react';
+import ContactForm from './ContactForm';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+/* import { makeStyles } from '@material-ui/core/styles'; */
 
 export default function Home() {
-    /* React.useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY === 0 && window.scrollY < document.getElementById('about').offsetTop - 1) {
-                window.location.hash = '';
-            } else if (window.scrollY >= document.getElementById('about').offsetTop - 1 && window.scrollY < document.getElementById('services').offsetTop - 1) {
-                window.location.hash = 'about';
-            } else if (window.scrollY >= document.getElementById('services').offsetTop - 1) {
-                window.location.hash = 'services';
-            }
-        }
-
-        handleScroll();
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }); */
+    /* const useStyles = makeStyles(theme => ({
+    }));
+    const classes = useStyles(); */
 
     React.useLayoutEffect(() => {
         const handleResize = () => {
@@ -34,7 +26,14 @@ export default function Home() {
         <>
             <div style={{ height: '100vh' }} id="about" className="section">About</div>
             <div style={{ height: '100vh' }} id="services" className="section">Services</div>
-            <div style={{ height: '100vh' }} id="contact" className="section">Contact</div>
+            <div style={{ height: '100vh' }} id="contact" className="section">
+                <Container maxWidth="lg" style={{paddingTop: '50px'}}>
+                    <Typography variant="h3" component="h2" style={{textAlign: 'center'}}>Contact</Typography>
+                </Container>
+                <Container maxWidth="md">
+                    <ContactForm />
+                </Container>
+            </div>
         </>
     );
 }
