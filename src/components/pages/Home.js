@@ -34,6 +34,7 @@ export default function Home() {
         <>
             <div style={{ height: '100vh' }} id="about" className="section">About</div>
             <div style={{ height: '100vh' }} id="services" className="section">Services</div>
+            <div style={{ height: '100vh' }} id="contact" className="section">Contact</div>
         </>
     );
 }

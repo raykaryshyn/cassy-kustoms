@@ -104,10 +104,12 @@ export default function Nav(props) {
         bigNavLinks: {
             display: 'flex',
             flexDirection: 'row',
-            marginTop: 7,
+            marginTop: 10,
+            flexWrap: 'wrap',
+            justifyContent: 'center',
         },
         bigNavLink: {
-            fontSize: 20.5,
+            fontSize: 19,
             textDecoration: 'none',
             color: '#006770',
             textTransform: 'uppercase',
@@ -121,16 +123,20 @@ export default function Nav(props) {
             letterSpacing: '0.175rem',
             fontFamily: theme.typography.fonts.header,
             transition: theme.transitions.create('color', { duration: 250 }),
+            [theme.breakpoints.down(580)]: {
+                fontSize: 16,
+                margin: '5px 15px',
+            },
         },
         smallNavLinks: {
             display: 'flex',
             flexDirection: 'row',
-            [theme.breakpoints.down(670)]: {
+            [theme.breakpoints.down(790)]: {
                 display: 'none',
             },
         },
         smallNavLink: {
-            fontSize: 18,
+            fontSize: 17,
             textDecoration: 'none',
             color: '#91c4c1',
             textTransform: 'uppercase',
@@ -150,7 +156,7 @@ export default function Nav(props) {
                 width: 30,
                 height: 30,
             },
-            [theme.breakpoints.up(670)]: {
+            [theme.breakpoints.up(790)]: {
                 display: 'none',
             },
         },
@@ -161,17 +167,23 @@ export default function Nav(props) {
             alignItems: 'flex-end',
             margin: 0,
             padding: 0,
+            [theme.breakpoints.up(790)]: {
+                display: 'none',
+            },
         },
         dropdownNavLink: {
             display: 'block',
-            fontSize: 16,
             textDecoration: 'none',
             color: '#91c4c1',
-            fontFamily: theme.typography.fonts.header,
             textTransform: 'uppercase',
             opacity: 0.8,
             '& .MuiListItem-root': {
                 padding: '0 0 18px',
+            },
+            '& .MuiTypography-root': {
+                fontFamily: theme.typography.fonts.header,
+                fontSize: 18,
+                letterSpacing: '0.15rem',
             },
             '&.active': {
                 color: '#fff',
@@ -185,7 +197,7 @@ export default function Nav(props) {
         e.preventDefault();
         if (!document.getElementById('about') || !document.getElementById('services')) {
             window.location.href = e.currentTarget.href;
-        } else if (document.getElementById('about') && document.getElementById('services')) {
+        } else if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
             const id = e.currentTarget.href.split('#')[1];
             const elmTop = document.getElementById(id).offsetTop;
             /* window.scrollTo({
@@ -198,29 +210,50 @@ export default function Nav(props) {
 
     React.useEffect(() => {
         const handleScroll = () => {
-            if (document.getElementById('about') && document.getElementById('services')) {
+            if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
                 if (window.scrollY === 0 || window.scrollY < document.getElementById('about').offsetTop - 1) {
                     const elms = document.getElementsByClassName('navLink');
                     for (let i = 0; i < elms.length; i++) {
                         elms[i].classList.remove('active');
                     }
                 } else if (window.scrollY >= document.getElementById('about').offsetTop - 1 && window.scrollY < document.getElementById('services').offsetTop - 1) {
-                    const elms1 = document.querySelectorAll("a[href='/#services']");
-                    for (let i = 0; i < elms1.length; i++) {
-                        elms1[i].classList.remove('active');
-                    }
-                    const elms2 = document.querySelectorAll("a[href='/#about']");
-                    for (let i = 0; i < elms2.length; i++) {
-                        elms2[i].classList.add('active');
-                    }
-                } else if (window.scrollY >= document.getElementById('services').offsetTop - 1) {
-                    const elms1 = document.querySelectorAll("a[href='/#services']");
+                    const elms1 = document.querySelectorAll("a[href='/#about']");
                     for (let i = 0; i < elms1.length; i++) {
                         elms1[i].classList.add('active');
                     }
-                    const elms2 = document.querySelectorAll("a[href='/#about']");
+                    const elms2 = document.querySelectorAll("a[href='/#services']");
                     for (let i = 0; i < elms2.length; i++) {
                         elms2[i].classList.remove('active');
+                    }
+                    const elms3 = document.querySelectorAll("a[href='/#contact']");
+                    for (let i = 0; i < elms3.length; i++) {
+                        elms3[i].classList.remove('active');
+                    }
+                } else if (window.scrollY >= document.getElementById('services').offsetTop - 1 && window.scrollY < document.getElementById('contact').offsetTop - 1) {
+                    const elms1 = document.querySelectorAll("a[href='/#about']");
+                    for (let i = 0; i < elms1.length; i++) {
+                        elms1[i].classList.remove('active');
+                    }
+                    const elms2 = document.querySelectorAll("a[href='/#services']");
+                    for (let i = 0; i < elms2.length; i++) {
+                        elms2[i].classList.add('active');
+                    }
+                    const elms3 = document.querySelectorAll("a[href='/#contact']");
+                    for (let i = 0; i < elms3.length; i++) {
+                        elms3[i].classList.remove('active');
+                    }
+                } else if (window.scrollY >= document.getElementById('contact').offsetTop - 1) {
+                    const elms1 = document.querySelectorAll("a[href='/#about']");
+                    for (let i = 0; i < elms1.length; i++) {
+                        elms1[i].classList.remove('active');
+                    }
+                    const elms2 = document.querySelectorAll("a[href='/#services']");
+                    for (let i = 0; i < elms2.length; i++) {
+                        elms2[i].classList.remove('active');
+                    }
+                    const elms3 = document.querySelectorAll("a[href='/#contact']");
+                    for (let i = 0; i < elms3.length; i++) {
+                        elms3[i].classList.add('active');
                     }
                 }
             }
@@ -245,6 +278,7 @@ export default function Nav(props) {
                         <div className={classes.bigNavLinks}>
                             <a href="/#about" className={['navLink', classes.bigNavLink].join(' ')} onClick={handleLinkClick}>About</a>
                             <a href="/#services" className={['navLink', classes.bigNavLink].join(' ')} onClick={handleLinkClick}>Services</a>
+                            <a href="/#contact" className={['navLink', classes.bigNavLink].join(' ')} onClick={handleLinkClick}>Contact</a>
                         </div>
                     </Toolbar>
                 </Container>
@@ -257,6 +291,7 @@ export default function Nav(props) {
                         <div className={classes.smallNavLinks}>
                             <a href="/#about" className={['navLink', classes.smallNavLink].join(' ')} onClick={handleLinkClick}>About</a>
                             <a href="/#services" className={['navLink', classes.smallNavLink].join(' ')} onClick={handleLinkClick}>Services</a>
+                            <a href="/#contact" className={['navLink', classes.smallNavLink].join(' ')} onClick={handleLinkClick}>Contact</a>
                         </div>
                         <IconButton
                             edge="end"
@@ -285,6 +320,15 @@ export default function Nav(props) {
                         >
                             <ListItem>
                                 <ListItemText primary='Services' />
+                            </ListItem>
+                        </a>
+                        <a
+                            href='/#contact'
+                            className={['navLink', classes.dropdownNavLink].join(' ')}
+                            onClick={handleDropdClick}
+                        >
+                            <ListItem>
+                                <ListItemText primary='Contact' />
                             </ListItem>
                         </a>
                     </List>
