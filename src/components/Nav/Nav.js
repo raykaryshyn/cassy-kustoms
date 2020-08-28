@@ -256,6 +256,21 @@ export default function Nav(props) {
                         elms3[i].classList.add('active');
                     }
                 }
+            } else {
+                if (window.location.pathname === '/masks') {
+                    const elms1 = document.querySelectorAll("a[href='/#about']");
+                    for (let i = 0; i < elms1.length; i++) {
+                        elms1[i].classList.remove('active');
+                    }
+                    const elms2 = document.querySelectorAll("a[href='/#services']");
+                    for (let i = 0; i < elms2.length; i++) {
+                        elms2[i].classList.add('active');
+                    }
+                    const elms3 = document.querySelectorAll("a[href='/#contact']");
+                    for (let i = 0; i < elms3.length; i++) {
+                        elms3[i].classList.remove('active');
+                    }
+                }
             }
         }
 

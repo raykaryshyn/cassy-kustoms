@@ -24,6 +24,25 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`scrollable-auto-tabpanel-${index}`}
+            aria-labelledby={`scrollable-auto-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Typography>{children}</Typography>
+            )}
+        </div>
+    );
+}
 
 
 
@@ -433,6 +452,13 @@ export default function Fabrics() {
     const fabricsRef = React.useRef();
 
 
+    const [tab, setTab] = React.useState(0);
+
+    const handleTab = (e, newTab) => {
+        setTab(newTab);
+    };
+
+
     return (
         <FabricsContext.Provider value={{ context }}>
             <div style={{ overflow: 'hidden' }}>
@@ -446,148 +472,135 @@ export default function Fabrics() {
                 <img src={PaintLine} className={[classes.paintLine, classes.paintLineBottom].join(' ')} alt="Paint Line" />
             </div>
 
-            <Container maxWidth="lg">
-                {/* <div className={classes.cards}>
-                    <div className={classes.cardWrapper}>
-                        <Card className={classes.card} variant="outlined">
-                            <CardContent>
-                                <Typography variant="h5" component="h2" className={classes.title}>
-                                    How to Order
+            <Tabs
+                value={tab}
+                onChange={handleTab}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+            >
+                <Tab label="Gallery" />
+                <Tab label="Order" />
+            </Tabs>
+            <TabPanel value={tab} index={0}>
+                Item One
+            </TabPanel>
+            <TabPanel value={tab} index={1}>
+                <Container maxWidth="lg">
+
+                    <div className={classes.myOrder}>
+                        <div className={classes.cardWrapper}>
+                            <Card className={classes.card} variant="outlined">
+                                <CardContent>
+                                    <Typography variant="h5" component="h2" className={classes.title}>
+                                        Pricing
                                 </Typography>
-                                <ol className={classes.cardContent}>
-                                    <li className="oli">Pick a fabric</li>
-                                    <li className="oli"><ContactDialog className={classes.contactLink}>Contact me</ContactDialog> for measurement instructions</li>
-                                </ol>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className={classes.cardWrapper}>
-                        <Card className={classes.card} variant="outlined">
-                            <CardContent>
-                                <Typography variant="h5" component="h2" className={classes.title}>
-                                    Pricing
-                                </Typography>
-                                <ul className={classes.cardContent}>
-                                    <li className="uli">$5 per mask</li>
-                                    <li className="uli">$3 - $8 shipping</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div> */}
-
-                <div className={classes.myOrder}>
-                    <div className={classes.cardWrapper}>
-                        <Card className={classes.card} variant="outlined">
-                            <CardContent>
-                                <Typography variant="h5" component="h2" className={classes.title}>
-                                    Pricing
-                                </Typography>
-                                <ul className={classes.cardContent}>
-                                    <li className="uli">$5 per mask</li>
-                                    <li className="uli">$3 - $8 shipping</li>
-                                </ul>
-                            </CardContent>
-                        </Card>
-                    </div>
-
-                    {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''}
-
-                    {orderWorking ?
-                        <div className={classes.myOrderResults}>
-                            <Typography variant="h5" component="h1">My Order</Typography>
-                            <form name="order" onSubmit={handleSubmit}>
-                                <input type="hidden" name="form-name" value="order" />
-                                <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
-                            </form>
-                            <div className={classes.myOrderFabrics} ref={fabricsRef}>
-                                {orderFabrics ?
-                                    Object.keys(orderFabrics).map((fabric, i) => {
-                                        const fabricObj = fabricsList.find(obj => {
-                                            return obj.name === orderFabrics[fabric].split('__')[0]
-                                        });
-                                        return (
-                                            <div key={i}>
-                                                <p>{fabricObj.name}</p>
-                                                <img
-                                                    src={fabricObj.thumbnail}
-                                                    alt={fabricObj.name}
-                                                />
-                                                <FormControl variant="outlined">
-                                                    <FormHelperText>Nose to Ear</FormHelperText>
-                                                    <OutlinedInput
-                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                        labelWidth={0}
-                                                        onChange={handleMes}
-                                                        name={orderFabrics[fabric] + '__ear'}
-                                                        error={mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !mes[orderFabrics[fabric] + '__ear'].valid : false}
-                                                    />
-                                                </FormControl>
-                                                {mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!mes[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
-
-                                                <FormControl variant="outlined">
-                                                    <FormHelperText>Nose to Chin</FormHelperText>
-                                                    <OutlinedInput
-                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                        labelWidth={0}
-                                                        onChange={handleMes}
-                                                        name={orderFabrics[fabric] + '__chin'}
-                                                        error={mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !mes[orderFabrics[fabric] + '__chin'].valid : false}
-                                                    />
-                                                </FormControl>
-                                                {mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!mes[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
-
-                                                <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
-                                            </div>
-                                        );
-                                    })
-                                    :
-                                    ''
-                                }
-                            </div>
-                            <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
-                            <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+                                    <ul className={classes.cardContent}>
+                                        <li className="uli">$5 per mask</li>
+                                        <li className="uli">$3 - $8 shipping</li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
                         </div>
+
+                        {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''}
+
+                        {orderWorking ?
+                            <div className={classes.myOrderResults}>
+                                <Typography variant="h5" component="h1">My Order</Typography>
+                                <form name="order" onSubmit={handleSubmit}>
+                                    <input type="hidden" name="form-name" value="order" />
+                                    <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
+                                </form>
+                                <div className={classes.myOrderFabrics} ref={fabricsRef}>
+                                    {orderFabrics ?
+                                        Object.keys(orderFabrics).map((fabric, i) => {
+                                            const fabricObj = fabricsList.find(obj => {
+                                                return obj.name === orderFabrics[fabric].split('__')[0]
+                                            });
+                                            return (
+                                                <div key={i}>
+                                                    <p>{fabricObj.name}</p>
+                                                    <img
+                                                        src={fabricObj.thumbnail}
+                                                        alt={fabricObj.name}
+                                                    />
+                                                    <FormControl variant="outlined">
+                                                        <FormHelperText>Nose to Ear</FormHelperText>
+                                                        <OutlinedInput
+                                                            endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                            labelWidth={0}
+                                                            onChange={handleMes}
+                                                            name={orderFabrics[fabric] + '__ear'}
+                                                            error={mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !mes[orderFabrics[fabric] + '__ear'].valid : false}
+                                                        />
+                                                    </FormControl>
+                                                    {mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!mes[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
+
+                                                    <FormControl variant="outlined">
+                                                        <FormHelperText>Nose to Chin</FormHelperText>
+                                                        <OutlinedInput
+                                                            endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                            labelWidth={0}
+                                                            onChange={handleMes}
+                                                            name={orderFabrics[fabric] + '__chin'}
+                                                            error={mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !mes[orderFabrics[fabric] + '__chin'].valid : false}
+                                                        />
+                                                    </FormControl>
+                                                    {mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!mes[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
+
+                                                    <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
+                                                </div>
+                                            );
+                                        })
+                                        :
+                                        ''
+                                    }
+                                </div>
+                                <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
+                                <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+                            </div>
+                            :
+                            ''
+                        }
+                    </div>
+
+                    <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
+                    <FabricsSettings />
+
+                    {gridView ?
+                        <Grid container spacing={4} className={classes.grid} ref={gridRef}>
+                            {fabrics.map((fabric, i) => {
+                                if (shouldShow(fabric.colors)) {
+                                    return (
+                                        <Grid item xs={12} sm={6} md={4} key={i}>
+                                            <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+                                            {orderWorking ? <FabricsCounter id={i} /> : ''}
+                                        </Grid>
+                                    )
+                                } else {
+                                    return '';
+                                }
+                            })}
+                        </Grid>
                         :
-                        ''
+                        <Grid container spacing={2} className={classes.grid} ref={gridRef}>
+                            {fabrics.map((fabric, i) => {
+                                if (shouldShow(fabric.colors)) {
+                                    return (
+                                        <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
+                                            <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+                                            {orderWorking ? <FabricsCounter id={i} /> : ''}
+                                        </Grid>
+                                    )
+                                } else {
+                                    return '';
+                                }
+                            })}
+                        </Grid>
                     }
-                </div>
-
-                <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
-                <FabricsSettings />
-
-                {gridView ?
-                    <Grid container spacing={4} className={classes.grid} ref={gridRef}>
-                        {fabrics.map((fabric, i) => {
-                            if (shouldShow(fabric.colors)) {
-                                return (
-                                    <Grid item xs={12} sm={6} md={4} key={i}>
-                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                        {orderWorking ? <FabricsCounter id={i} /> : ''}
-                                    </Grid>
-                                )
-                            } else {
-                                return '';
-                            }
-                        })}
-                    </Grid>
-                    :
-                    <Grid container spacing={2} className={classes.grid} ref={gridRef}>
-                        {fabrics.map((fabric, i) => {
-                            if (shouldShow(fabric.colors)) {
-                                return (
-                                    <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
-                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                        {orderWorking ? <FabricsCounter id={i} /> : ''}
-                                    </Grid>
-                                )
-                            } else {
-                                return '';
-                            }
-                        })}
-                    </Grid>
-                }
-            </Container>
+                </Container>
+            </TabPanel>
             <ContactDialog />
         </FabricsContext.Provider >
     );
