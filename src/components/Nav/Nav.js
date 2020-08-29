@@ -57,7 +57,7 @@ export default function Nav(props) {
     React.useLayoutEffect(() => {
         window.scrollBy(0, 1);
         window.scrollBy(0, -1);
-        
+
         const handleResize = (first = false) => {
             if (location.pathname === '/masks') {
                 rootSmallRef.current.classList.add(classes.showSmall);
@@ -123,7 +123,7 @@ export default function Nav(props) {
         },
         smallLogo: {
             width: '100%',
-            maxWidth: 300,
+            maxWidth: 260,
             '& path': {
                 fill: '#fff',
             },
@@ -248,7 +248,6 @@ export default function Nav(props) {
     };
 
     React.useLayoutEffect(() => {
-        console.log(location.pathname)
         const handleScroll = () => {
             if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
                 if (window.scrollY === 0 || window.scrollY < document.getElementById('about').offsetTop - 1) {
