@@ -55,6 +55,9 @@ export default function Nav(props) {
     });
 
     React.useLayoutEffect(() => {
+        window.scrollBy(0, 1);
+        window.scrollBy(0, -1);
+        
         const handleResize = (first = false) => {
             if (location.pathname === '/masks') {
                 rootSmallRef.current.classList.add(classes.showSmall);
@@ -65,8 +68,7 @@ export default function Nav(props) {
                 if (first) {
                     /* rootSmallRef.current.classList.remove(classes.showSmall);
                     /* setDropd(false); */ 
-                    window.scrollBy(0, 1);
-                    window.scrollBy(0, -1);
+                    
                 }
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
