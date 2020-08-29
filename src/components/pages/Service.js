@@ -166,7 +166,7 @@ export default function Service(props) {
                 background: '#005861',
             },
             cursor: 'pointer',
-            transition: theme.transitions.create('background', { duration: 250 }),
+            /* transition: theme.transitions.create('background', { duration: 250 }), */
         },
         subNavIconSmall: {
             width: 20,
