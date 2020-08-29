@@ -124,7 +124,7 @@ export default function Service(props) {
             },
             display: 'flex',
             flexDirection: 'row',
-            [theme.breakpoints.down(400)]: {
+            [theme.breakpoints.down(370)]: {
                 flexDirection: 'column',
                 alignItems: 'center',
             },
@@ -139,7 +139,7 @@ export default function Service(props) {
             flexDirection: 'column',
             alignItems: 'center',
             marginRight: 30,
-            [theme.breakpoints.down(400)]: {
+            [theme.breakpoints.down(370)]: {
                 marginRight: 0,
                 marginBottom: 10,
                 '&:last-of-type': {
