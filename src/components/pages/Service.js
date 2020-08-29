@@ -43,8 +43,7 @@ export default function Service(props) {
             [theme.breakpoints.down(550)]: {
                 fontSize: 30,
             },
-            letterSpacing: '0.3rem',
-            wordSpacing: '0.3rem',
+            letterSpacing: 3,
             marginBottom: '0.66rem',
             marginTop: 20,
         },
@@ -60,8 +59,7 @@ export default function Service(props) {
             [theme.breakpoints.down(550)]: {
                 fontSize: 30,
             },
-            letterSpacing: '0.3rem',
-            wordSpacing: '0.3rem',
+            letterSpacing: 3,
             marginBottom: '0.66rem',
         },
         subNavBig: {
@@ -127,6 +125,8 @@ export default function Service(props) {
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'flex-start',
+            marginTop: 20,
+            marginBottom: -10,
         },
         subNavSectionSmall: {
             display: 'flex',
@@ -135,11 +135,10 @@ export default function Service(props) {
             marginRight: 30,
             [theme.breakpoints.down(400)]: {
                 marginRight: 0,
-                marginBottom: 20,
+                marginBottom: 10,
                 '&:last-of-type': {
                     marginBottom: 0,
                 },
-                width: '100%',
             },
             '&:last-of-type': {
                 marginRight: 0,
@@ -161,6 +160,7 @@ export default function Service(props) {
                 background: '#005861',
             },
             cursor: 'pointer',
+            transition: theme.transitions.create('background', { duration: 250 }),
         },
         subNavIconSmall: {
             width: 20,
@@ -171,6 +171,7 @@ export default function Service(props) {
             marginRight: -7,
             marginLeft: 8,
             color: '#b6d7d6',
+            transition: theme.transitions.create('transform', { duration: 250 }),
             '&.active': {
                 transform: 'scale(1, -1)',
             },
@@ -203,7 +204,7 @@ export default function Service(props) {
             background: 'none',
             padding: 0,
             outline: 'none',
-            width: '100%',
+            margin: 0,
         },
     }));
     const classes = useStyles();
