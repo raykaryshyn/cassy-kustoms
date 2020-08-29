@@ -4,11 +4,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import PaintLine from '../paintStroke.png';
-import Link from '@material-ui/core/Link';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
 
 export default function Service(props) {
+    const [dropd, setDropdState] = React.useState({ paint: false, sew: false });
+    const toggleDropd = (cat) => {
+        setDropdState({ ...dropd, [cat]: !dropd[cat] });
+        console.log({ ...dropd, [cat]: !dropd[cat] });
+    };
+
     const useStyles = makeStyles((theme) => ({
         paintLine: {
             display: 'block',
@@ -60,6 +68,9 @@ export default function Service(props) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            [theme.breakpoints.down(720)]: {
+                display: 'none',
+            },
         },
         subNavSectionBig: {
             display: 'flex',
@@ -89,8 +100,8 @@ export default function Service(props) {
             padding: '5px 12px',
             margin: '10px 5px',
             transition: theme.transitions.create('background', { duration: 250 }),
+            textDecoration: 'none',
             '&:hover': {
-                textDecoration: 'none',
                 background: '#005861',
             },
             cursor: 'pointer',
@@ -102,6 +113,97 @@ export default function Service(props) {
             width: 25,
             marginRight: 8,
             fill: '#004950',
+        },
+        subNavSmall: {
+            [theme.breakpoints.up(720)]: {
+                display: 'none',
+            },
+            display: 'flex',
+            flexDirection: 'row',
+            [theme.breakpoints.down(400)]: {
+                flexDirection: 'column',
+                alignItems: 'center',
+            },
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+        },
+        subNavSectionSmall: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            marginRight: 30,
+            [theme.breakpoints.down(400)]: {
+                marginRight: 0,
+                marginBottom: 20,
+                '&:last-of-type': {
+                    marginBottom: 0,
+                },
+                width: '100%',
+            },
+            '&:last-of-type': {
+                marginRight: 0,
+            },
+        },
+        subNavTitleSmall: {
+            color: '#fff',
+            fontSize: 21,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: '#489c98',
+            borderRadius: theme.shape.borderRadius,
+            padding: '6px 12px',
+            width: '100%',
+            '&.active': {
+                borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+                background: '#005861',
+            },
+            cursor: 'pointer',
+        },
+        subNavIconSmall: {
+            width: 20,
+            marginRight: 10,
+            fill: '#b6d7d6',
+        },
+        subNavArrowSmall: {
+            marginRight: -7,
+            marginLeft: 8,
+            color: '#b6d7d6',
+            '&.active': {
+                transform: 'scale(1, -1)',
+            },
+        },
+        subNavListSmall: {
+            display: 'none',
+            '&.active': {
+                display: 'flex',
+            },
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            background: '#489c98',
+            borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
+            padding: '7px 0',
+        },
+        subNavButtonSmall: {
+            padding: '5px 12px',
+            fontSize: 18,
+            fontFamily: theme.typography.fonts.header,
+            lineHeight: 1.235,
+            textDecoration: 'none',
+            color: '#fff',
+            '&.active': {
+                color: '#005861',
+            },
+        },
+        smallButtonDropd: {
+            border: 'none',
+            background: 'none',
+            padding: 0,
+            outline: 'none',
+            width: '100%',
         },
     }));
     const classes = useStyles();
@@ -115,17 +217,38 @@ export default function Service(props) {
                     <div className={classes.subNavBig}>
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><PaintIcon className={classes.subNavIconBig} /> Painting:</Typography>
-                            <Link className={classes.subNavButtonBig}>Phone Cases</Link>
-                            <Link className={classes.subNavButtonBig}>AirPods Cases</Link>
-                            <Link className={classes.subNavButtonBig}>Hydro Flasks</Link>
-                            <Link className={classes.subNavButtonBig}>Shoes</Link>
+                            <NavLink to="/phone-cases" className={classes.subNavButtonBig}>Phone Cases</NavLink>
+                            <NavLink to="/airpods-cases" className={classes.subNavButtonBig}>AirPods Cases</NavLink>
+                            <NavLink to="/hydro-flasks" className={classes.subNavButtonBig}>Hydro Flasks</NavLink>
+                            <NavLink to="/shoes" className={classes.subNavButtonBig}>Shoes</NavLink>
                         </div>
                         <div className={classes.subNavSectionBig}>
-                            <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><SewIcon className={classes.subNavIconBig} />Sewing:</Typography>
-                            <Link className={[classes.subNavButtonBig, 'active'].join(' ')}>Face Masks</Link>
-                            <Link className={classes.subNavButtonBig}>Schrunchies</Link>
-                            <Link className={classes.subNavButtonBig}>Bucket Hats</Link>
-                            <Link className={classes.subNavButtonBig}>Clothes</Link>
+                            <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><SewIcon className={classes.subNavIconBig} /> Sewing:</Typography>
+                            <NavLink to="/masks" className={classes.subNavButtonBig} activeClassName='active'>Face Masks</NavLink>
+                            <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Schrunchies</NavLink>
+                            <NavLink to="/bucket-hats" className={classes.subNavButtonBig}>Bucket Hats</NavLink>
+                            <NavLink to="/clothes" className={classes.subNavButtonBig}>Clothes</NavLink>
+                        </div>
+                    </div>
+
+                    <div className={classes.subNavSmall}>
+                        <div className={classes.subNavSectionSmall}>
+                            <button onClick={() => toggleDropd('paint')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['paint'] ? 'active' : ''].join(' ')}><PaintIcon className={classes.subNavIconSmall} /> Painting <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['paint'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <div className={[classes.subNavListSmall, dropd['paint'] ? 'active' : ''].join(' ')}>
+                                <NavLink to="/phone-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('paint')}>Phone Cases</NavLink>
+                                <NavLink to="/airpods-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('paint')}>AirPods Cases</NavLink>
+                                <NavLink to="/hydro-flasks" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('paint')}>Hydro Flasks</NavLink>
+                                <NavLink to="/shoes" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('paint')}>Shoes</NavLink>
+                            </div>
+                        </div>
+                        <div className={classes.subNavSectionSmall}>
+                            <button onClick={() => toggleDropd('sew')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['sew'] ? 'active' : ''].join(' ')}><SewIcon className={classes.subNavIconSmall} /> Sewing <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['sew'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <div className={[classes.subNavListSmall, dropd['sew'] ? 'active' : ''].join(' ')}>
+                                <NavLink to="/masks" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('sew')}>Face Masks</NavLink>
+                                <NavLink to="/scrunchies" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('sew')}>Schrunchies</NavLink>
+                                <NavLink to="/bucket-hats" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('sew')}>Bucket Hats</NavLink>
+                                <NavLink to="/clothes" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd('sew')}>Clothes</NavLink>
+                            </div>
                         </div>
                     </div>
                 </Container>
