@@ -153,7 +153,7 @@ export default function Service(props) {
         },
         subNavTitleSmall: {
             color: '#fff',
-            fontSize: 20,
+            fontSize: 17,
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
@@ -170,7 +170,7 @@ export default function Service(props) {
             /* transition: theme.transitions.create('background', { duration: 250 }), */
         },
         subNavIconSmall: {
-            width: 20,
+            width: 18,
             marginRight: 10,
             fill: '#b6d7d6',
         },
@@ -197,7 +197,7 @@ export default function Service(props) {
         },
         subNavButtonSmall: {
             padding: '5px 12px',
-            fontSize: 18,
+            fontSize: 17,
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
             textDecoration: 'none',
