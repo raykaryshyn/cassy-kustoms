@@ -4,8 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
+import CheckIcon from '@material-ui/icons/Check';
+import ErrorIcon from '@material-ui/icons/Error';
 
 import SendIcon from '@material-ui/icons/Send';
+import { Typography } from '@material-ui/core';
 
 export default function ContactDialog(props) {
 
@@ -84,6 +87,46 @@ export default function ContactDialog(props) {
             border: '1px solid #489c98',
             borderRadius: theme.shape.borderRadius,
         },
+
+        endingWrapper: {
+            display: 'flex',
+            flexDirection: 'row',
+            [theme.breakpoints.down(510)]: {
+                flexDirection: 'column',
+            },
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 10,
+        },
+        endingIcon: {
+            fontSize: 70,
+            borderRadius: '50%',
+            padding: 10,
+            margin: 30,
+        },
+        checkIcon: {
+            background: 'green',
+            color: '#fff',
+        },
+        errorIcon: {
+            background: '#ce4842',
+            color: '#fff',
+        },
+        endingTitle: {
+            fontSize: 28,
+            letterSpacing: 1,
+            [theme.breakpoints.down(510)]: {
+                textAlign: 'center',
+            },
+        },
+        endingText: {
+            margin: '0 30px 0 0',
+            [theme.breakpoints.down(510)]: {
+                margin: '0 30px 30px',
+                textAlign: 'center',
+            },
+        }
     }));
     const classes = useStyles();
 
@@ -184,10 +227,22 @@ export default function ContactDialog(props) {
             </div>
 
             <div className={[classes.ending, classes.thanks].join(' ')} id='thanksRef'>
-                Thanks
+                <div className={classes.endingWrapper}>
+                    <CheckIcon className={[classes.endingIcon, classes.checkIcon].join(' ')} />
+                    <div>
+                        <Typography component="h3" variant="h3" className={classes.endingTitle}>Thanks!</Typography>
+                        <p className={classes.endingText}>I will get back to you as soon as possible.</p>
+                    </div>
+                </div>
             </div>
             <div className={[classes.ending, classes.fail].join(' ')} id='failRef'>
-                Uh Oh.
+                <div className={classes.endingWrapper}>
+                    <ErrorIcon className={[classes.endingIcon, classes.errorIcon].join(' ')} />
+                    <div>
+                        <Typography component="h3" variant="h3" className={classes.endingTitle}>Sorry!</Typography>
+                        <p className={classes.endingText}>Your message was not able to be sent at this time.</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

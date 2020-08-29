@@ -40,7 +40,7 @@ export default function Home() {
         },
         aboutBottomPaintLine: {
             transform: 'scale(-1, -1)',
-            float: 'right',
+            /* float: 'right', */
         },
         aboutSection: {
             background: '#c8e3e2',
