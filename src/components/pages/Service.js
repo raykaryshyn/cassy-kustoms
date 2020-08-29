@@ -27,7 +27,10 @@ export default function Service(props) {
         },
         mainTitle: {
             textAlign: 'center',
-            fontSize: '2.2rem',
+            fontSize: 35,
+            [theme.breakpoints.down(550)]: {
+                fontSize: 30,
+            },
             letterSpacing: '0.3rem',
             wordSpacing: '0.3rem',
             marginBottom: '0.66rem',
@@ -40,7 +43,10 @@ export default function Service(props) {
         },
         pageTitle: {
             textAlign: 'center',
-            fontSize: '2.2rem',
+            fontSize: 35,
+            [theme.breakpoints.down(550)]: {
+                fontSize: 30,
+            },
             letterSpacing: '0.3rem',
             wordSpacing: '0.3rem',
             marginBottom: '0.66rem',

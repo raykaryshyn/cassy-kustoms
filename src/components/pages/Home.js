@@ -52,7 +52,10 @@ export default function Home() {
             background: '#c8e3e2',
         },
         sectionTitleSecondary: {
-            fontSize: 28,
+            fontSize: 35,
+            [theme.breakpoints.down(550)]: {
+                fontSize: 30,
+            },
             letterSpacing: 3,
             color: '#005861',
             textAlign: 'center',
