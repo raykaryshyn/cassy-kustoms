@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
 import Footer from '../Footer';
+import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
@@ -72,7 +73,19 @@ export default function Home() {
         },
         contactForm: {
             marginTop: 30,
-        }
+        },
+        servicesContainer: {
+            marginTop: 30,
+        },
+        serviceItem: {
+            minHeight: 250,
+        },
+        serviceCard: {
+            background: '#c8e3e2',
+            borderRadius: theme.shape.borderRadius,
+            width: '100%',
+            height: '100%',
+        },
     }));
     const classes = useStyles();
 
@@ -125,14 +138,26 @@ export default function Home() {
                     <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                     <Typography className={classes.sectionSubtitle}>Here are my services</Typography>
 
-                    <div className={classes.servicesContainer}>
-                        <div>Service 1</div>
-                        <div>Service 2</div>
-                        <div>Service 3</div>
-                        <div>Service 4</div>
-                        <div>Service 5</div>
-                        <div>Service 6</div>
-                    </div>
+                    <Grid container spacing={3} className={classes.servicesContainer}>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
+                            <div className={classes.serviceCard}>Service</div>
+                        </Grid>
+                    </Grid>
                 </Container>
             </div>
             <div className={classes.sectionGoto} id="contact">&nbsp;</div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 import PaintLine from '../paintStroke.png';
+import Footer from '../Footer';
 
 export default function Service(props) {
     const useStyles = makeStyles((theme) => ({
@@ -66,6 +67,7 @@ export default function Service(props) {
             <div className={[classes.paintLineWrapper, classes.bottomPaintLine, classes.headerBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
             <Typography variant="h3" component="h1" className={classes.pageTitle}>{props.title}</Typography>
             {props.children}
+            <Footer />
         </>
     )
 }
