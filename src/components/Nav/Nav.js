@@ -63,8 +63,10 @@ export default function Nav(props) {
                 rootSmallRef.current.style.transition = 'none';
             } else {
                 if (first) {
-                    rootSmallRef.current.classList.remove(classes.showSmall);
-                    setDropd(false);
+                    /* rootSmallRef.current.classList.remove(classes.showSmall);
+                    /* setDropd(false); */ 
+                    window.scrollBy(0, 1);
+                    window.scrollBy(0, -1);
                 }
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
