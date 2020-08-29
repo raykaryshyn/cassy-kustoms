@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { useLocation } from 'react-router-dom';
 
 import Container from '@material-ui/core/Container';
 import { ReactComponent as Logo } from '../cassy_kustoms_logo.svg';
@@ -17,6 +18,7 @@ import vanillaSmoothie from 'vanilla-smoothie';
 
 
 export default function Nav(props) {
+    const location = useLocation();
 
     function smoothScrollToTop() {
         /* const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -37,19 +39,30 @@ export default function Nav(props) {
     const smallLogoRef = React.useRef();
 
     React.useLayoutEffect(() => {
-        const handleScroll = () => {
-            const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
-            if (showSmall) {
-                rootSmallRef.current.classList.add(classes.showSmall);
-            } else {
-                rootSmallRef.current.classList.remove(classes.showSmall);
-                setDropd(false);
-            }
-        }
+        console.log(location.pathname);
+        if (location.pathname === '/masks') {
+            rootSmallRef.current.classList.add(classes.showSmall);
+            document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
+            document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
+        } else {
+            rootSmallRef.current.classList.remove(classes.showSmall);
+            document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
+            document.body.style.paddingTop = 0;
 
-        handleScroll();
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+            const handleScroll = () => {
+                const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
+                if (showSmall) {
+                    rootSmallRef.current.classList.add(classes.showSmall);
+                } else {
+                    rootSmallRef.current.classList.remove(classes.showSmall);
+                    setDropd(false);
+                }
+            }
+
+            handleScroll();
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
     });
 
     const [dropd, setDropd] = React.useState(false);

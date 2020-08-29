@@ -14,6 +14,8 @@ import Fabrics from './components/pages/fabrics/Fabrics';
 import './App.css';
 import Nav from './components/Nav/Nav';
 import Home from './components/pages/Home';
+import Footer from './components/Footer';
+import { makeStyles } from '@material-ui/core/styles';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -45,22 +47,58 @@ export default function App() {
 			.then(() => console.log(formState))
 			.catch(error => alert(error));
 	}; */
+
+	const useStyles = makeStyles(theme => ({
+		root: {
+			minHeight: '100vh',
+			display: 'flex',
+			flexDirection: 'column',
+		},
+		content: {
+			flex: 1,
+		},
+	}));
+	const classes = useStyles();
+
+	function viewportToPixels(value) {
+        var parts = value.match(/([0-9.]+)(vh|vw)/)
+        var q = Number(parts[1])
+        var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+        return side * (q / 100)
+	}
+	
+	React.useLayoutEffect(() => {
+		const handleResize = () => {
+			document.getElementById('root-body').style.minHeight = (viewportToPixels('100vh') - document.getElementById('footer').getBoundingClientRect().height) + 'px';
+		}
+
+		handleResize();
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	});
+
 	return (
 		<Router>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
 
-				<Nav />
+				<div className={classes.root} id="root-body">
+					<Nav />
 
-				<Switch>
-					<Route path="/masks">
-						<Fabrics />
-					</Route>
-					<Route exact path="*">
-						<Home />
-					</Route>
-				</Switch>
+					<div className={classes.content}>
+						<Switch>
+							<Route path="/masks">
+								<Fabrics />
+							</Route>
+							<Route exact path="*">
+								<Home />
+							</Route>
+						</Switch>
+					</div>
+
+					<Footer id="footer" />
+				</div>
 			</ThemeProvider>
-		</Router >
+		</Router>
 	);
 }

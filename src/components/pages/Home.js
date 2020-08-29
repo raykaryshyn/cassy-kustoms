@@ -4,7 +4,6 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
-import Footer from '../Footer';
 import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
@@ -171,7 +170,6 @@ export default function Home() {
                     <ContactForm secondary className={classes.contactForm} />
                 </Container>
             </div>
-            <Footer id="footer" />
         </>
     );
 }
