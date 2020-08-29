@@ -47,6 +47,13 @@ export default function ContactDialog(props) {
                 fontFamily: theme.typography.fonts.header,
                 fontSize: 18,
                 letterSpacing: 2,
+                '&.Mui-error': {
+                    color: '#ce4842',
+                },
+            },
+            '& .MuiFormHelperText-root.Mui-error': {
+                color: '#ce4842',
+                fontWeight: 500,
             },
         },
         sendIcon: {
@@ -68,7 +75,15 @@ export default function ContactDialog(props) {
 
         actionBar: {
             padding: props.secondary ? '8px 0 120px' : '8px 0',
-        }
+        },
+
+        ending: {
+            display: 'none',
+            width: '100%',
+            background: '#fff',
+            border: '1px solid #489c98',
+            borderRadius: theme.shape.borderRadius,
+        },
     }));
     const classes = useStyles();
 
@@ -135,8 +150,14 @@ export default function ContactDialog(props) {
                 .then(() => {
                     console.log(formState);
                     setFormState({});
+                    document.getElementById('formRef').style.display = 'none';
+                    document.getElementById('thanksRef').style.display = 'block';
                 })
-                .catch(error => console.log(error));
+                .catch(error => {
+                    console.log(error);
+                    document.getElementById('thanksRef').style.display = 'none';
+                    document.getElementById('failRef').style.display = 'block';
+                });
         }
     };
 
@@ -146,19 +167,28 @@ export default function ContactDialog(props) {
 
     return (
         <div className={props.className}>
-            <form name="contact" onSubmit={handleSubmit}>
-                <div className={classes.formLayout}>
-                    <input type="hidden" name="form-name" value="contact" />
-                    <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
-                    <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
-                    <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
-                </div>
-            </form>
-            <DialogActions className={classes.actionBar}>
-                <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
-                    <SendIcon className={classes.sendIcon} /> Send
+            <div id='formRef'>
+                <form name="contact" onSubmit={handleSubmit}>
+                    <div className={classes.formLayout}>
+                        <input type="hidden" name="form-name" value="contact" />
+                        <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
+                        <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
+                        <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
+                    </div>
+                </form>
+                <DialogActions className={classes.actionBar}>
+                    <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
+                        <SendIcon className={classes.sendIcon} /> Send
                 </Button>
-            </DialogActions>
+                </DialogActions>
+            </div>
+
+            <div className={[classes.ending, classes.thanks].join(' ')} id='thanksRef'>
+                Thanks
+            </div>
+            <div className={[classes.ending, classes.fail].join(' ')} id='failRef'>
+                Uh Oh.
+            </div>
         </div>
     );
 }
