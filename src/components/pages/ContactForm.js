@@ -10,56 +10,17 @@ import SendIcon from '@material-ui/icons/Send';
 export default function ContactDialog(props) {
 
     const useStyles = makeStyles((theme) => ({
-        fab: {
-            position: 'fixed',
-            right: 35,
-            bottom: 35,
-            [theme.breakpoints.down('md')]: {
-                right: 25,
-                bottom: 25,
-            },
-            [theme.breakpoints.down('xs')]: {
-                right: 20,
-                bottom: 20,
-            },
-            background: theme.palette.secondary.main,
-            color: '#fff',
-            '&:hover': {
-                background: theme.palette.secondary.main,
-            },
-            zIndex: 2,
-        },
-        fabIcon: {
-            fontSize: '1.8rem',
-        },
-        title: {
-            paddingBottom: 0,
-            '& .MuiTypography-root': {
-                display: 'flex',
-                alignItems: 'center',
-                fontFamily: theme.typography.fontFamily,
-                fontSize: '1.33rem',
-                lineHeight: 1.43,
-                textTransform: 'none',
-            },
-        },
-        header: {
-            flex: 1,
-        },
-        headerWrapper: {
-            display: 'block',
-            maxWidth: '80%',
-            wordBreak: 'break-word',
-        },
-        text: {
-            paddingLeft: 24,
-            fontSize: '0.9rem',
-        },
         button: {
             '& .MuiButton-label': {
-                fontWeight: 500,
+                fontFamily: theme.typography.fonts.header,
+                fontSize: 18,
+                letterSpacing: 3,
             },
             padding: '6px 16px',
+            background: '#005861',
+            '&:hover': {
+                background: '#006770',
+            }
         },
         formLayout: {
             display: 'flex',
@@ -68,8 +29,9 @@ export default function ContactDialog(props) {
         formItem: {
             margin: '6px 0',
             '& .MuiInputBase-formControl': {
-                backgroundColor: 'rgba(0, 0, 0, 0.07)',
+                backgroundColor: props.secondary ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.07)',
                 borderRadius: theme.shape.borderRadius,
+                border: props.secondary ? '1px solid #489c98' : 'none',
                 '&:before': {
                     border: 'none',
                 },
@@ -80,10 +42,19 @@ export default function ContactDialog(props) {
             '& .MuiFilledInput-input:-webkit-autofill': {
                 borderRadius: theme.shape.borderRadius,
             },
+            '& .MuiFormLabel-root': {
+                color: props.secondary ? '#489c98' : '#666',
+                fontFamily: theme.typography.fonts.header,
+                fontSize: 18,
+                letterSpacing: 2,
+            },
         },
         sendIcon: {
             fontSize: '1.25rem',
-            marginRight: '8px',
+            marginRight: '10px',
+            marginLeft: '6px',
+            opacity: 0.8,
+            transform: 'rotate(-25deg) translateY(-4px)',
         },
         content: {
             paddingTop: 0,
@@ -96,7 +67,7 @@ export default function ContactDialog(props) {
         },
 
         actionBar: {
-            padding: '8px 0',
+            padding: props.secondary ? '8px 0 120px' : '8px 0',
         }
     }));
     const classes = useStyles();

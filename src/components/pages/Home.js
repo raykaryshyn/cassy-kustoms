@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
+import Footer from '../Footer';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
@@ -46,6 +47,24 @@ export default function Home() {
         },
         sectionGoto: {
             display: 'block',
+        },
+        contactSection: {
+            background: '#c8e3e2',
+        },
+        sectionTitleSecondary: {
+            fontSize: 28,
+            letterSpacing: 3,
+            color: '#005861',
+            textAlign: 'center',
+            paddingTop: 55,
+        },
+        sectionSubtitleSecondary: {
+            color: '#005861',
+            textAlign: 'center',
+            paddingTop: 5,
+        },
+        contactForm: {
+            marginTop: 30,
         }
     }));
     const classes = useStyles();
@@ -64,7 +83,7 @@ export default function Home() {
                 sections[i].style.height = document.getElementById('navSmall').getBoundingClientRect().height + 'px';
             }
 
-            document.getElementById('contactContainer').style.height = (viewportToPixels('100vh') - document.getElementById('navSmall').getBoundingClientRect().height) + 'px';
+            document.getElementById('contactContainer').style.minHeight = (viewportToPixels('100vh') - document.getElementById('navSmall').getBoundingClientRect().height - document.getElementById('footer').getBoundingClientRect().height - document.getElementById('footerPaintLine').getBoundingClientRect().height + 10) + 'px';
         }
 
         handleResize();
@@ -91,14 +110,17 @@ export default function Home() {
             <div className={classes.sectionGoto} id="services">&nbsp;</div>
             <div style={{ height: '100vh' }}>Services</div>
             <div className={classes.sectionGoto} id="contact">&nbsp;</div>
-            <div id="contactContainer">
-                <Container maxWidth="lg" style={{ paddingTop: '50px' }}>
-                    <Typography variant="h3" component="h2" style={{ textAlign: 'center' }}>Contact</Typography>
+            <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')} id="footerPaintLine"><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+            <div id="contactContainer" className={classes.contactSection}>
+                <Container maxWidth="lg">
+                    <Typography variant="h3" component="h2" className={classes.sectionTitleSecondary}>Contact</Typography>
+                    <Typography className={classes.sectionSubtitleSecondary}>To get in touch with me, please fill out the form below...</Typography>
                 </Container>
                 <Container maxWidth="md">
-                    <ContactForm />
+                    <ContactForm secondary className={classes.contactForm} />
                 </Container>
             </div>
+            <Footer id="footer" />
         </>
     );
 }
