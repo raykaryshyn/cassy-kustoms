@@ -39,7 +39,6 @@ export default function Nav(props) {
     const smallLogoRef = React.useRef();
 
     React.useLayoutEffect(() => {
-        console.log(location.pathname);
         if (location.pathname === '/masks') {
             rootSmallRef.current.classList.add(classes.showSmall);
             document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
@@ -63,6 +62,26 @@ export default function Nav(props) {
             window.addEventListener('scroll', handleScroll);
             return () => window.removeEventListener('scroll', handleScroll);
         }
+    });
+
+    React.useLayoutEffect(() => {
+        const handleResize = () => {
+            if (location.pathname === '/masks') {
+                rootSmallRef.current.classList.add(classes.showSmall);
+                document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
+                document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
+                rootSmallRef.current.style.transition = 'none';
+            } else {
+                rootSmallRef.current.classList.remove(classes.showSmall);
+                document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
+                document.body.style.paddingTop = 0;
+                rootSmallRef.current.style.transition = '';
+            }
+        }
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     });
 
     const [dropd, setDropd] = React.useState(false);

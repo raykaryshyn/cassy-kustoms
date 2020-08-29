@@ -69,7 +69,7 @@ export default function App() {
 	
 	React.useLayoutEffect(() => {
 		const handleResize = () => {
-			document.getElementById('root-body').style.minHeight = (viewportToPixels('100vh') - document.getElementById('footer').getBoundingClientRect().height) + 'px';
+			document.getElementById('root-body').style.minHeight = (viewportToPixels('100vh') - document.getElementById('navSmall').getBoundingClientRect().height) + 'px';
 		}
 
 		handleResize();
