@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import CheckIcon from '@material-ui/icons/Check';
 import ErrorIcon from '@material-ui/icons/Error';
@@ -32,9 +33,9 @@ export default function ContactDialog(props) {
         formItem: {
             margin: '6px 0',
             '& .MuiInputBase-formControl': {
-                backgroundColor: props.secondary ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.07)',
+                backgroundColor: props.secondary ? 'rgba(255, 255, 255, 1)' : '#c8e3e2',
                 borderRadius: theme.shape.borderRadius,
-                border: props.secondary ? '1px solid #489c98' : 'none',
+                border: props.secondary ? '1px solid #489c98' : '1px solid #489c98',
                 '&:before': {
                     border: 'none',
                 },
@@ -46,7 +47,7 @@ export default function ContactDialog(props) {
                 borderRadius: theme.shape.borderRadius,
             },
             '& .MuiFormLabel-root': {
-                color: props.secondary ? '#489c98' : '#666',
+                color: props.secondary ? '#489c98' : '#004950',
                 fontFamily: theme.typography.fonts.header,
                 fontSize: 18,
                 letterSpacing: 2,
@@ -66,9 +67,6 @@ export default function ContactDialog(props) {
             opacity: 0.8,
             transform: 'rotate(-25deg) translateY(-4px)',
         },
-        content: {
-            paddingTop: 0,
-        },
 
         dialogPaper: {
             width: 'calc(100% - 30px)',
@@ -77,15 +75,15 @@ export default function ContactDialog(props) {
         },
 
         actionBar: {
-            padding: props.secondary ? '8px 0 120px' : '8px 0',
+            padding: props.secondary ? '8px 0 120px' : '0 24px 24px 0',
         },
 
         ending: {
             display: 'none',
             width: '100%',
             background: '#fff',
-            border: '1px solid #489c98',
-            borderRadius: theme.shape.borderRadius,
+            border: props.secondary ? '1px solid #489c98' : 'none',
+            borderRadius: props.secondary ? theme.shape.borderRadius : 0,
         },
 
         endingWrapper: {
@@ -126,7 +124,21 @@ export default function ContactDialog(props) {
                 margin: '0 30px 30px',
                 textAlign: 'center',
             },
-        }
+        },
+        content: {
+            '&:first-child': {
+                paddingTop: 0,
+            },
+            padding: props.secondary ? 0 : '0 24px 8px',
+        },
+        button2: {
+            background: '#e7e7e7',
+            color: '#333',
+            '&:hover': {
+                background: '#ccc',
+            },
+            display: 'none',
+        },
     }));
     const classes = useStyles();
 
@@ -195,6 +207,9 @@ export default function ContactDialog(props) {
                     setFormState({});
                     document.getElementById('formRef').style.display = 'none';
                     document.getElementById('thanksRef').style.display = 'block';
+                    if (!props.secondary) {
+                        document.getElementById('closeBtn').style.display = 'block';
+                    }
                 })
                 .catch(error => {
                     console.log(error);
@@ -211,18 +226,20 @@ export default function ContactDialog(props) {
     return (
         <div className={props.className}>
             <div id='formRef'>
-                <form name="contact" onSubmit={handleSubmit}>
-                    <div className={classes.formLayout}>
-                        <input type="hidden" name="form-name" value="contact" />
-                        <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
-                        <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
-                        <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
-                    </div>
-                </form>
+                <DialogContent dividers={false} className={classes.content}>
+                    <form name="contact" onSubmit={handleSubmit}>
+                        <div className={classes.formLayout}>
+                            <input type="hidden" name="form-name" value="contact" />
+                            <TextField ref={formNameRef} label="Name" variant="filled" type="text" name="name" onChange={handleChange} className={classes.formItem} error={formValid['name'] ? false : true} helperText={formValid['name'] ? '' : 'Invalid name'} />
+                            <TextField ref={formEmailRef} label="Email" variant="filled" type="email" name="email" onChange={handleChange} className={classes.formItem} error={formValid['email'] ? false : true} helperText={formValid['email'] ? '' : 'Invalid email'} />
+                            <TextField ref={formMessageRef} label="Message" multiline rows={6} variant="filled" name="message" onChange={handleChange} className={classes.formItem} error={formValid['message'] ? false : true} helperText={formValid['message'] ? '' : 'Invalid message'} />
+                        </div>
+                    </form>
+                </DialogContent>
                 <DialogActions className={classes.actionBar}>
                     <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
                         <SendIcon className={classes.sendIcon} /> Send
-                </Button>
+                    </Button>
                 </DialogActions>
             </div>
 
@@ -244,6 +261,12 @@ export default function ContactDialog(props) {
                     </div>
                 </div>
             </div>
+
+            <DialogActions className={classes.actionBar}>
+                <Button color="primary" type="button" className={[classes.button, classes.button2].join(' ')} onClick={props.closeFunc} id="closeBtn">
+                    Close
+                </Button>
+            </DialogActions>
         </div>
     );
 }
