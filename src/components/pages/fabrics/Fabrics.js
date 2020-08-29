@@ -67,7 +67,7 @@ export default function Fabrics() {
         if (canStore()) localStorage.setItem('gridView', state);
     };
 
-    const [orderWorking, setOrderWorkingState] = React.useState(
+    /* const [orderWorking, setOrderWorkingState] = React.useState(
         canStore() && localStorage.getItem('orderWorking') !== null ?
             localStorage.getItem('orderWorking') === 'true' :
             false
@@ -75,7 +75,7 @@ export default function Fabrics() {
     const setOrderWorking = (state) => {
         setOrderWorkingState(state);
         if (canStore()) localStorage.setItem('orderWorking', state);
-    };
+    }; */
 
     const useStyles = makeStyles((theme) => ({
         paintLine: {
@@ -310,7 +310,7 @@ export default function Fabrics() {
         unselectColor: unselectColor,
         gridView: gridView,
         setGridView: setGridView,
-        orderWorking: orderWorking,
+        /* orderWorking: orderWorking, */
         orderFabrics: orderFabrics,
         addOrderFabrics: addOrderFabrics,
         removeOrderFabrics: removeOrderFabrics,
@@ -334,7 +334,7 @@ export default function Fabrics() {
     const gridRef = React.useRef();
 
     const cancelOrder = () => {
-        setOrderWorking(false);
+        /* setOrderWorking(false); */
         setOrderFabrics([]);
         if (canStore()) {
             localStorage.removeItem('orderFabrics');
@@ -517,9 +517,9 @@ export default function Fabrics() {
                             </Card>
                         </div>
 
-                        {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''}
+                        {/* {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''} */}
 
-                        {orderWorking ?
+                        {/* {orderWorking ? */}
                             <div className={classes.myOrderResults}>
                                 <Typography variant="h5" component="h1">My Order</Typography>
                                 <form name="order" onSubmit={handleSubmit}>
@@ -574,9 +574,9 @@ export default function Fabrics() {
                                 <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
                                 <Button variant="contained" onClick={handleSubmit}>Submit</Button>
                             </div>
-                            :
+                            {/* :
                             ''
-                        }
+                        } */}
                     </div>
 
                     <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
@@ -589,7 +589,8 @@ export default function Fabrics() {
                                     return (
                                         <Grid item xs={12} sm={6} md={4} key={i}>
                                             <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                            {orderWorking ? <FabricsCounter id={i} /> : ''}
+                                            {/* {orderWorking ? <FabricsCounter id={i} /> : ''} */}
+                                            <FabricsCounter id={i} />
                                         </Grid>
                                     )
                                 } else {
@@ -604,7 +605,8 @@ export default function Fabrics() {
                                     return (
                                         <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
                                             <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                            {orderWorking ? <FabricsCounter id={i} /> : ''}
+                                            {/* {orderWorking ? <FabricsCounter id={i} /> : ''} */}
+                                            <FabricsCounter id={i} />
                                         </Grid>
                                     )
                                 } else {
