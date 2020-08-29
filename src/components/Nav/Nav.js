@@ -149,6 +149,9 @@ export default function Nav(props) {
             '&.active': {
                 color: '#fff',
                 textShadow: '0 0 8px rgb(11, 82, 91)',
+                '&:hover': {
+                    color: '#fff',
+                },
             },
             '&:hover': {
                 color: 'rgba(255,255,255,0.8)',
