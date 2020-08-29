@@ -52,13 +52,14 @@ export default function Home() {
             background: '#c8e3e2',
         },
         sectionTitle: {
-            fontSize: 35,
-            [theme.breakpoints.down(550)]: {
-                fontSize: 30,
-            },
-            letterSpacing: 3,
-            paddingTop: 55,
             textAlign: 'center',
+            fontSize: 40,
+            [theme.breakpoints.down(550)]: {
+                fontSize: 35,
+            },
+            letterSpacing: 1,
+            marginBottom: '0.66rem',
+            color: '#005861',
         },
         sectionSubtitle: {
             textAlign: 'center',

@@ -12,8 +12,8 @@ export default function Footer(props) {
         },
         text: {            
             fontFamily: theme.typography.fonts.header,
-            letterSpacing: '0.14rem',
             textAlign: "center",
+            fontSize: 16,
         },
     }));
     const classes = useStyles();

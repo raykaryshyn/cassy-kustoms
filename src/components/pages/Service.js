@@ -37,10 +37,10 @@ export default function Service(props) {
         },
         header: {
             background: '#c8e1e0',
-            padding: '20px 0',
+            padding: '20px 0 10px',
             color: '#004950',
             [theme.breakpoints.down(720)]: {
-                padding: '12px 0 30px',
+                padding: '12px 0 28px',
             },
         },
         mainTitle: {
@@ -57,16 +57,17 @@ export default function Service(props) {
             marginTop: 25,
         },
         headerBottomPaintLine: {
-            marginBottom: 75,
+            marginBottom: 55,
         },
         pageTitle: {
             textAlign: 'center',
-            fontSize: 35,
+            fontSize: 40,
             [theme.breakpoints.down(550)]: {
-                fontSize: 30,
+                fontSize: 35,
             },
-            letterSpacing: 3,
+            letterSpacing: 1,
             marginBottom: '0.66rem',
+            color: '#005861',
         },
         subNavBig: {
             display: 'flex',
@@ -84,18 +85,18 @@ export default function Service(props) {
             '&:last-of-type': {
                 borderBottom: 'none',
             },
-            padding: '0 20px',
+            padding: '0 24px',
         },
         subNavTitleBig: {
             color: '#004950',
-            fontSize: 22,
-            marginRight: 10,
+            fontSize: 21,
+            marginRight: 12,
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
         },
         subNavButtonBig: {
-            fontSize: 18,
+            fontSize: 17,
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
             background: '#489c98',
@@ -114,7 +115,7 @@ export default function Service(props) {
             },
         },
         subNavIconBig: {
-            width: 25,
+            width: 23,
             marginRight: 8,
             fill: '#004950',
         },
@@ -124,7 +125,7 @@ export default function Service(props) {
             },
             display: 'flex',
             flexDirection: 'row',
-            [theme.breakpoints.down(370)]: {
+            [theme.breakpoints.down(390)]: {
                 flexDirection: 'column',
                 alignItems: 'center',
             },
@@ -139,7 +140,7 @@ export default function Service(props) {
             flexDirection: 'column',
             alignItems: 'center',
             marginRight: 30,
-            [theme.breakpoints.down(370)]: {
+            [theme.breakpoints.down(390)]: {
                 marginRight: 0,
                 marginBottom: 10,
                 '&:last-of-type': {
@@ -200,9 +201,10 @@ export default function Service(props) {
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
             textDecoration: 'none',
-            color: '#fff',
+            color: '#005861',
             '&.active': {
-                color: '#005861',
+                color: '#fff',
+                textShadow: '0 0 8px rgb(11, 82, 91)',
             },
         },
         smallButtonDropd: {
@@ -220,7 +222,7 @@ export default function Service(props) {
             {/* <div className={[classes.paintLineWrapper, classes.headerTopPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div> */}
             <div className={classes.header}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" component="h1" className={classes.mainTitle}>Services</Typography>
+                    {/* <Typography variant="h3" component="h1" className={classes.mainTitle}>Services</Typography> */}
                     <div className={classes.subNavBig}>
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><PaintIcon className={classes.subNavIconBig} /> Painting:</Typography>
