@@ -39,47 +39,37 @@ export default function Nav(props) {
     const smallLogoRef = React.useRef();
 
     React.useLayoutEffect(() => {
-        if (location.pathname === '/masks') {
-            rootSmallRef.current.classList.add(classes.showSmall);
-            document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
-            document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
-        } else {
-            rootSmallRef.current.classList.remove(classes.showSmall);
-            document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
-            document.body.style.paddingTop = 0;
-
-            const handleScroll = () => {
-                const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
-                if (showSmall) {
-                    rootSmallRef.current.classList.add(classes.showSmall);
-                } else {
-                    rootSmallRef.current.classList.remove(classes.showSmall);
-                    setDropd(false);
-                }
+        const handleScroll = () => {
+            const showSmall = bigLogoRef.current.getBoundingClientRect().bottom <= 0;
+            if (showSmall) {
+                rootSmallRef.current.classList.add(classes.showSmall);
+            } else {
+                rootSmallRef.current.classList.remove(classes.showSmall);
+                setDropd(false);
             }
-
-            handleScroll();
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
         }
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     });
 
     React.useLayoutEffect(() => {
-        const handleResize = () => {
+        const handleResize = (first = false) => {
             if (location.pathname === '/masks') {
                 rootSmallRef.current.classList.add(classes.showSmall);
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
                 document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
                 rootSmallRef.current.style.transition = 'none';
             } else {
-                /* rootSmallRef.current.classList.remove(classes.showSmall); */
+                if (first) rootSmallRef.current.classList.remove(classes.showSmall);
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
                 rootSmallRef.current.style.transition = '';
             }
         }
 
-        handleResize();
+        handleResize(true);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     });
@@ -250,7 +240,8 @@ export default function Nav(props) {
         }
     };
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
+        console.log(location.pathname)
         const handleScroll = () => {
             if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
                 if (window.scrollY === 0 || window.scrollY < document.getElementById('about').offsetTop - 1) {
@@ -297,6 +288,19 @@ export default function Nav(props) {
                     for (let i = 0; i < elms3.length; i++) {
                         elms3[i].classList.add('active');
                     }
+                }
+            } else if (location.pathname === '/masks') {
+                const elms1 = document.querySelectorAll("a[href='/#about']");
+                for (let i = 0; i < elms1.length; i++) {
+                    elms1[i].classList.remove('active');
+                }
+                const elms2 = document.querySelectorAll("a[href='/#services']");
+                for (let i = 0; i < elms2.length; i++) {
+                    elms2[i].classList.add('active');
+                }
+                const elms3 = document.querySelectorAll("a[href='/#contact']");
+                for (let i = 0; i < elms3.length; i++) {
+                    elms3[i].classList.remove('active');
                 }
             }
         }

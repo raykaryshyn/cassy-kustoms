@@ -23,7 +23,7 @@ export default function Service(props) {
         header: {
             background: '#c8e1e0',
             padding: '20px 0',
-            color: '#005861',
+            color: '#004950',
         },
         mainTitle: {
             textAlign: 'center',
@@ -38,7 +38,7 @@ export default function Service(props) {
         headerTopPaintLine: {
             marginTop: 25,
         },
-        headerBottomPaintLine: {            
+        headerBottomPaintLine: {
             marginBottom: 100,
         },
         pageTitle: {

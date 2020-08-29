@@ -65,10 +65,10 @@ export default function Home() {
             paddingTop: 5,
         },
         sectionTitleSecondary: {
-            color: '#005861',
+            color: '#004950',
         },
         sectionSubtitleSecondary: {
-            color: '#005861',
+            color: '#004950',
         },
         contactForm: {
             marginTop: 30,
