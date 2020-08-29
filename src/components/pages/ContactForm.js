@@ -17,14 +17,14 @@ export default function ContactDialog(props) {
         button: {
             '& .MuiButton-label': {
                 fontFamily: theme.typography.fonts.header,
-                fontSize: 18,
-                letterSpacing: 3,
+                letterSpacing: props.secondary ? 3 : 1,
+                fontSize: props.secondary ? 18 : 16,
             },
             padding: '6px 16px',
             background: '#005861',
             '&:hover': {
                 background: '#006770',
-            }
+            },
         },
         formLayout: {
             display: 'flex',
@@ -49,8 +49,8 @@ export default function ContactDialog(props) {
             '& .MuiFormLabel-root': {
                 color: props.secondary ? '#489c98' : '#004950',
                 fontFamily: theme.typography.fonts.header,
-                fontSize: 18,
-                letterSpacing: 2,
+                fontSize: props.secondary ? 18 : 16,
+                letterSpacing: 1,
                 '&.Mui-error': {
                     color: '#ce4842',
                 },
@@ -137,6 +137,8 @@ export default function ContactDialog(props) {
             '&:hover': {
                 background: '#ccc',
             },
+        },
+        actionBar2: {
             display: 'none',
         },
     }));
@@ -208,7 +210,7 @@ export default function ContactDialog(props) {
                     document.getElementById('formRef').style.display = 'none';
                     document.getElementById('thanksRef').style.display = 'block';
                     if (!props.secondary) {
-                        document.getElementById('closeBtn').style.display = 'block';
+                        document.getElementById('closeBtn').style.display = 'flex';
                     }
                 })
                 .catch(error => {
@@ -262,8 +264,8 @@ export default function ContactDialog(props) {
                 </div>
             </div>
 
-            <DialogActions className={classes.actionBar}>
-                <Button color="primary" type="button" className={[classes.button, classes.button2].join(' ')} onClick={props.closeFunc} id="closeBtn">
+            <DialogActions className={[classes.actionBar, classes.actionBar2].join(' ')} id="closeBtn">
+                <Button color="primary" type="button" className={[classes.button, classes.button2].join(' ')} onClick={props.closeFunc}>
                     Close
                 </Button>
             </DialogActions>
