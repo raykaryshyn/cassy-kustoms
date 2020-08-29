@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
-            background: 'linear-gradient(-45deg, #ce4842, rgb(0, 138, 145))',
+            background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
             marginTop: 40,
             padding: '75px 0 0',
             overflow: 'hidden',
@@ -43,13 +43,13 @@ export default function Home() {
             marginTop: -16,
         },
         aboutSection: {
-            background: '#c8e3e2',
+            background: theme.palette.primary.light3,
         },
         sectionGoto: {
             display: 'block',
         },
         contactSection: {
-            background: '#c8e3e2',
+            background: theme.palette.primary.light3,
         },
         sectionTitle: {
             textAlign: 'center',
@@ -59,17 +59,18 @@ export default function Home() {
             },
             letterSpacing: 1,
             marginBottom: '0.66rem',
-            color: '#005861',
+            color: theme.palette.primary.dark2,
         },
         sectionSubtitle: {
             textAlign: 'center',
             paddingTop: 5,
+            color: theme.palette.primary.dark2,
         },
         sectionTitleSecondary: {
-            color: '#004950',
+            color: theme.palette.primary.dark2,
         },
         sectionSubtitleSecondary: {
-            color: '#004950',
+            color: theme.palette.primary.dark2,
         },
         contactForm: {
             marginTop: 30,
@@ -81,7 +82,7 @@ export default function Home() {
             minHeight: 250,
         },
         serviceCard: {
-            background: '#c8e3e2',
+            background: theme.palette.primary.light3,
             borderRadius: theme.shape.borderRadius,
             width: '100%',
             height: '100%',

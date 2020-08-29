@@ -6,8 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export default function Footer(props) {
     const useStyles = makeStyles(theme => ({
         root: {
-            background: '#004950',
-            color: '#489c98',
+            background: theme.palette.primary.dark3,
+            color: theme.palette.primary.light1,
             padding: '30px 0',
         },
         text: {            

@@ -57,14 +57,16 @@ const theme = createMuiTheme({
             secondary: '#666666',
         },
         primary: {
+            dark3: '#0a525b',
+            dark2: '#00696f',
+            dark1: '#007981',
             main: '#008a91',
-            dark: '#008080',
-            light: '#008080',
+            light1: '#81bcb6',
+            light2: '#b3d7d3',
+            light3: '#cde4e2',
         },
         secondary: {
             main: '#dc6657',
-            dark: '#008080',
-            light: '#008080',
         },
     },
     shadow: (s, x = 0, y = 0, c = 'rgba(0,0,0,0.1)', z = 0) => {
