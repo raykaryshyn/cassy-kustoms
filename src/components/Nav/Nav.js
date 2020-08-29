@@ -99,7 +99,7 @@ export default function Nav(props) {
         rootSmall: {
             transform: 'translateY(-100px)',
             transition: theme.transitions.create('transform', { duration: 555 }),
-            background: 'linear-gradient(0, rgb(0, 138, 145), rgb(11, 82, 91))',
+            background: 'linear-gradient(0, #008a91, #0a525b)',
             boxShadow: '0 0 7px rgba(0, 0, 0, 0.6)',
         },
         showSmall: {
@@ -128,7 +128,7 @@ export default function Nav(props) {
                 fill: '#fff',
             },
             padding: '10px 10px 10px 0',
-            filter: 'drop-shadow(0 0 19px rgb(11, 82, 91))',
+            filter: 'drop-shadow(0 0 19px #0a525b)',
             [theme.breakpoints.down('xs')]: {
                 maxWidth: 220,
             },
@@ -145,14 +145,14 @@ export default function Nav(props) {
         bigNavLink: {
             fontSize: 19,
             textDecoration: 'none',
-            color: '#489c98',
+            color: '#008a91',
             textTransform: 'uppercase',
             margin: '5px 20px',
             '&.active': {
-                color: '#ce4842',
+                color: theme.palette.secondary.main,
             },
             '&:hover': {
-                color: '#ce4842',
+                color: theme.palette.secondary.main,
             },
             letterSpacing: '0.175rem',
             fontFamily: theme.typography.fonts.header,
@@ -172,12 +172,12 @@ export default function Nav(props) {
         smallNavLink: {
             fontSize: 17,
             textDecoration: 'none',
-            color: '#91c4c1',
+            color: '#b3d7d3',
             textTransform: 'uppercase',
             marginLeft: 45,
             '&.active': {
                 color: '#fff',
-                textShadow: '0 0 8px rgb(11, 82, 91)',
+                textShadow: '0 0 8px #0a525b',
                 '&:hover': {
                     color: '#fff',
                 },
