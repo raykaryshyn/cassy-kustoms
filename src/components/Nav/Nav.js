@@ -72,7 +72,7 @@ export default function Nav(props) {
                 document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
                 rootSmallRef.current.style.transition = 'none';
             } else {
-                rootSmallRef.current.classList.remove(classes.showSmall);
+                /* rootSmallRef.current.classList.remove(classes.showSmall); */
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
                 rootSmallRef.current.style.transition = '';
