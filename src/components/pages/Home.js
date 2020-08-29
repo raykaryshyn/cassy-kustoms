@@ -40,7 +40,7 @@ export default function Home() {
         },
         aboutBottomPaintLine: {
             transform: 'scale(-1, -1)',
-            /* float: 'right', */
+            marginTop: -16,
         },
         aboutSection: {
             background: '#c8e3e2',
@@ -51,20 +51,24 @@ export default function Home() {
         contactSection: {
             background: '#c8e3e2',
         },
-        sectionTitleSecondary: {
+        sectionTitle: {
             fontSize: 35,
             [theme.breakpoints.down(550)]: {
                 fontSize: 30,
             },
             letterSpacing: 3,
-            color: '#005861',
-            textAlign: 'center',
             paddingTop: 55,
+            textAlign: 'center',
+        },
+        sectionSubtitle: {
+            textAlign: 'center',
+            paddingTop: 5,
+        },
+        sectionTitleSecondary: {
+            color: '#005861',
         },
         sectionSubtitleSecondary: {
             color: '#005861',
-            textAlign: 'center',
-            paddingTop: 5,
         },
         contactForm: {
             marginTop: 30,
@@ -108,16 +112,35 @@ export default function Home() {
                 <div className={classes.sectionGoto} id="about">&nbsp;</div>
             </div>
             <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
-            <div className={[classes.aboutSection].join(' ')}>About</div>
+            <div className={[classes.aboutSection].join(' ')}>
+                <Container maxWidth="lg">
+                    <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
+                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>About me...</Typography>
+                </Container>
+                <div className={classes.sectionGoto} id="services">&nbsp;</div>
+            </div>
             <div className={[classes.paintLineWrapper, classes.aboutBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
-            <div className={classes.sectionGoto} id="services">&nbsp;</div>
-            <div style={{ height: '100vh' }}>Services</div>
+            <div>
+                <Container maxWidth="lg">
+                    <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
+                    <Typography className={classes.sectionSubtitle}>Here are my services</Typography>
+
+                    <div className={classes.servicesContainer}>
+                        <div>Service 1</div>
+                        <div>Service 2</div>
+                        <div>Service 3</div>
+                        <div>Service 4</div>
+                        <div>Service 5</div>
+                        <div>Service 6</div>
+                    </div>
+                </Container>
+            </div>
             <div className={classes.sectionGoto} id="contact">&nbsp;</div>
             <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')} id="footerPaintLine"><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
             <div id="contactContainer" className={classes.contactSection}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" component="h2" className={classes.sectionTitleSecondary}>Contact</Typography>
-                    <Typography className={classes.sectionSubtitleSecondary}>To get in touch with me, please fill out the form below...</Typography>
+                    <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>Contact</Typography>
+                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>To get in touch with me, please fill out the form below...</Typography>
                 </Container>
                 <Container maxWidth="md">
                     <ContactForm secondary className={classes.contactForm} />
