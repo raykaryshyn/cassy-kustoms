@@ -483,28 +483,28 @@ export default function Fabrics() {
     const gallery = [
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
+            main: 'https://picsum.photos/1080/1920',
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
+            main: 'https://picsum.photos/1080/1920',
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
+            main: 'https://picsum.photos/1080/1920',
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
+            main: 'https://picsum.photos/1080/1920',
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
+            main: 'https://picsum.photos/1080/1920',
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1920/1080',
-        },
+            main: 'https://picsum.photos/1080/1920',
+        },        
     ];
 
     return (
