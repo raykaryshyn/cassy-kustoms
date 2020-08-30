@@ -15,6 +15,8 @@ import Nav from '../Nav/Nav';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+
+import GalleryModal from './GalleryModal';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -365,7 +367,7 @@ export default function Service(props) {
                         {props.gallery.map((url, i) => {
                             return (
                                 <Grid item xs={6} sm={4} md={3} key={i}>
-                                    <div className={classes.galleryItemWrapper}><div className={classes.galleryItem} style={{ backgroundImage: `url(${url})` }}></div></div>
+                                    <div className={classes.galleryItemWrapper}><GalleryModal className={classes.galleryItem} url={url} /></div>
                                 </Grid>
                             );
                         })}

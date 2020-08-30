@@ -481,12 +481,30 @@ export default function Fabrics() {
 
 
     const gallery = [
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
-        'https://picsum.photos/200',
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
+        {
+            thumb: 'https://picsum.photos/400',
+            main: 'https://picsum.photos/1920/1080',
+        },
     ];
 
     return (
@@ -501,7 +519,7 @@ export default function Fabrics() {
                                 <CardContent>
                                     <Typography variant="h5" component="h2" className={classes.title}>
                                         Pricing
-                                </Typography>
+                                    </Typography>
                                     <ul className={classes.cardContent}>
                                         <li className="uli">$5 per mask</li>
                                         <li className="uli">$3 - $8 shipping</li>
