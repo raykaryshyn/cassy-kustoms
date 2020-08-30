@@ -279,6 +279,7 @@ export default function Service(props) {
             '&:hover': {
                 transform: 'scale(1.1)',
             },
+            overflow: 'hidden',
         },
         orderContainer: {
             marginTop: 20,
