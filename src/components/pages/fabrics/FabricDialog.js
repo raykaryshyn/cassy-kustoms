@@ -33,7 +33,7 @@ export default function FabricDialog(props) {
     /* setLoad(false); */
   };
 
-  const descriptionElementRef = React.useRef(null);
+  /* const descriptionElementRef = React.useRef(null);
   React.useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
@@ -41,7 +41,7 @@ export default function FabricDialog(props) {
         descriptionElement.focus();
       }
     }
-  }, [open]);
+  }, [open]); */
 
   const useStyles = makeStyles((theme) => ({
     root: {
