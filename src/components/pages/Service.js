@@ -17,6 +17,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import GalleryModal from './GalleryModal';
+import Gallery from './Gallery';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
 
@@ -364,13 +365,14 @@ export default function Service(props) {
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">
                     <Grid container spacing={3} className={classes.galleryContainer}>
-                        {props.gallery.map((url, i) => {
+                        {/* {props.gallery.map((url, i) => {
                             return (
                                 <Grid item xs={6} sm={4} md={3} key={i}>
                                     <div className={classes.galleryItemWrapper}><GalleryModal className={classes.galleryItem} url={url} /></div>
                                 </Grid>
                             );
-                        })}
+                        })} */}
+                        <Gallery urls={props.gallery} />
                     </Grid>
                 </Container>
             </TabPanel>
