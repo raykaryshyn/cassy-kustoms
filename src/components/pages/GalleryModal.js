@@ -15,6 +15,9 @@ export default function GalleryModal(props) {
         modal: {
             overflowX: 'hidden',
             overflowY: 'auto',
+            '& .MuiBackdrop-root': {
+                background: 'rgba(0,0,0,0.8)',
+            }
         },
         paperContainer: {
             height: '100%',
@@ -26,22 +29,25 @@ export default function GalleryModal(props) {
                 display: 'inline-block',
                 verticalAlign: 'middle',
             },
-            padding: '76px 10px 0',
+            padding: '66px 10px 0',
             textAlign: 'center',
             maxWidth: 1000,
             position: 'relative',
             margin: '0 auto',
         },
         paper: {
-            width: '100%',
             display: 'inline-block',
             textAlign: 'center',
             verticalAlign: 'middle',
             '& img': {
                 display: 'block',
-                width: '100%',
                 marginBottom: 10,
                 boxShadow: theme.shadows[5],
+                width: 'auto',
+                height: 'auto',
+                /* maxHeight: '100%', */
+                maxWidth: '100%',
+                maxHeight: 'calc(100vh - 90px)',
             },
         },
         closeX: {
