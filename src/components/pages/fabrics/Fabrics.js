@@ -264,7 +264,9 @@ export default function Fabrics() {
             },
             /* minWidth: 80,
             margin: '0 25px', */
-            padding: '6px 22px',
+            [theme.breakpoints.down(600)]: {
+                padding: '6px 22px',
+            },
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
         },
     }));
