@@ -67,10 +67,9 @@ export default function Nav(props) {
                 document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
                 rootSmallRef.current.style.transition = 'none';
             } else {
-                if (window.scrollY === 0) {
+                if (window.scrollY <= 10) {
                     rootSmallRef.current.classList.remove(classes.showSmall);
                     setDropd(false);
-
                 }
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
