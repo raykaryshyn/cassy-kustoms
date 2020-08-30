@@ -21,9 +21,9 @@ export default function ContactDialog(props) {
                 fontSize: props.secondary ? 18 : 16,
             },
             padding: '6px 16px',
-            background: '#005861',
+            background: theme.palette.primary.dark2,
             '&:hover': {
-                background: '#006770',
+                background: theme.palette.primary.dark3,
             },
         },
         formLayout: {
@@ -33,9 +33,9 @@ export default function ContactDialog(props) {
         formItem: {
             margin: '6px 0',
             '& .MuiInputBase-formControl': {
-                backgroundColor: props.secondary ? 'rgba(255, 255, 255, 1)' : '#c8e3e2',
+                backgroundColor: props.secondary ? 'rgba(255, 255, 255, 1)' : theme.palette.primary.light3,
                 borderRadius: theme.shape.borderRadius,
-                border: props.secondary ? '1px solid #489c98' : '1px solid #489c98',
+                border: '1px solid ' + theme.palette.primary.light1,
                 '&:before': {
                     border: 'none',
                 },
@@ -47,16 +47,16 @@ export default function ContactDialog(props) {
                 borderRadius: theme.shape.borderRadius,
             },
             '& .MuiFormLabel-root': {
-                color: props.secondary ? '#489c98' : '#004950',
+                color: props.secondary ? theme.palette.primary.light1 : theme.palette.primary.dark2,
                 fontFamily: theme.typography.fonts.header,
                 fontSize: props.secondary ? 18 : 16,
                 letterSpacing: 1,
                 '&.Mui-error': {
-                    color: '#ce4842',
+                    color: theme.palette.secondary.main,
                 },
             },
             '& .MuiFormHelperText-root.Mui-error': {
-                color: '#ce4842',
+                color: theme.palette.secondary.main,
                 fontWeight: 500,
             },
         },
@@ -82,7 +82,7 @@ export default function ContactDialog(props) {
             display: 'none',
             width: '100%',
             background: '#fff',
-            border: props.secondary ? '1px solid #489c98' : 'none',
+            border: props.secondary ? '1px solid ' + theme.palette.secondary.light1 : 'none',
             borderRadius: props.secondary ? theme.shape.borderRadius : 0,
         },
 
@@ -104,11 +104,11 @@ export default function ContactDialog(props) {
             margin: 30,
         },
         checkIcon: {
-            background: 'green',
+            background: theme.palette.primary.main,
             color: '#fff',
         },
         errorIcon: {
-            background: '#ce4842',
+            background: theme.palette.secondary.main,
             color: '#fff',
         },
         endingTitle: {
