@@ -9,6 +9,8 @@ import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import Nav from '../Nav/Nav';
+
 
 export default function Service(props) {
     const [dropd, setDropdState] = React.useState({ paint: false, sew: false });
@@ -219,6 +221,7 @@ export default function Service(props) {
 
     return (
         <>
+            <Nav />
             {/* <div className={[classes.paintLineWrapper, classes.headerTopPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div> */}
             <div className={classes.header}>
                 <Container maxWidth="lg">

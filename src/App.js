@@ -12,7 +12,7 @@ import theme from './context/theme';
 import Fabrics from './components/pages/fabrics/Fabrics';
 
 import './App.css';
-import Nav from './components/Nav/Nav';
+/* import Nav from './components/Nav/Nav'; */
 import Home from './components/pages/Home';
 import Footer from './components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
@@ -83,7 +83,7 @@ export default function App() {
 				<CssBaseline />
 
 				<div className={classes.root} id="root-body">
-					<Nav />
+					{/* <Nav /> */}
 
 					<div className={classes.content}>
 						<Switch>

@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
 import Grid from '@material-ui/core/Grid';
 
+import Nav from '../Nav/Nav';
+
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
@@ -116,6 +118,7 @@ export default function Home() {
 
     return (
         <>
+            <Nav />
             <div id="welcome" className={classes.welcomeSection}>
                 <Container maxWidth="md">
                     <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
