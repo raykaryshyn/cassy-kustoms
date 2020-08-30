@@ -265,8 +265,10 @@ export default function Service(props) {
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
             overflow: 'hidden',
+            zIndex: 1,
         },
         galleryItem: {
+            zIndex: 0,
             position: 'absolute',
             top: 0,
             left: 0,
