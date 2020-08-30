@@ -367,12 +367,12 @@ export default function Fabrics() {
     const formEmailRef = React.createRef();
     const [emailValid, setEmailValid] = React.useState(true);
 
-    const [email, setEmail] = React.useState(
+    /* const [email, setEmail] = React.useState(
         ''
-    );
-    const handleEmailChange = e => {
+    ); */
+    /* const handleEmailChange = e => {
         setEmail(e.target.value);
-    };
+    }; */
     function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -415,6 +415,8 @@ export default function Fabrics() {
             }
         });
 
+        const email = document.getElementById('formEmailRef').value;
+        console.log(email);
         let emailValid = true;
         if (email === "" || !ValidateEmail(email)) {
             emailValid = false;
@@ -477,17 +479,6 @@ export default function Fabrics() {
     return (
         <Service title="Face Masks">
             <FabricsContext.Provider value={{ context }}>
-                {/* <div style={{ overflow: 'hidden' }}>
-                    <img src={PaintLine} className={[classes.paintLine, classes.paintLineTop].join(' ')} alt="Paint Line" />
-                    <div className={classes.header}>
-                        <Typography variant="h3" component="h1" className={classes.mainTitle}>Face Masks</Typography>
-                        <Typography className={classes.info}>
-                            Each mask is made with 2 layers of 100% cotton. They have a custom fit based on your face measurements and come with a removable nose piece wire and comfortable earloops.
-                </Typography>
-                    </div>
-                    <img src={PaintLine} className={[classes.paintLine, classes.paintLineBottom].join(' ')} alt="Paint Line" />
-                </div> */}
-
                 <Tabs
                     value={tab}
                     onChange={handleTab}
@@ -519,14 +510,12 @@ export default function Fabrics() {
                                 </Card>
                             </div>
 
-                            {/* {!orderWorking ? <Button variant="contained" className={classes.beginOrderBtn} onClick={() => setOrderWorking(true)}>Place an Order</Button> : ''} */}
-
-                            {/* {orderWorking ? */}
                             <div className={classes.myOrderResults}>
                                 <Typography variant="h5" component="h1">My Order</Typography>
                                 <form name="order" onSubmit={handleSubmit}>
                                     <input type="hidden" name="form-name" value="order" />
-                                    <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
+                                    {/* <TextField ref={formEmailRef} label="Email" variant="outlined" type="email" name="email" onChange={handleEmailChange} className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} /> */}
+                                    <TextField ref={formEmailRef} id="formEmailRef" label="Email" variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />
                                 </form>
                                 <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                     {orderFabrics ?
@@ -573,12 +562,8 @@ export default function Fabrics() {
                                         ''
                                     }
                                 </div>
-                                <Button variant="outlined" onClick={cancelOrder}>Cancel</Button>
                                 <Button variant="contained" onClick={handleSubmit}>Submit</Button>
                             </div>
-                            {/* :
-                            ''
-                        } */}
                         </div>
 
                         <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
@@ -591,7 +576,7 @@ export default function Fabrics() {
                                         return (
                                             <Grid item xs={12} sm={6} md={4} key={i}>
                                                 <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                                
+
                                                 <FabricsCounter id={i} />
                                             </Grid>
                                         )
@@ -607,7 +592,7 @@ export default function Fabrics() {
                                         return (
                                             <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
                                                 <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                                
+
                                                 <FabricsCounter id={i} />
                                             </Grid>
                                         )
@@ -619,8 +604,9 @@ export default function Fabrics() {
                         }
                     </Container>
                 </TabPanel>
-                <ContactDialog />
-            </FabricsContext.Provider >
+            </FabricsContext.Provider>
+
+            <ContactDialog />
         </Service>
     );
 }

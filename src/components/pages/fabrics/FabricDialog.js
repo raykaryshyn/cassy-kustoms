@@ -164,7 +164,7 @@ export default function FabricDialog(props) {
         </DialogTitle>
         <DialogContent dividers={false} className={classes.content}>
           <div style={style2}>
-            <img src={image} alt="Turtle" className={classes.image}
+            <img src={image} alt="Popup" className={classes.image}
               style={style} onLoad={() => setLoad(true)} />
           </div>
           {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
