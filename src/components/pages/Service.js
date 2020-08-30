@@ -36,9 +36,9 @@ export default function Service(props) {
             transform: 'scale(-1, -1)',
         },
         header: {
-            background: '#c8e1e0',
+            background: theme.palette.primary.light3,
             padding: '20px 0 10px',
-            color: '#004950',
+            color: theme.palette.primary.dark1,
             [theme.breakpoints.down(720)]: {
                 padding: '12px 0 28px',
             },
@@ -67,7 +67,7 @@ export default function Service(props) {
             },
             letterSpacing: 1,
             marginBottom: '0.66rem',
-            color: '#005861',
+            color: theme.palette.primary.dark1,
         },
         subNavBig: {
             display: 'flex',
@@ -81,14 +81,14 @@ export default function Service(props) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            borderBottom: '1px solid #489c98',
+            borderBottom: '1px solid ' + theme.palette.primary.light1,
             '&:last-of-type': {
                 borderBottom: 'none',
             },
             padding: '0 24px',
         },
         subNavTitleBig: {
-            color: '#004950',
+            color: theme.palette.primary.dark1,
             fontSize: 21,
             marginRight: 12,
             display: 'flex',
@@ -99,7 +99,7 @@ export default function Service(props) {
             fontSize: 17,
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
-            background: '#489c98',
+            background: theme.palette.primary.light1,
             color: '#fff',
             borderRadius: theme.shape.borderRadius,
             padding: '5px 12px',
@@ -107,17 +107,17 @@ export default function Service(props) {
             transition: theme.transitions.create('background', { duration: 250 }),
             textDecoration: 'none',
             '&:hover': {
-                background: '#005861',
+                background: theme.palette.primary.dark1,
             },
             cursor: 'pointer',
             '&.active': {
-                background: '#005861',
+                background: theme.palette.primary.dark2,
             },
         },
         subNavIconBig: {
             width: 23,
             marginRight: 8,
-            fill: '#004950',
+            fill: theme.palette.primary.dark1,
         },
         subNavSmall: {
             [theme.breakpoints.up(720)]: {
@@ -158,13 +158,13 @@ export default function Service(props) {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#489c98',
+            background: theme.palette.primary.light1,
             borderRadius: theme.shape.borderRadius,
             padding: '6px 12px',
             width: '100%',
             '&.active': {
                 borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
-                background: '#005861',
+                background: theme.palette.primary.dark2,
             },
             cursor: 'pointer',
             /* transition: theme.transitions.create('background', { duration: 250 }), */
@@ -172,12 +172,12 @@ export default function Service(props) {
         subNavIconSmall: {
             width: 18,
             marginRight: 10,
-            fill: '#b6d7d6',
+            fill: theme.palette.primary.light3,
         },
         subNavArrowSmall: {
             marginRight: -7,
             marginLeft: 8,
-            color: '#b6d7d6',
+            color: theme.palette.primary.light3,
             transition: theme.transitions.create('transform', { duration: 250 }),
             '&.active': {
                 transform: 'scale(1, -1)',
@@ -191,7 +191,7 @@ export default function Service(props) {
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%',
-            background: '#489c98',
+            background: theme.palette.primary.light1,
             borderRadius: `0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px`,
             padding: '7px 0',
         },
@@ -201,10 +201,10 @@ export default function Service(props) {
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
             textDecoration: 'none',
-            color: '#005861',
+            color: theme.palette.primary.dark2,
             '&.active': {
                 color: '#fff',
-                textShadow: '0 0 8px rgb(11, 82, 91)',
+                textShadow: `0 0 7px ${theme.palette.primary.dark1}`,
             },
         },
         smallButtonDropd: {
