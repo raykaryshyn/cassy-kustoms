@@ -484,6 +484,9 @@ export default function Fabrics() {
         'https://picsum.photos/200',
         'https://picsum.photos/200',
         'https://picsum.photos/200',
+        'https://picsum.photos/200',
+        'https://picsum.photos/200',
+        'https://picsum.photos/200',
     ];
 
     return (

@@ -259,16 +259,32 @@ export default function Service(props) {
         galleryContainer: {
             justifyContent: 'center',
             marginTop: 50,
+            marginBottom: 80,
         },
         galleryItemWrapper: {
             position: 'relative',
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
             overflow: 'hidden',
-            zIndex: 1,
+            /* transition: theme.transitions.create('transform', { duration: 400 }),
+            '&:hover': {
+                transform: 'scale(0.98)',
+            }, */
+            [theme.breakpoints.up('md')]: {
+                transition: theme.transitions.create('transform'),
+                '&:hover': {
+                    transform: 'scale(0.98)',
+                },
+            },
+            [theme.breakpoints.down('md')]: {
+                transition: theme.transitions.create('transform', { duration: 66 }),
+                '&:active': {
+                    transform: 'scale(0.966)',
+                },
+            },
+            cursor: 'pointer',
         },
         galleryItem: {
-            zIndex: 0,
             position: 'absolute',
             top: 0,
             left: 0,
@@ -277,10 +293,6 @@ export default function Service(props) {
             backgroundSize: 'cover',
             backgroundColor: '#ccc',
             borderRadius: theme.shape.borderRadius,
-            transition: theme.transitions.create('transform', { duration: 400 }),
-            '&:hover': {
-                transform: 'scale(1.1)',
-            },
             overflow: 'hidden',
         },
         orderContainer: {
