@@ -237,7 +237,7 @@ export default function Service(props) {
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><SewIcon className={classes.subNavIconBig} /> Sewing:</Typography>
                             <NavLink to="/masks" className={classes.subNavButtonBig} activeClassName='active'>Face Masks</NavLink>
-                            <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Schrunchies</NavLink>
+                            <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Scrunchies</NavLink>
                             <NavLink to="/bucket-hats" className={classes.subNavButtonBig}>Bucket Hats</NavLink>
                             <NavLink to="/clothes" className={classes.subNavButtonBig}>Clothes</NavLink>
                         </div>
