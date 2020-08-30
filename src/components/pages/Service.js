@@ -9,7 +9,29 @@ import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import Grid from '@material-ui/core/Grid';
+
 import Nav from '../Nav/Nav';
+
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`scrollable-auto-tabpanel-${index}`}
+            aria-labelledby={`scrollable-auto-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <>{children}</>
+            )}
+        </div>
+    );
+}
 
 
 export default function Service(props) {
@@ -20,6 +42,11 @@ export default function Service(props) {
         } else {
             setDropdState({ paint: false, sew: false });
         }
+    };
+
+    const [tab, setTab] = React.useState(0);
+    const handleTab = (e, newTab) => {
+        setTab(newTab);
     };
 
     const useStyles = makeStyles((theme) => ({
@@ -52,7 +79,7 @@ export default function Service(props) {
                 fontSize: 30,
             },
             letterSpacing: 3,
-            marginBottom: '0.66rem',
+            marginBottom: 5,
             marginTop: 20,
         },
         headerTopPaintLine: {
@@ -68,7 +95,7 @@ export default function Service(props) {
                 fontSize: 35,
             },
             letterSpacing: 1,
-            marginBottom: '0.66rem',
+            marginBottom: 10,
             color: theme.palette.primary.dark1,
         },
         subNavBig: {
@@ -216,6 +243,46 @@ export default function Service(props) {
             outline: 'none',
             margin: 0,
         },
+        tabLabel: {
+            fontFamily: theme.typography.fonts.header,
+            fontSize: 20,
+            color: theme.palette.primary.light1,
+            '&.Mui-selected': {
+                color: theme.palette.primary.dark2,
+            },
+            padding: '6px 8px',
+            [theme.breakpoints.down(600)]: {
+                padding: '6px 22px',
+            },
+            borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+        },
+        galleryContainer: {
+            justifyContent: 'center',
+            marginTop: 50,
+        },
+        galleryItemWrapper: {
+            position: 'relative',
+            paddingTop: '75%',
+            borderRadius: theme.shape.borderRadius,
+            overflow: 'hidden',
+        },
+        galleryItem: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundSize: 'cover',
+            backgroundColor: '#ccc',
+            borderRadius: theme.shape.borderRadius,
+            transition: theme.transitions.create('transform', { duration: 400 }),
+            '&:hover': {
+                transform: 'scale(1.1)',
+            },
+        },
+        orderContainer: {
+            marginTop: 20,
+        },
     }));
     const classes = useStyles();
 
@@ -267,6 +334,34 @@ export default function Service(props) {
             </div>
             <div className={[classes.paintLineWrapper, classes.bottomPaintLine, classes.headerBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
             <Typography variant="h3" component="h1" className={classes.pageTitle}>{props.title}</Typography>
+            <Tabs
+                value={tab}
+                onChange={handleTab}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+            >
+                <Tab label="Gallery" className={classes.tabLabel} />
+                <Tab label="Order" className={classes.tabLabel} />
+            </Tabs>
+            <TabPanel value={tab} index={0}>
+                <Container maxWidth="lg">
+                    <Grid container spacing={3} className={classes.galleryContainer}>
+                        {props.gallery.map((url, i) => {
+                            return (
+                                <Grid item xs={6} sm={4} md={3} key={i}>
+                                    <div className={classes.galleryItemWrapper}><div className={classes.galleryItem} style={{ backgroundImage: `url(${url})` }}></div></div>
+                                </Grid>
+                            );
+                        })}
+                    </Grid>
+                </Container>
+            </TabPanel>
+            <TabPanel value={tab} index={1}>
+                <Container maxWidth="lg" className={classes.orderContainer}>
+                    {props.order}
+                </Container>
+            </TabPanel>
             {props.children}
         </>
     )
