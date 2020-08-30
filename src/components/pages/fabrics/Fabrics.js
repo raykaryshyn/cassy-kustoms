@@ -262,9 +262,9 @@ export default function Fabrics() {
             '&.Mui-selected': {
                 color: theme.palette.primary.dark2,
             },
-            minWidth: 80,
+            /* minWidth: 80,
             margin: '0 25px',
-            padding: '6px 20px',
+            padding: '6px 20px', */
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
         },
     }));
