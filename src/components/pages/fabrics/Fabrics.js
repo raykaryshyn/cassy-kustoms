@@ -263,8 +263,8 @@ export default function Fabrics() {
                 color: theme.palette.primary.dark2,
             },
             /* minWidth: 80,
-            margin: '0 25px',
-            padding: '6px 20px', */
+            margin: '0 25px', */
+            padding: '6px 22px',
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
         },
     }));
