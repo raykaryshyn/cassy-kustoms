@@ -55,20 +55,22 @@ export default function Nav(props) {
     });
 
     React.useLayoutEffect(() => {
-        window.scrollBy(0, 1);
-        window.scrollBy(0, -1);
+        /* if (!dropd) {
+            window.scrollBy(0, 1);
+            window.scrollBy(0, -1);
+        } */
 
-        const handleResize = (first = false) => {
+        const handleResize = () => {
             if (location.pathname === '/masks') {
                 rootSmallRef.current.classList.add(classes.showSmall);
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
                 document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
                 rootSmallRef.current.style.transition = 'none';
             } else {
-                if (first) {
-                    /* rootSmallRef.current.classList.remove(classes.showSmall);
-                    /* setDropd(false); */ 
-                    
+                if (window.scrollY === 0) {
+                    rootSmallRef.current.classList.remove(classes.showSmall);
+                    setDropd(false);
+
                 }
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'block';
                 document.body.style.paddingTop = 0;
@@ -76,7 +78,7 @@ export default function Nav(props) {
             }
         }
 
-        handleResize(true);
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     });
@@ -99,7 +101,7 @@ export default function Nav(props) {
         rootSmall: {
             transform: 'translateY(-100px)',
             transition: theme.transitions.create('transform', { duration: 555 }),
-            background: 'linear-gradient(0, #008a91, #0a525b)',
+            background: `linear-gradient(0deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark3})`,
             boxShadow: '0 0 7px rgba(0, 0, 0, 0.6)',
         },
         showSmall: {
@@ -128,7 +130,7 @@ export default function Nav(props) {
                 fill: '#fff',
             },
             padding: '10px 10px 10px 0',
-            filter: 'drop-shadow(0 0 19px #0a525b)',
+            filter: `drop-shadow(0 0 19px ${theme.palette.primary.dark3})`,
             [theme.breakpoints.down('xs')]: {
                 maxWidth: 220,
             },
@@ -145,7 +147,7 @@ export default function Nav(props) {
         bigNavLink: {
             fontSize: 19,
             textDecoration: 'none',
-            color: '#008a91',
+            color: theme.palette.primary.main,
             textTransform: 'uppercase',
             margin: '5px 20px',
             '&.active': {
@@ -154,7 +156,7 @@ export default function Nav(props) {
             '&:hover': {
                 color: theme.palette.secondary.main,
             },
-            letterSpacing: '0.175rem',
+            letterSpacing: 3,
             fontFamily: theme.typography.fonts.header,
             transition: theme.transitions.create('color', { duration: 250 }),
             [theme.breakpoints.down(580)]: {
@@ -172,18 +174,18 @@ export default function Nav(props) {
         smallNavLink: {
             fontSize: 17,
             textDecoration: 'none',
-            color: '#b3d7d3',
+            color: theme.palette.primary.light2,
             textTransform: 'uppercase',
             marginLeft: 45,
             '&.active': {
                 color: '#fff',
-                textShadow: '0 0 8px #0a525b',
+                textShadow: `0 0 8px ${theme.palette.primary.dark3}`,
                 '&:hover': {
                     color: '#fff',
                 },
             },
             '&:hover': {
-                color: 'rgba(255,255,255,0.8)',
+                color: 'rgba(255,255,255,0.85)',
             },
             fontFamily: theme.typography.fonts.header,
             letterSpacing: '0.175rem',
@@ -212,11 +214,12 @@ export default function Nav(props) {
         dropdownNavLink: {
             display: 'block',
             textDecoration: 'none',
-            color: '#91c4c1',
+            color: theme.palette.primary.light2,
             textTransform: 'uppercase',
             opacity: 0.8,
             '& .MuiListItem-root': {
-                padding: '0 0 18px',
+                padding: 0,
+                margin: '0 0 18px',
             },
             '& .MuiTypography-root': {
                 fontFamily: theme.typography.fonts.header,
@@ -250,12 +253,12 @@ export default function Nav(props) {
     React.useLayoutEffect(() => {
         const handleScroll = () => {
             if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
-                if (window.scrollY === 0 || window.scrollY < document.getElementById('about').offsetTop - 1) {
+                if (window.scrollY === 0 || window.scrollY + 1 < document.getElementById('about').offsetTop) {
                     const elms = document.getElementsByClassName('navLink');
                     for (let i = 0; i < elms.length; i++) {
                         elms[i].classList.remove('active');
                     }
-                } else if (window.scrollY >= document.getElementById('about').offsetTop - 1 && window.scrollY < document.getElementById('services').offsetTop - 1) {
+                } else if (window.scrollY + 1 >= document.getElementById('about').offsetTop && window.scrollY + 1 < document.getElementById('services').offsetTop) {
                     const elms1 = document.querySelectorAll("a[href='/#about']");
                     for (let i = 0; i < elms1.length; i++) {
                         elms1[i].classList.add('active');
@@ -268,7 +271,7 @@ export default function Nav(props) {
                     for (let i = 0; i < elms3.length; i++) {
                         elms3[i].classList.remove('active');
                     }
-                } else if (window.scrollY >= document.getElementById('services').offsetTop - 1 && window.scrollY < document.getElementById('contact').offsetTop - 1) {
+                } else if (window.scrollY + 1 >= document.getElementById('services').offsetTop && window.scrollY + 1 < document.getElementById('contact').offsetTop) {
                     const elms1 = document.querySelectorAll("a[href='/#about']");
                     for (let i = 0; i < elms1.length; i++) {
                         elms1[i].classList.remove('active');
@@ -281,7 +284,7 @@ export default function Nav(props) {
                     for (let i = 0; i < elms3.length; i++) {
                         elms3[i].classList.remove('active');
                     }
-                } else if (window.scrollY >= document.getElementById('contact').offsetTop - 1) {
+                } else if (window.scrollY + 1 >= document.getElementById('contact').offsetTop) {
                     const elms1 = document.querySelectorAll("a[href='/#about']");
                     for (let i = 0; i < elms1.length; i++) {
                         elms1[i].classList.remove('active');

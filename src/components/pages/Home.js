@@ -58,8 +58,9 @@ export default function Home() {
                 fontSize: 35,
             },
             letterSpacing: 1,
-            marginBottom: '0.66rem',
+            marginBottom: 2,
             color: theme.palette.primary.dark2,
+            paddingTop: 65,
         },
         sectionSubtitle: {
             textAlign: 'center',
@@ -68,6 +69,7 @@ export default function Home() {
         },
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
+            paddingTop: 40,
         },
         sectionSubtitleSecondary: {
             color: theme.palette.primary.dark2,
