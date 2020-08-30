@@ -7,6 +7,7 @@ import PaintLine from '../paintStroke.png';
 import Grid from '@material-ui/core/Grid';
 
 import Nav from '../Nav/Nav';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
@@ -66,7 +67,8 @@ export default function Home() {
         },
         sectionSubtitle: {
             textAlign: 'center',
-            paddingTop: 5,
+            paddingTop: 3,
+            marginBottom: 2,
             color: theme.palette.primary.dark2,
         },
         sectionTitleSecondary: {
@@ -81,15 +83,31 @@ export default function Home() {
         },
         servicesContainer: {
             marginTop: 30,
+            justifyContent: 'center',
+            marginBottom: 30,
         },
         serviceItem: {
-            minHeight: 250,
+            position: 'relative',
+            paddingTop: '75%',
         },
         serviceCard: {
             background: theme.palette.primary.light3,
             borderRadius: theme.shape.borderRadius,
-            width: '100%',
-            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            color: '#fff',
+            fontFamily: theme.typography.fonts.header,
+            fontWeight: 400,
+            fontSize: 30,
+            textAlign: 'center',
         },
     }));
     const classes = useStyles();
@@ -145,23 +163,93 @@ export default function Home() {
                     <Typography className={classes.sectionSubtitle}>Here are my services</Typography>
 
                     <Grid container spacing={3} className={classes.servicesContainer}>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/phone-cases">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Phone Cases
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/airpods-cases">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            AirPods Cases
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/hydro-flasks">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Hydro Flasks
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/shoes">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Shoes
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/masks">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Face Masks
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4} className={classes.serviceItem}>
-                            <div className={classes.serviceCard}>Service</div>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/scrunchies">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Scrunchies
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/bucket-hats">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Bucket Hats
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4}>
+                            <div className={classes.serviceItem}>
+                                <Link className={classes.serviceCard} to="/clothes">
+                                    <div className={classes.serviceContent}>
+                                        <span>
+                                            Clothes
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         </Grid>
                     </Grid>
                 </Container>
