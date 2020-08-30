@@ -255,6 +255,18 @@ export default function Fabrics() {
                 borderRadius: theme.shape.borderRadius,
             },
         },
+        tabLabel: {
+            fontFamily: theme.typography.fonts.header,
+            fontSize: 20,
+            color: theme.palette.primary.light1,
+            '&.Mui-selected': {
+                color: theme.palette.primary.dark2,
+            },
+            minWidth: 80,
+            margin: '0 25px',
+            padding: '6px 20px',
+            borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+        },
     }));
     const classes = useStyles();
 
@@ -483,12 +495,12 @@ export default function Fabrics() {
                     textColor="primary"
                     centered
                 >
-                    <Tab label="Gallery" />
-                    <Tab label="Order" />
+                    <Tab label="Gallery" className={classes.tabLabel} />
+                    <Tab label="Order" className={classes.tabLabel} />
                 </Tabs>
                 <TabPanel value={tab} index={0}>
                     Item One
-            </TabPanel>
+                </TabPanel>
                 <TabPanel value={tab} index={1}>
                     <Container maxWidth="lg">
 
@@ -579,7 +591,7 @@ export default function Fabrics() {
                                         return (
                                             <Grid item xs={12} sm={6} md={4} key={i}>
                                                 <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                                {/* {orderWorking ? <FabricsCounter id={i} /> : ''} */}
+                                                
                                                 <FabricsCounter id={i} />
                                             </Grid>
                                         )
@@ -595,7 +607,7 @@ export default function Fabrics() {
                                         return (
                                             <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
                                                 <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-                                                {/* {orderWorking ? <FabricsCounter id={i} /> : ''} */}
+                                                
                                                 <FabricsCounter id={i} />
                                             </Grid>
                                         )
