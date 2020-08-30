@@ -82,7 +82,7 @@ export default function ContactDialog(props) {
             display: 'none',
             width: '100%',
             background: '#fff',
-            border: props.secondary ? '1px solid ' + theme.palette.secondary.light1 : 'none',
+            border: props.secondary ? '1px solid ' + theme.palette.primary.light1 : 'none',
             borderRadius: props.secondary ? theme.shape.borderRadius : 0,
         },
 
