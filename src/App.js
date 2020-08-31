@@ -16,6 +16,12 @@ import './App.css';
 import Home from './components/pages/Home';
 import Footer from './components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
+import AirPods from './components/pages/AirPods';
+import Clothes from './components/pages/Clothes';
+import HydroFlasks from './components/pages/HydroFlasks';
+import PhoneCases from './components/pages/PhoneCases';
+import Scrunchies from './components/pages/Scrunchies';
+import Shoes from './components/pages/Shoes';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -90,7 +96,25 @@ export default function App() {
 							<Route path="/masks">
 								<Fabrics />
 							</Route>
-							<Route exact path="*">
+							<Route path="/airpods-cases">
+								<AirPods />
+							</Route>
+							<Route path="/clothes">
+								<Clothes />
+							</Route>
+							<Route path="/hydro-flasks">
+								<HydroFlasks />
+							</Route>
+							<Route path="/phone-cases">
+								<PhoneCases />
+							</Route>
+							<Route path="/scrunchies">
+								<Scrunchies />
+							</Route>
+							<Route path="/shoes">
+								<Shoes />
+							</Route>
+							<Route exact path="/">
 								<Home />
 							</Route>
 						</Switch>

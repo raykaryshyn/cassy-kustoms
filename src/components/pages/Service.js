@@ -18,6 +18,7 @@ import Tab from '@material-ui/core/Tab';
 
 /* import GalleryModal from './GalleryModal'; */
 import Gallery from './Gallery';
+import ScrollToTop from './ScrollToTop';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -229,7 +230,7 @@ export default function Service(props) {
             padding: '7px 0',
         },
         subNavButtonSmall: {
-            padding: '5px 12px',
+            padding: '7px 12px',
             fontSize: 17,
             fontFamily: theme.typography.fonts.header,
             lineHeight: 1.235,
@@ -307,6 +308,7 @@ export default function Service(props) {
 
     return (
         <>
+            <ScrollToTop />
             <Nav />
             {/* <div className={[classes.paintLineWrapper, classes.headerTopPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div> */}
             <div className={classes.header}>
@@ -366,13 +368,6 @@ export default function Service(props) {
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">
                     <Grid container spacing={2} className={classes.galleryContainer}>
-                        {/* {props.gallery.map((url, i) => {
-                            return (
-                                <Grid item xs={6} sm={4} md={3} key={i}>
-                                    <div className={classes.galleryItemWrapper}><GalleryModal className={classes.galleryItem} url={url} /></div>
-                                </Grid>
-                            );
-                        })} */}
                         <Gallery urls={props.gallery} />
                     </Grid>
                 </Container>

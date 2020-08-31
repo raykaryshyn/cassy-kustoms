@@ -8,6 +8,8 @@ import Grid from '@material-ui/core/Grid';
 
 import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
+import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
+import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
@@ -89,9 +91,23 @@ export default function Home() {
         serviceItem: {
             position: 'relative',
             paddingTop: '75%',
+            borderRadius: theme.shape.borderRadius,
+            overflow: 'hidden',
+            /* [theme.breakpoints.up('md')]: {
+                transition: theme.transitions.create('transform'),
+                '&:hover': {
+                    transform: 'scale(0.98)',
+                },
+            }, */
+            [theme.breakpoints.down('md')]: {
+                transition: theme.transitions.create('transform', { duration: 66 }),
+                '&:active': {
+                    transform: 'scale(0.966)',
+                },
+            },
+            cursor: 'pointer',
         },
         serviceCard: {
-            background: theme.palette.primary.light3,
             borderRadius: theme.shape.borderRadius,
             position: 'absolute',
             top: 0,
@@ -108,7 +124,44 @@ export default function Home() {
             fontWeight: 400,
             fontSize: 30,
             textAlign: 'center',
+            backgroundSize: 'cover',
+            backgroundColor: theme.palette.primary.light3,
+            overflow: 'hidden',
+            backgroundPosition: 'center center',
         },
+        serviceContent: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+            textShadow: '0 0 12px rgb(0,0,0), 0 0 6px rgb(0,0,0)',
+            '& span': {
+                zIndex: 1,
+            },
+        },
+        serviceIcon: {
+            width: 55,
+            marginBottom: 2,
+            filter: `drop-shadow(0 0 5px rgb(0,0,0))`,
+            zIndex: 1,
+        },
+        backdrop: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 0,
+            background: 'rgba(0,0,0,1)',
+            opacity: 0.2,
+            transition: [theme.transitions.create('background'), theme.transitions.create('opacity')].join(', '),
+            [theme.breakpoints.up('md')]: {
+                'a:hover &': {
+                    background: theme.palette.primary.main,
+                    opacity: 0.6,
+                },
+            },
+        }
     }));
     const classes = useStyles();
 
@@ -165,8 +218,10 @@ export default function Home() {
                     <Grid container spacing={3} className={classes.servicesContainer}>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/phone-cases">
+                                <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <PaintIcon className={classes.serviceIcon} />
                                         <span>
                                             Phone Cases
                                         </span>
@@ -176,8 +231,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/airpods-cases">
+                                <Link className={classes.serviceCard} to="/airpods-cases" style={{ backgroundImage: 'url(/gallery/airpods-case4.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <PaintIcon className={classes.serviceIcon} />
                                         <span>
                                             AirPods Cases
                                         </span>
@@ -187,8 +244,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/hydro-flasks">
+                                <Link className={classes.serviceCard} to="/hydro-flasks" style={{ backgroundImage: 'url(/gallery/hydro-flask3.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <PaintIcon className={classes.serviceIcon} />
                                         <span>
                                             Hydro Flasks
                                         </span>
@@ -198,8 +257,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/shoes">
+                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes2.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <PaintIcon className={classes.serviceIcon} />
                                         <span>
                                             Shoes
                                         </span>
@@ -209,8 +270,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/masks">
+                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask3.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <SewIcon className={classes.serviceIcon} />
                                         <span>
                                             Face Masks
                                         </span>
@@ -220,8 +283,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/scrunchies">
+                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies1.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <SewIcon className={classes.serviceIcon} />
                                         <span>
                                             Scrunchies
                                         </span>
@@ -233,6 +298,8 @@ export default function Home() {
                             <div className={classes.serviceItem}>
                                 <Link className={classes.serviceCard} to="/bucket-hats">
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <SewIcon className={classes.serviceIcon} />
                                         <span>
                                             Bucket Hats
                                         </span>
@@ -242,8 +309,10 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/clothes">
+                                <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1.jpg)' }}>
                                     <div className={classes.serviceContent}>
+                                        <div className={classes.backdrop}></div>
+                                        <SewIcon className={classes.serviceIcon} />
                                         <span>
                                             Clothes
                                         </span>

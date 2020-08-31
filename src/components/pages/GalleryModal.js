@@ -45,7 +45,6 @@ export default function GalleryModal(props) {
                 boxShadow: theme.shadows[5],
                 width: 'auto',
                 height: 'auto',
-                /* maxHeight: '100%', */
                 maxWidth: '100%',
                 maxHeight: 'calc(100vh - 90px)',
             },

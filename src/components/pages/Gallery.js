@@ -20,10 +20,6 @@ export default function Gallery(props) {
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
             overflow: 'hidden',
-            /* transition: theme.transitions.create('transform', { duration: 400 }),
-            '&:hover': {
-                transform: 'scale(0.98)',
-            }, */
             [theme.breakpoints.up('md')]: {
                 transition: theme.transitions.create('transform'),
                 '&:hover': {
@@ -55,7 +51,7 @@ export default function Gallery(props) {
             overflowX: 'hidden',
             overflowY: 'auto',
             '& .MuiBackdrop-root': {
-                background: 'rgba(0,0,0,0.95)',
+                background: 'rgba(0,0,0,0.9)',
             }
         },
         paperContainer: {
@@ -87,6 +83,8 @@ export default function Gallery(props) {
                 /* maxHeight: '100%', */
                 maxWidth: '100%',
                 maxHeight: 'calc(100vh - 144px)',
+                transition: theme.transitions.create('opacity', { duration: 500 }),
+                opacity: 1,
             },
         },
         closeX: {
@@ -145,6 +143,10 @@ export default function Gallery(props) {
             cursor: 'pointer',
             padding: 0,
             borderRadius: 0,
+            '&.inactive': {
+                opacity: 0.25,
+                cursor: 'unset',
+            },
         },
     }));
     const classes = useStyles();
@@ -214,10 +216,10 @@ export default function Gallery(props) {
                             <img src={props.urls[imgNum].main} alt="Modal Content" onLoad={() => setLoad(true)} style={style} />
                         </div>
                         {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
-                        <IconButton className={[classes.arrowButton, 'left'].join(' ')} centerRipple={false} onClick={lastSlide}>
+                        <IconButton className={[classes.arrowButton, 'left', imgNum === 0 ? 'inactive' : ''].join(' ')} centerRipple={false} onClick={lastSlide} disableRipple={imgNum === 0 ? true : false}>
                             <ArrowLeftIcon />
                         </IconButton>
-                        <IconButton className={[classes.arrowButton, 'right'].join(' ')} centerRipple={false} onClick={nextSlide}>
+                        <IconButton className={[classes.arrowButton, 'right', imgNum === props.urls.length - 1 ? 'inactive' : ''].join(' ')} centerRipple={false} onClick={nextSlide} disableRipple={imgNum === props.urls.length - 1 ? true : false}>
                             <ArrowRightIcon />
                         </IconButton>
                     </div>

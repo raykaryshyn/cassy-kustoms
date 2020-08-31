@@ -61,7 +61,7 @@ export default function Nav(props) {
         } */
 
         const handleResize = () => {
-            if (location.pathname === '/masks') {
+            if (location.pathname !== '/') {
                 rootSmallRef.current.classList.add(classes.showSmall);
                 document.getElementsByClassName(classes.rootBig)[0].style.display = 'none';
                 document.body.style.paddingTop = rootSmallRef.current.getBoundingClientRect().height + 'px';
@@ -297,7 +297,7 @@ export default function Nav(props) {
                         elms3[i].classList.add('active');
                     }
                 }
-            } else if (location.pathname === '/masks') {
+            } else if (location.pathname !== '/') {
                 const elms1 = document.querySelectorAll("a[href='/#about']");
                 for (let i = 0; i < elms1.length; i++) {
                     elms1[i].classList.remove('active');
