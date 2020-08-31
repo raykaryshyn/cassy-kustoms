@@ -8,6 +8,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from '@material-ui/core/Fade';
 import Backdrop from '@material-ui/core/Backdrop';
+import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 
 
@@ -53,7 +55,7 @@ export default function Gallery(props) {
             overflowX: 'hidden',
             overflowY: 'auto',
             '& .MuiBackdrop-root': {
-                background: 'rgba(0,0,0,0.8)',
+                background: 'rgba(0,0,0,0.95)',
             }
         },
         paperContainer: {
@@ -66,7 +68,7 @@ export default function Gallery(props) {
                 display: 'inline-block',
                 verticalAlign: 'middle',
             },
-            padding: '66px 10px 0',
+            padding: '66px 31px 0',
             textAlign: 'center',
             maxWidth: 1000,
             position: 'relative',
@@ -79,12 +81,12 @@ export default function Gallery(props) {
             '& img': {
                 display: 'block',
                 marginBottom: 10,
-                boxShadow: theme.shadows[5],
+                boxShadow: theme.shadows[10],
                 width: 'auto',
                 height: 'auto',
                 /* maxHeight: '100%', */
                 maxWidth: '100%',
-                maxHeight: 'calc(100vh - 90px)',
+                maxHeight: 'calc(100vh - 144px)',
             },
         },
         closeX: {
@@ -101,6 +103,9 @@ export default function Gallery(props) {
             margin: 15,
             padding: 8,
             boxShadow: theme.shadows[5],
+            '& svg': {
+                fontSize: 24,
+            },
         },
         spinnerWrapper: {
             position: 'fixed',
@@ -112,6 +117,35 @@ export default function Gallery(props) {
                 color: '#fff',
             },
         },
+        arrowButton: {
+            color: '#fff',
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '30px',
+            display: 'flex',
+            justifyContent: 'center',
+            height: '100px',
+            alignItems: 'center',
+            background: 'rgba(0,0,0,1)',
+            '&:hover': {
+                background: 'rgba(0,0,0,1)',
+            },
+            boxShadow: theme.shadows[5],
+            '& svg': {
+                width: '2em',
+                height: '2em',
+            },
+            '&.left': {
+                left: 0,
+            },
+            '&.right': {
+                right: 0,
+            },
+            cursor: 'pointer',
+            padding: 0,
+            borderRadius: 0,
+        },
     }));
     const classes = useStyles();
 
@@ -121,18 +155,41 @@ export default function Gallery(props) {
     };
     const handleClose = () => {
         setOpen(false);
+        setTimeout(() => {
+            setLoad(false);
+        }, 500);
     };
 
     const [didLoad, setLoad] = React.useState(false);
     const style = didLoad ? {} : { opacity: 0 };
     const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
 
+    const handleCardClick = (i) => {
+        handleOpen();
+        setImgNum(i);
+    };
+
+    const lastSlide = () => {
+        if (imgNum > 0) {
+            if (props.urls[imgNum].main !== props.urls[imgNum - 1].main) setLoad(false);
+            setImgNum(imgNum - 1);
+        }
+    };
+    const nextSlide = () => {
+        if (imgNum < props.urls.length - 1) {
+            if (props.urls[imgNum].main !== props.urls[imgNum + 1].main) setLoad(false);
+            setImgNum(imgNum + 1);
+        }
+    };
+
+    const [imgNum, setImgNum] = React.useState(0);
+
     return (
         <>
             {props.urls.map((url, i) => {
                 return (
                     <Grid item xs={6} sm={4} md={3} key={i}>
-                        <div className={classes.galleryItemWrapper}><div style={{ backgroundImage: `url(${url.thumb})` }} className={classes.galleryItem} onClick={handleOpen}></div></div>
+                        <div className={classes.galleryItemWrapper}><div style={{ backgroundImage: `url(${url.thumb})` }} className={classes.galleryItem} onClick={() => handleCardClick(i)}></div></div>
                     </Grid>
                 );
             })}
@@ -150,9 +207,18 @@ export default function Gallery(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paperContainer}>
-
-                        <IconButton aria-label="delete" className={classes.closeX} onClick={handleClose}>
+                        <IconButton aria-label="delete" className={classes.closeX} onClick={handleClose} centerRipple={false}>
                             <CloseIcon />
+                        </IconButton>
+                        <div className={classes.paper} style={style2}>
+                            <img src={props.urls[imgNum].main} alt="Modal Content" onLoad={() => setLoad(true)} style={style} />
+                        </div>
+                        {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
+                        <IconButton className={[classes.arrowButton, 'left'].join(' ')} centerRipple={false} onClick={lastSlide}>
+                            <ArrowLeftIcon />
+                        </IconButton>
+                        <IconButton className={[classes.arrowButton, 'right'].join(' ')} centerRipple={false} onClick={nextSlide}>
+                            <ArrowRightIcon />
                         </IconButton>
                     </div>
                 </Fade>

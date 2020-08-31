@@ -487,7 +487,7 @@ export default function Fabrics() {
         },
         {
             thumb: 'https://picsum.photos/400',
-            main: 'https://picsum.photos/1000/1777',
+            main: 'https://picsum.photos/1777/1000',
         },
         {
             thumb: 'https://picsum.photos/400',
