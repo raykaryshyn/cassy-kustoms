@@ -299,6 +299,7 @@ export default function Service(props) {
             backgroundColor: '#ccc',
             borderRadius: theme.shape.borderRadius,
             overflow: 'hidden',
+            backgroundPosition: 'center',
         },
         orderContainer: {
             marginTop: 20,

@@ -154,7 +154,7 @@ export default function Home() {
             zIndex: 0,
             background: 'rgba(0,0,0,1)',
             opacity: 0.2,
-            transition: [theme.transitions.create('background', {duration: 200}), theme.transitions.create('opacity', {duration: 200})].join(', '),
+            transition: [theme.transitions.create('background', {duration: 400}), theme.transitions.create('opacity', {duration: 400})].join(', '),
             [theme.breakpoints.up('md')]: {
                 'a:hover &': {
                     background: theme.palette.primary.main,
@@ -218,7 +218,7 @@ export default function Home() {
                     <Grid container spacing={3} className={classes.servicesContainer}>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
@@ -231,7 +231,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/airpods-cases" style={{ backgroundImage: 'url(/gallery/airpods-case4.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/airpods-cases" style={{ backgroundImage: 'url(/gallery/airpods-case4-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
@@ -244,7 +244,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/hydro-flasks" style={{ backgroundImage: 'url(/gallery/hydro-flask3.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/hydro-flasks" style={{ backgroundImage: 'url(/gallery/hydro-flask3-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
@@ -257,7 +257,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes2.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes2-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
@@ -270,7 +270,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask3.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask3-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />
@@ -283,7 +283,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies1.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies1-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />
@@ -309,7 +309,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />
