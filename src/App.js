@@ -22,6 +22,7 @@ import HydroFlasks from './components/pages/HydroFlasks';
 import PhoneCases from './components/pages/PhoneCases';
 import Scrunchies from './components/pages/Scrunchies';
 import Shoes from './components/pages/Shoes';
+import BucketHats from './components/pages/BucketHats';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -113,6 +114,9 @@ export default function App() {
 							</Route>
 							<Route path="/shoes">
 								<Shoes />
+							</Route>
+							<Route path="/bucket-hats">
+								<BucketHats />
 							</Route>
 							<Route exact path="/">
 								<Home />

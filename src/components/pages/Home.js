@@ -154,7 +154,7 @@ export default function Home() {
             zIndex: 0,
             background: 'rgba(0,0,0,1)',
             opacity: 0.2,
-            transition: [theme.transitions.create('background'), theme.transitions.create('opacity')].join(', '),
+            transition: [theme.transitions.create('background', {duration: 200}), theme.transitions.create('opacity', {duration: 200})].join(', '),
             [theme.breakpoints.up('md')]: {
                 'a:hover &': {
                     background: theme.palette.primary.main,
