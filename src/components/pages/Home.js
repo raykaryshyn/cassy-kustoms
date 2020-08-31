@@ -257,7 +257,7 @@ export default function Home() {
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                     <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>About me...</Typography>
                     <div className={classes.profilePic}>
-                        <img src="https://media.istockphoto.com/vectors/cartoon-girl-character-portrait-vector-avatar-vector-id1138882701" alt="Profile" />
+                        <img src="https://static.thenounproject.com/png/1095867-200.png" alt="Profile" />
                     </div>
                     <div className={classes.instagramWrapper}>
                         <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer"><InstagramIcon /> cassykustoms</a>
