@@ -123,7 +123,7 @@ export default function Gallery(props) {
             color: '#fff',
             position: 'absolute',
             top: '50%',
-            transform: 'translateY(-50%)',
+            transform: 'translateY(calc(-50% + 32px))',
             width: '30px',
             display: 'flex',
             justifyContent: 'center',

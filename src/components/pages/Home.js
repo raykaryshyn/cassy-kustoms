@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
 import Grid from '@material-ui/core/Grid';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
@@ -49,6 +50,11 @@ export default function Home() {
         },
         aboutSection: {
             background: theme.palette.primary.light3,
+            '& .MuiContainer-root': {
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+            },
         },
         sectionGoto: {
             display: 'block',
@@ -152,16 +158,60 @@ export default function Home() {
             right: 0,
             bottom: 0,
             zIndex: 0,
-            background: 'rgba(0,0,0,1)',
+            background: 'rgba(0,0,0,0)',
             opacity: 0.2,
-            transition: [theme.transitions.create('background', {duration: 400}), theme.transitions.create('opacity', {duration: 400})].join(', '),
+            transition: [theme.transitions.create('background', { duration: 400 }), theme.transitions.create('opacity', { duration: 400 })].join(', '),
             [theme.breakpoints.up('md')]: {
                 'a:hover &': {
                     background: theme.palette.primary.main,
                     opacity: 0.6,
                 },
             },
-        }
+        },
+
+
+        profilePic: {
+            maxWidth: 200,
+            maxHeight: 200,
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: '50%',
+            boxShadow: `0 0 0 8px ${theme.palette.primary.light2}`,
+            marginTop: 50,
+            '& img': {
+                display: 'block',
+                width: '100%',
+                height: 'auto',
+            },
+        },
+        instagramWrapper: {
+            marginTop: 20,
+            boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5)',
+            borderRadius: theme.shape.borderRadius,
+            '& a': {
+                margin: 1,
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textDecoration: 'none',
+                padding: '6px 12px',
+                color: theme.palette.primary.main,
+                fontFamily: theme.typography.fonts.header,
+                fontSize: 20,
+                '& svg': {
+                    color: theme.palette.secondary.main,
+                    marginRight: 5,
+                },
+                borderRadius: theme.shape.borderRadius,
+                transition: theme.transitions.create('box-shadow', { duration: 100 }),
+                '&:hover': {
+                    boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5), inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.5)',
+                },
+            },
+        },
     }));
     const classes = useStyles();
 
@@ -206,6 +256,12 @@ export default function Home() {
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                     <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>About me...</Typography>
+                    <div className={classes.profilePic}>
+                        <img src="https://media.istockphoto.com/vectors/cartoon-girl-character-portrait-vector-avatar-vector-id1138882701" alt="Profile" />
+                    </div>
+                    <div className={classes.instagramWrapper}>
+                        <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer"><InstagramIcon /> cassykustoms</a>
+                    </div>
                 </Container>
                 <div className={classes.sectionGoto} id="services">&nbsp;</div>
             </div>
