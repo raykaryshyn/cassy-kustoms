@@ -482,16 +482,16 @@ export default function Fabrics() {
 
     const gallery = [
         {
-            thumb: '/gallery/face-mask1-thumbnail.jpg',
-            main: '/gallery/face-mask1.jpg',
+            thumb: '/gallery/face-mask3-thumbnail.jpg',
+            main: '/gallery/face-mask3.jpg',
         },
         {
             thumb: '/gallery/face-mask2-thumbnail.jpg',
             main: '/gallery/face-mask2.jpg',
         },
         {
-            thumb: '/gallery/face-mask3-thumbnail.jpg',
-            main: '/gallery/face-mask3.jpg',
+            thumb: '/gallery/face-mask1-thumbnail.jpg',
+            main: '/gallery/face-mask1.jpg',
         },
     ];
 
