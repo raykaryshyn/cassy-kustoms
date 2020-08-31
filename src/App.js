@@ -23,6 +23,7 @@ import PhoneCases from './components/pages/PhoneCases';
 import Scrunchies from './components/pages/Scrunchies';
 import Shoes from './components/pages/Shoes';
 import BucketHats from './components/pages/BucketHats';
+import Development from './Development';
 
 /* import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -88,6 +89,8 @@ export default function App() {
 		<Router>
 			<ThemeProvider theme={theme}>
 				<CssBaseline />
+
+				<Development />
 
 				<div className={classes.root} id="root-body">
 					{/* <Nav /> */}
