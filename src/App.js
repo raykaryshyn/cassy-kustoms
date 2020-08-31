@@ -117,6 +117,9 @@ export default function App() {
 							<Route exact path="/">
 								<Home />
 							</Route>
+							<Route exact path="*">
+								404 Page
+							</Route>
 						</Switch>
 					</div>
 

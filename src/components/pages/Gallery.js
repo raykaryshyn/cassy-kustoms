@@ -94,9 +94,11 @@ export default function Gallery(props) {
             transform: 'translateX(calc(-50% - 16px))',
             backgroundColor: theme.palette.background.paper,
             color: '#222',
+            transition: theme.transitions.create('opacity'),
             '&:hover': {
                 backgroundColor: theme.palette.background.paper,
                 color: '#222',
+                opacity: 0.8,
             },
             margin: 15,
             padding: 8,
@@ -126,6 +128,7 @@ export default function Gallery(props) {
             height: '100px',
             alignItems: 'center',
             background: 'rgba(0,0,0,1)',
+            transition: theme.transitions.create('opacity'),
             '&:hover': {
                 background: 'rgba(0,0,0,1)',
             },
