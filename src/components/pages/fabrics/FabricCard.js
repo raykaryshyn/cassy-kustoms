@@ -256,20 +256,14 @@ export default function FabricCard(props) {
     }));
     const classes = useStyles();
 
+    React.useEffect(() => {
+        console.log('computation');
+    }, []);
 
     if (gridView) {
         return (
             <Card className={[classes.root, classes.gridCard].join(' ')}>
                 <CardActionArea className={classes.gridMedia} disableRipple>
-                    {/* <CardMedia
-                        component="img"
-                        alt={name}
-                        height="300"
-                        image={image}
-                        title={name}
-                        className={classes.gridImage}
-                    /> */}
-                    {/* <ImageLoader src={image} className={classes.gridImage} /> */}
                     <img src={image} height="300" alt={name} className={classes.gridImage} />
                     {limited ?
                         <div className={[classes.gridLimited, 'gridLimited'].join(' ')}>
@@ -304,14 +298,6 @@ export default function FabricCard(props) {
                     <CardActionArea className={classes.listActionArea} disableRipple>
                         <div className={classes.listActionAreaInner}>
                             <div className={[classes.listMedia].join(' ')}>
-                                {/* <CardMedia
-                                    component="img"
-                                    alt={name}
-                                    height="300"
-                                    image={image}
-                                    title={name}
-                                    className={classes.listImage}
-                                /> */}
                                 <ImageLoader src={image} className={classes.listImage} />
                             </div>
 
