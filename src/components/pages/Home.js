@@ -261,11 +261,11 @@ export default function Home() {
                 [theme.breakpoints.down(580)]: {
                     width: 130,
                     left: '50%',
-                    transform: 'translateX(-50%) translateY(125%)',
+                    transform: 'translateX(-50%) translateY(120%)',
                 },
             },
             [theme.breakpoints.down(580)]: {
-                marginBottom: 20,
+                marginBottom: 30,
             },
         },
     }));

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
@@ -40,6 +41,7 @@ function TabPanel(props) {
 
 
 export default function Service(props) {
+    const location = useLocation();
     const [dropd, setDropdState] = React.useState({ paint: false, sew: false });
     const toggleDropd = (cat) => {
         if (cat) {
@@ -200,6 +202,9 @@ export default function Service(props) {
                 borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
                 background: theme.palette.primary.dark2,
             },
+            '&.on': {
+                background: theme.palette.primary.dark2,
+            },
             cursor: 'pointer',
             /* transition: theme.transitions.create('background', { duration: 250 }), */
         },
@@ -340,7 +345,7 @@ export default function Service(props) {
 
                     <div className={classes.subNavSmall}>
                         <div className={classes.subNavSectionSmall}>
-                            <button onClick={() => toggleDropd('paint')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['paint'] ? 'active' : ''].join(' ')}><PaintIcon className={classes.subNavIconSmall} /> Painting <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['paint'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <button onClick={() => toggleDropd('paint')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['paint'] ? 'active' : '', (location.pathname === '/phone-cases' || location.pathname === '/airpods-cases' || location.pathname === '/hydro-flasks' || location.pathname === '/shoes') ? 'on' : ''].join(' ')}><PaintIcon className={classes.subNavIconSmall} /> Painting <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['paint'] ? 'active' : ''].join(' ')} /></Typography></button>
                             <div className={[classes.subNavListSmall, dropd['paint'] ? 'active' : ''].join(' ')}>
                                 <NavLink to="/phone-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Phone Cases</NavLink>
                                 <NavLink to="/airpods-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>AirPods Cases</NavLink>
@@ -349,7 +354,7 @@ export default function Service(props) {
                             </div>
                         </div>
                         <div className={classes.subNavSectionSmall}>
-                            <button onClick={() => toggleDropd('sew')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['sew'] ? 'active' : ''].join(' ')}><SewIcon className={classes.subNavIconSmall} /> Sewing <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['sew'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <button onClick={() => toggleDropd('sew')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['sew'] ? 'active' : '', (location.pathname === '/masks' || location.pathname === '/scrunchies' || location.pathname === '/bucket-hats' || location.pathname === '/clothes') ? 'on' : ''].join(' ')}><SewIcon className={classes.subNavIconSmall} /> Sewing <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['sew'] ? 'active' : ''].join(' ')} /></Typography></button>
                             <div className={[classes.subNavListSmall, dropd['sew'] ? 'active' : ''].join(' ')}>
                                 <NavLink to="/masks" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Face Masks</NavLink>
                                 <NavLink to="/scrunchies" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Scrunchies</NavLink>

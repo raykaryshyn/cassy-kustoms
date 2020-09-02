@@ -176,15 +176,17 @@ export default function Nav(props) {
             color: theme.palette.primary.light2,
             textTransform: 'uppercase',
             marginLeft: 45,
+            opacity: 0.9,
             '&.active': {
                 color: '#fff',
                 textShadow: `0 0 8px ${theme.palette.primary.dark3}`,
+                opacity: 1,
                 '&:hover': {
                     color: '#fff',
                 },
             },
             '&:hover': {
-                color: 'rgba(255,255,255,0.85)',
+                color: 'rgba(255,255,255,0.9)',
             },
             fontFamily: theme.typography.fonts.header,
             letterSpacing: '0.175rem',
@@ -228,6 +230,7 @@ export default function Nav(props) {
             '&.active': {
                 color: '#fff',
                 textShadow: '0 0 8px rgb(11, 82, 91)',
+                opacity: 1,
             },
             transition: theme.transitions.create('color', { duration: 250 }),
         },
