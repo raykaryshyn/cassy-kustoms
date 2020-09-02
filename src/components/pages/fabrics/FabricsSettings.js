@@ -168,6 +168,7 @@ export default function FabricsSettings() {
                             className={[
                                 classes.toggleButton,
                                 gridView ? classes.activeToggleButton : '',
+                                'js-button',
                             ].join(' ')}
                             onClick={() => setGridView(true)}
                         />
@@ -175,6 +176,7 @@ export default function FabricsSettings() {
                             className={[
                                 classes.toggleButton,
                                 !gridView ? classes.activeToggleButton : '',
+                                'js-button',
                             ].join(' ')}
                             onClick={() => setGridView(false)}
                         />

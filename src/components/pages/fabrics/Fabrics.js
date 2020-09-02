@@ -456,6 +456,17 @@ export default function Fabrics() {
 
     const fabricsRef = React.useRef();
 
+    /* React.useEffect(() => {
+        const handleButtonClick = (e) => {
+            console.log(e.path[0].classList.contains('js-button') || e.path[1].classList.contains('js-button'));
+        };
+
+        document.body.addEventListener('click', handleButtonClick);
+        return _ => {
+            document.body.removeEventListener('click', handleButtonClick);
+        }
+    }); */
+
     return (
         <>
             <FabricsContext.Provider value={{ context }}>
@@ -537,7 +548,6 @@ export default function Fabrics() {
                         <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                         <FabricsSettings />
 
-                        {/* <FabricGallery /> */}
                         {gridView ?
                             <Grid container spacing={4} className={classes.grid} ref={gridRef}>
                                 {fabrics.map((fabric, i) => {

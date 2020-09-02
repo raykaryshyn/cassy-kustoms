@@ -304,12 +304,16 @@ export default function Service(props) {
         orderContainer: {
             marginTop: 20,
         },
-
-        /* indicator: {
-            display: 'none',
-        } */
     }));
     const classes = useStyles();
+
+
+    /* React.useLayoutEffect(() => {
+        document.getElementById('js-services-loading').style.opacity = 0;
+        return () => {
+            document.getElementById('js-services-loading').style.opacity = 1;
+        };
+    }); */
 
     return (
         <>
@@ -364,10 +368,9 @@ export default function Service(props) {
                 indicatorColor="primary"
                 textColor="primary"
                 centered
-                /* classes={{ indicator: classes.indicator }} */
             >
-                <Tab label="Gallery" className={classes.tabLabel} />
-                <Tab label="Order" className={classes.tabLabel} />
+                <Tab label="Gallery" className={[classes.tabLabel, 'js-button'].join(' ')} />
+                <Tab label="Order" className={[classes.tabLabel, 'js-button'].join(' ')} />
             </Tabs>
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">

@@ -139,7 +139,7 @@ export default function Nav(props) {
         bigNavLinks: {
             display: 'flex',
             flexDirection: 'row',
-            marginTop: 8,
+            marginTop: 5,
             flexWrap: 'wrap',
             justifyContent: 'center',
         },

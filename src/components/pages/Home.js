@@ -4,8 +4,9 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PaintLine from '../paintStroke.png';
+import PaintLineLone from '../paintStroke_lone.png';
 import Grid from '@material-ui/core/Grid';
-import InstagramIcon from '@material-ui/icons/Instagram';
+/* import InstagramIcon from '@material-ui/icons/Instagram'; */
 
 import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
@@ -15,15 +16,47 @@ import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
-            background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-            marginTop: 40,
+            /*  background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, */
+            backgroundImage: 'url(/header-bg.jpg)',
+            marginTop: 20,
             padding: '75px 0 0',
             overflow: 'hidden',
+            minHeight: 600,
+            [theme.breakpoints.down(950)]: {
+                minHeight: 500,
+            },
+            [theme.breakpoints.down(700)]: {
+                minHeight: 400,
+            },
+            [theme.breakpoints.down(500)]: {
+                minHeight: 250,
+            },
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+        },
+        welcomeContainer: {
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
         },
         welcomeTitle: {
             textAlign: 'center',
             color: '#fff',
-            fontSize: '5rem',
+            fontSize: '7rem',
+            [theme.breakpoints.down(700)]: {
+                fontSize: '6rem',
+            },
+            [theme.breakpoints.down(500)]: {
+                fontSize: '4rem',
+            },
+            [theme.breakpoints.down(350)]: {
+                fontSize: '3.5rem',
+            },
+            textShadow: '0 0 9px black, 0 0 21px black',
+            letterSpacing: 6,
         },
         welcomeBody: {
             color: '#fff',
@@ -40,6 +73,12 @@ export default function Home() {
         },
         paintLineWrapper: {
             overflow: 'hidden',
+        },
+        welcomePaintLineTop: {
+            transform: 'translateY(25px)',
+            '& img': {
+                height: 9.5,
+            }
         },
         welcomePaintLine: {
             marginTop: -10,
@@ -71,13 +110,17 @@ export default function Home() {
             letterSpacing: 1,
             marginBottom: 2,
             color: theme.palette.primary.dark2,
-            paddingTop: 65,
+            paddingTop: 70,
         },
         sectionSubtitle: {
             textAlign: 'center',
             paddingTop: 3,
             marginBottom: 2,
             color: theme.palette.primary.dark2,
+            maxWidth: '84ch',
+            fontFamily: theme.typography.fonts.header,
+            margin: '0 auto',
+            fontSize: 17,
         },
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
@@ -99,12 +142,6 @@ export default function Home() {
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
             overflow: 'hidden',
-            /* [theme.breakpoints.up('md')]: {
-                transition: theme.transitions.create('transform'),
-                '&:hover': {
-                    transform: 'scale(0.98)',
-                },
-            }, */
             [theme.breakpoints.down('md')]: {
                 transition: theme.transitions.create('transform', { duration: 66 }),
                 '&:active': {
@@ -171,19 +208,19 @@ export default function Home() {
 
 
         profilePic: {
-            maxWidth: 200,
-            maxHeight: 200,
+            width: 200,
+            height: 200,
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: '50%',
-            boxShadow: `0 0 0 8px ${theme.palette.primary.light2}`,
+            boxShadow: `0 0 0 6px rgba(255,255,255,0.5)`,
             marginTop: 50,
             '& img': {
                 display: 'block',
-                width: '100%',
-                height: 'auto',
+                width: 'auto',
+                height: '100%',
             },
         },
         instagramWrapper: {
@@ -197,7 +234,7 @@ export default function Home() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 textDecoration: 'none',
-                padding: '6px 12px',
+                padding: '7px 14px',
                 color: theme.palette.primary.main,
                 fontFamily: theme.typography.fonts.header,
                 fontSize: 20,
@@ -205,11 +242,30 @@ export default function Home() {
                     color: theme.palette.secondary.main,
                     marginRight: 5,
                 },
+                '& img.button': {
+                    width: 190,
+                },
                 borderRadius: theme.shape.borderRadius,
-                transition: theme.transitions.create('box-shadow', { duration: 100 }),
+                transition: theme.transitions.create('box-shadow', { duration: 250 }),
                 '&:hover': {
                     boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5), inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.5)',
                 },
+            },
+            position: 'relative',
+            '& img.text': {
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                transform: 'translateX(98%) translateY(-72%)',
+                width: 150,
+                [theme.breakpoints.down(580)]: {
+                    width: 130,
+                    left: '50%',
+                    transform: 'translateX(-50%) translateY(125%)',
+                },
+            },
+            [theme.breakpoints.down(580)]: {
+                marginBottom: 20,
             },
         },
     }));
@@ -240,14 +296,16 @@ export default function Home() {
     return (
         <>
             <Nav />
+
+            <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
             <div id="welcome" className={classes.welcomeSection}>
-                <Container maxWidth="md">
+                <Container maxWidth="md" className={classes.welcomeContainer}>
                     <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
                         WELCOME
                     </Typography>
-                    <Typography className={classes.welcomeBody}>
+                    {/* <Typography className={classes.welcomeBody}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas interdum massa, quis tincidunt sem sagittis in. Suspendisse suscipit libero quis arcu condimentum lacinia. Donec eget augue in libero commodo auctor.
-                    </Typography>
+                    </Typography> */}
                 </Container>
                 <div className={classes.sectionGoto} id="about">&nbsp;</div>
             </div>
@@ -255,12 +313,21 @@ export default function Home() {
             <div className={[classes.aboutSection].join(' ')}>
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
-                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>About me...</Typography>
+                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
+                        I’m a multidisciplined freelance designer in the Washington DC metro area. I specialize in one-of-a-kind painting and sewing products that are custom tailored to the person’s personality.
+                        <br /><br />
+                        A gallery of each of my designs is available below in the painting and sewing services section.
+                        Check it out and let me know If there is something custom you are looking for.
+                    </Typography>
                     <div className={classes.profilePic}>
-                        <img src="https://static.thenounproject.com/png/1095867-200.png" alt="Profile" />
+                        <img src="/about_placeholder.jpg" alt="Profile" />
                     </div>
                     <div className={classes.instagramWrapper}>
-                        <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer"><InstagramIcon /> cassykustoms</a>
+                        <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">
+                            {/* <InstagramIcon /> cassykustoms */}
+                            <img src="/about_instagram_button.png" alt="@cassykustoms" className="button" />
+                        </a>
+                        <img src="/about_instagram_text.png" alt="tag me in your story" className="text" />
                     </div>
                 </Container>
                 <div className={classes.sectionGoto} id="services">&nbsp;</div>

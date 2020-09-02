@@ -69,12 +69,12 @@ export default function App() {
 	const classes = useStyles();
 
 	function viewportToPixels(value) {
-        var parts = value.match(/([0-9.]+)(vh|vw)/)
-        var q = Number(parts[1])
-        var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
-        return side * (q / 100)
+		var parts = value.match(/([0-9.]+)(vh|vw)/)
+		var q = Number(parts[1])
+		var side = window[['innerHeight', 'innerWidth'][['vh', 'vw'].indexOf(parts[2])]]
+		return side * (q / 100)
 	}
-	
+
 	React.useLayoutEffect(() => {
 		const handleResize = () => {
 			document.getElementById('root-body').style.minHeight = (viewportToPixels('100vh') - document.getElementById('navSmall').getBoundingClientRect().height) + 'px';
@@ -94,6 +94,7 @@ export default function App() {
 
 				<div className={classes.root} id="root-body">
 					{/* <Nav /> */}
+					{/* <h1 id="js-services-loading" style={{ opacity: 1 }}>LOADING!!!</h1> */}
 
 					<div className={classes.content}>
 						<Switch>
