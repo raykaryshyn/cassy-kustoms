@@ -304,6 +304,10 @@ export default function Service(props) {
         orderContainer: {
             marginTop: 20,
         },
+
+        /* indicator: {
+            display: 'none',
+        } */
     }));
     const classes = useStyles();
 
@@ -311,10 +315,8 @@ export default function Service(props) {
         <>
             <ScrollToTop />
             <Nav />
-            {/* <div className={[classes.paintLineWrapper, classes.headerTopPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div> */}
             <div className={classes.header}>
                 <Container maxWidth="lg">
-                    {/* <Typography variant="h3" component="h1" className={classes.mainTitle}>Services</Typography> */}
                     <div className={classes.subNavBig}>
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><PaintIcon className={classes.subNavIconBig} /> Painting:</Typography>
@@ -362,6 +364,7 @@ export default function Service(props) {
                 indicatorColor="primary"
                 textColor="primary"
                 centered
+                /* classes={{ indicator: classes.indicator }} */
             >
                 <Tab label="Gallery" className={classes.tabLabel} />
                 <Tab label="Order" className={classes.tabLabel} />

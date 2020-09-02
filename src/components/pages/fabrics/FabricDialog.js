@@ -10,12 +10,14 @@ import Slide from '@material-ui/core/Slide';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
+/* import FabricsCounter from './FabricsCounter'; */
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FabricDialog(props) {
+/* export default function FabricDialog(props) { */
+ const FabricDialog = React.memo((props) => {
   const name = props.fabric.name;
   const image = props.fabric.image;
   const limited = props.fabric.limited;
@@ -30,18 +32,7 @@ export default function FabricDialog(props) {
   };
   const handleClose = () => {
     setOpen(false);
-    /* setLoad(false); */
   };
-
-  /* const descriptionElementRef = React.useRef(null);
-  React.useEffect(() => {
-    if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [open]); */
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -130,12 +121,17 @@ export default function FabricDialog(props) {
   }));
   const classes = useStyles();
 
+  React.useEffect(() => {
+    console.log('Dialog Render');
+  });
+
   const [didLoad, setLoad] = React.useState(false);
   const style = didLoad ? {} : { opacity: 0 };
   const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
   return (
     <>
       <div onClick={() => handleClickOpen()}>{props.children}</div>
+      {/* <FabricsCounter id={props.id - 1} /> */}
       <Dialog
         open={open}
         onClose={handleClose}
@@ -177,4 +173,5 @@ export default function FabricDialog(props) {
       </Dialog>
     </>
   );
-}
+});
+export default FabricDialog;

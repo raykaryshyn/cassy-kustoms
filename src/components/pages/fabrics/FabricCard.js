@@ -256,9 +256,9 @@ export default function FabricCard(props) {
     }));
     const classes = useStyles();
 
-    React.useEffect(() => {
-        console.log('computation');
-    }, []);
+    /* React.useEffect(() => {
+        console.log('Card Render');
+    }); */
 
     if (gridView) {
         return (
