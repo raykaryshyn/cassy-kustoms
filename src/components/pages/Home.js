@@ -213,6 +213,11 @@ export default function Home() {
         profilePic: {
             width: 300,
             height: 300,
+            [theme.breakpoints.down(580)]: {
+                width: 200,
+                height: 200,
+                boxShadow: `0 0 0 6px rgba(255,255,255,0.6)`,
+            },
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
