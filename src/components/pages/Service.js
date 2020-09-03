@@ -51,7 +51,11 @@ export default function Service(props) {
         }
     };
 
-    const [tab, setTab] = React.useState(0);
+    const [tab, setTab] = React.useState(
+        location.pathname.includes('/order') ?
+            1 :
+            0
+    );
     const handleTab = (e, newTab) => {
         setTab(newTab);
     };
