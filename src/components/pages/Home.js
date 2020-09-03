@@ -115,13 +115,16 @@ export default function Home() {
         },
         sectionSubtitle: {
             textAlign: 'center',
-            paddingTop: 20,
+            paddingTop: 2,
             marginBottom: 2,
             color: theme.palette.primary.dark2,
             maxWidth: '84ch',
             fontFamily: theme.typography.fonts.header,
             margin: '0 auto',
             fontSize: 18,
+        },
+        aboutSubtitle: {
+            paddingTop: 20,
         },
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
@@ -321,7 +324,7 @@ export default function Home() {
             <div className={[classes.aboutSection].join(' ')}>
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
-                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
+                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
                         I’m a multidisciplined freelance designer in the Washington DC metro area. I specialize in one-of-a-kind painting and sewing products that are custom tailored to the person’s personality.
                         <br /><br />
                         A gallery of each of my designs is available below in the painting and sewing services section.
