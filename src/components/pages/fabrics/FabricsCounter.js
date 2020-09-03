@@ -36,7 +36,7 @@ export default function FabricsCounter(props) {
             display: 'flex',
             justifyContent: gridView ? 'center' : 'flex-start',
             alignItems: 'center',
-            marginTop: gridView ? -2 : 6,
+            marginTop: gridView ? -3 : 6,
             marginBottom: gridView ? 10 : 12,
             marginLeft: gridView ? 0 : 6,
             [theme.breakpoints.up(600)]: {
