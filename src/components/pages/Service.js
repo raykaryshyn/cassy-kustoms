@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Container from "@material-ui/core/Container";
@@ -269,6 +269,10 @@ export default function Service(props) {
                 padding: '6px 22px',
             },
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
+            '& a': {
+                textDecoration: 'none',
+                color: 'inherit',
+            }
         },
         galleryContainer: {
             justifyContent: 'center',
@@ -323,7 +327,6 @@ export default function Service(props) {
             document.getElementById('js-services-loading').style.opacity = 1;
         };
     }); */
-
     return (
         <>
             <ScrollToTop />
@@ -378,8 +381,8 @@ export default function Service(props) {
                 textColor="primary"
                 centered
             >
-                <Tab label="Gallery" className={classes.tabLabel} onClick={props.showLoader} />
-                <Tab label="Order" className={classes.tabLabel} onClick={props.showLoader} />
+                <Tab label={<Link to={'/' + location.pathname.split('/')[1]}>Gallery</Link>} className={classes.tabLabel} onClick={props.showLoader} />
+                <Tab label={<Link to={'/' + location.pathname.split('/')[1] + '/order'}>Order</Link>} className={classes.tabLabel} onClick={props.showLoader} />
             </Tabs>
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">
