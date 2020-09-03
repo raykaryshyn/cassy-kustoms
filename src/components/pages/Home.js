@@ -115,13 +115,13 @@ export default function Home() {
         },
         sectionSubtitle: {
             textAlign: 'center',
-            paddingTop: 3,
+            paddingTop: 20,
             marginBottom: 2,
             color: theme.palette.primary.dark2,
             maxWidth: '84ch',
             fontFamily: theme.typography.fonts.header,
             margin: '0 auto',
-            fontSize: 17,
+            fontSize: 18,
         },
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
@@ -172,8 +172,8 @@ export default function Home() {
             backgroundColor: theme.palette.primary.light3,
             /* overflow: 'hidden', */
             backgroundPosition: 'center center',
-            /* border: '1px solid #dadada', */
-            boxShadow: '0 0 20px rgba(0,0,0,0.15)',
+            boxShadow: '0 1px 15px rgba(0,0,0,0.2)',
+            /* border: '2px solid #fff', */
         },
         serviceContent: {
             display: 'flex',
@@ -211,15 +211,15 @@ export default function Home() {
 
 
         profilePic: {
-            width: 200,
-            height: 200,
+            width: 300,
+            height: 300,
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: '50%',
-            boxShadow: `0 0 0 6px rgba(255,255,255,0.5)`,
-            marginTop: 50,
+            boxShadow: `0 0 0 9px rgba(255,255,255,0.6)`,
+            marginTop: 40,
             '& img': {
                 display: 'block',
                 width: 'auto',
@@ -227,7 +227,7 @@ export default function Home() {
             },
         },
         instagramWrapper: {
-            marginTop: 20,
+            marginTop: 30,
             boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5)',
             borderRadius: theme.shape.borderRadius,
             '& a': {

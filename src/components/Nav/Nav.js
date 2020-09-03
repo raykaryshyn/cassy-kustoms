@@ -101,7 +101,7 @@ export default function Nav(props) {
             transform: 'translateY(-100px)',
             transition: theme.transitions.create('transform', { duration: 555 }),
             background: `linear-gradient(0deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark3})`,
-            boxShadow: `0 0 7px ${theme.palette.primary.dark3}`,
+            boxShadow: `0 0 8px rgba(0,0,0,0.8)`,
         },
         showSmall: {
             transform: 'translateY(0)',
