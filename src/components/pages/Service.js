@@ -320,13 +320,6 @@ export default function Service(props) {
     }));
     const classes = useStyles();
 
-
-    /* React.useLayoutEffect(() => {
-        document.getElementById('js-services-loading').style.opacity = 0;
-        return () => {
-            document.getElementById('js-services-loading').style.opacity = 1;
-        };
-    }); */
     return (
         <>
             <ScrollToTop />

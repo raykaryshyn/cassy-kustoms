@@ -361,6 +361,8 @@ export default function Fabrics() {
     const formEmailRef = React.createRef();
     const [emailValid, setEmailValid] = React.useState(true);
 
+    const [measurements, setMeasurements] = React.useState({});
+
     function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -368,8 +370,20 @@ export default function Fabrics() {
     }
     const handleSubmit = e => {
         const inputs = fabricsRef.current.getElementsByTagName('input');
+        let measurementsObject = {};
+        let allMeasurementsValid = true;
+        orderFabrics.forEach((fabric) => {
+            const measurementInputs = document.getElementById(fabric).getElementsByTagName('input');
+            for (const measurementInput of measurementInputs) {
+                const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
+                if (!measurementInputValid) allMeasurementsValid = false;
+                measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value, valid: measurementInputValid } };
+            }
+        });
+        setMeasurements(measurementsObject);
+        console.log(measurementsObject, allMeasurementsValid);
 
-        let mes2;
+        /* let mes2;
         if (inputs.length !== Object.keys(mes).length) {
             let newMes = {};
             Object.keys(inputs).forEach(i => {
@@ -401,7 +415,7 @@ export default function Fabrics() {
             if (!checkMesObj[i].valid) {
                 allMesValid = false;
             }
-        });
+        }); */
 
         const email = document.getElementById('formEmailRef').value;
         let emailValid = true;
@@ -412,14 +426,14 @@ export default function Fabrics() {
             setEmailValid(true);
         }
 
-        if (emailValid && allMesValid) {
+        if (emailValid && allMeasurementsValid) {
             console.log("ready to go");
             let measurements = () => {
                 var out = '';
-                Object.keys(checkMesObj).forEach(i => {
+                Object.keys(measurementsObject).forEach(i => {
                     out += i;
                     out += ': ';
-                    out += checkMesObj[i].value + ' in';
+                    out += measurementsObject[i].value + ' in';
                     out += '\n';
                 });
                 return out;
@@ -450,22 +464,11 @@ export default function Fabrics() {
     const [mes, setMes] = React.useState({});
     const handleMes = e => {
         setMes({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
-        console.log({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
+        /* console.log({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } }); */
     };
 
 
     const fabricsRef = React.useRef();
-
-    /* React.useEffect(() => {
-        const handleButtonClick = (e) => {
-            console.log(e.path[0].classList.contains('js-button') || e.path[1].classList.contains('js-button'));
-        };
-
-        document.body.addEventListener('click', handleButtonClick);
-        return _ => {
-            document.body.removeEventListener('click', handleButtonClick);
-        }
-    }); */
 
     return (
         <>
@@ -501,7 +504,7 @@ export default function Fabrics() {
                                                 return obj.name === orderFabrics[fabric].split('__')[0]
                                             });
                                             return (
-                                                <div key={i}>
+                                                <div key={i} id={orderFabrics[fabric]}>
                                                     <p>{fabricObj.name}</p>
                                                     <div className={classes.thumbnailOrder}>
                                                         <img
@@ -514,24 +517,24 @@ export default function Fabrics() {
                                                         <OutlinedInput
                                                             endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                             labelWidth={0}
-                                                            onChange={handleMes}
+                                                            
                                                             name={orderFabrics[fabric] + '__ear'}
-                                                            error={mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !mes[orderFabrics[fabric] + '__ear'].valid : false}
+                                                            error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
                                                         />
                                                     </FormControl>
-                                                    {mes.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!mes[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
+                                                    {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
 
                                                     <FormControl variant="outlined">
                                                         <FormHelperText>Nose to Chin</FormHelperText>
                                                         <OutlinedInput
                                                             endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                             labelWidth={0}
-                                                            onChange={handleMes}
+                                                            
                                                             name={orderFabrics[fabric] + '__chin'}
-                                                            error={mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !mes[orderFabrics[fabric] + '__chin'].valid : false}
+                                                            error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
                                                         />
                                                     </FormControl>
-                                                    {mes.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!mes[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
+                                                    {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
 
                                                     <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
                                                 </div>
