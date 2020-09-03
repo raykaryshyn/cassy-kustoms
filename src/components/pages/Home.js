@@ -17,6 +17,7 @@ export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
             /*  background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, */
+            backgroundColor: '#23270d',
             backgroundImage: 'url(/header-bg.jpg)',
             marginTop: 20,
             padding: '75px 0 0',
@@ -141,7 +142,7 @@ export default function Home() {
             position: 'relative',
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
-            overflow: 'hidden',
+            /* overflow: 'hidden', */
             [theme.breakpoints.down('md')]: {
                 transition: theme.transitions.create('transform', { duration: 66 }),
                 '&:active': {
@@ -169,8 +170,10 @@ export default function Home() {
             textAlign: 'center',
             backgroundSize: 'cover',
             backgroundColor: theme.palette.primary.light3,
-            overflow: 'hidden',
+            /* overflow: 'hidden', */
             backgroundPosition: 'center center',
+            /* border: '1px solid #dadada', */
+            boxShadow: '0 0 20px rgba(0,0,0,0.15)',
         },
         serviceContent: {
             display: 'flex',
@@ -195,15 +198,15 @@ export default function Home() {
             right: 0,
             bottom: 0,
             zIndex: 0,
-            background: 'rgba(0,0,0,0)',
-            opacity: 0.2,
+            background: theme.palette.primary.main,
+            opacity: 0.5,
             transition: [theme.transitions.create('background', { duration: 400 }), theme.transitions.create('opacity', { duration: 400 })].join(', '),
             [theme.breakpoints.up('md')]: {
                 'a:hover &': {
-                    background: theme.palette.primary.main,
-                    opacity: 0.6,
+                    opacity: 0,
                 },
             },
+            borderRadius: theme.shape.borderRadius,
         },
 
 

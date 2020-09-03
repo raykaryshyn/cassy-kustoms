@@ -374,8 +374,8 @@ export default function Service(props) {
                 textColor="primary"
                 centered
             >
-                <Tab label="Gallery" className={[classes.tabLabel, 'js-button'].join(' ')} />
-                <Tab label="Order" className={[classes.tabLabel, 'js-button'].join(' ')} />
+                <Tab label="Gallery" className={classes.tabLabel} onClick={props.showLoader} />
+                <Tab label="Order" className={classes.tabLabel} onClick={props.showLoader} />
             </Tabs>
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">

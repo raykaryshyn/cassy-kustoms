@@ -19,7 +19,7 @@ export default function Gallery(props) {
             position: 'relative',
             paddingTop: '75%',
             borderRadius: theme.shape.borderRadius,
-            overflow: 'hidden',
+            /* overflow: 'hidden', */
             [theme.breakpoints.up('md')]: {
                 transition: theme.transitions.create('transform'),
                 '&:hover': {
@@ -43,7 +43,8 @@ export default function Gallery(props) {
             backgroundSize: 'cover',
             backgroundColor: '#ccc',
             borderRadius: theme.shape.borderRadius,
-            overflow: 'hidden',
+            /* overflow: 'hidden', */
+            boxShadow: '0 0 20px rgba(0,0,0,0.1)',
         },
 
 

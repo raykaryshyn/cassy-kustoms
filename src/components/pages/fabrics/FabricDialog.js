@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 /* export default function FabricDialog(props) { */
- const FabricDialog = React.memo((props) => {
+const FabricDialog = React.memo((props) => {
   const name = props.fabric.name;
   const image = props.fabric.image;
   const limited = props.fabric.limited;
@@ -121,9 +121,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   }));
   const classes = useStyles();
 
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     console.log('Dialog Render');
-  });
+  }); */
 
   const [didLoad, setLoad] = React.useState(false);
   const style = didLoad ? {} : { opacity: 0 };
