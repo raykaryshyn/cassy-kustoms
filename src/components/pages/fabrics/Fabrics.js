@@ -369,7 +369,7 @@ export default function Fabrics() {
             .join("&");
     }
     const handleSubmit = e => {
-        const inputs = fabricsRef.current.getElementsByTagName('input');
+        /* const inputs = fabricsRef.current.getElementsByTagName('input'); */
         let measurementsObject = {};
         let allMeasurementsValid = true;
         orderFabrics.forEach((fabric) => {
@@ -461,11 +461,11 @@ export default function Fabrics() {
     };
 
 
-    const [mes, setMes] = React.useState({});
-    const handleMes = e => {
+    /* const [mes, setMes] = React.useState({}); */
+    /* const handleMes = e => {
         setMes({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
-        /* console.log({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } }); */
-    };
+        // console.log({ ...mes, [e.target.name]: { value: e.target.value, valid: !isNaN(e.target.value) } });
+    }; */
 
 
     const fabricsRef = React.useRef();
