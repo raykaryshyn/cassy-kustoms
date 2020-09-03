@@ -380,6 +380,7 @@ export default function Fabrics() {
                 measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value, valid: measurementInputValid } };
             }
         });
+        if (JSON.stringify(measurementsObject) === JSON.stringify({})) allMeasurementsValid = false;
         setMeasurements(measurementsObject);
         console.log(measurementsObject, allMeasurementsValid);
 
@@ -544,7 +545,7 @@ export default function Fabrics() {
                                         ''
                                     }
                                 </div>
-                                <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+                                {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <Button variant="contained" onClick={handleSubmit}>Submit</Button>}
                             </div>
                         </div>
 
