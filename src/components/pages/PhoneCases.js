@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContactDialog from './ContactDialog';
-
 
 import Service from './Service';
 
@@ -33,9 +31,7 @@ export default function PhoneCases() {
 
     return (
         <>
-            <Service title="Phone Cases" gallery={gallery} order={'order today.'} />
-
-            <ContactDialog />
+            <Service title="Phone Cases" gallery={gallery} />
         </>
     );
 }

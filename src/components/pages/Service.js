@@ -20,6 +20,8 @@ import Tab from '@material-ui/core/Tab';
 /* import GalleryModal from './GalleryModal'; */
 import Gallery from './Gallery';
 import ScrollToTop from './ScrollToTop';
+import ContactForm from './ContactForm';
+import ContactDialog from './ContactDialog';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -272,6 +274,8 @@ export default function Service(props) {
             '& a': {
                 textDecoration: 'none',
                 color: 'inherit',
+                width: '100%',
+                height: '100%',
             }
         },
         galleryContainer: {
@@ -374,8 +378,8 @@ export default function Service(props) {
                 textColor="primary"
                 centered
             >
-                <Tab label={<Link to={'/' + location.pathname.split('/')[1]}>Gallery</Link>} className={classes.tabLabel} onClick={props.showLoader} />
-                <Tab label={<Link to={'/' + location.pathname.split('/')[1] + '/order'}>Order</Link>} className={classes.tabLabel} onClick={props.showLoader} />
+                <Tab label={<Link to={'/' + location.pathname.split('/')[1]}>Gallery</Link>} className={classes.tabLabel}/>
+                <Tab label={<Link to={'/' + location.pathname.split('/')[1] + '/order'}>Order</Link>} className={classes.tabLabel} />
             </Tabs>
             <TabPanel value={tab} index={0}>
                 <Container maxWidth="lg">
@@ -386,10 +390,16 @@ export default function Service(props) {
             </TabPanel>
             <TabPanel value={tab} index={1}>
                 <Container maxWidth="lg" className={classes.orderContainer}>
-                    {props.order}
+                    {props.order ? props.order :
+                        <Container maxWidth='md'>
+                            <ContactForm noCancel={true} />
+                        </Container>
+                    }
                 </Container>
             </TabPanel>
             {props.children}
+
+            {tab === 1 ? '' : <ContactDialog />}
         </>
     )
 }

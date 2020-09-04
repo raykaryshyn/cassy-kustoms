@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContactDialog from './ContactDialog';
-
 
 import Service from './Service';
 
@@ -25,9 +23,7 @@ export default function HydroFlasks() {
 
     return (
         <>
-            <Service title="Hydro Flasks" gallery={gallery} order={'order today.'} />
-
-            <ContactDialog />
+            <Service title="Hydro Flasks" gallery={gallery} />
         </>
     );
 }

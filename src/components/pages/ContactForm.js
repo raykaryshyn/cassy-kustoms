@@ -245,10 +245,11 @@ export default function ContactDialog(props) {
                     </form>
                 </DialogContent>
                 <DialogActions className={classes.actionBar}>
-                    {!props.secondary ?
+                    {props.secondary || props.noCancel ?
+                        '' : 
                         <Button type="button" onClick={props.closeFunc} className={[classes.button, classes.buttonCancel].join(' ')} style={{ fontWeight: 400 }}>
                             Cancel
-                        </Button> : ''
+                        </Button>
                     }
                     <Button variant="contained" color="primary" type="submit" className={classes.button} onClick={handleSubmit}>
                         <SendIcon className={classes.sendIcon} /> Send

@@ -239,13 +239,13 @@ export default function Home() {
             boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5)',
             borderRadius: theme.shape.borderRadius,
             '& a': {
-                margin: 1,
+                /* margin: 1, */
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textDecoration: 'none',
-                padding: '7px 14px',
+                padding: '8px 15px',
                 color: theme.palette.primary.main,
                 fontFamily: theme.typography.fonts.header,
                 fontSize: 20,
@@ -314,9 +314,6 @@ export default function Home() {
                     <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
                         WELCOME
                     </Typography>
-                    {/* <Typography className={classes.welcomeBody}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas interdum massa, quis tincidunt sem sagittis in. Suspendisse suscipit libero quis arcu condimentum lacinia. Donec eget augue in libero commodo auctor.
-                    </Typography> */}
                 </Container>
                 <div className={classes.sectionGoto} id="about">&nbsp;</div>
             </div>
@@ -335,7 +332,6 @@ export default function Home() {
                     </div>
                     <div className={classes.instagramWrapper}>
                         <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">
-                            {/* <InstagramIcon /> cassykustoms */}
                             <img src="/about_instagram_button.png" alt="@cassykustoms" className="button" />
                         </a>
                         <img src="/about_instagram_text.png" alt="tag me in your story" className="text" />

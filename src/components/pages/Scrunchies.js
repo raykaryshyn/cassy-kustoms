@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContactDialog from './ContactDialog';
-
 
 import Service from './Service';
 
@@ -17,9 +15,7 @@ export default function Scrunchies() {
 
     return (
         <>
-            <Service title="Scrunchies" gallery={gallery} order={'order today.'} />
-
-            <ContactDialog />
+            <Service title="Scrunchies" gallery={gallery} />
         </>
     );
 }

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ContactDialog from './ContactDialog';
-
 
 import Service from './Service';
 
@@ -29,9 +27,7 @@ export default function AirPods() {
 
     return (
         <>
-            <Service title="AirPods Cases" gallery={gallery} order={'order today.'} />
-
-            <ContactDialog />
+            <Service title="AirPods Cases" gallery={gallery} />
         </>
     );
 }
