@@ -124,7 +124,7 @@ export default function Nav(props) {
         },
         smallLogo: {
             width: '100%',
-            maxWidth: 260,
+            maxWidth: 266,
             '& path': {
                 fill: '#fff',
             },
