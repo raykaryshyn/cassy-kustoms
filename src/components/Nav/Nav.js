@@ -130,8 +130,11 @@ export default function Nav(props) {
             },
             padding: '10px 10px 10px 0',
             filter: `drop-shadow(0 0 19px ${theme.palette.primary.dark3})`,
-            [theme.breakpoints.down('xs')]: {
+            [theme.breakpoints.down(790)]: {
                 maxWidth: 220,
+            },
+            [theme.breakpoints.down('xs')]: {
+                maxWidth: 200,
             },
             marginLeft: -4,
         },
