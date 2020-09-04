@@ -242,7 +242,6 @@ export default function Fabrics() {
             [theme.breakpoints.down(900)]: {
                 flexDirection: 'column',
                 flexWrap: 'wrap',
-                alignItems: 'center',
                 alignItems: 'stretch',
                 justifyContent: 'flex-start',
             },
