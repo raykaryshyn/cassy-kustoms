@@ -403,7 +403,9 @@ export default function Fabrics() {
         orderFabrics.forEach((fabric) => {
             alert('fabric: ' + fabric);
             const measurementInputs = document.getElementById(fabric).getElementsByTagName('input');
-            for (const measurementInput of measurementInputs) {
+            for (let i = 0; i < measurementInputs.length; i++) {
+                const measurementInput = measurementInputs[i];
+            /* for (const measurementInput of measurementInputs) { */
                 alert('measurementInput: ' + measurementInput.value);
                 const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
                 if (!measurementInputValid) allMeasurementsValid = false;

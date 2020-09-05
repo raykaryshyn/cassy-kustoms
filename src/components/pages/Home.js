@@ -322,10 +322,15 @@ export default function Home() {
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                     <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
-                        I’m a multidisciplined freelance designer in the Washington DC metro area. I specialize in one-of-a-kind painting and sewing products that are custom tailored to the person’s personality.
+                        I am a self-taught artist and seamtress located in the DMV area and I love to customize everyday objects.
+                        I use a variety of paint such as nail polish, satin acrylics, Angelus leather paint, and Sharpie for my work depending on the painting surface.
+                        Let me know if you want anything Kustomized!
+
                         <br /><br />
-                        A gallery of each of my designs is available below in the painting and sewing services section.
-                        Check it out and let me know If there is something custom you are looking for.
+
+                        In addition to painting, I've spent the past couple years improving at making clothes.
+                        Recently, I have added face masks to my sewing skills to help during this pandemic.
+                        Check out my 100+ available fabric choices for a Kustom-fitted face mask!
                     </Typography>
                     <div className={classes.profilePic}>
                         <img src="/about_placeholder.jpg" alt="Profile" />
@@ -343,7 +348,10 @@ export default function Home() {
             <div>
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
-                    <Typography className={classes.sectionSubtitle}>Here are my services</Typography>
+                    <Typography className={classes.sectionSubtitle}>
+                        Here are all of my painting and sewing services.
+                        Don't see what you're looking for? Contact me and I'll see what I can do!
+                    </Typography>
 
                     <Grid container spacing={3} className={classes.servicesContainer}>
                         <Grid item xs={12} sm={6} md={4}>
