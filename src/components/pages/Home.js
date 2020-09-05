@@ -322,15 +322,18 @@ export default function Home() {
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                     <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
-                        I am a self-taught artist and seamtress located in the DMV area and I love to customize everyday objects.
-                        I use a variety of paint such as nail polish, satin acrylics, Angelus leather paint, and Sharpie for my work depending on the painting surface.
-                        Let me know if you want anything Kustomized!
+                        I am an artist and seamtress located near D.C. and I love to customize everyday objects. I work with
+                        a variety of media such as acrylic paints, markers, and nail polish depending on the painting surface.
+                        I also enjoy working with a range of fabrics and patterns to sew clothes, hats and more. Recently,
+                        my sewing skills have focused on making face masks as a way to help during this pandemic.
 
                         <br /><br />
 
-                        In addition to painting, I've spent the past couple years improving at making clothes.
-                        Recently, I have added face masks to my sewing skills to help during this pandemic.
-                        Check out my 100+ available fabric choices for a Kustom-fitted face mask!
+                        Check out my work in the 'services' section where you can also place an order.
+
+                        <br /><br />
+
+                        Let me know if you want anything Kustomized!
                     </Typography>
                     <div className={classes.profilePic}>
                         <img src="/about_placeholder.jpg" alt="Profile" />
@@ -349,8 +352,9 @@ export default function Home() {
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                     <Typography className={classes.sectionSubtitle}>
-                        Here are all of my painting and sewing services.
-
+                        Here are my painting and sewing services.
+                        <br />
+                        The face mask section includes 100+ available 'fabric choices' for a Kustom-fitted face mask!
                         <br />
                         Don't see what you're looking for? Contact me and I'll see what I can do!
                     </Typography>

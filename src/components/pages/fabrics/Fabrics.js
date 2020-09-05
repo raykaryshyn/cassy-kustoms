@@ -164,8 +164,8 @@ export default function Fabrics() {
             justifyContent: 'center',
         },
         cardWrapper: {
-            flex: '1 1 400px',
-            maxWidth: '400px',
+            flex: '1 1 350px',
+            maxWidth: 350,
             '& ul': {
                 paddingInlineStart: '15px',
             },
@@ -266,7 +266,9 @@ export default function Fabrics() {
         },
         myOrderFabrics: {
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            flexWrap: 'wrap',
         },
         fabricsHowToAdd: {
             display: 'block',
@@ -278,25 +280,37 @@ export default function Fabrics() {
             display: 'flex',
             alignItems: 'flex-start',
             flexDirection: 'column',
-            marginTop: 14,
-            '&:first-of-type': {
+            marginTop: 22,
+            marginRight: 40,
+            /* '&:first-of-type': {
                 marginTop: 20,
-            },
+            }, */
+        },
+        fabricSwatchContainer: {
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'flex-end',
         },
         fabricSwatchTitle: {
             margin: '0 0 2px',
             fontWeight: 500,
-            fontSize: 16,
+            fontSize: 18,
         },
         measurementInputs: {
             display: 'flex',
-            flexDirection: 'row',
             alignItems: 'flex-end',
             '& .MuiFormControl-root': {
                 marginRight: 10,
             },
-        },
-        fabricSwatchContainer: {
+            '& .MuiInputBase-root': {
+                maxWidth: 145,
+                width: '100%', 
+            },
+            [theme.breakpoints.down(1222)]: {
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+            },
         },
         formItem: {
             margin: '6px 0',
@@ -326,14 +340,14 @@ export default function Fabrics() {
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
         },
         thumbnailOrder: {
-            height: 100,
-            width: 100,
+            height: 75,
+            width: 75,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             '& img': {
                 display: 'block',
-                width: '100%',
+                width: '210px',
                 height: 'auto',
             },
             overflow: 'hidden',
@@ -518,7 +532,7 @@ export default function Fabrics() {
                                     {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={classes.fabricsHowToAdd} /> : <img src={AddFabricList} alt="How to start a mask" className={classes.fabricsHowToAdd} />) : ''}
                                     <form name="order" onSubmit={handleSubmit}>
                                         <input type="hidden" name="form-name" value="order" />
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label="Email" variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />}
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label="Email" variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} style={{ width: '100%', maxWidth: 250 }} />}
                                     </form>
                                     <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                         {orderFabrics ?
@@ -528,42 +542,45 @@ export default function Fabrics() {
                                                 });
                                                 return (
                                                     <div key={i} id={orderFabrics[fabric]} className={classes.measurementsContainer}>
-                                                        <p className={classes.fabricSwatchTitle}>{fabricObj.name}</p>
-                                                        <div className={classes.measurementInputs}>
-                                                            <div className={classes.fabricSwatchContainer}>
-                                                                <div className={classes.thumbnailOrder}>
-                                                                    <img
-                                                                        src={fabricObj.thumbnail}
-                                                                        alt={fabricObj.name}
-                                                                    />
-                                                                </div>
+                                                        <div className={classes.fabricSwatchContainer}>
+                                                            <div className={classes.thumbnailOrder}>
+                                                                <img
+                                                                    src={fabricObj.thumbnail}
+                                                                    alt={fabricObj.name}
+                                                                />
                                                             </div>
-                                                            <FormControl variant="outlined">
-                                                                <FormHelperText>Nose to Ear</FormHelperText>
-                                                                <OutlinedInput
-                                                                    endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                    labelWidth={0}
-
-                                                                    name={orderFabrics[fabric] + '__ear'}
-                                                                    error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
-                                                                />
-                                                            </FormControl>
-                                                            {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
-
-                                                            <FormControl variant="outlined">
-                                                                <FormHelperText>Nose to Chin</FormHelperText>
-                                                                <OutlinedInput
-                                                                    endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                    labelWidth={0}
-
-                                                                    name={orderFabrics[fabric] + '__chin'}
-                                                                    error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
-                                                                />
-                                                            </FormControl>
-                                                            {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
-
-                                                            <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
+                                                            <p className={classes.fabricSwatchTitle}>{fabricObj.name}</p>
                                                         </div>
+                                                        <div className={classes.measurementInputs}>
+
+                                                            <div className={classes.measurementInputsValues}>
+                                                                <FormControl variant="outlined">
+                                                                    <FormHelperText>Nose to Ear</FormHelperText>
+                                                                    <OutlinedInput
+                                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                        labelWidth={0}
+
+                                                                        name={orderFabrics[fabric] + '__ear'}
+                                                                        error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
+                                                                    />
+                                                                </FormControl>
+                                                                {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
+
+                                                                <FormControl variant="outlined">
+                                                                    <FormHelperText>Nose to Chin</FormHelperText>
+                                                                    <OutlinedInput
+                                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                        labelWidth={0}
+
+                                                                        name={orderFabrics[fabric] + '__chin'}
+                                                                        error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
+                                                                    />
+                                                                </FormControl>
+                                                                {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
+                                                            </div>
+                                                        </div>
+
+                                                        <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
                                                     </div>
                                                 );
                                             })
