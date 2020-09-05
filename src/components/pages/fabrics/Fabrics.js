@@ -496,7 +496,7 @@ export default function Fabrics() {
                             <div className={classes.myOrderResults}>
                                 <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                 <div className={classes.myOrderForm}>
-                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} /> : <img src={AddFabricList} />) : ''}
+                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" /> : <img src={AddFabricList} alt="How to start a mask" />) : ''}
                                     <form name="order" onSubmit={handleSubmit}>
                                         <input type="hidden" name="form-name" value="order" />
                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label="Email" variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} />}
