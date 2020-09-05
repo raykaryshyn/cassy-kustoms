@@ -350,6 +350,8 @@ export default function Home() {
                     <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                     <Typography className={classes.sectionSubtitle}>
                         Here are all of my painting and sewing services.
+
+                        <br />
                         Don't see what you're looking for? Contact me and I'll see what I can do!
                     </Typography>
 
@@ -466,7 +468,9 @@ export default function Home() {
             <div id="contactContainer" className={classes.contactSection}>
                 <Container maxWidth="lg">
                     <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>Contact</Typography>
-                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>To get in touch with me, please fill out the form below...</Typography>
+                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
+                        Please fill out the form below to get in touch with me.
+                    </Typography>
                 </Container>
                 <Container maxWidth="md">
                     <ContactForm secondary className={classes.contactForm} />
