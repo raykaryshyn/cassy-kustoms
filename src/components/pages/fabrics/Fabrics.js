@@ -21,6 +21,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Service from '../Service';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 import AddFabricGrid from '../../addFabric_grid.png';
 import AddFabricList from '../../addFabric_list.png';
@@ -280,7 +281,7 @@ export default function Fabrics() {
             display: 'flex',
             alignItems: 'flex-start',
             flexDirection: 'column',
-            marginTop: 22,
+            marginTop: 30,
             marginRight: 40,
             /* '&:first-of-type': {
                 marginTop: 20,
@@ -305,7 +306,7 @@ export default function Fabrics() {
             },
             '& .MuiInputBase-root': {
                 maxWidth: 145,
-                width: '100%', 
+                width: '100%',
             },
             [theme.breakpoints.down(1222)]: {
                 flexDirection: 'column',
@@ -353,7 +354,39 @@ export default function Fabrics() {
             overflow: 'hidden',
             borderRadius: theme.shape.borderRadius,
             marginRight: 10,
-        }
+        },
+        removeFabric: {
+            border: `1px solid ${theme.palette.secondary.main}`,
+            background: '#fff',
+            color: theme.palette.secondary.main,
+            outline: 'none',
+            cursor: 'pointer',
+            borderRadius: theme.shape.borderRadius,
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: 5,
+            padding: '2px 10px',
+            transition: theme.transitions.create('all'),
+            '&:hover': {
+                background: theme.palette.secondary.main,
+                color: '#fff',
+            },
+            '& svg': {
+                height: '0.95em',
+                marginRight: 2,
+            },
+        },
+        submitButton: {
+            marginTop: 30,
+            boxShadow: 'none',
+            color: '#fff',
+            background: theme.palette.primary.main,
+            transition: theme.transitions.create('all'),
+            '&:hover': {
+                color: '#fff',
+                background: theme.palette.primary.dark1,
+            },
+        },
     }));
     const classes = useStyles();
 
@@ -580,7 +613,7 @@ export default function Fabrics() {
                                                             </div>
                                                         </div>
 
-                                                        <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
+                                                        <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /> Remove</button>
                                                     </div>
                                                 );
                                             })
@@ -588,7 +621,7 @@ export default function Fabrics() {
                                             ''
                                         }
                                     </div>
-                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <Button variant="contained" onClick={handleSubmit}>Submit</Button>}
+                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <Button variant="contained" onClick={handleSubmit} className={classes.submitButton}>Submit</Button>}
                                 </div>
                             </div>
                         </div>
