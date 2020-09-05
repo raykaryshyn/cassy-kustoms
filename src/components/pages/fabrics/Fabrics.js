@@ -591,7 +591,7 @@ export default function Fabrics() {
                                     {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={classes.fabricsHowToAdd} /> : <img src={AddFabricList} alt="How to start a mask" className={classes.fabricsHowToAdd} />) : ''}
                                     <form name="order" onSubmit={handleSubmit}>
                                         <input type="hidden" name="form-name" value="order" />
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label="Email" variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} helperText={emailValid ? '' : 'Invalid email'} style={{ width: '100%', maxWidth: 250 }} />}
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label={emailValid ? "Email" : 'Email (Invalid)'} variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} /* helperText={emailValid ? '' : 'Invalid email'} */ style={{ width: '100%', maxWidth: 250 }} />}
                                     </form>
                                     <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                         {orderFabrics ?
