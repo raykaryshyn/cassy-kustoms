@@ -165,8 +165,8 @@ export default function Fabrics() {
             justifyContent: 'center',
         },
         cardWrapper: {
-            flex: '1 1 350px',
-            maxWidth: 350,
+            flex: '1 1 375px',
+            maxWidth: 375,
             '& ul': {
                 paddingInlineStart: '15px',
             },
@@ -282,7 +282,9 @@ export default function Fabrics() {
             alignItems: 'flex-start',
             flexDirection: 'column',
             marginTop: 30,
-            marginRight: 40,
+            '&:nth-of-type(even)': {
+                marginLeft: 40,
+            },
             /* '&:first-of-type': {
                 marginTop: 20,
             }, */
@@ -294,9 +296,9 @@ export default function Fabrics() {
             alignItems: 'flex-end',
         },
         fabricSwatchTitle: {
-            margin: '0 0 2px',
+            margin: 0,
             fontWeight: 500,
-            fontSize: 18,
+            fontSize: 19,
         },
         measurementInputs: {
             display: 'flex',
@@ -307,8 +309,11 @@ export default function Fabrics() {
                 },
             },
             '& .MuiInputBase-root': {
-                maxWidth: 145,
+                maxWidth: 125,
                 width: '100%',
+            },
+            '& .MuiOutlinedInput-input': {
+                padding: 14,
             },
             [theme.breakpoints.down(1222)]: {
                 flexDirection: 'column',
@@ -367,7 +372,7 @@ export default function Fabrics() {
             display: 'flex',
             alignItems: 'center',
             marginTop: 5,
-            padding: '2px 10px',
+            padding: '2px 13px 2px 10px',
             transition: theme.transitions.create('all'),
             fontWeight: 500,
             '&:hover': {
@@ -380,7 +385,7 @@ export default function Fabrics() {
             },
         },
         submitButton: {
-            marginTop: 30,
+            marginTop: 36,
             boxShadow: 'none',
             color: '#fff',
             background: theme.palette.primary.main,
@@ -389,6 +394,8 @@ export default function Fabrics() {
                 color: '#fff',
                 background: theme.palette.primary.dark1,
             },
+            float: 'right',
+            marginRight: 8,
         },
     }));
     const classes = useStyles();
