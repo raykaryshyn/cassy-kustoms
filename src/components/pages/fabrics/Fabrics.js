@@ -274,6 +274,30 @@ export default function Fabrics() {
             width: '100%',
             maxWidth: 250,
         },
+        measurementsContainer: {
+            display: 'flex',
+            alignItems: 'flex-start',
+            flexDirection: 'column',
+            marginTop: 14,
+            '&:first-of-type': {
+                marginTop: 20,
+            },
+        },
+        fabricSwatchTitle: {
+            margin: '0 0 2px',
+            fontWeight: 500,
+            fontSize: 16,
+        },
+        measurementInputs: {
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-end',
+            '& .MuiFormControl-root': {
+                marginRight: 10,
+            },
+        },
+        fabricSwatchContainer: {
+        },
         formItem: {
             margin: '6px 0',
             '& .MuiInputBase-formControl': {
@@ -302,8 +326,8 @@ export default function Fabrics() {
             borderRadius: `${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0 0`,
         },
         thumbnailOrder: {
-            height: 150,
-            width: 150,
+            height: 100,
+            width: 100,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -314,6 +338,7 @@ export default function Fabrics() {
             },
             overflow: 'hidden',
             borderRadius: theme.shape.borderRadius,
+            marginRight: 10,
         }
     }));
     const classes = useStyles();
@@ -406,26 +431,19 @@ export default function Fabrics() {
             .join("&");
     }
     const handleSubmit = e => {
-        alert('submitting');
-
         let measurementsObject = {};
         let allMeasurementsValid = true;
         orderFabrics.forEach((fabric) => {
-            alert('fabric: ' + fabric);
             const measurementInputs = document.getElementById(fabric).getElementsByTagName('input');
             for (let i = 0; i < measurementInputs.length; i++) {
                 const measurementInput = measurementInputs[i];
-                /* for (const measurementInput of measurementInputs) { */
-                alert('measurementInput: ' + measurementInput.value);
                 const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
                 if (!measurementInputValid) allMeasurementsValid = false;
                 measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value, valid: measurementInputValid } };
-                alert('measurementInput: ' + JSON.stringify(measurementsObject));
             }
         });
         if (JSON.stringify(measurementsObject) === JSON.stringify({})) allMeasurementsValid = false;
         setMeasurements(measurementsObject);
-        alert('measurements: ' + JSON.stringify(measurementsObject));
 
         const email = document.getElementById('formEmailRef').value;
         let emailValid = true;
@@ -435,11 +453,9 @@ export default function Fabrics() {
         } else {
             setEmailValid(true);
         }
-        alert('email valid: ' + emailValid);
 
         if (emailValid && allMeasurementsValid) {
             console.log("ready to go");
-            alert('ready to go');
             let measurements = () => {
                 var out = '';
                 Object.keys(measurementsObject).forEach(i => {
@@ -454,7 +470,6 @@ export default function Fabrics() {
                 'email': email,
                 'measurements': measurements(),
             }
-            alert('body: ' + JSON.stringify(body));
             fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -466,12 +481,10 @@ export default function Fabrics() {
                 .then(() => {
                     console.log(body);
                     cancelOrder();
-                    alert('sending');
                 })
                 .catch(error => { console.log(error); alert('error'); });
         } else {
             console.log("errors.");
-            alert('errors');
         }
     };
 
@@ -514,39 +527,43 @@ export default function Fabrics() {
                                                     return obj.name === orderFabrics[fabric].split('__')[0]
                                                 });
                                                 return (
-                                                    <div key={i} id={orderFabrics[fabric]}>
-                                                        <p>{fabricObj.name}</p>
-                                                        <div className={classes.thumbnailOrder}>
-                                                            <img
-                                                                src={fabricObj.thumbnail}
-                                                                alt={fabricObj.name}
-                                                            />
+                                                    <div key={i} id={orderFabrics[fabric]} className={classes.measurementsContainer}>
+                                                        <p className={classes.fabricSwatchTitle}>{fabricObj.name}</p>
+                                                        <div className={classes.measurementInputs}>
+                                                            <div className={classes.fabricSwatchContainer}>
+                                                                <div className={classes.thumbnailOrder}>
+                                                                    <img
+                                                                        src={fabricObj.thumbnail}
+                                                                        alt={fabricObj.name}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                            <FormControl variant="outlined">
+                                                                <FormHelperText>Nose to Ear</FormHelperText>
+                                                                <OutlinedInput
+                                                                    endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                    labelWidth={0}
+
+                                                                    name={orderFabrics[fabric] + '__ear'}
+                                                                    error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
+                                                                />
+                                                            </FormControl>
+                                                            {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
+
+                                                            <FormControl variant="outlined">
+                                                                <FormHelperText>Nose to Chin</FormHelperText>
+                                                                <OutlinedInput
+                                                                    endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                    labelWidth={0}
+
+                                                                    name={orderFabrics[fabric] + '__chin'}
+                                                                    error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
+                                                                />
+                                                            </FormControl>
+                                                            {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
+
+                                                            <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
                                                         </div>
-                                                        <FormControl variant="outlined">
-                                                            <FormHelperText>Nose to Ear</FormHelperText>
-                                                            <OutlinedInput
-                                                                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                labelWidth={0}
-
-                                                                name={orderFabrics[fabric] + '__ear'}
-                                                                error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
-                                                            />
-                                                        </FormControl>
-                                                        {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
-
-                                                        <FormControl variant="outlined">
-                                                            <FormHelperText>Nose to Chin</FormHelperText>
-                                                            <OutlinedInput
-                                                                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                labelWidth={0}
-
-                                                                name={orderFabrics[fabric] + '__chin'}
-                                                                error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
-                                                            />
-                                                        </FormControl>
-                                                        {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
-
-                                                        <button onClick={() => removeOrderFabrics(orderFabrics[fabric])}>Remove</button>
                                                     </div>
                                                 );
                                             })
