@@ -239,13 +239,13 @@ export default function Home() {
             boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5)',
             borderRadius: theme.shape.borderRadius,
             '& a': {
-                /* margin: 1, */
+                margin: 3,
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textDecoration: 'none',
-                padding: '8px 15px',
+                padding: '5px 12px',
                 color: theme.palette.primary.main,
                 fontFamily: theme.typography.fonts.header,
                 fontSize: 20,
@@ -259,7 +259,7 @@ export default function Home() {
                 borderRadius: theme.shape.borderRadius,
                 transition: theme.transitions.create('box-shadow', { duration: 250 }),
                 '&:hover': {
-                    boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5), inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.5)',
+                    boxShadow: 'inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.5)',
                 },
             },
             position: 'relative',

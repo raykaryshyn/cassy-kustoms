@@ -270,6 +270,9 @@ export default function Fabrics() {
             flexDirection: 'row',
             justifyContent: 'flex-start',
             flexWrap: 'wrap',
+            [theme.breakpoints.down(666)]: {
+                flexDirection: 'column',
+            },
         },
         fabricsHowToAdd: {
             display: 'block',
@@ -283,7 +286,12 @@ export default function Fabrics() {
             flexDirection: 'column',
             marginTop: 30,
             '&:nth-of-type(even)': {
-                marginLeft: 40,
+                marginLeft: 45,
+            },
+            [theme.breakpoints.down(666)]: {
+                '&:nth-of-type(even)': {
+                    marginLeft: 0,
+                },
             },
             /* '&:first-of-type': {
                 marginTop: 20,
@@ -318,6 +326,14 @@ export default function Fabrics() {
             [theme.breakpoints.down(1222)]: {
                 flexDirection: 'column',
                 alignItems: 'flex-start',
+            },
+            '& .MuiFormHelperText-contained': {
+                marginLeft: 0,
+            },
+            '& .MuiFormControl-root.error': {
+                '& .MuiFormHelperText-contained': {
+                    color: theme.palette.error.main,
+                },
             },
         },
         formItem: {
@@ -597,8 +613,8 @@ export default function Fabrics() {
                                                         <div className={classes.measurementInputs}>
 
                                                             <div className={classes.measurementInputsValues}>
-                                                                <FormControl variant="outlined">
-                                                                    <FormHelperText>Nose to Ear</FormHelperText>
+                                                                <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'error' : '') : ''}>
+                                                                    <FormHelperText>Nose to Ear {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
                                                                     <OutlinedInput
                                                                         endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                                         labelWidth={0}
@@ -607,10 +623,10 @@ export default function Fabrics() {
                                                                         error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
                                                                     />
                                                                 </FormControl>
-                                                                {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''}
+                                                                {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''} */}
 
-                                                                <FormControl variant="outlined">
-                                                                    <FormHelperText>Nose to Chin</FormHelperText>
+                                                                <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'error' : '') : ''}>
+                                                                    <FormHelperText>Nose to Chin {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
                                                                     <OutlinedInput
                                                                         endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                                         labelWidth={0}
@@ -619,7 +635,7 @@ export default function Fabrics() {
                                                                         error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
                                                                     />
                                                                 </FormControl>
-                                                                {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''}
+                                                                {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''} */}
                                                             </div>
                                                         </div>
 
