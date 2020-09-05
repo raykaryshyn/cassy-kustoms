@@ -302,7 +302,9 @@ export default function Fabrics() {
             display: 'flex',
             alignItems: 'flex-end',
             '& .MuiFormControl-root': {
-                marginRight: 10,
+                '&:first-of-type': {
+                    marginRight: 10,
+                },
             },
             '& .MuiInputBase-root': {
                 maxWidth: 145,
@@ -367,6 +369,7 @@ export default function Fabrics() {
             marginTop: 5,
             padding: '2px 10px',
             transition: theme.transitions.create('all'),
+            fontWeight: 500,
             '&:hover': {
                 background: theme.palette.secondary.main,
                 color: '#fff',
