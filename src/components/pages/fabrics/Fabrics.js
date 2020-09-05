@@ -396,6 +396,8 @@ export default function Fabrics() {
             .join("&");
     }
     const handleSubmit = e => {
+        alert('submitting');
+
         let measurementsObject = {};
         let allMeasurementsValid = true;
         orderFabrics.forEach((fabric) => {
@@ -408,6 +410,7 @@ export default function Fabrics() {
         });
         if (JSON.stringify(measurementsObject) === JSON.stringify({})) allMeasurementsValid = false;
         setMeasurements(measurementsObject);
+        alert('measurements: ' + JSON.stringify(measurementsObject));
 
         const email = document.getElementById('formEmailRef').value;
         let emailValid = true;
@@ -417,9 +420,11 @@ export default function Fabrics() {
         } else {
             setEmailValid(true);
         }
+        alert('email valid: ' + emailValid);
 
         if (emailValid && allMeasurementsValid) {
             console.log("ready to go");
+            alert('ready to go');
             let measurements = () => {
                 var out = '';
                 Object.keys(measurementsObject).forEach(i => {
@@ -434,6 +439,7 @@ export default function Fabrics() {
                 'email': email,
                 'measurements': measurements(),
             }
+            alert('body: ' + JSON.stringify(body));
             fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -445,10 +451,12 @@ export default function Fabrics() {
                 .then(() => {
                     console.log(body);
                     cancelOrder();
+                    alert('sending');
                 })
-                .catch(error => console.log(error));
+                .catch(error => { console.log(error); alert('error'); });
         } else {
             console.log("errors.");
+            alert('errors');
         }
     };
 
