@@ -26,6 +26,11 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import AddFabricGrid from '../../addFabric_grid.png';
 import AddFabricList from '../../addFabric_list.png';
 
+import Backdrop from '@material-ui/core/Backdrop';
+import { IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 
 export default function Fabrics() {
@@ -421,11 +426,76 @@ export default function Fabrics() {
         nameInput: {
             marginRight: 12,
         },
+        backdrop: {
+            zIndex: theme.zIndex.drawer + 1,
+        },
+        paperContainer: {
+            height: '100%',
+            outline: 0,
+            '&:after': {
+                width: 0,
+                height: '100%',
+                content: '""',
+                display: 'inline-block',
+                verticalAlign: 'middle',
+            },
+            padding: '64px 31px 0',
+            textAlign: 'center',
+            maxWidth: 1000,
+            position: 'relative',
+            margin: '0 auto',
+        },
+        paper: {
+            display: 'inline-block',
+            textAlign: 'center',
+            verticalAlign: 'middle',
+            '& img': {
+                display: 'block',
+                /* marginBottom: 10, */
+                boxShadow: theme.shadows[10],
+                width: 'auto',
+                height: 'auto',
+                /* maxHeight: '100%', */
+                maxWidth: '100%',
+                maxHeight: 'calc(100vh - 144px)',
+                transition: theme.transitions.create('opacity', { duration: 500 }),
+                opacity: 1,
+            },
+        },
+        closeX: {
+            position: 'absolute',
+            top: 0,
+            /* left: '50%',
+            transform: 'translateX(calc(-50% - 16px))', */
+            right: 0,
+            backgroundColor: theme.palette.background.paper,
+            color: '#222',
+            transition: theme.transitions.create('opacity'),
+            '&:hover': {
+                backgroundColor: theme.palette.background.paper,
+                color: '#222',
+                opacity: 0.8,
+            },
+            margin: 15,
+            padding: 6,
+            boxShadow: theme.shadows[5],
+            '& svg': {
+                fontSize: 22,
+            },
+            zIndex: 1,
+        },
+        spinnerWrapper: {
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,calc(-50% + 32px))',
+            color: '#fff',
+            '& .MuiCircularProgress-root': {
+                color: '#fff',
+            },
+        },
     }));
     const classes = useStyles();
-
-
-
 
 
 
@@ -513,6 +583,7 @@ export default function Fabrics() {
             .join("&");
     }
     const handleSubmit = e => {
+
         let measurementsObject = {};
         let allMeasurementsValid = true;
         orderFabrics.forEach((fabric) => {
@@ -583,6 +654,11 @@ export default function Fabrics() {
 
     const fabricsRef = React.useRef();
 
+
+    const [didLoad, setLoad] = React.useState(false);
+    const style = didLoad ? {} : { opacity: 0 };
+    const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
+
     return (
         <>
             <FabricsContext.Provider value={{ context }}>
@@ -608,7 +684,7 @@ export default function Fabrics() {
                                 <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                 <div className={classes.myOrderForm}>
                                     <p>To add a mask, press a plus button under your selected fabric.</p>
-                                    <p>You will then be asked to enter your face measurements. <span style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}>How do I measure?</span></p>
+                                    <p>You will then be asked to enter your face measurements. <button style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
                                     {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={classes.fabricsHowToAdd} /> : <img src={AddFabricList} alt="How to start a mask" className={classes.fabricsHowToAdd} />) : ''}
                                     {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                         <div className={classes.myOrderFabrics} ref={fabricsRef}>
@@ -712,7 +788,18 @@ export default function Fabrics() {
                         }
                     </>
                 } />
-            </FabricsContext.Provider >
+            </FabricsContext.Provider>
+            <Backdrop id='backdrop' className={classes.backdrop} open={true} style={{ display: 'none' }}>
+                <div className={classes.paperContainer} id='galleryContainerRef'>
+                    <IconButton aria-label="delete" className={classes.closeX} onClick={() => document.getElementById('backdrop').style.display = 'none'} centerRipple={false}>
+                        <CloseIcon />
+                    </IconButton>
+                    <div className={classes.paper} style={style2}>
+                        <img src="/face_measuring_illustration.jpg" alt="How to measure" onLoad={() => setLoad(true)} />
+                    </div>
+                    {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
+                </div>
+            </Backdrop>
         </>
     );
 }
