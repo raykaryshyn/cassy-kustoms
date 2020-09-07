@@ -281,7 +281,7 @@ export default function Fabrics() {
             [theme.breakpoints.down(666)]: {
                 flexDirection: 'column',
             },
-            marginTop: 10,
+            marginTop: 15,
             marginBottom: 45,
         },
         fabricsHowToAdd: {
