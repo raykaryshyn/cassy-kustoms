@@ -264,6 +264,9 @@ export default function Fabrics() {
         },
         myOrderForm: {
             marginTop: 8,
+            '& p': {
+                margin: 2,
+            },
         },
         myOrderFabrics: {
             display: 'flex',
@@ -273,6 +276,8 @@ export default function Fabrics() {
             [theme.breakpoints.down(666)]: {
                 flexDirection: 'column',
             },
+            marginTop: 10,
+            marginBottom: 45,
         },
         fabricsHowToAdd: {
             display: 'block',
@@ -401,7 +406,7 @@ export default function Fabrics() {
             },
         },
         submitButton: {
-            marginTop: 36,
+            marginTop: 20,
             boxShadow: 'none',
             color: '#fff',
             background: theme.palette.primary.main,
@@ -412,6 +417,9 @@ export default function Fabrics() {
             },
             float: 'right',
             marginRight: 8,
+        },
+        nameInput: {
+            marginRight: 12,
         },
     }));
     const classes = useStyles();
@@ -494,6 +502,7 @@ export default function Fabrics() {
         return (false)
     }
     const formEmailRef = React.createRef();
+    const [nameValid, setNameValid] = React.useState(true);
     const [emailValid, setEmailValid] = React.useState(true);
 
     const [measurements, setMeasurements] = React.useState({});
@@ -518,6 +527,15 @@ export default function Fabrics() {
         if (JSON.stringify(measurementsObject) === JSON.stringify({})) allMeasurementsValid = false;
         setMeasurements(measurementsObject);
 
+        const name = document.getElementById('formNameRef').value;
+        let nameValid = true;
+        if (name === "" || name === null || !name.trim().length) {
+            nameValid = false;
+            setNameValid(false);
+        } else {
+            setNameValid(true);
+        }
+
         const email = document.getElementById('formEmailRef').value;
         let emailValid = true;
         if (email === "" || !ValidateEmail(email)) {
@@ -527,7 +545,7 @@ export default function Fabrics() {
             setEmailValid(true);
         }
 
-        if (emailValid && allMeasurementsValid) {
+        if (nameValid && emailValid && allMeasurementsValid) {
             console.log("ready to go");
             let measurements = () => {
                 var out = '';
@@ -540,6 +558,7 @@ export default function Fabrics() {
                 return out;
             };
             const body = {
+                'name': name,
                 'email': email,
                 'measurements': measurements(),
             }
@@ -588,65 +607,68 @@ export default function Fabrics() {
                             <div className={classes.myOrderResults}>
                                 <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                 <div className={classes.myOrderForm}>
+                                    <p>To add a mask, press a plus button under your selected fabric.</p>
+                                    <p>You will then be asked to enter your face measurements. <span style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer' }}>How do I measure?</span></p>
                                     {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={classes.fabricsHowToAdd} /> : <img src={AddFabricList} alt="How to start a mask" className={classes.fabricsHowToAdd} />) : ''}
+                                    {!(orderFabrics === undefined || orderFabrics.length === 0) && (
+                                        <div className={classes.myOrderFabrics} ref={fabricsRef}>
+                                            {
+                                                Object.keys(orderFabrics).map((fabric, i) => {
+                                                    const fabricObj = fabricsList.find(obj => {
+                                                        return obj.name === orderFabrics[fabric].split('__')[0]
+                                                    });
+                                                    return (
+                                                        <div key={i} id={orderFabrics[fabric]} className={classes.measurementsContainer}>
+                                                            <div className={classes.fabricSwatchContainer}>
+                                                                <div className={classes.thumbnailOrder}>
+                                                                    <img
+                                                                        src={fabricObj.thumbnail}
+                                                                        alt={fabricObj.name}
+                                                                    />
+                                                                </div>
+                                                                <p className={classes.fabricSwatchTitle}>{fabricObj.name}</p>
+                                                            </div>
+                                                            <div className={classes.measurementInputs}>
+
+                                                                <div className={classes.measurementInputsValues}>
+                                                                    <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'error' : '') : ''}>
+                                                                        <FormHelperText>Nose to Ear {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
+                                                                        <OutlinedInput
+                                                                            endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                            labelWidth={0}
+
+                                                                            name={orderFabrics[fabric] + '__ear'}
+                                                                            error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
+                                                                        />
+                                                                    </FormControl>
+                                                                    {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''} */}
+
+                                                                    <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'error' : '') : ''}>
+                                                                        <FormHelperText>Nose to Chin {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
+                                                                        <OutlinedInput
+                                                                            endAdornment={<InputAdornment position="end">in</InputAdornment>}
+                                                                            labelWidth={0}
+
+                                                                            name={orderFabrics[fabric] + '__chin'}
+                                                                            error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
+                                                                        />
+                                                                    </FormControl>
+                                                                    {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''} */}
+                                                                </div>
+                                                            </div>
+
+                                                            <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /> Remove</button>
+                                                        </div>
+                                                    );
+                                                })
+                                            }
+                                        </div>
+                                    )}
                                     <form name="order" onSubmit={handleSubmit}>
                                         <input type="hidden" name="form-name" value="order" />
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label={emailValid ? "Email" : 'Email (Invalid)'} variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} /* helperText={emailValid ? '' : 'Invalid email'} */ style={{ width: '100%', maxWidth: 250 }} />}
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField id="formNameRef" label={nameValid ? "Name" : 'Name (Invalid)'} variant="outlined" type="text" name="name" className={[classes.formItem, classes.nameInput].join(' ')} error={nameValid ? false : true} style={{ width: '100%', maxWidth: 250 }} />}
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <TextField ref={formEmailRef} id="formEmailRef" label={emailValid ? "Email" : 'Email (Invalid)'} variant="outlined" type="email" name="email" className={classes.formItem} error={emailValid ? false : true} style={{ width: '100%', maxWidth: 250 }} />}
                                     </form>
-                                    <div className={classes.myOrderFabrics} ref={fabricsRef}>
-                                        {orderFabrics ?
-                                            Object.keys(orderFabrics).map((fabric, i) => {
-                                                const fabricObj = fabricsList.find(obj => {
-                                                    return obj.name === orderFabrics[fabric].split('__')[0]
-                                                });
-                                                return (
-                                                    <div key={i} id={orderFabrics[fabric]} className={classes.measurementsContainer}>
-                                                        <div className={classes.fabricSwatchContainer}>
-                                                            <div className={classes.thumbnailOrder}>
-                                                                <img
-                                                                    src={fabricObj.thumbnail}
-                                                                    alt={fabricObj.name}
-                                                                />
-                                                            </div>
-                                                            <p className={classes.fabricSwatchTitle}>{fabricObj.name}</p>
-                                                        </div>
-                                                        <div className={classes.measurementInputs}>
-
-                                                            <div className={classes.measurementInputsValues}>
-                                                                <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'error' : '') : ''}>
-                                                                    <FormHelperText>Nose to Ear {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
-                                                                    <OutlinedInput
-                                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                        labelWidth={0}
-
-                                                                        name={orderFabrics[fabric] + '__ear'}
-                                                                        error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
-                                                                    />
-                                                                </FormControl>
-                                                                {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''} */}
-
-                                                                <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'error' : '') : ''}>
-                                                                    <FormHelperText>Nose to Chin {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
-                                                                    <OutlinedInput
-                                                                        endAdornment={<InputAdornment position="end">in</InputAdornment>}
-                                                                        labelWidth={0}
-
-                                                                        name={orderFabrics[fabric] + '__chin'}
-                                                                        error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
-                                                                    />
-                                                                </FormControl>
-                                                                {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''} */}
-                                                            </div>
-                                                        </div>
-
-                                                        <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /> Remove</button>
-                                                    </div>
-                                                );
-                                            })
-                                            :
-                                            ''
-                                        }
-                                    </div>
                                     {(orderFabrics === undefined || orderFabrics.length === 0) ? '' : <Button variant="contained" onClick={handleSubmit} className={classes.submitButton}>Submit</Button>}
                                 </div>
                             </div>

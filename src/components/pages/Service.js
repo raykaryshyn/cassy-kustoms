@@ -281,7 +281,7 @@ export default function Service(props) {
         galleryContainer: {
             justifyContent: 'center',
             marginTop: 50,
-            marginBottom: 80,
+            marginBottom: 175,
         },
         galleryItemWrapper: {
             position: 'relative',
