@@ -8,8 +8,8 @@ import Service from './Service';
 export default function BucketHats() {
     const gallery = [
         {
-            thumb: '',
-            main: '',
+            thumb: '/gallery/bucket-hat1-thumbnail.jpg',
+            main: '/gallery/bucket-hat1.jpg',
         },
     ];
 

@@ -281,4 +281,4 @@ import { FabricsContext } from './FabricsContext';
         </>
     );
 });
-export default FabricGallery;
+export default React.memo(FabricGallery);

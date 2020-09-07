@@ -388,12 +388,12 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/hydro-flasks" style={{ backgroundImage: 'url(/gallery/hydro-flask3-thumbnail.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/water-bottles" style={{ backgroundImage: 'url(/gallery/water-bottle3-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
                                         <span>
-                                            Hydro Flasks
+                                            Water Bottles
                                         </span>
                                     </div>
                                 </Link>
@@ -401,7 +401,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes2-thumbnail.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes3-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <PaintIcon className={classes.serviceIcon} />
@@ -414,7 +414,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask3-thumbnail.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask1-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />
@@ -440,7 +440,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/bucket-hats">
+                                <Link className={classes.serviceCard} to="/bucket-hats" style={{ backgroundImage: 'url(/gallery/bucket-hat1-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />

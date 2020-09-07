@@ -335,7 +335,7 @@ export default function Service(props) {
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><PaintIcon className={classes.subNavIconBig} /> Painting:</Typography>
                             <NavLink to="/phone-cases" className={classes.subNavButtonBig}>Phone Cases</NavLink>
                             <NavLink to="/airpods-cases" className={classes.subNavButtonBig}>AirPods Cases</NavLink>
-                            <NavLink to="/hydro-flasks" className={classes.subNavButtonBig}>Hydro Flasks</NavLink>
+                            <NavLink to="/water-bottles" className={classes.subNavButtonBig}>Water Bottles</NavLink>
                             <NavLink to="/shoes" className={classes.subNavButtonBig}>Shoes</NavLink>
                         </div>
                         <div className={classes.subNavSectionBig}>
@@ -349,11 +349,11 @@ export default function Service(props) {
 
                     <div className={classes.subNavSmall}>
                         <div className={classes.subNavSectionSmall}>
-                            <button onClick={() => toggleDropd('paint')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['paint'] ? 'active' : '', (location.pathname.includes('/phone-cases') || location.pathname.includes('/airpods-cases') || location.pathname.includes('/hydro-flasks') || location.pathname.includes('/shoes')) ? 'on' : ''].join(' ')}><PaintIcon className={classes.subNavIconSmall} /> Painting <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['paint'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <button onClick={() => toggleDropd('paint')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['paint'] ? 'active' : '', (location.pathname.includes('/phone-cases') || location.pathname.includes('/airpods-cases') || location.pathname.includes('/water-bottles') || location.pathname.includes('/shoes')) ? 'on' : ''].join(' ')}><PaintIcon className={classes.subNavIconSmall} /> Painting <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['paint'] ? 'active' : ''].join(' ')} /></Typography></button>
                             <div className={[classes.subNavListSmall, dropd['paint'] ? 'active' : ''].join(' ')}>
                                 <NavLink to="/phone-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Phone Cases</NavLink>
                                 <NavLink to="/airpods-cases" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>AirPods Cases</NavLink>
-                                <NavLink to="/hydro-flasks" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Hydro Flasks</NavLink>
+                                <NavLink to="/water-bottles" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Water Bottles</NavLink>
                                 <NavLink to="/shoes" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Shoes</NavLink>
                             </div>
                         </div>

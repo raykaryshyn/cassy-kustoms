@@ -18,7 +18,7 @@ import Footer from './components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import AirPods from './components/pages/AirPods';
 import Clothes from './components/pages/Clothes';
-import HydroFlasks from './components/pages/HydroFlasks';
+import WaterBottles from './components/pages/WaterBottles';
 import PhoneCases from './components/pages/PhoneCases';
 import Scrunchies from './components/pages/Scrunchies';
 import Shoes from './components/pages/Shoes';
@@ -107,8 +107,8 @@ export default function App() {
 							<Route path="/clothes">
 								<Clothes />
 							</Route>
-							<Route path="/hydro-flasks">
-								<HydroFlasks />
+							<Route path="/water-bottles">
+								<WaterBottles />
 							</Route>
 							<Route path="/phone-cases">
 								<PhoneCases />

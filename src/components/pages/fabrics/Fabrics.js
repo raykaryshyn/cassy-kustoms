@@ -1,20 +1,20 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+/* import Grid from '@material-ui/core/Grid'; */
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import canStore from '../../../functions/canStore';
-import FabricCard from './FabricCard';
-import FabricDialog from './FabricDialog';
+/* import FabricCard from './FabricCard';
+import FabricDialog from './FabricDialog'; */
 import fabricsList from './fabricsList';
 import FabricsSettings from './FabricsSettings';
 import Button from '@material-ui/core/Button';
 
 import { FabricsContext, settings } from './FabricsContext';
 import { Typography } from '@material-ui/core';
-import FabricsCounter from './FabricsCounter';
+/* import FabricsCounter from './FabricsCounter'; */
 import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -30,11 +30,88 @@ import Backdrop from '@material-ui/core/Backdrop';
 import { IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import FabricGallery from './FabricGallery';
 
 
 
 export default function Fabrics() {
     const gallery = [
+        {
+            thumb: '/gallery/face-mask22-thumbnail.jpg',
+            main: '/gallery/face-mask22.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask21-thumbnail.jpg',
+            main: '/gallery/face-mask21.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask20-thumbnail.jpg',
+            main: '/gallery/face-mask20.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask19-thumbnail.jpg',
+            main: '/gallery/face-mask19.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask18-thumbnail.jpg',
+            main: '/gallery/face-mask18.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask17-thumbnail.jpg',
+            main: '/gallery/face-mask17.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask16-thumbnail.jpg',
+            main: '/gallery/face-mask16.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask15-thumbnail.jpg',
+            main: '/gallery/face-mask15.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask14-thumbnail.jpg',
+            main: '/gallery/face-mask14.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask13-thumbnail.jpg',
+            main: '/gallery/face-mask13.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask12-thumbnail.jpg',
+            main: '/gallery/face-mask12.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask11-thumbnail.jpg',
+            main: '/gallery/face-mask11.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask10-thumbnail.jpg',
+            main: '/gallery/face-mask10.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask9-thumbnail.jpg',
+            main: '/gallery/face-mask9.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask8-thumbnail.jpg',
+            main: '/gallery/face-mask8.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask7-thumbnail.jpg',
+            main: '/gallery/face-mask7.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask6-thumbnail.jpg',
+            main: '/gallery/face-mask6.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask5-thumbnail.jpg',
+            main: '/gallery/face-mask5.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask4-thumbnail.jpg',
+            main: '/gallery/face-mask4.jpg',
+        },
         {
             thumb: '/gallery/face-mask3-thumbnail.jpg',
             main: '/gallery/face-mask3.jpg',
@@ -49,7 +126,7 @@ export default function Fabrics() {
         },
     ];
 
-    const fabrics = fabricsList;
+    /* const fabrics = fabricsList; */
 
     const [selectedColors, setSelectedColors] = React.useState([]);
     const selectColor = (color) => {
@@ -58,7 +135,7 @@ export default function Fabrics() {
     const unselectColor = (color) => {
         setSelectedColors(selectedColors.filter(e => e !== color));
     };
-    const shouldShow = (colors) => {
+    /* const shouldShow = (colors) => {
         if (selectedColors.length === 0) {
             return true;
         }
@@ -70,9 +147,9 @@ export default function Fabrics() {
             }
         }
         return false;
-    };
+    }; */
 
-    const gridRef = React.useRef();
+    /* const gridRef = React.useRef(); */
     const [gridView, setGridViewState] = React.useState(
         canStore() && localStorage.getItem('gridView') !== null ?
             localStorage.getItem('gridView') === 'true' :
@@ -656,7 +733,7 @@ export default function Fabrics() {
 
 
     const [didLoad, setLoad] = React.useState(false);
-    const style = didLoad ? {} : { opacity: 0 };
+    /* const style = didLoad ? {} : { opacity: 0 }; */
     const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
 
     return (
@@ -753,7 +830,7 @@ export default function Fabrics() {
                         <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                         <FabricsSettings />
 
-                        {gridView ?
+                        {/* {gridView ?
                             <Grid container spacing={4} className={classes.grid} ref={gridRef}>
                                 {fabrics.map((fabric, i) => {
                                     if (shouldShow(fabric.colors)) {
@@ -785,7 +862,8 @@ export default function Fabrics() {
                                     }
                                 })}
                             </Grid>
-                        }
+                        } */}
+                        <FabricGallery />
                     </>
                 } />
             </FabricsContext.Provider>
