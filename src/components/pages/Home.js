@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 
+import './Home.css';
+
 export default function Home() {
     const useStyles = makeStyles(theme => ({
         welcomeSection: {
@@ -336,7 +338,7 @@ export default function Home() {
                         Let me know if you want anything Kustomized!
                     </Typography>
                     <div className={classes.profilePic}>
-                        <img src="/about_placeholder.jpg" alt="Profile" />
+                        <img src="/about_image.jpg" alt="Profile" />
                     </div>
                     <div className={classes.instagramWrapper}>
                         <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">

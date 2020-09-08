@@ -95,7 +95,7 @@ export default function Nav(props) {
 
     const useStyles = makeStyles((theme) => ({
         rootBig: {
-            background: theme.palette.background.default,
+            background: '#fff',
         },
         rootSmall: {
             transform: 'translateY(-100px)',
