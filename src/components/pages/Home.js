@@ -429,7 +429,7 @@ export default function Home() {
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
                             <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies1-thumbnail.jpg)' }}>
+                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies-main-thumbnail.jpg)' }}>
                                     <div className={classes.serviceContent}>
                                         <div className={classes.backdrop}></div>
                                         <SewIcon className={classes.serviceIcon} />
