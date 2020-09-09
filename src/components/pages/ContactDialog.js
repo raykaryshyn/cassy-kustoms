@@ -108,12 +108,12 @@ export default function ContactDialog(props) {
     }));
     const classes = useStyles();
 
-    
 
+    console.log(props.children)
     return (
         <>
             {props.children ?
-                <div onClick={handleClickOpen} className={props.className}>
+                <div onClick={handleClickOpen} className={props.className} style={props.style}>
                     {props.children}
                 </div>
                 :
