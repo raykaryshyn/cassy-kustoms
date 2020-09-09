@@ -365,7 +365,17 @@ export default function Fabrics() {
             display: 'block',
             margin: '0 auto',
             width: '100%',
-            maxWidth: 250,
+            maxWidth: 200,
+            '&.grid': {
+                maxWidth: 200,
+                marginTop: 35,
+                marginBottom: 7,
+            },
+            '&.list': {
+                maxWidth: 250,
+                marginTop: 30,
+                marginBottom: 5,
+            },
         },
         measurementsContainer: {
             display: 'flex',
@@ -571,6 +581,9 @@ export default function Fabrics() {
                 color: '#fff',
             },
         },
+        measurementsHowToLink: {
+            color: theme.palette.primary.main,
+        },
     }));
     const classes = useStyles();
 
@@ -761,8 +774,8 @@ export default function Fabrics() {
                                 <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                 <div className={classes.myOrderForm}>
                                     <p>To add a mask, press a plus button under your selected fabric.</p>
-                                    <p>You will then be asked to enter your face measurements. <button style={{ color: 'blue', textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
-                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={classes.fabricsHowToAdd} /> : <img src={AddFabricList} alt="How to start a mask" className={classes.fabricsHowToAdd} />) : ''}
+                                    <p>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
+                                    {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
                                     {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                         <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                             {
