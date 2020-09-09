@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Fade from '@material-ui/core/Fade';
@@ -155,6 +155,41 @@ export default function Gallery(props) {
             },
             zIndex: 0,
         },
+
+
+
+
+        scrunchieDataWrapper: {
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            marginTop: 5,
+            marginBottom: 15,
+        },
+        scrunchieTitle: {
+            textTransform: 'none',
+            fontSize: 18,
+            fontFamily: theme.typography.fonts.body,
+            fontWeight: 500,
+            paddingRight: 5,
+        },
+        scrunchieNumber: {
+            display: 'inline-block',
+            transform: 'scale(0.85)',
+            color: 'rgba(0, 0, 0, 0.5)',
+            wordBreak: 'keep-all',
+            paddingRight: 2,
+        },
+        scrunchieMaterial: {
+            background: 'rgba(0,0,0,0.5)',
+            borderRadius: theme.shape.borderRadius,
+            color: '#fff',
+            padding: '1px 8px',
+            fontSize: 13,
+            marginTop: 2,
+        },
     }));
     const classes = useStyles();
 
@@ -193,61 +228,7 @@ export default function Gallery(props) {
 
     const [imgNum, setImgNum] = React.useState(0);
 
-
-    // React.useEffect(() => {
-    //     document.addEventListener('touchstart', handleTouchStart, false);
-    //     document.addEventListener('touchmove', handleTouchMove, false);
-
-    //     var xDown = null;
-    //     var yDown = null;
-
-    //     function getTouches(evt) {
-    //         return evt.touches ||             // browser API
-    //             evt.originalEvent.touches; // jQuery
-    //     }
-
-    //     function handleTouchStart(evt) {
-    //         const firstTouch = getTouches(evt)[0];
-    //         xDown = firstTouch.clientX;
-    //         yDown = firstTouch.clientY;
-    //     };
-
-    //     function handleTouchMove(evt) {
-    //         if (!xDown || !yDown) {
-    //             return;
-    //         }
-
-    //         var xUp = evt.touches[0].clientX;
-    //         var yUp = evt.touches[0].clientY;
-
-    //         var xDiff = xDown - xUp;
-    //         var yDiff = yDown - yUp;
-
-    //         if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
-    //             if (xDiff > 0) {
-    //                 console.log('left');
-    //                 nextSlide();
-    //             } else {
-    //                 console.log('right');
-    //                 lastSlide();
-    //             }
-    //         } else {
-    //             if (yDiff > 0) {
-    //                 /* up swipe */
-    //             } else {
-    //                 /* down swipe */
-    //                 handleClose();
-    //             }
-    //         }
-    //         /* reset values */
-    //         xDown = null;
-    //         yDown = null;
-    //     };
-    // });
-
     React.useLayoutEffect(() => {
-        //document.getElementsByClassName('makeStyles-paperContainer-176')[0].getBoundingClientRect().height - parseFloat(window.getComputedStyle(document.getElementsByClassName('makeStyles-paperContainer-176')[0]).getPropertyValue('padding-top'))
-
         const handleResize = () => {
             const container = document.getElementById('galleryContainerRef');
             const image = document.getElementById('galleryImageRef');
@@ -270,7 +251,22 @@ export default function Gallery(props) {
             {props.urls.map((url, i) => {
                 return (
                     <Grid item xs={6} sm={4} md={3} key={i}>
-                        <div className={classes.galleryItemWrapper}><div style={{ backgroundImage: `url(${url.thumb})` }} className={classes.galleryItem} onClick={() => handleCardClick(i)}></div></div>
+                        {!props.scrunchies && (
+                            <div className={classes.galleryItemWrapper}>
+                                <div style={{ backgroundImage: `url(${url.thumb})` }} className={classes.galleryItem} onClick={() => handleCardClick(i)}></div>
+                            </div>
+                        )}
+                        {props.scrunchies && (
+                            <div className={classes.scrunchieContainer}>
+                                <div className={classes.galleryItemWrapper}>
+                                    <div style={{ backgroundImage: `url(${url.thumb})` }} className={classes.galleryItem} onClick={() => handleCardClick(i)}></div>
+                                </div>
+                                <div className={classes.scrunchieDataWrapper}>
+                                    <Typography component='h3' variant='h5' className={classes.scrunchieTitle}><span className={classes.scrunchieNumber}>#{i + 1}</span> {props.metadata[i].name}</Typography>
+                                    {props.metadata[i].material !== '' && <div className={classes.scrunchieMaterial}>{props.metadata[i].material}</div>}
+                                </div>
+                            </div>
+                        )}
                     </Grid>
                 );
             })}
