@@ -781,8 +781,8 @@ export default function Fabrics() {
                                 {!ordered && (<>
                                     <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                     <div className={classes.myOrderForm}>
-                                        <p>To add a mask, press a plus button under your selected fabric.</p>
-                                        <p>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
+                                        <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
+                                        <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
                                         {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                             <div className={classes.myOrderFabrics} ref={fabricsRef}>
@@ -843,7 +843,7 @@ export default function Fabrics() {
                                         <form name="order" onSubmit={handleSubmit}>
                                             <input type="hidden" name="form-name" value="order" />
                                             {(
-                                                <div style={{ maxWidth: 600, fontSize: '14', margin: '10px 0 5px' }}>
+                                                <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
                                                     You will receive a request for payment via Paypal.
                                                 To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
                                                 Payment upon pickup or delivery available for locals.

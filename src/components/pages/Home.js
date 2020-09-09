@@ -127,6 +127,7 @@ export default function Home() {
         },
         aboutSubtitle: {
             paddingTop: 20,
+            fontSize: 18,
         },
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
