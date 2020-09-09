@@ -4,7 +4,7 @@ const fabricsList = [
         image: '/fabrics/DSC_0573_Original.jpg',
         thumbnail: '/fabrics/thumbnails/DSC_0573_Original.jpg',
         colors: ['black'],
-        limited: true,
+        limited: false,
     },
     {
         name: 'Brown',

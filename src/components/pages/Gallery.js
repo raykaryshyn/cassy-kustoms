@@ -44,7 +44,7 @@ export default function Gallery(props) {
             backgroundColor: '#ccc',
             borderRadius: theme.shape.borderRadius,
             border: '2px solid white',
-            boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0 0 12px rgba(0, 0, 0, 0.2)',
         },
 
 

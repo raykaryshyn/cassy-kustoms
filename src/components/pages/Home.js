@@ -177,8 +177,8 @@ export default function Home() {
             backgroundColor: theme.palette.primary.light3,
             /* overflow: 'hidden', */
             backgroundPosition: 'center center',
-            boxShadow: '0 1px 15px rgba(0,0,0,0.2)',
-            /* border: '2px solid #fff', */
+            boxShadow: '0 0 15px rgba(0,0,0,0.25)',
+            border: '2px solid #fff',
         },
         serviceContent: {
             display: 'flex',
@@ -241,7 +241,7 @@ export default function Home() {
             boxShadow: '3px 3px 6px rgba(0,0,0,0.1), -3px -3px 6px rgba(255,255,255,0.5)',
             borderRadius: theme.shape.borderRadius,
             '& a': {
-                margin: 3,
+                margin: 1,
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
