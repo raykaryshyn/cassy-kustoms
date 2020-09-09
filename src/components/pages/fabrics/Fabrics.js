@@ -842,7 +842,7 @@ export default function Fabrics() {
                                         )}
                                         <form name="order" onSubmit={handleSubmit}>
                                             <input type="hidden" name="form-name" value="order" />
-                                            {(
+                                            {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                                 <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
                                                     You will receive a request for payment via Paypal.
                                                 To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
