@@ -13,10 +13,12 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 
-import './Home.css';
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
+        body: {
+            background: '#ffffff',
+        },
         welcomeSection: {
             /*  background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, */
             backgroundColor: '#23270d',
@@ -309,26 +311,27 @@ export default function Home() {
 
     return (
         <>
-            <Nav />
+            <div className={classes.body}>
+                <Nav />
 
-            <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
-            <div id="welcome" className={classes.welcomeSection}>
-                <Container maxWidth="md" className={classes.welcomeContainer}>
-                    <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
-                        WELCOME
+                <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
+                <div id="welcome" className={classes.welcomeSection}>
+                    <Container maxWidth="md" className={classes.welcomeContainer}>
+                        <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
+                            WELCOME
                     </Typography>
-                </Container>
-                <div className={classes.sectionGoto} id="about">&nbsp;</div>
-            </div>
-            <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
-            <div className={[classes.aboutSection].join(' ')}>
-                <Container maxWidth="lg">
-                    <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
-                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
-                        I am an artist and seamtress located near D.C. and I love to customize everyday objects. I work with
-                        a variety of media such as acrylic paints, markers, and nail polish depending on the painting surface.
-                        I also enjoy working with a range of fabrics and patterns to sew clothes, hats and more. Recently,
-                        my sewing skills have focused on making face masks as a way to help during this pandemic.
+                    </Container>
+                    <div className={classes.sectionGoto} id="about">&nbsp;</div>
+                </div>
+                <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+                <div className={[classes.aboutSection].join(' ')}>
+                    <Container maxWidth="lg">
+                        <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
+                        <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
+                            I am an artist and seamtress located near D.C. and I love to customize everyday objects. I work with
+                            a variety of media such as acrylic paints, markers, and nail polish depending on the painting surface.
+                            I also enjoy working with a range of fabrics and patterns to sew clothes, hats and more. Recently,
+                            my sewing skills have focused on making face masks as a way to help during this pandemic.
 
                         <br /><br />
 
@@ -338,150 +341,151 @@ export default function Home() {
 
                         Let me know if you want anything Kustomized!
                     </Typography>
-                    <div className={classes.profilePic}>
-                        <img src="/about_image.jpg" alt="Profile" />
-                    </div>
-                    <div className={classes.instagramWrapper}>
-                        <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">
-                            <img src="/about_instagram_button.png" alt="@cassykustoms" className="button" />
-                        </a>
-                        <img src="/about_instagram_text.png" alt="tag me in your story" className="text" />
-                    </div>
-                </Container>
-                <div className={classes.sectionGoto} id="services">&nbsp;</div>
-            </div>
-            <div className={[classes.paintLineWrapper, classes.aboutBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
-            <div>
-                <Container maxWidth="lg">
-                    <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
-                    <Typography className={classes.sectionSubtitle}>
-                        Here are my painting and sewing services.
+                        <div className={classes.profilePic}>
+                            <img src="/about_image.jpg" alt="Profile" />
+                        </div>
+                        <div className={classes.instagramWrapper}>
+                            <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">
+                                <img src="/about_instagram_button.png" alt="@cassykustoms" className="button" />
+                            </a>
+                            <img src="/about_instagram_text.png" alt="tag me in your story" className="text" />
+                        </div>
+                    </Container>
+                    <div className={classes.sectionGoto} id="services">&nbsp;</div>
+                </div>
+                <div className={[classes.paintLineWrapper, classes.aboutBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+                <div>
+                    <Container maxWidth="lg">
+                        <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
+                        <Typography className={classes.sectionSubtitle}>
+                            Here are my painting and sewing services.
                         <br />
                         The face mask section includes 100+ available 'fabric choices' for a Kustom-fitted face mask!
                         <br />
                         Don't see what you're looking for? Contact me and I'll see what I can do!
                     </Typography>
 
-                    <Grid container spacing={3} className={classes.servicesContainer}>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <PaintIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Phone Cases
+                        <Grid container spacing={3} className={classes.servicesContainer}>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Phone Cases
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/airpods-cases" style={{ backgroundImage: 'url(/gallery/airpods-case4-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <PaintIcon className={classes.serviceIcon} />
-                                        <span>
-                                            AirPods Cases
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/airpods-cases" style={{ backgroundImage: 'url(/gallery/airpods-case4-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                AirPods Cases
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/water-bottles" style={{ backgroundImage: 'url(/gallery/water-bottle3-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <PaintIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Water Bottles
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/water-bottles" style={{ backgroundImage: 'url(/gallery/water-bottle3-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Water Bottles
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes3-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <PaintIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Shoes
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes3-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Shoes
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask1-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <SewIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Face Masks
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask1-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <SewIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Face Masks
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies-main-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <SewIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Scrunchies
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/scrunchies" style={{ backgroundImage: 'url(/gallery/scrunchies-main-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <SewIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Scrunchies
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/bucket-hats" style={{ backgroundImage: 'url(/gallery/bucket-hat1-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <SewIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Bucket Hats
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/bucket-hats" style={{ backgroundImage: 'url(/gallery/bucket-hat1-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <SewIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Bucket Hats
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <div className={classes.serviceItem}>
-                                <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1-thumbnail.jpg)' }}>
-                                    <div className={classes.serviceContent}>
-                                        <div className={classes.backdrop}></div>
-                                        <SewIcon className={classes.serviceIcon} />
-                                        <span>
-                                            Clothes
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <SewIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Clothes
                                         </span>
-                                    </div>
-                                </Link>
-                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </Container>
-            </div>
-            <div className={classes.sectionGoto} id="contact">&nbsp;</div>
-            <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')} id="footerPaintLine"><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
-            <div id="contactContainer" className={classes.contactSection}>
-                <Container maxWidth="lg">
-                    <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>Contact</Typography>
-                    <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
-                        Please fill out the form below to get in touch with me.
+                    </Container>
+                </div>
+                <div className={classes.sectionGoto} id="contact">&nbsp;</div>
+                <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')} id="footerPaintLine"><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+                <div id="contactContainer" className={classes.contactSection}>
+                    <Container maxWidth="lg">
+                        <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>Contact</Typography>
+                        <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
+                            Please fill out the form below to get in touch with me.
                     </Typography>
-                </Container>
-                <Container maxWidth="md">
-                    <ContactForm secondary className={classes.contactForm} />
-                </Container>
+                    </Container>
+                    <Container maxWidth="md">
+                        <ContactForm secondary className={classes.contactForm} />
+                    </Container>
+                </div>
             </div>
         </>
     );
