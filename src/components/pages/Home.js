@@ -116,6 +116,7 @@ export default function Home() {
             marginBottom: 2,
             color: theme.palette.primary.dark2,
             paddingTop: 70,
+            textShadow: '1px 1px 0px #ffffff, 2px 2px 0px rgba(0,0,0,0.2)',
         },
         sectionSubtitle: {
             textAlign: 'center',
@@ -134,6 +135,7 @@ export default function Home() {
         sectionTitleSecondary: {
             color: theme.palette.primary.dark2,
             paddingTop: 40,
+            textShadow: '1px 1px 0px #CDE4E2, 2px 2px 0px rgba(0,0,0,0.2)',
         },
         sectionSubtitleSecondary: {
             color: theme.palette.primary.dark2,

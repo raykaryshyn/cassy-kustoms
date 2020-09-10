@@ -110,6 +110,7 @@ export default function Service(props) {
             letterSpacing: 1,
             marginBottom: 10,
             color: theme.palette.primary.dark1,
+            textShadow: '1px 1px 0px #F1F3F4, 2px 2px 0px rgba(0,0,0,0.2)',
         },
         subNavBig: {
             display: 'flex',
@@ -262,7 +263,7 @@ export default function Service(props) {
         tabLabel: {
             fontFamily: theme.typography.fonts.header,
             fontSize: 20,
-            color: theme.palette.primary.light1,
+            /*  color: theme.palette.primary.light1, */
             '&.Mui-selected': {
                 color: theme.palette.primary.dark2,
             },
@@ -276,7 +277,15 @@ export default function Service(props) {
                 color: 'inherit',
                 width: '100%',
                 height: '100%',
-            }
+            },
+            color: '#b0b5b7',
+            borderBottom: '2.5px solid #b0b5b7',
+            '&:first-of-type': {
+                marginRight: 15,
+            },
+        },
+        indicator: {
+            height: 2.5,
         },
         galleryContainer: {
             justifyContent: 'center',
@@ -319,7 +328,7 @@ export default function Service(props) {
             backgroundPosition: 'center',
         },
         orderContainer: {
-            marginTop: 20,
+            marginTop: 58,
         },
     }));
     const classes = useStyles();
@@ -377,8 +386,9 @@ export default function Service(props) {
                 indicatorColor="primary"
                 textColor="primary"
                 centered
+                classes={{ indicator: classes.indicator }}
             >
-                <Tab label={<Link to={'/' + location.pathname.split('/')[1]}>Gallery</Link>} className={classes.tabLabel}/>
+                <Tab label={<Link to={'/' + location.pathname.split('/')[1]}>Gallery</Link>} className={classes.tabLabel} />
                 <Tab label={<Link to={'/' + location.pathname.split('/')[1] + '/order'}>Order</Link>} className={classes.tabLabel} />
             </Tabs>
             <TabPanel value={tab} index={0}>
