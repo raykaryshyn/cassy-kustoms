@@ -749,7 +749,6 @@ export default function Fabrics() {
 
 
     const [didLoad, setLoad] = React.useState(false);
-    /* const style = didLoad ? {} : { opacity: 0 }; */
     const style2 = didLoad ? { flex: 1 } : { visibility: 'hidden' };
 
 

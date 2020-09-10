@@ -109,7 +109,6 @@ export default function ContactDialog(props) {
     const classes = useStyles();
 
 
-    console.log(props.children)
     return (
         <>
             {props.children ?

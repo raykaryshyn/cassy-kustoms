@@ -329,6 +329,7 @@ export default function Service(props) {
         },
         orderContainer: {
             marginTop: 58,
+            marginBottom: 120,
         },
     }));
     const classes = useStyles();
@@ -402,7 +403,7 @@ export default function Service(props) {
                 <Container maxWidth="lg" className={classes.orderContainer}>
                     {props.order ? props.order :
                         <Container maxWidth='md'>
-                            <ContactForm noCancel={true} />
+                            <ContactForm noCancel noContainer />
                         </Container>
                     }
                 </Container>

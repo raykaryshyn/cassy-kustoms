@@ -75,15 +75,15 @@ export default function ContactDialog(props) {
         },
 
         actionBar: {
-            padding: props.secondary ? '8px 0 120px' : '0 24px 24px 0',
+            padding: props.noContainer ? '8px 0 0' : props.secondary ? '8px 0 120px' : '0 24px 24px 0',
         },
 
         ending: {
             display: 'none',
             width: '100%',
             background: '#fff',
-            border: props.secondary ? '1px solid ' + theme.palette.primary.light1 : 'none',
-            borderRadius: props.secondary ? theme.shape.borderRadius : 0,
+            border: props.secondary || props.noContainer ? '1px solid ' + theme.palette.primary.light1 : 'none',
+            borderRadius: props.secondary || props.noContainer ? theme.shape.borderRadius : 0,
         },
 
         endingWrapper: {
@@ -129,7 +129,7 @@ export default function ContactDialog(props) {
             '&:first-child': {
                 paddingTop: 0,
             },
-            padding: props.secondary ? 0 : '0 24px 8px',
+            padding: props.secondary || props.noContainer ? 0 : '0 24px 8px',
         },
         button2: {
             background: '#e7e7e7',
@@ -215,7 +215,7 @@ export default function ContactDialog(props) {
                     setFormState({});
                     document.getElementById('formRef').style.display = 'none';
                     document.getElementById('thanksRef').style.display = 'block';
-                    if (!props.secondary) {
+                    if (!props.secondary && !props.noCancel) {
                         document.getElementById('closeBtn').style.display = 'flex';
                     }
                 })
