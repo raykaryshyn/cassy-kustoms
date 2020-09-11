@@ -291,6 +291,10 @@ export default function Service(props) {
             justifyContent: 'center',
             marginTop: 50,
             marginBottom: 175,
+            [theme.breakpoints.down('sm')]: {
+                marginTop: 25,
+                marginBottom: 110,
+            },
         },
         galleryItemWrapper: {
             position: 'relative',

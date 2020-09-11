@@ -6,14 +6,15 @@ import { makeStyles } from '@material-ui/core/styles';
 export default function Footer(props) {
     const useStyles = makeStyles(theme => ({
         root: {
-            background: theme.palette.primary.dark3,
-            color: theme.palette.primary.light1,
+            background: '#39464a',
+            color: '#b0b5b7',
             padding: '30px 0',
         },
         text: {            
             fontFamily: theme.typography.fonts.header,
             textAlign: "center",
             fontSize: 16,
+            letterSpacing: 1,
         },
     }));
     const classes = useStyles();
