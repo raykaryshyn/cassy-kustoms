@@ -99,7 +99,7 @@ export default function FabricsSettings() {
                     right: '-24px',
                     bottom: 15,
                     pointerEvents: 'none',
-                    backgroundImage: `linear-gradient(to left, ${theme.palette.background.default} 0%, transparent 100%)`,
+                    backgroundImage: `linear-gradient(to left, ${theme.palette.background.default} 0%, rgba(241, 243, 244, 0) 100%)`,
                     width: '10%',
                 },
                 '&.no-after:after': {
