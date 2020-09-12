@@ -378,7 +378,7 @@ export default function Scrunchies() {
                             <>
                                 <Typography variant="h5" component="h2" className={classes.title}>Thank you, your order has been submitted.</Typography>
                                 <div style={{ maxWidth: 600, fontSize: '1rem', margin: '10px 0' }}>
-                                    You will receive a request for payment via Paypal.
+                                    You will receive a request for payment via PayPal.
                                     To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
                                     Payment upon pickup or delivery available for locals.
                                 </div>

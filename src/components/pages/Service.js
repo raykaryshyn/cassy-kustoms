@@ -105,10 +105,12 @@ export default function Service(props) {
             textAlign: 'center',
             fontSize: 40,
             [theme.breakpoints.down(550)]: {
-                fontSize: 35,
+                fontSize: 36,
+                marginTop: 0,
             },
             letterSpacing: 1,
             marginBottom: 10,
+            marginTop: 80,
             color: theme.palette.primary.dark1,
             textShadow: '1px 1px 0px #F1F3F4, 2px 2px 0px rgba(0,0,0,0.2)',
         },
@@ -289,10 +291,9 @@ export default function Service(props) {
         },
         galleryContainer: {
             justifyContent: 'center',
-            marginTop: 50,
+            marginTop: 25,
             marginBottom: 175,
             [theme.breakpoints.down('sm')]: {
-                marginTop: 25,
                 marginBottom: 110,
             },
         },
@@ -332,10 +333,9 @@ export default function Service(props) {
             backgroundPosition: 'center',
         },
         orderContainer: {
-            marginTop: 58,
+            marginTop: 25,
             marginBottom: 120,
             [theme.breakpoints.down('sm')]: {
-                marginTop: 25,
                 marginBottom: 110,
             },
         },
