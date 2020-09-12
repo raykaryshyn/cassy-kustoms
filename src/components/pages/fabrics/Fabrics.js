@@ -357,10 +357,10 @@ export default function Fabrics() {
             flexDirection: 'row',
             justifyContent: 'flex-start',
             flexWrap: 'wrap',
-            [theme.breakpoints.down(666)]: {
+            [theme.breakpoints.down(1090)]: {
                 flexDirection: 'column',
             },
-            marginTop: 15,
+            marginTop: 9,
             marginBottom: 45,
         },
         fabricsHowToAdd: {
@@ -387,7 +387,7 @@ export default function Fabrics() {
             '&:nth-of-type(even)': {
                 marginLeft: 45,
             },
-            [theme.breakpoints.down(666)]: {
+            [theme.breakpoints.down(1090)]: {
                 '&:nth-of-type(even)': {
                     marginLeft: 0,
                 },
@@ -470,8 +470,8 @@ export default function Fabrics() {
             alignItems: 'center',
             '& img': {
                 display: 'block',
-                width: '210px',
-                height: 'auto',
+                width: 'auto',
+                height: '210px',
             },
             overflow: 'hidden',
             borderRadius: theme.shape.borderRadius,
