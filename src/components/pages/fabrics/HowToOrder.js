@@ -3,6 +3,8 @@ import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import ContactDialog from '../ContactDialog';
 
+import AddFabricButton from '../../addFabric_button.png';
+
 export default function HowToOrder() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -82,11 +84,54 @@ export default function HowToOrder() {
                 paddingLeft: 0,
             },
         },
+        image: {
+            width: '100%',
+            '& img': {
+                display: 'block',
+                width: '100%',
+                margin: '0 auto',
+                transition: theme.transitions.create('transform', { duration: 400 }),
+                [theme.breakpoints.down(850)]: {
+                    transition: theme.transitions.create('transform', { duration: 66 }),
+                },
+            },
+            '&.measure': {
+                '& img:hover': {
+                    transform: 'scale(0.95)',
+                },
+                [theme.breakpoints.down(850)]: {
+                    '& img:hover': {
+                        transform: 'scale(1)',
+                    },
+                },
+                '& .howToMeasureWrapper': {
+                    cursor: 'pointer',
+                    margin: '0 auto',
+                    width: 150,
+                    '&:after': {
+                        content: '"Click to enlarge"',
+                        color: theme.palette.primary.main,
+                        fontSize: 12.5,
+                        transform: 'translate(-53px, -21.75px)',
+                        display: 'block',
+                        fontWeight: 500,
+                    },
+                    marginBottom: -10,
+                    [theme.breakpoints.down(850)]: {
+                        transform: 'translate(27px, 0)',
+                    },
+                },
+            },
+            '&.addFabric': {
+                width: 125,
+                margin: '30px auto 0',
+            },
+        },
         text: {
             fontSize: 14,
             '& .small': {
                 display: 'inline-block',
-                fontSize: 13,
+                fontSize: 12.5,
                 paddingTop: 15,
             },
         },
@@ -118,6 +163,9 @@ export default function HowToOrder() {
                         <div className={classes.text}>
                             Use the plus button under your selected mask fabric.
                         </div>
+                        <div className={[classes.image, 'addFabric'].join(' ')}>
+                            <img src={AddFabricButton} alt="How to add fabric" />
+                        </div>
                     </div>
                 </div>
                 <div className={classes.step}>
@@ -128,6 +176,11 @@ export default function HowToOrder() {
                     <div className={classes.content}>
                         <div className={classes.text}>
                             Use the illustration to determine nose-to-ear and nose-to-chin measurements.
+                        </div>
+                        <div onClick={() => document.getElementById('backdrop').style.display = 'block'} className={[classes.image, 'measure'].join(' ')}>
+                            <div className='howToMeasureWrapper'>
+                                <img src="/face_measuring_illustration.jpg" alt="How to measure" />
+                            </div>
                         </div>
                     </div>
                 </div>

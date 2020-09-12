@@ -558,13 +558,12 @@ export default function Fabrics() {
             /* left: '50%',
             transform: 'translateX(calc(-50% - 16px))', */
             right: 0,
-            backgroundColor: theme.palette.background.paper,
+            background: theme.palette.background.paper,
             color: '#222',
-            transition: theme.transitions.create('opacity'),
+            transition: theme.transitions.create('background', { duration: 400 }),
             '&:hover': {
-                backgroundColor: theme.palette.background.paper,
+                background: '#eee',
                 color: '#222',
-                opacity: 0.8,
             },
             margin: 10,
             padding: 6,
