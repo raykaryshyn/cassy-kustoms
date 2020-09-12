@@ -23,8 +23,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Service from '../Service';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
-import AddFabricGrid from '../../addFabric_grid.png';
-import AddFabricList from '../../addFabric_list.png';
+/* import AddFabricGrid from '../../addFabric_grid.png';
+import AddFabricList from '../../addFabric_list.png'; */
 
 import Backdrop from '@material-ui/core/Backdrop';
 import { IconButton } from '@material-ui/core';
@@ -32,6 +32,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import FabricGallery from './FabricGallery';
 import ContactDialog from '../ContactDialog';
+import HowToOrder from './HowToOrder';
 
 
 
@@ -266,6 +267,8 @@ export default function Fabrics() {
             maxHeight: 135,
             [theme.breakpoints.down(900)]: {
                 width: '100%',
+                maxWidth: 'unset',
+                flex: 'unset',
             },
         },
         title: {
@@ -338,6 +341,7 @@ export default function Fabrics() {
                 marginTop: 15,
                 width: '100%'
             },
+            minHeight: 133.25,
         },
         myOrderForm: {
             marginTop: 8,
@@ -761,6 +765,7 @@ export default function Fabrics() {
                 <Service title="Face Masks" gallery={gallery} order={
 
                     <>
+                        <HowToOrder />
                         <div className={classes.myOrder}>
                             <div className={classes.cardWrapper}>
                                 <Card className={classes.card} variant="outlined">
@@ -780,10 +785,12 @@ export default function Fabrics() {
                                 {!ordered && (<>
                                     <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                     <div className={classes.myOrderForm}>
-                                        <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
-                                        <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
-                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && (
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
+                                        {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
+                                        {/*                                         <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
+ */}{/*                                         <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
+ */}{/*                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
+ */}                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                             <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                                 {
                                                     Object.keys(orderFabrics).map((fabric, i) => {
