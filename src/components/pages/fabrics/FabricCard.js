@@ -129,11 +129,11 @@ export default function FabricCard(props) {
             height: 125,
             width: 125,
             marginRight: 15,
+            overflow: 'hidden',
             [theme.breakpoints.down('xs')]: {
                 height: 100,
                 width: 100,
                 borderRadius: theme.shape.borderRadius,
-                overflow: 'hidden',
             },
         },
         gridImage: {
@@ -144,18 +144,18 @@ export default function FabricCard(props) {
             height: 'auto !important',
             position: 'absolute',
             top: '50%',
-            transform: 'translateY(-25%)',
-            ':hover .MuiCardActionArea-focusHighlight': {
+            /* transform: 'translateY(-25%)', */
+            '&:hover .MuiCardActionArea-focusHighlight': {
                 opacity: 0,
             }
         },
         listImage: {
-            height: 'auto',
-            width: 125,
+            height: '100%',
+            width: 'auto',
             background: 'rgba(0,0,0,0.06)',
-            [theme.breakpoints.down('xs')]: {
+            /* [theme.breakpoints.down('xs')]: {
                 width: '100%',
-            },
+            }, */
         },
         gridContent: {
             padding: '6px 0 10px',

@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Fab from '@material-ui/core/Fab';
-import ModeCommentIcon from '@material-ui/icons/ModeComment';
+/* import Fab from '@material-ui/core/Fab';
+import ModeCommentIcon from '@material-ui/icons/ModeComment'; */
 
 import ContactForm from './ContactForm';
 
@@ -116,9 +116,12 @@ export default function ContactDialog(props) {
                     {props.children}
                 </div>
                 :
-                <Fab className={classes.fab} onClick={handleClickOpen}>
+                <>
+                {/* <Fab className={classes.fab} onClick={handleClickOpen}>
                     <ModeCommentIcon className={classes.fabIcon} />
-                </Fab>
+                </Fab> */}
+                ''
+                </>
             }
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" scroll='body' fullWidth={true} maxWidth='sm' classes={{ paper: classes.dialogPaper }}>

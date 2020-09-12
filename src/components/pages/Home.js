@@ -184,15 +184,19 @@ export default function Home() {
             backgroundPosition: 'center center',
             boxShadow: '0 0 15px rgba(0,0,0,0.25)',
             border: '2px solid #fff',
+            '&:hover span': {
+                textShadow: '0 0 1px black, 0 0 2px black, 0 0 3px black, 0 0 4px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,1), 0 0 32px rgba(0,0,0,0.5), 0 0 100px rgba(0,0,0,0.5)',
+            },
         },
         serviceContent: {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
-            textShadow: '0 0 12px rgb(0,0,0), 0 0 6px rgb(0,0,0)',
+            textShadow: '0 0 3px black, 0 0 4px rgba(0,0,0,0.75), 0 0 16px rgba(0,0,0,0.5)',
             '& span': {
                 zIndex: 1,
+                transition: theme.transitions.create('text-shadow', { duration: 300 }),
             },
         },
         serviceIcon: {
