@@ -270,6 +270,9 @@ export default function Fabrics() {
                 maxWidth: 'unset',
                 flex: 'unset',
             },
+            '& .MuiCardContent-root': {
+                padding: '16px 20px 24px 20px',
+            },
         },
         title: {
             fontFamily: theme.typography.fonts.header,
@@ -335,7 +338,7 @@ export default function Fabrics() {
             boxShadow: '0px 1px 12px rgba(0,0,0,0.1)',
             flex: 1,
             marginRight: 15,
-            padding: '16px 16px 24px 20px',
+            padding: '16px 20px 24px 20px',
             [theme.breakpoints.down(900)]: {
                 marginRight: 0,
                 marginTop: 15,
@@ -787,6 +790,7 @@ export default function Fabrics() {
                                     <div className={classes.myOrderForm}>
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
+                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{fontSize: 14,}}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
                                         {/*                                         <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
  */}{/*                                         <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
  */}{/*                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
@@ -850,7 +854,7 @@ export default function Fabrics() {
                                             <input type="hidden" name="form-name" value="order" />
                                             {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                                 <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
-                                                    You will receive a request for payment via Paypal.
+                                                    You will receive a request for payment via PayPal.
                                                 To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
                                                 Payment upon pickup or delivery available for locals.
                                                 </div>

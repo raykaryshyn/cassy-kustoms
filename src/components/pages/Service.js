@@ -334,6 +334,10 @@ export default function Service(props) {
         orderContainer: {
             marginTop: 58,
             marginBottom: 120,
+            [theme.breakpoints.down('sm')]: {
+                marginTop: 25,
+                marginBottom: 110,
+            },
         },
     }));
     const classes = useStyles();
