@@ -486,7 +486,7 @@ const fabricsList = [
         name: 'Ornamental Pastel',
         image: '/fabrics/IMG-1457.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1457.jpg',
-        colors: ['pink', 'green', 'yellow', 'orange', 'white'],
+        colors: ['pink', 'green', 'yellow', 'orange', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -549,7 +549,7 @@ const fabricsList = [
         name: 'Maryland Flag',
         image: '/fabrics/IMG-1451.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1451.jpg',
-        colors: ['orange', 'red', 'black', 'white'],
+        colors: ['orange', 'red', 'black', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -584,7 +584,7 @@ const fabricsList = [
         name: 'Pac-Man',
         image: '/fabrics/IMG-1453.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1453.jpg',
-        colors: ['black', 'blue', 'red', 'pink', 'yellow', 'orange', 'green'],
+        colors: ['black', 'blue', 'red', 'pink', 'yellow', 'orange', 'green', 'rainbow'],
         limited: false,
     },
     {
@@ -598,7 +598,7 @@ const fabricsList = [
         name: 'Sport Balls',
         image: '/fabrics/IMG-1452.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1452.jpg',
-        colors: ['grey', 'white', 'orange', 'yellow', 'black', 'red'],
+        colors: ['grey', 'white', 'orange', 'yellow', 'black', 'red', 'rainbow'],
         limited: false,
     },
     {
@@ -633,7 +633,7 @@ const fabricsList = [
         name: 'Avacados',
         image: '/fabrics/IMG-1448.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1448.jpg',
-        colors: ['green', 'yellow', 'brown', 'white', 'black'],
+        colors: ['green', 'yellow', 'brown', 'white', 'black', 'rainbow'],
         limited: false,
     },
     {
@@ -710,7 +710,7 @@ const fabricsList = [
         name: 'Holly & Rose',
         image: '/fabrics/IMG-1465.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1465.jpg',
-        colors: ['green', 'red', 'white'],
+        colors: ['green', 'red', 'white', 'rainbow'],
         limited: false,
     },
     {
@@ -731,7 +731,7 @@ const fabricsList = [
         name: 'Snowmen',
         image: '/fabrics/IMG-1454.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1454.jpg',
-        colors: ['blue', 'white', 'black', 'orange'],
+        colors: ['blue', 'white', 'black', 'orange', 'rainbow'],
         limited: false,
     },
     {
@@ -745,7 +745,7 @@ const fabricsList = [
         name: 'Holiday Plaid',
         image: '/fabrics/IMG-1464.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1464.jpg',
-        colors: ['red', 'green', 'white', 'black'],
+        colors: ['red', 'green', 'white', 'black', 'rainbow'],
         limited: false,
     },
 ];

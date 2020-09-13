@@ -610,8 +610,11 @@ export default function Fabrics() {
             padding: 10,
             [theme.breakpoints.up('sm')]: {
                 transform: 'translate(-50%, 10px)',
-                minWidth: 350,
+                /* minWidth: 350, */
                 /* maxWidth: 350, */
+            },
+            [theme.breakpoints.up(520)]: {
+                minWidth: 490,
             },
             '& .MuiAlert-filledSuccess': {
                 background: theme.palette.primary.main,
@@ -996,7 +999,7 @@ export default function Fabrics() {
             </Backdrop>
 
 
-            <Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={handleSnackbarClose} className={classes.snackbar}>
+            <Snackbar open={snackbarOpen} autoHideDuration={400000} onClose={handleSnackbarClose} className={classes.snackbar}>
                 <Alert onClose={handleSnackbarClose} severity="success">
                     <Typography variant="h5" component="h3">Fabric added</Typography>
                     <span>Please enter face measurements at the top of the page.</span>
