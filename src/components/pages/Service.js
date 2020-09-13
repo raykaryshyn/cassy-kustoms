@@ -418,7 +418,7 @@ export default function Service(props) {
             </TabPanel>
             {props.children}
 
-            {tab === 1 ? '' : <ContactDialog />}
+            {tab === 0 && <ContactDialog />}
         </>
     )
 }

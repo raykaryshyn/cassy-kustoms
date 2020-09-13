@@ -117,10 +117,9 @@ export default function ContactDialog(props) {
                 </div>
                 :
                 <>
-                {/* <Fab className={classes.fab} onClick={handleClickOpen}>
+                    {/* <Fab className={classes.fab} onClick={handleClickOpen}>
                     <ModeCommentIcon className={classes.fabIcon} />
                 </Fab> */}
-                ''
                 </>
             }
 
