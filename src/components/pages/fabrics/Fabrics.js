@@ -610,7 +610,8 @@ export default function Fabrics() {
             padding: 10,
             [theme.breakpoints.up('sm')]: {
                 transform: 'translate(-50%, 10px)',
-                maxWidth: 350,
+                minWidth: 350,
+                /* maxWidth: 350, */
             },
             '& .MuiAlert-filledSuccess': {
                 background: theme.palette.primary.main,
