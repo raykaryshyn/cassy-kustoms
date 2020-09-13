@@ -43,6 +43,10 @@ function Alert(props) {
 export default function Fabrics() {
     const gallery = [
         {
+            thumb: '/gallery/face-mask25-thumbnail.jpg',
+            main: '/gallery/face-mask25.jpg',
+        },
+        {
             thumb: '/gallery/face-mask24-thumbnail.jpg',
             main: '/gallery/face-mask24.jpg',
         },
@@ -929,7 +933,7 @@ export default function Fabrics() {
                                     <>
                                         <Typography variant="h5" component="h2" className={classes.title}>Thank you, your order has been submitted.</Typography>
                                         <div style={{ maxWidth: 600, fontSize: '1rem', margin: '10px 0' }}>
-                                            You will receive a request for payment via Paypal.
+                                            You will receive a request for payment via PayPal.
                                             To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
                                             Payment upon pickup or delivery available for locals.
                                         </div>
@@ -999,7 +1003,7 @@ export default function Fabrics() {
             </Backdrop>
 
 
-            <Snackbar open={snackbarOpen} autoHideDuration={400000} onClose={handleSnackbarClose} className={classes.snackbar}>
+            <Snackbar open={snackbarOpen} autoHideDuration={2500} onClose={handleSnackbarClose} className={classes.snackbar}>
                 <Alert onClose={handleSnackbarClose} severity="success">
                     <Typography variant="h5" component="h3">Fabric added</Typography>
                     <span>Please enter face measurements at the top of the page.</span>

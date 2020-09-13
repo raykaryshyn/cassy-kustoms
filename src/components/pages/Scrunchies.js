@@ -3,7 +3,7 @@ import React from 'react';
 
 import Service from './Service';
 import Gallery from './Gallery';
-import { Grid, makeStyles, Card, CardContent, Typography, TextField, Button } from '@material-ui/core';
+import { Grid, makeStyles, Card, CardContent, Typography, TextField, Button, FormControl, InputLabel, Select } from '@material-ui/core';
 import ContactDialog from './ContactDialog';
 
 
@@ -337,6 +337,12 @@ export default function Scrunchies() {
     const [emailValid, setEmailValid] = React.useState(true);
 
 
+    const [select, handleSelectState] = React.useState('');
+    const handleSelectChange = (e) => {
+        handleSelectState(e.target.value);
+    };
+
+
     return (
         <Service title="Scrunchies" gallery={gallery} order={
             <>
@@ -360,11 +366,31 @@ export default function Scrunchies() {
                             <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                             <div className={classes.myOrderForm}>
                                 <div className={classes.myOrderInputs}>
+                                    <FormControl variant="outlined" className={classes.formControl}>
+                                        <InputLabel htmlFor="outlined-age-native-simple">Selection</InputLabel>
+                                        <Select
+                                            native
+                                            value={select}
+                                            onChange={handleSelectChange}
+                                            label="Schruncie"
+                                            inputProps={{
+                                                name: 'scrunchie',
+                                                id: 'scrunchie-input',
+                                            }}
+                                        >
+                                            <option aria-label="Select a scrunchie" value="" disabled selected></option>
+                                            {Object.keys(metadata).map((key) => (
+                                                <option value={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                    <span>x</span>
+                                    <TextField id="outlined-basic" label="Quantity" variant="outlined" />
                                 </div>
                                 <form name="order" onSubmit={handleSubmit}>
                                     <input type="hidden" name="form-name" value="order" />
                                     <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
-                                        You will receive a request for payment via Paypal.
+                                        You will receive a request for payment via PayPal.
                                                 To arrange a different form of payment, <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog>.
                                                 Payment upon pickup or delivery available for locals.
                                         </div>
