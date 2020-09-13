@@ -13,7 +13,7 @@ import FabricsSettings from './FabricsSettings';
 import Button from '@material-ui/core/Button';
 
 import { FabricsContext, settings } from './FabricsContext';
-import { Typography } from '@material-ui/core';
+import { Snackbar, Typography } from '@material-ui/core';
 /* import FabricsCounter from './FabricsCounter'; */
 import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -33,11 +33,23 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import FabricGallery from './FabricGallery';
 import ContactDialog from '../ContactDialog';
 import HowToOrder from './HowToOrder';
+import { Alert as MuiAlert } from '@material-ui/lab';
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 
 
 export default function Fabrics() {
     const gallery = [
+        {
+            thumb: '/gallery/face-mask24-thumbnail.jpg',
+            main: '/gallery/face-mask24.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask23-thumbnail.jpg',
+            main: '/gallery/face-mask23.jpg',
+        },
         {
             thumb: '/gallery/face-mask22-thumbnail.jpg',
             main: '/gallery/face-mask22.jpg',
@@ -592,6 +604,35 @@ export default function Fabrics() {
             display: 'inline-block',
             cursor: 'pointer',
         },
+
+
+        snackbar: {
+            padding: 10,
+            [theme.breakpoints.up('sm')]: {
+                transform: 'translate(-50%, 10px)',
+                maxWidth: 350,
+            },
+            '& .MuiAlert-filledSuccess': {
+                background: theme.palette.primary.main,
+            },
+            '& h3': {
+                textTransform: 'none',
+            },
+            '& span': {
+                fontWeight: 400,
+                fontSize: 14,
+            },
+            '& .MuiAlert-icon svg': {
+                width: '1.4em',
+                height: '1.4em',
+                marginTop: 1.5,
+            },
+            '& .MuiAlert-action': {
+                marginBottom: 22,
+                marginLeft: 12,
+                height: 27,
+            },
+        },
     }));
     const classes = useStyles();
 
@@ -624,6 +665,8 @@ export default function Fabrics() {
         let name = fabric + '__' + num;
         clone.push(name);
         setOrderFabrics(clone);
+
+        handleSnackbarOpen();
     };
     const removeOrderFabrics = (fabric) => {
         let clone = orderFabrics.slice(0);
@@ -761,6 +804,19 @@ export default function Fabrics() {
 
     const [ordered, setOrdered] = React.useState(false);
 
+
+    const [snackbarOpen, handleSnackbarState] = React.useState(false);
+    const handleSnackbarOpen = () => {
+        handleSnackbarState(true);
+    };
+    const handleSnackbarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        handleSnackbarState(false);
+    };
+
     return (
         <>
             <FabricsContext.Provider value={{ context }}>
@@ -789,7 +845,7 @@ export default function Fabrics() {
                                     <div className={classes.myOrderForm}>
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
-                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{fontSize: 14,}}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
+                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
                                         {/*                                         <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
  */}{/*                                         <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
  */}{/*                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
@@ -937,6 +993,14 @@ export default function Fabrics() {
                     {!didLoad ? <div className={classes.spinnerWrapper}><CircularProgress /></div> : ''}
                 </div>
             </Backdrop>
+
+
+            <Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={handleSnackbarClose} className={classes.snackbar}>
+                <Alert onClose={handleSnackbarClose} severity="success">
+                    <Typography variant="h5" component="h3">Fabric added</Typography>
+                    <span>Please enter face measurements at the top of the page.</span>
+                </Alert>
+            </Snackbar>
         </>
     );
 }
