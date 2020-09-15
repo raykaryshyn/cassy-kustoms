@@ -103,10 +103,11 @@ export default function Service(props) {
         },
         pageTitle: {
             textAlign: 'center',
-            fontSize: 40,
+            fontSize: 50,
             [theme.breakpoints.down(550)]: {
-                fontSize: 36,
+                fontSize: 42,
                 marginTop: 0,
+                marginBottom: 5,
             },
             letterSpacing: 1,
             marginBottom: 10,

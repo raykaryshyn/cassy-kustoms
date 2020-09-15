@@ -494,6 +494,7 @@ export default function Fabrics() {
             marginRight: 10,
         },
         removeFabric: {
+            fontSize: 13.3333,
             border: `1px solid ${theme.palette.secondary.main}`,
             background: '#fff',
             color: theme.palette.secondary.main,
@@ -906,7 +907,7 @@ export default function Fabrics() {
                                                                     </div>
                                                                 </div>
 
-                                                                <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /> Remove</button>
+                                                                <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /><span>Remove</span></button>
                                                             </div>
                                                         );
                                                     })

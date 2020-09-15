@@ -311,27 +311,32 @@ export default function Scrunchies() {
             display: 'inline-flex',
             alignItems: 'center',
             cursor: 'pointer',
-            fontSize: 21,
-            transform: 'translateY(1.5px)',
+            fontSize: 23,
             '& svg': {
                 background: theme.palette.primary.main,
                 borderRadius: '50%',
                 color: 'white',
-                width: '1.3em',
-                height: '1.3em',
+                width: '1.55em',
+                height: '1.55em',
                 marginRight: 7,
-                padding: 2,
+                padding: 3,
                 transition: theme.transitions.create('all', { duration: 150 }),
             },
             color: theme.palette.primary.dark3,
             fontFamily: theme.typography.fonts.header,
             textTransform: 'uppercase',
             transition: theme.transitions.create('all', { duration: 150 }),
-            '&:hover': {
-                color: theme.palette.primary.dark1,
-                '& svg': {
-                    boxShadow: `0 0 0 3px ${theme.palette.primary.light2}`,
+            [theme.breakpoints.up(600)]: {
+                '&:hover': {
+                    color: theme.palette.primary.dark1,
+                    '& svg': {
+                        boxShadow: `0 0 0 3px ${theme.palette.primary.light2}`,
+                    },
                 },
+            },
+            [theme.breakpoints.down(450)]: {
+                width: '100%',
+                justifyContent: 'center',
             },
         },
     }));
