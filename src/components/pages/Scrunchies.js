@@ -337,11 +337,55 @@ export default function Scrunchies() {
     const [emailValid, setEmailValid] = React.useState(true);
 
 
-    const [select, handleSelectState] = React.useState('');
-    const handleSelectChange = (e) => {
-        handleSelectState(e.target.value);
+    const [select, handleSelectState] = React.useState({
+        0: {
+            num: '',
+        },
+    });
+    const handleSelectChange = (i, e) => {
+        console.log({
+            ...select,
+            [i]: {
+                num: e.target.value
+            },
+        });
+        handleSelectState({
+            ...select,
+            [i]: {
+                num: e.target.value
+            },
+        });
     };
 
+    const handleAdd = () => {
+        handleSelectState(select => {
+            console.log(select);
+            let length = Object.keys(select).length;
+            while (select.hasOwnProperty(length)) {
+                length++;
+            }
+            console.log(length);
+            return ({
+                ...select,
+                [length]: {
+                    num: '',
+                },
+            })
+        });
+    };
+
+    const handleRemove = (i) => {
+        handleSelectState(current => {
+            if (Object.keys(current).length > 1) {
+                const n = { ...current };
+                if (n[i]) delete n[i];
+                console.log(n);
+                return (
+                    n
+                );
+            }
+        });
+    };
 
     return (
         <Service title="Scrunchies" gallery={gallery} order={
@@ -365,28 +409,83 @@ export default function Scrunchies() {
                         {!ordered && (<>
                             <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                             <div className={classes.myOrderForm}>
-                                <div className={classes.myOrderInputs}>
-                                    <FormControl variant="outlined" className={classes.formControl}>
-                                        <InputLabel htmlFor="outlined-age-native-simple">Selection</InputLabel>
-                                        <Select
-                                            native
-                                            value={select}
-                                            onChange={handleSelectChange}
-                                            label="Schruncie"
-                                            inputProps={{
-                                                name: 'scrunchie',
-                                                id: 'scrunchie-input',
-                                            }}
-                                        >
-                                            <option aria-label="Select a scrunchie" value="" disabled selected></option>
-                                            {Object.keys(metadata).map((key) => (
-                                                <option value={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
-                                            ))}
-                                        </Select>
-                                    </FormControl>
-                                    <span>x</span>
-                                    <TextField id="outlined-basic" label="Quantity" variant="outlined" />
+                                <div className={classes.myOrderInputs} id="scrunchie-inputs">
+                                    {Object.keys(select).map((i) => (
+                                        <React.Fragment key={i}>
+                                            {select[i] !== undefined &&
+                                                <div className="scrunchie-input-group" key={i}>
+                                                    {/* {JSON.stringify(select[i])} */}
+                                                    <FormControl variant="outlined" className={classes.formControl}>
+                                                        <InputLabel htmlFor={"scrunchie-selection-" + i}>Selection</InputLabel>
+                                                        <Select
+                                                            native
+                                                            value={select[i].num}
+                                                            onChange={(e) => handleSelectChange(i, e)}
+                                                            label="Schruncie"
+                                                            inputProps={{
+                                                                name: 'scrunchie-selection-' + i,
+                                                                id: 'scrunchie-selection-' + i,
+                                                            }}
+                                                        >
+                                                            <option aria-label="Select a scrunchie" value=""></option>
+                                                            {Object.keys(metadata).map((key) => (
+                                                                <option value={key} key={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
+                                                            ))}
+                                                        </Select>
+                                                    </FormControl>
+                                                    <span>x</span>
+                                                    <TextField id={"scrunchie-quantity-" + i} label="Quantity" variant="outlined" value="1" />
+                                                    {Object.keys(select).length > 1 && <button onClick={() => handleRemove(i)}>Remove</button>}
+                                                </div>
+                                            }
+                                        </React.Fragment>
+                                    ))}
+                                    {/* <div className="scrunchie-input-group">
+                                        <FormControl variant="outlined" className={classes.formControl}>
+                                            <InputLabel htmlFor="scrunchie-selection-0">Selection</InputLabel>
+                                            <Select
+                                                native
+                                                value={select[0]}
+                                                onChange={(e) => handleSelectChange(0, e)}
+                                                label="Schruncie"
+                                                inputProps={{
+                                                    name: 'scrunchie-selection-0',
+                                                    id: 'scrunchie-selection-0',
+                                                }}
+                                            >
+                                                <option aria-label="Select a scrunchie" value=""></option>
+                                                {Object.keys(metadata).map((key) => (
+                                                    <option value={key} key={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                        <span>x</span>
+                                        <TextField id="scrunchie-quantity-0" label="Quantity" variant="outlined" />
+                                    </div>
+                                    <div className="scrunchie-input-group">
+                                        <FormControl variant="outlined" className={classes.formControl}>
+                                            <InputLabel htmlFor="scrunchie-selection-1">Selection</InputLabel>
+                                            <Select
+                                                native
+                                                value={select[1]}
+                                                onChange={(e) => handleSelectChange(1, e)}
+                                                label="Schruncie"
+                                                inputProps={{
+                                                    name: 'scrunchie-selection-1',
+                                                    id: 'scrunchie-selection-1',
+                                                }}
+                                            >
+                                                <option aria-label="Select a scrunchie" value=""></option>
+                                                {Object.keys(metadata).map((key) => (
+                                                    <option value={key} key={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
+                                                ))}
+                                            </Select>
+                                        </FormControl>
+                                        <span>x</span>
+                                        <TextField id="scrunchie-quantity-1" label="Quantity" variant="outlined" />
+                                    </div> */}
                                 </div>
+                                <button onClick={handleAdd}>Add</button>
                                 <form name="order" onSubmit={handleSubmit}>
                                     <input type="hidden" name="form-name" value="order" />
                                     <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
@@ -419,7 +518,7 @@ export default function Scrunchies() {
                             </>
                         )}
                     </div>
-                </div>
+                </ div>
 
                 <Grid container spacing={2} className={classes.orderContainer}>
                     <Gallery urls={gallery} scrunchies metadata={metadata} />
