@@ -165,12 +165,13 @@ export default function Scrunchies() {
             boxShadow: '0px 1px 12px rgba(0,0,0,0.1)',
             flex: 1,
             marginRight: 15,
-            padding: '16px 16px 24px 20px',
+            padding: '16px 20px 24px 20px',
             [theme.breakpoints.down(900)]: {
                 marginRight: 0,
                 marginTop: 15,
                 width: '100%'
             },
+            minHeight: 133.25,
         },
         cardWrapper: {
             flex: '1 1 375px',
@@ -191,6 +192,11 @@ export default function Scrunchies() {
             maxHeight: 135,
             [theme.breakpoints.down(900)]: {
                 width: '100%',
+                maxWidth: 'unset',
+                flex: 'unset',
+            },
+            '& .MuiCardContent-root': {
+                padding: '16px 20px 24px 20px',
             },
         },
         title: {
@@ -268,6 +274,36 @@ export default function Scrunchies() {
         orderContainer: {
             marginTop: 50,
             marginBottom: 175,
+        },
+
+        myOrderForm: {
+            marginTop: 15,
+        },
+        myOrderInputs: {
+            paddingBottom: 30,
+            '& .scrunchie-input-group': {
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                marginBottom: 10,
+            },
+        },
+
+        formControl: {
+            '&.selection': {
+                marginRight: 10,
+                marginBottom: 10,
+            },
+        },
+
+        times: {
+            fontSize: 24,
+            opacity: 0.75,
+            marginRight: 10,
+        },
+
+        quantity: {
+            maxWidth: 86,
         },
     }));
     const classes = useStyles();
@@ -414,8 +450,7 @@ export default function Scrunchies() {
                                         <React.Fragment key={i}>
                                             {select[i] !== undefined &&
                                                 <div className="scrunchie-input-group" key={i}>
-                                                    {/* {JSON.stringify(select[i])} */}
-                                                    <FormControl variant="outlined" className={classes.formControl}>
+                                                    <FormControl variant="outlined" className={[classes.formControl, 'selection'].join(' ')}>
                                                         <InputLabel htmlFor={"scrunchie-selection-" + i}>Selection</InputLabel>
                                                         <Select
                                                             native
@@ -427,14 +462,16 @@ export default function Scrunchies() {
                                                                 id: 'scrunchie-selection-' + i,
                                                             }}
                                                         >
-                                                            <option aria-label="Select a scrunchie" value=""></option>
+                                                            <option aria-label="Select a scrunchie" value="" disabled></option>
                                                             {Object.keys(metadata).map((key) => (
                                                                 <option value={key} key={key}>#{parseInt(key) + 1} - {metadata[key].name}</option>
                                                             ))}
                                                         </Select>
                                                     </FormControl>
-                                                    <span>x</span>
-                                                    <TextField id={"scrunchie-quantity-" + i} label="Quantity" variant="outlined" value="1" />
+                                                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10, }}>
+                                                        <span className={classes.times}>x</span>
+                                                        <TextField className={classes.quantity} id={"scrunchie-quantity-" + i} label="Quantity" variant="outlined" defaultValue="1" type="number" inputProps={{ min: 0, step: 1 }} />
+                                                    </div>
                                                     {Object.keys(select).length > 1 && <button onClick={() => handleRemove(i)}>Remove</button>}
                                                 </div>
                                             }
@@ -484,8 +521,8 @@ export default function Scrunchies() {
                                         <span>x</span>
                                         <TextField id="scrunchie-quantity-1" label="Quantity" variant="outlined" />
                                     </div> */}
+                                    <button onClick={handleAdd}>Add</button>
                                 </div>
-                                <button onClick={handleAdd}>Add</button>
                                 <form name="order" onSubmit={handleSubmit}>
                                     <input type="hidden" name="form-name" value="order" />
                                     <div style={{ maxWidth: 600, fontSize: 14, margin: '10px 0 5px' }}>
