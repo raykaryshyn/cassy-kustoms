@@ -5,6 +5,7 @@ import Service from './Service';
 import Gallery from './Gallery';
 import { Grid, makeStyles, Card, CardContent, Typography, TextField, Button, FormControl, InputLabel, Select } from '@material-ui/core';
 import ContactDialog from './ContactDialog';
+import { Add } from '@material-ui/icons';
 
 
 
@@ -280,7 +281,7 @@ export default function Scrunchies() {
             marginTop: 15,
         },
         myOrderInputs: {
-            paddingBottom: 30,
+            paddingBottom: 50,
             '& .scrunchie-input-group': {
                 display: 'flex',
                 alignItems: 'center',
@@ -297,13 +298,41 @@ export default function Scrunchies() {
         },
 
         times: {
-            fontSize: 24,
+            fontSize: 21,
             opacity: 0.75,
             marginRight: 10,
         },
 
         quantity: {
             maxWidth: 86,
+        },
+
+        add: {
+            display: 'inline-flex',
+            alignItems: 'center',
+            cursor: 'pointer',
+            fontSize: 21,
+            transform: 'translateY(1.5px)',
+            '& svg': {
+                background: theme.palette.primary.main,
+                borderRadius: '50%',
+                color: 'white',
+                width: '1.3em',
+                height: '1.3em',
+                marginRight: 7,
+                padding: 2,
+                transition: theme.transitions.create('all', { duration: 150 }),
+            },
+            color: theme.palette.primary.dark3,
+            fontFamily: theme.typography.fonts.header,
+            textTransform: 'uppercase',
+            transition: theme.transitions.create('all', { duration: 150 }),
+            '&:hover': {
+                color: theme.palette.primary.dark1,
+                '& svg': {
+                    boxShadow: `0 0 0 3px ${theme.palette.primary.light2}`,
+                },
+            },
         },
     }));
     const classes = useStyles();
@@ -434,7 +463,7 @@ export default function Scrunchies() {
                                     Pricing
                                 </Typography>
                                 <ul className={classes.cardContent}>
-                                    <li className="uli">$5 per scrunchie</li>
+                                    <li className="uli">$2 per scrunchie</li>
                                     <li className="uli">$3 - $8 shipping</li>
                                 </ul>
                             </CardContent>
@@ -521,7 +550,7 @@ export default function Scrunchies() {
                                         <span>x</span>
                                         <TextField id="scrunchie-quantity-1" label="Quantity" variant="outlined" />
                                     </div> */}
-                                    <button onClick={handleAdd}>Add</button>
+                                    <div onClick={handleAdd} className={classes.add}><Add /><span>Add</span></div>
                                 </div>
                                 <form name="order" onSubmit={handleSubmit}>
                                     <input type="hidden" name="form-name" value="order" />
