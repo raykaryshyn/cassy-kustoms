@@ -5,7 +5,7 @@ import Service from './Service';
 import Gallery from './Gallery';
 import { Grid, makeStyles, Card, CardContent, Typography, TextField, Button, FormControl, InputLabel, Select } from '@material-ui/core';
 import ContactDialog from './ContactDialog';
-import { Add } from '@material-ui/icons';
+import { Add, DeleteOutline } from '@material-ui/icons';
 
 
 
@@ -281,26 +281,26 @@ export default function Scrunchies() {
             marginTop: 15,
         },
         myOrderInputs: {
-            paddingBottom: 50,
+            paddingBottom: 55,
             '& .scrunchie-input-group': {
                 display: 'flex',
                 alignItems: 'center',
                 flexWrap: 'wrap',
-                marginBottom: 10,
+                marginBottom: 13,
             },
         },
 
         formControl: {
             '&.selection': {
-                marginRight: 10,
-                marginBottom: 10,
+                marginRight: 9,
+                marginBottom: 9.5,
             },
         },
 
         times: {
             fontSize: 21,
             opacity: 0.75,
-            marginRight: 10,
+            marginRight: 9,
         },
 
         quantity: {
@@ -311,26 +311,26 @@ export default function Scrunchies() {
             display: 'inline-flex',
             alignItems: 'center',
             cursor: 'pointer',
-            fontSize: 23,
+            fontSize: 24,
             '& svg': {
                 background: theme.palette.primary.main,
                 borderRadius: '50%',
                 color: 'white',
                 width: '1.55em',
                 height: '1.55em',
-                marginRight: 7,
+                marginRight: 8,
                 padding: 3,
-                transition: theme.transitions.create('all', { duration: 150 }),
+                transition: theme.transitions.create('all', { duration: 200 }),
             },
             color: theme.palette.primary.dark3,
             fontFamily: theme.typography.fonts.header,
             textTransform: 'uppercase',
-            transition: theme.transitions.create('all', { duration: 150 }),
+            transition: theme.transitions.create('all', { duration: 200 }),
             [theme.breakpoints.up(600)]: {
                 '&:hover': {
                     color: theme.palette.primary.dark1,
                     '& svg': {
-                        boxShadow: `0 0 0 3px ${theme.palette.primary.light2}`,
+                        boxShadow: `0 0 0 3.5px ${theme.palette.primary.light2}`,
                     },
                 },
             },
@@ -338,6 +338,31 @@ export default function Scrunchies() {
                 width: '100%',
                 justifyContent: 'center',
             },
+        },
+        remove: {
+            fontSize: 13.5,
+            border: `1px solid ${theme.palette.secondary.main}`,
+            background: '#fff',
+            color: theme.palette.secondary.main,
+            outline: 'none',
+            cursor: 'pointer',
+            borderRadius: theme.shape.borderRadius,
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: 9.5,
+            padding: '2px 13px 2px 10px',
+            transition: theme.transitions.create('all'),
+            fontWeight: 500,
+            '&:hover': {
+                background: theme.palette.secondary.main,
+                color: '#fff',
+            },
+            '& svg': {
+                height: '0.95em',
+                width: '0.95em',
+                marginRight: 3,
+            },
+            marginLeft: 9,
         },
     }));
     const classes = useStyles();
@@ -370,13 +395,48 @@ export default function Scrunchies() {
             setEmailValid(true);
         }
 
-        if (nameValid && emailValid) {
+        const wants = document.getElementsByClassName('scrunchie-input-group');
+        /* console.log(select); */
+        let select2 = {};
+        let allWantsValid = true;
+        [...wants].forEach(a => {
+            const selectValue = a.querySelector('.selection .MuiSelect-root').value;
+            const selectValid = !(selectValue.trim() == null || selectValue.trim() === "" || selectValue === " " || isNaN(selectValue));
+            /* console.log(selectValue, selectValid); */
+
+            const quantityValue = a.querySelector('.MuiInputBase-root input').value;
+            const quantityValid = !(quantityValue.trim() == null || quantityValue.trim() === "" || quantityValue === " " || isNaN(quantityValue) || parseFloat(quantityValue) <= 0);
+            /* console.log(quantityValue, quantityValid); */
+
+            const id = a.querySelector('.MuiInputBase-root input').id.split('-')[2];
+
+            select2 = {
+                ...select2,
+                [id]: {
+                    num: selectValue,
+                    quantity: quantityValue,
+                    valid: { select: selectValid, quantity: quantityValid },
+                },
+            };
+            if (!selectValid || !quantityValid) allWantsValid = false;
+        });
+        handleSelectState(select2);
+
+        if (nameValid && emailValid && allWantsValid) {
             console.log("ready to go");
+
+            const message = () => {
+                var text = '';
+                Object.keys(select).forEach(i => {
+                    text += '#' + (select[i].num + 1) + ' ' + metadata[select[i].num].name + ': ' + select2[i].quantity + '\n';
+                });
+                return (text);
+            };
 
             const body = {
                 'name': name,
                 'email': email,
-                'measurements': 'scrunchie order test...',
+                'measurements': message(),
             }
             fetch("/", {
                 method: "POST",
@@ -410,19 +470,22 @@ export default function Scrunchies() {
     const [select, handleSelectState] = React.useState({
         0: {
             num: '',
+            valid: { select: true, quantity: true },
         },
     });
     const handleSelectChange = (i, e) => {
         console.log({
             ...select,
             [i]: {
-                num: e.target.value
+                num: e.target.value,
+                valid: { select: true, quantity: true },
             },
         });
         handleSelectState({
             ...select,
             [i]: {
-                num: e.target.value
+                num: e.target.value,
+                valid: { select: true, quantity: true },
             },
         });
     };
@@ -439,6 +502,7 @@ export default function Scrunchies() {
                 ...select,
                 [length]: {
                     num: '',
+                    valid: { select: true, quantity: true },
                 },
             })
         });
@@ -484,7 +548,7 @@ export default function Scrunchies() {
                                         <React.Fragment key={i}>
                                             {select[i] !== undefined &&
                                                 <div className="scrunchie-input-group" key={i}>
-                                                    <FormControl variant="outlined" className={[classes.formControl, 'selection'].join(' ')}>
+                                                    <FormControl variant="outlined" className={[classes.formControl, 'selection'].join(' ')} error={select[i].valid.select ? false : true}>
                                                         <InputLabel htmlFor={"scrunchie-selection-" + i}>Selection</InputLabel>
                                                         <Select
                                                             native
@@ -504,9 +568,9 @@ export default function Scrunchies() {
                                                     </FormControl>
                                                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10, }}>
                                                         <span className={classes.times}>x</span>
-                                                        <TextField className={classes.quantity} id={"scrunchie-quantity-" + i} label="Quantity" variant="outlined" defaultValue="1" type="number" inputProps={{ min: 0, step: 1 }} />
+                                                        <TextField className={classes.quantity} id={"scrunchie-quantity-" + i} label="Quantity" variant="outlined" defaultValue="1" type="number" inputProps={{ min: 1, step: 1 }} error={select[i].valid.quantity ? false : true} />
                                                     </div>
-                                                    {Object.keys(select).length > 1 && <button onClick={() => handleRemove(i)}>Remove</button>}
+                                                    {Object.keys(select).length > 1 && <button className={classes.remove} onClick={() => handleRemove(i)}><DeleteOutline /> <span>Remove</span></button>}
                                                 </div>
                                             }
                                         </React.Fragment>
