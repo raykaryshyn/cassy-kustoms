@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Card, CardContent } from '@material-ui/core';
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import PaintLine from '../paintStroke.png';
@@ -340,6 +340,98 @@ export default function Service(props) {
                 marginBottom: 110,
             },
         },
+
+
+
+
+        myOrder: {
+            marginBottom: '20px',
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            alignItems: 'flex-start',
+            [theme.breakpoints.down(900)]: {
+                flexDirection: 'column',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+            },
+        },
+        myOrderResults: {
+            background: '#fff',
+            borderRadius: theme.shape.borderRadius,
+            boxShadow: '0px 1px 12px rgba(0,0,0,0.1)',
+            flex: 1,
+            marginRight: 15,
+            padding: '16px 20px 24px 20px',
+            [theme.breakpoints.down(900)]: {
+                marginRight: 0,
+                marginTop: 15,
+                width: '100%'
+            },
+            minHeight: 133.25,
+        },
+        cardWrapper: {
+            flex: '1 1 375px',
+            maxWidth: 375,
+            '& ul': {
+                paddingInlineStart: '15px',
+            },
+
+            margin: '0 auto',
+
+            background: '#fff',
+            borderRadius: theme.shape.borderRadius,
+            boxShadow: '0px 1px 12px rgba(0,0,0,0.1)',
+            '& .MuiPaper-root': {
+                border: 'none',
+            },
+            flexShrink: 1,
+            maxHeight: 135,
+            [theme.breakpoints.down(900)]: {
+                width: '100%',
+                maxWidth: 'unset',
+                flex: 'unset',
+            },
+            '& .MuiCardContent-root': {
+                padding: '16px 20px 24px 20px',
+            },
+        },
+        title: {
+            fontFamily: theme.typography.fonts.header,
+            textTransform: 'none',
+        },
+        cardContent: {
+            marginTop: 5,
+            display: 'flex',
+            flexDirection: 'column',
+            margin: '0 0 0 15px',
+            padding: 0,
+            '& li': {
+                margin: '3px 0',
+                fontSize: '1rem',
+                marginLeft: 0,
+            },
+            '& li.oli': {
+                paddingRight: 0,
+                listStyleType: 'none',
+                counterIncrement: 'step-counter',
+            },
+            '& li.oli:before': {
+                content: 'counter(step-counter)',
+                marginRight: '8px',
+                fontSize: '1rem',
+                backgroundColor: 'rgb(200,200,200)',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '0 8px',
+                borderRadius: '3px',
+                transform: 'scale(0.8)',
+                display: 'inline-block',
+            },
+        },
+        small: {
+            fontSize: '0.9rem',
+            paddingTop: 15,
+        },
     }));
     const classes = useStyles();
 
@@ -411,9 +503,34 @@ export default function Service(props) {
             <TabPanel value={tab} index={1}>
                 <Container maxWidth="lg" className={classes.orderContainer}>
                     {props.order ? props.order :
-                        <Container maxWidth='md'>
-                            <ContactForm noCancel noContainer />
-                        </Container>
+                        <>
+                            <div className={classes.myOrder}>
+                                <div className={classes.cardWrapper}>
+                                    <Card className={classes.card} variant="outlined">
+                                        <CardContent>
+                                            <Typography variant="h5" component="h2" className={classes.title}>
+                                                Pricing
+                                            </Typography>
+                                            <ul className={classes.cardContent}>
+                                                <li className="uli">{props.perPrice}</li>
+                                                <li className="uli">{props.shippingPrice ? props.shippingPrice : '$3 - $8 shipping'}</li>
+                                            </ul>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                                <div className={classes.myOrderResults}>
+                                    <Typography variant="h5" component="h2" className={classes.title}>How To Order</Typography>
+                                    <p style={{ maxWidth: 700, fontSize: '1rem', margin: '10px 0' }}>
+                                        You will receive a request for payment via PayPal.<br />
+                                        <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
+                                        Payment upon pickup or delivery available for locals.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <Container maxWidth='md'>
+                                <ContactForm noCancel noContainer />
+                            </Container>
+                        </>
                     }
                 </Container>
             </TabPanel>

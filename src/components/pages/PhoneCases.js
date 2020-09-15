@@ -31,7 +31,7 @@ export default function PhoneCases() {
 
     return (
         <>
-            <Service title="Phone Cases" gallery={gallery} />
+            <Service title="Phone Cases" gallery={gallery} perPrice='TBD' />
         </>
     );
 }

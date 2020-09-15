@@ -15,7 +15,7 @@ export default function Clothes() {
 
     return (
         <>
-            <Service title="Clothes" gallery={gallery} />
+            <Service title="Clothes" gallery={gallery} perPrice='TBD' />
         </>
     );
 }

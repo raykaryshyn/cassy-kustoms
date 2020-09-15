@@ -428,7 +428,7 @@ export default function Scrunchies() {
             const message = () => {
                 var text = '';
                 Object.keys(select).forEach(i => {
-                    text += '#' + (select[i].num + 1) + ' ' + metadata[select[i].num].name + ': ' + select2[i].quantity + '\n';
+                    text += '#' + (parseInt(select[i].num) + 1) + ' ' + metadata[select[i].num].name + ': ' + select2[i].quantity + '\n';
                 });
                 return (text);
             };
