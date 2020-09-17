@@ -12,6 +12,7 @@ import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
+import vanillaSmoothie from 'vanilla-smoothie';
 
 
 export default function Home() {
@@ -290,6 +291,9 @@ export default function Home() {
                 marginBottom: 30,
             },
         },
+        link: {
+            color: theme.palette.secondary.main,
+        },
     }));
     const classes = useStyles();
 
@@ -314,6 +318,21 @@ export default function Home() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     });
+
+    const handleLinkClick = (e) => {
+        e.preventDefault();
+        if (!document.getElementById('about') || !document.getElementById('services') || !document.getElementById('contact')) {
+            window.location.href = e.currentTarget.href;
+        } else if (document.getElementById('about') && document.getElementById('services') && document.getElementById('contact')) {
+            const id = e.currentTarget.href.split('#')[1];
+            const elmTop = document.getElementById(id).offsetTop;
+            /* window.scrollTo({
+                top: elmTop,
+                behavior: "smooth"
+            }); */
+            vanillaSmoothie.scrollTo(elmTop, { easing: 'easeOutQuad' });
+        }
+    };
 
     return (
         <>
@@ -341,7 +360,7 @@ export default function Home() {
 
                         <br /><br />
 
-                        Check out my work in the 'services' section where you can also place an order.
+                        Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
 
                         <br /><br />
 
@@ -366,9 +385,9 @@ export default function Home() {
                         <Typography className={classes.sectionSubtitle}>
                             Here are my painting and sewing services.
                         <br />
-                        The face mask section includes 100+ available 'fabric choices' for a Kustom-fitted face mask!
+                        The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
                         <br />
-                        Don't see what you're looking for? Contact me and I'll see what I can do!
+                        Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
                     </Typography>
 
                         <Grid container spacing={3} className={classes.servicesContainer}>

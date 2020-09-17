@@ -31,7 +31,7 @@ export default function PhoneCases() {
 
     return (
         <>
-            <Service title="Phone Cases" gallery={gallery} perPrice='TBD' />
+            <Service title="Phone Cases" gallery={gallery} perPrice='$15 - $25' howToOrder='' youProvide="You provide the phone case" />
         </>
     );
 }

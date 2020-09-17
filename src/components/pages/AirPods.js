@@ -27,7 +27,7 @@ export default function AirPods() {
 
     return (
         <>
-            <Service title="AirPods Cases" gallery={gallery} perPrice='TBD' />
+            <Service title="AirPods Cases" gallery={gallery} perPrice='$15 - $25' howToOrder='' youProvide='You provide the Airpods case' />
         </>
     );
 }

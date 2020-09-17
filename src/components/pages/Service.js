@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import InfoIcon from '@material-ui/icons/Info';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -432,6 +433,30 @@ export default function Service(props) {
             fontSize: '0.9rem',
             paddingTop: 15,
         },
+        infoWrapper: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        info: {
+            background: theme.palette.secondary.main,
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: theme.shape.borderRadius,
+            padding: '5px 13px',
+            marginBottom: 15,
+            '& span': {
+                fontSize: 14,
+                transform: 'translateY(1px)',
+                paddingLeft: 6,
+                paddingRight: 1.5,
+            },
+            boxShadow: '8px 8px 10px rgba(0,0,0,0.1), -8px -8px 10px rgba(255,255,255,1), inset 6px 6px 10px rgba(0,0,0,0.1), inset -6px -6px 10px rgba(255,255,255,0.1)',
+            marginTop: 6,
+            fontWeight: 500,
+        },
     }));
     const classes = useStyles();
 
@@ -504,6 +529,7 @@ export default function Service(props) {
                 <Container maxWidth="lg" className={classes.orderContainer}>
                     {props.order ? props.order :
                         <>
+                            {props.youProvide && <div className={classes.infoWrapper}><div className={classes.info}><InfoIcon /><span>{props.youProvide}</span></div></div>}
                             <div className={classes.myOrder}>
                                 <div className={classes.cardWrapper}>
                                     <Card className={classes.card} variant="outlined">
@@ -512,7 +538,8 @@ export default function Service(props) {
                                                 Pricing
                                             </Typography>
                                             <ul className={classes.cardContent}>
-                                                <li className="uli">{props.perPrice}</li>
+                                                {props.perPrice && <li className="uli">{props.perPrice}</li>}
+                                                {props.perPriceCustom}
                                                 <li className="uli">{props.shippingPrice ? props.shippingPrice : '$3 - $8 shipping'}</li>
                                             </ul>
                                         </CardContent>
@@ -520,6 +547,11 @@ export default function Service(props) {
                                 </div>
                                 <div className={classes.myOrderResults}>
                                     <Typography variant="h5" component="h2" className={classes.title}>How To Order</Typography>
+                                    {props.howToOrder &&
+                                        <p style={{ maxWidth: 700, fontSize: '1rem', margin: '10px 0' }}>
+                                            props.howToOrder
+                                        </p>
+                                    }
                                     <p style={{ maxWidth: 700, fontSize: '1rem', margin: '10px 0' }}>
                                         You will receive a request for payment via PayPal.<br />
                                         <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
