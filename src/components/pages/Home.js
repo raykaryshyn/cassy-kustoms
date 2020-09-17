@@ -55,14 +55,17 @@ export default function Home() {
             [theme.breakpoints.down(700)]: {
                 fontSize: '6rem',
             },
+            [theme.breakpoints.down(600)]: {
+                fontSize: '5rem',
+            },
             [theme.breakpoints.down(500)]: {
-                fontSize: '4rem',
+                fontSize: '3.9rem',
             },
             [theme.breakpoints.down(350)]: {
-                fontSize: '3.5rem',
+                fontSize: '3.25rem',
             },
-            textShadow: '0 0 9px black, 0 0 21px black',
-            letterSpacing: 6,
+            textShadow: '0 0 4px rgba(0,0,0,0.5), 0 0 21px black, 0 0 50px rgba(0,0,0,0.25)',
+            letterSpacing: 10,
         },
         welcomeBody: {
             color: '#fff',
@@ -188,6 +191,9 @@ export default function Home() {
             '&:hover span': {
                 textShadow: '0 0 1px black, 0 0 2px black, 0 0 3px black, 0 0 4px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,1), 0 0 32px rgba(0,0,0,0.5), 0 0 100px rgba(0,0,0,0.5)',
             },
+            '&:hover svg': {
+                filter: 'drop-shadow(0 0 2px rgb(0,0,0))',
+            },
         },
         serviceContent: {
             display: 'flex',
@@ -197,7 +203,7 @@ export default function Home() {
             textShadow: '0 0 3px black, 0 0 4px rgba(0,0,0,0.75), 0 0 16px rgba(0,0,0,0.5)',
             '& span': {
                 zIndex: 1,
-                transition: theme.transitions.create('text-shadow', { duration: 300 }),
+                transition: theme.transitions.create('text-shadow', { duration: 200 }),
             },
         },
         serviceIcon: {
@@ -205,6 +211,7 @@ export default function Home() {
             marginBottom: 2,
             filter: `drop-shadow(0 0 5px rgb(0,0,0))`,
             zIndex: 1,
+            transition: theme.transitions.create('filter', { duration: 200 }),
         },
         backdrop: {
             position: 'absolute',
@@ -432,7 +439,7 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes3-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes4-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <PaintIcon className={classes.serviceIcon} />
