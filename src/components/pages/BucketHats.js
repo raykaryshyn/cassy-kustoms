@@ -23,7 +23,7 @@ export default function BucketHats() {
 
     return (
         <>
-            <Service title="Bucket Hats" gallery={gallery} perPriceCustom={<><li className="uli">Plain: $15</li><li className="uli">Patchwork: $20</li></>} />
+            <Service title="Bucket Hats" gallery={gallery} howToOrder="Let me know what kind of hat you want based on the hats in my gallery. You can even tell me what colors you want included in your hat!" perPriceCustom={<><li className="uli">Plain: $15</li><li className="uli">Patchwork: $20</li></>} />
         </>
     );
 }

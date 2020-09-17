@@ -263,7 +263,7 @@ export default function Gallery(props) {
                                 </div>
                                 <div className={classes.scrunchieDataWrapper}>
                                     <Typography component='h3' variant='h5' className={classes.scrunchieTitle}><span className={classes.scrunchieNumber}>#{i + 1}</span> {props.metadata[i].name}</Typography>
-                                    {props.metadata[i].material !== '' && <div className={classes.scrunchieMaterial}>{props.metadata[i].material}</div>}
+                                    {/* {props.metadata[i].material !== '' && <div className={classes.scrunchieMaterial}>{props.metadata[i].material}</div>} */}
                                 </div>
                             </div>
                         )}

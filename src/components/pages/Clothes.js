@@ -15,7 +15,7 @@ export default function Clothes() {
 
     return (
         <>
-            <Service title="Clothes" gallery={gallery} perPrice='Price will vary' />
+            <Service title="Clothes" gallery={gallery} perPrice='Price will vary' howToOrder="Let me know what kind of clothes you want me to sew and we will work together to create the perfect design Kustomized just for you!" />
         </>
     );
 }

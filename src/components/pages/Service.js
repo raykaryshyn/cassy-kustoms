@@ -386,7 +386,7 @@ export default function Service(props) {
                 border: 'none',
             },
             flexShrink: 1,
-            maxHeight: 135,
+            /* maxHeight: 135, */
             [theme.breakpoints.down(900)]: {
                 width: '100%',
                 maxWidth: 'unset',
@@ -439,21 +439,21 @@ export default function Service(props) {
             justifyContent: 'center',
         },
         info: {
-            background: theme.palette.secondary.main,
-            color: 'white',
+            background: 'none',
+            color: theme.palette.secondary.main,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: theme.shape.borderRadius,
+            /* borderRadius: theme.shape.borderRadius, */
             padding: '5px 13px',
-            marginBottom: 15,
+            marginBottom: 12,
             '& span': {
-                fontSize: 14,
-                transform: 'translateY(1px)',
+                fontSize: 15,
+                transform: 'translateY(1.5px)',
                 paddingLeft: 6,
                 paddingRight: 1.5,
             },
-            boxShadow: '8px 8px 10px rgba(0,0,0,0.1), -8px -8px 10px rgba(255,255,255,1), inset 6px 6px 10px rgba(0,0,0,0.1), inset -6px -6px 10px rgba(255,255,255,0.1)',
+            /* boxShadow: '8px 8px 10px rgba(0,0,0,0.1), -8px -8px 10px rgba(255,255,255,1), inset 6px 6px 10px rgba(0,0,0,0.1), inset -6px -6px 10px rgba(255,255,255,0.1)', */
             marginTop: 6,
             fontWeight: 500,
         },
@@ -549,10 +549,10 @@ export default function Service(props) {
                                     <Typography variant="h5" component="h2" className={classes.title}>How To Order</Typography>
                                     {props.howToOrder &&
                                         <p style={{ maxWidth: 700, fontSize: '1rem', margin: '10px 0' }}>
-                                            props.howToOrder
+                                            {props.howToOrder}
                                         </p>
                                     }
-                                    <p style={{ maxWidth: 700, fontSize: '1rem', margin: '10px 0' }}>
+                                    <p style={{ maxWidth: 700, fontSize: '1rem', margin: '14px 0 10px' }}>
                                         You will receive a request for payment via PayPal.<br />
                                         <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
                                         Payment upon pickup or delivery available for locals.</span>

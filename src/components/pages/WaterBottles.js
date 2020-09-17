@@ -23,7 +23,7 @@ export default function HydroFlasks() {
 
     return (
         <>
-            <Service title="Water Bottles" gallery={gallery} perPrice='$20 - $30' howToOrder='' youProvide="You provide the water bottle" />
+            <Service title="Water Bottles" gallery={gallery} perPrice='$20 - $30' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' youProvide="You provide water bottle" />
         </>
     );
 }
