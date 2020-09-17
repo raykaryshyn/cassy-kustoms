@@ -51,7 +51,10 @@ export default function Home() {
         welcomeTitle: {
             textAlign: 'center',
             color: '#fff',
-            fontSize: '7rem',
+            fontSize: '7.25rem',
+            [theme.breakpoints.down(950)]: {
+                fontSize: '7rem',
+            },
             [theme.breakpoints.down(700)]: {
                 fontSize: '6rem',
             },
@@ -61,11 +64,11 @@ export default function Home() {
             [theme.breakpoints.down(500)]: {
                 fontSize: '3.9rem',
             },
-            [theme.breakpoints.down(350)]: {
+            [theme.breakpoints.down(370)]: {
                 fontSize: '3.25rem',
             },
-            textShadow: '0 0 4px rgba(0,0,0,0.5), 0 0 21px black, 0 0 50px rgba(0,0,0,0.25)',
-            letterSpacing: 10,
+            textShadow: '0 0 10px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.9)',
+            letterSpacing: 8,
         },
         welcomeBody: {
             color: '#fff',
