@@ -552,16 +552,16 @@ export default function Service(props) {
                                             {props.howToOrder}
                                         </p>
                                     }
-                                    <p style={{ maxWidth: 700, fontSize: '1rem', margin: '14px 0 10px' }}>
+                                    <p style={{ maxWidth: 700, fontSize: '1rem', margin: '16px 0 10px' }}>
                                         You will receive a request for payment via PayPal.<br />
                                         <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
                                         Payment upon pickup or delivery available for locals.</span>
                                     </p>
                                 </div>
                             </div>
-                            <Container maxWidth='md'>
+                            <div style={{ maxWidth: 900, margin: '0 auto' }}>
                                 <ContactForm noCancel noContainer />
-                            </Container>
+                            </div>
                         </>
                     }
                 </Container>

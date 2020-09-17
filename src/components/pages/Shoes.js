@@ -8,6 +8,10 @@ import Service from './Service';
 export default function Shoes() {
     const gallery = [
         {
+            thumb: '/gallery/shoes4-thumbnail.jpg',
+            main: '/gallery/shoes4.jpg',
+        },
+        {
             thumb: '/gallery/shoes3-thumbnail.jpg',
             main: '/gallery/shoes3.jpg',
         },

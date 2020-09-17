@@ -43,6 +43,14 @@ function Alert(props) {
 export default function Fabrics() {
     const gallery = [
         {
+            thumb: '/gallery/face-mask27-thumbnail.jpg',
+            main: '/gallery/face-mask27.jpg',
+        },
+        {
+            thumb: '/gallery/face-mask26-thumbnail.jpg',
+            main: '/gallery/face-mask26.jpg',
+        },
+        {
             thumb: '/gallery/face-mask25-thumbnail.jpg',
             main: '/gallery/face-mask25.jpg',
         },

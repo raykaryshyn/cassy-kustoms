@@ -8,6 +8,10 @@ import Service from './Service';
 export default function HydroFlasks() {
     const gallery = [
         {
+            thumb: '/gallery/water-bottle4-thumbnail.jpg',
+            main: '/gallery/water-bottle4.jpg',
+        },
+        {
             thumb: '/gallery/water-bottle3-thumbnail.jpg',
             main: '/gallery/water-bottle3.jpg',
         },
