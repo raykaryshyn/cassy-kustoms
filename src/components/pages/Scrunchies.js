@@ -104,7 +104,7 @@ export default function Scrunchies() {
             material: '',
         },
         {
-            name: 'Jungle Pink',
+            name: 'Jungle Floral',
             material: 'Cotton',
         },
         {
