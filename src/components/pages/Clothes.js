@@ -6,12 +6,18 @@ import Service from './Service';
 
 
 export default function Clothes() {
-    const gallery = [
+    /* const gallery = [
         {
             thumb: '/gallery/clothes1-thumbnail.jpg',
             main: '/gallery/clothes1.jpg',
         },
-    ];
+    ]; */
+    const gallery = Array.from({ length: 8 }, (_, i) => i + 1).map(x => (
+        {
+            thumb: `/gallery/clothes${x}-thumbnail.jpg`,
+            main: `/gallery/clothes${x}.jpg`,
+        }
+    ));
 
     return (
         <>

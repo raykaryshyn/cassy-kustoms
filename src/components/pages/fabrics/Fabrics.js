@@ -41,116 +41,12 @@ function Alert(props) {
 
 
 export default function Fabrics() {
-    const gallery = [
+    const gallery = Array.from({ length: 29 }, (_, i) => i + 1).reverse().map(x => (
         {
-            thumb: '/gallery/face-mask27-thumbnail.jpg',
-            main: '/gallery/face-mask27.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask26-thumbnail.jpg',
-            main: '/gallery/face-mask26.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask25-thumbnail.jpg',
-            main: '/gallery/face-mask25.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask24-thumbnail.jpg',
-            main: '/gallery/face-mask24.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask23-thumbnail.jpg',
-            main: '/gallery/face-mask23.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask22-thumbnail.jpg',
-            main: '/gallery/face-mask22.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask21-thumbnail.jpg',
-            main: '/gallery/face-mask21.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask20-thumbnail.jpg',
-            main: '/gallery/face-mask20.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask19-thumbnail.jpg',
-            main: '/gallery/face-mask19.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask18-thumbnail.jpg',
-            main: '/gallery/face-mask18.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask17-thumbnail.jpg',
-            main: '/gallery/face-mask17.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask16-thumbnail.jpg',
-            main: '/gallery/face-mask16.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask15-thumbnail.jpg',
-            main: '/gallery/face-mask15.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask14-thumbnail.jpg',
-            main: '/gallery/face-mask14.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask13-thumbnail.jpg',
-            main: '/gallery/face-mask13.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask12-thumbnail.jpg',
-            main: '/gallery/face-mask12.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask11-thumbnail.jpg',
-            main: '/gallery/face-mask11.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask10-thumbnail.jpg',
-            main: '/gallery/face-mask10.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask9-thumbnail.jpg',
-            main: '/gallery/face-mask9.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask8-thumbnail.jpg',
-            main: '/gallery/face-mask8.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask7-thumbnail.jpg',
-            main: '/gallery/face-mask7.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask6-thumbnail.jpg',
-            main: '/gallery/face-mask6.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask5-thumbnail.jpg',
-            main: '/gallery/face-mask5.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask4-thumbnail.jpg',
-            main: '/gallery/face-mask4.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask3-thumbnail.jpg',
-            main: '/gallery/face-mask3.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask2-thumbnail.jpg',
-            main: '/gallery/face-mask2.jpg',
-        },
-        {
-            thumb: '/gallery/face-mask1-thumbnail.jpg',
-            main: '/gallery/face-mask1.jpg',
-        },
-    ];
+            thumb: `/gallery/face-mask${x}-thumbnail.jpg`,
+            main: `/gallery/face-mask${x}.jpg`,
+        }
+    ));
 
     /* const fabrics = fabricsList; */
 

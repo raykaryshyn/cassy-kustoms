@@ -304,6 +304,12 @@ export default function Home() {
         link: {
             color: theme.palette.secondary.main,
         },
+        cursive: {
+            fontFamily: '"Mr De Haviland", cursive',
+            fontSize: 37,
+            color: theme.palette.secondary.main,
+            textShadow: `0 0 1px ${theme.palette.secondary.main}`,
+        }
     }));
     const classes = useStyles();
 
@@ -374,7 +380,7 @@ export default function Home() {
 
                         <br /><br />
 
-                        Let me know if you want anything Kustomized!
+                        <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
                     </Typography>
                         <div className={classes.profilePic}>
                             <img src="/about_image.jpg" alt="Profile" />
