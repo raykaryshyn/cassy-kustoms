@@ -306,9 +306,12 @@ export default function Home() {
         },
         cursive: {
             fontFamily: '"Mr De Haviland", cursive',
-            fontSize: 37,
+            fontSize: '2.7em',
             color: theme.palette.secondary.main,
-            textShadow: `0 0 1px ${theme.palette.secondary.main}`,
+            /* textShadow: `0 0 1px ${theme.palette.secondary.main}`, */
+            paddingTop: 18,
+            display: 'inline-block',
+            lineHeight: '1.15em',
         }
     }));
     const classes = useStyles();
@@ -378,7 +381,6 @@ export default function Home() {
 
                         Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
 
-                        <br /><br />
 
                         <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
                     </Typography>
