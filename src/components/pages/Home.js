@@ -134,6 +134,11 @@ export default function Home() {
             fontFamily: theme.typography.fonts.header,
             margin: '0 auto',
             fontSize: 18,
+            '&.contact': {
+                [theme.breakpoints.down(440)]: {
+                    maxWidth: '340px',
+                },
+            },
         },
         aboutSubtitle: {
             paddingTop: 20,
@@ -306,12 +311,29 @@ export default function Home() {
         },
         cursive: {
             fontFamily: '"Mr De Haviland", cursive',
-            fontSize: '2.7em',
+            fontSize: 48,
             color: theme.palette.secondary.main,
             /* textShadow: `0 0 1px ${theme.palette.secondary.main}`, */
-            paddingTop: 18,
+            paddingTop: 20,
             display: 'inline-block',
-            lineHeight: '1.15em',
+            lineHeight: '55.2px',
+            textAlign: 'center',
+            width: '100%',
+            '&.contact': {
+                display: 'block',
+                margin: '0 auto',
+                lineHeight: '42px',
+                /* paddingTop: 20, */
+                [theme.breakpoints.down(480)]: {
+                    fontSize: 44,
+                },
+                [theme.breakpoints.down(450)]: {
+                    fontSize: 42,
+                },
+                [theme.breakpoints.down(415)]: {
+                    maxWidth: '312px',
+                },
+            },
         }
     }));
     const classes = useStyles();
@@ -383,7 +405,7 @@ export default function Home() {
 
 
                         <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
-                    </Typography>
+                        </Typography>
                         <div className={classes.profilePic}>
                             <img src="/about_image.jpg" alt="Profile" />
                         </div>
@@ -521,9 +543,10 @@ export default function Home() {
                 <div id="contactContainer" className={classes.contactSection}>
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>Contact</Typography>
-                        <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary].join(' ')}>
+                        <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, 'contact'].join(' ')}>
                             Please fill out the form below to get in touch with me.
-                    </Typography>
+                        </Typography>
+                        <span className={[classes.cursive, 'contact'].join(' ')}>I look forward to working with you!</span>
                     </Container>
                     <Container maxWidth="md">
                         <ContactForm secondary className={classes.contactForm} />
