@@ -502,7 +502,7 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes1-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes12-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
