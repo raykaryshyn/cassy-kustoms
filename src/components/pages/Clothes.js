@@ -12,7 +12,7 @@ export default function Clothes() {
             main: '/gallery/clothes1.jpg',
         },
     ]; */
-    const gallery = Array.from({ length: 12 }, (_, i) => i + 1).reverse().map(x => (
+    const gallery = Array.from({ length: 15 }, (_, i) => i + 1).reverse().map(x => (
         {
             thumb: `/gallery/clothes${x}-thumbnail.jpg`,
             main: `/gallery/clothes${x}.jpg`,
