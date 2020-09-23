@@ -748,6 +748,78 @@ const fabricsList = [
         colors: ['red', 'green', 'white', 'black', 'rainbow'],
         limited: false,
     },
+
+
+    {
+        name: 'Guitars',
+        image: '/fabrics/IMG-2172.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2172.jpg',
+        colors: ['white', 'grey', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Dinosaurs',
+        image: '/fabrics/IMG-2173.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2173.jpg',
+        colors: ['white', 'blue', 'green', 'purple', 'red', 'pink', 'orange', 'yellow', 'brown', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Juicy Fruit',
+        image: '/fabrics/IMG-2174.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2174.jpg',
+        colors: ['pink', 'red', 'yellow', 'orange', 'green', 'purple', 'white', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Kaboom',
+        image: '/fabrics/IMG-2175.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2175.jpg',
+        colors: ['blue', 'red', 'orange', 'yellow', 'green', 'white', 'black', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Dogs',
+        image: '/fabrics/IMG-2176.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2176.jpg',
+        colors: ['grey', 'brown', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Monotone Sports',
+        image: '/fabrics/IMG-2177.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2177.jpg',
+        colors: ['grey', 'black', 'white'],
+        limited: false,
+    },
+    {
+        name: 'Gym',
+        image: '/fabrics/IMG-2178.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2178.jpg',
+        colors: ['grey', 'blue', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Bookshelves',
+        image: '/fabrics/IMG-2179.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2179.jpg',
+        colors: ['yellow', 'red', 'orange', 'green', 'blue', 'purple', 'brown', 'white', 'black', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Books',
+        image: '/fabrics/IMG-2180.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2180.jpg',
+        colors: ['brown', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'white', 'black', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Pastel Tie-Dye',
+        image: '/fabrics/IMG-2181.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2181.jpg',
+        colors: ['pink', 'orange', 'yellow', 'blue', 'purple', 'rainbow'],
+        limited: false,
+    },
 ];
 
 export default fabricsList;
