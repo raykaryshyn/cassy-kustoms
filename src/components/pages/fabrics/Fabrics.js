@@ -644,6 +644,7 @@ export default function Fabrics() {
             const measurementInputs = document.getElementById(fabric).getElementsByTagName('input');
             for (let i = 0; i < measurementInputs.length; i++) {
                 const measurementInput = measurementInputs[i];
+                // const measurementInputValid = !(measurementInput.value === "");
                 const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
                 if (!measurementInputValid) allMeasurementsValid = false;
                 measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value, valid: measurementInputValid } };

@@ -650,13 +650,13 @@ const fabricsList = [
         colors: ['orange', 'brown', 'white'],
         limited: false,
     },
-    {
+    /* {
         name: 'Coffee',
         image: '/fabrics/IMG_0435.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0435.jpg',
         colors: ['brown', 'white', 'black'],
         limited: true,
-    },
+    }, */
     {
         name: 'Espresso',
         image: '/fabrics/IMG-1442.jpg',
