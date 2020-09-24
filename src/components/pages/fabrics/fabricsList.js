@@ -772,7 +772,7 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Kaboom',
+        name: 'Pow Bang Boom',
         image: '/fabrics/IMG-2175.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2175.jpg',
         colors: ['blue', 'red', 'orange', 'yellow', 'green', 'white', 'black', 'rainbow'],
@@ -786,14 +786,14 @@ const fabricsList = [
         limited: false,
     },
     {
-        name: 'Monotone Sports',
+        name: 'Fitness',
         image: '/fabrics/IMG-2177.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2177.jpg',
         colors: ['grey', 'black', 'white'],
         limited: false,
     },
     {
-        name: 'Gym',
+        name: 'CrossFit',
         image: '/fabrics/IMG-2178.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2178.jpg',
         colors: ['grey', 'blue', 'white', 'black'],
