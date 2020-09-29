@@ -1,4 +1,5 @@
 import React from 'react';
+/* import LazyLoad from 'react-lazyload'; */
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -13,11 +14,11 @@ import { FabricsContext } from './FabricsContext';
 
 
 /* export default function FabricGallery() { */
-    const FabricGallery = React.memo(props => {
+const FabricGallery = React.memo(props => {
 
     const fabrics = fabricsList;
 
-    
+
     const context = React.useContext(FabricsContext).context;
     const gridView = context.gridView;
     const selectedColors = context.selectedColors;
@@ -250,10 +251,13 @@ import { FabricsContext } from './FabricsContext';
                     {fabrics.map((fabric, i) => {
                         if (shouldShow(fabric.colors)) {
                             return (
-                                <Grid item xs={12} sm={6} md={4} key={i}>
-                                    <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
 
-                                    <FabricsCounter id={i} />
+                                <Grid item xs={12} sm={6} md={4} key={i}>
+                                    {/* <LazyLoad offset={100}> */}
+                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+
+                                        <FabricsCounter id={i} />
+                                    {/* </LazyLoad> */}
                                 </Grid>
                             )
                         } else {
@@ -266,10 +270,14 @@ import { FabricsContext } from './FabricsContext';
                     {fabrics.map((fabric, i) => {
                         if (shouldShow(fabric.colors)) {
                             return (
-                                <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
-                                    <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
 
-                                    <FabricsCounter id={i} />
+                                <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
+                                    {/* <LazyLoad offset={100}> */}
+                                        <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
+
+                                        <FabricsCounter id={i} />
+
+                                    {/* </LazyLoad> */}
                                 </Grid>
                             )
                         } else {
