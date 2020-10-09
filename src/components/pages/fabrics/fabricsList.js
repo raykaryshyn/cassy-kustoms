@@ -111,13 +111,13 @@ const fabricsList = [
         colors: ['pink'],
         limited: false,
     },
-    {
+    /* {
         name: 'Black Mini Polka Dots',
         image: '/fabrics/IMG_0396.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0396.jpg',
         colors: ['black', 'white'],
         limited: true,
-    },
+    }, */
     {
         name: 'Grey Polka Dots',
         image: '/fabrics/IMG_0392.jpg',
@@ -510,13 +510,13 @@ const fabricsList = [
         colors: ['green', 'brown', 'black', 'white'],
         limited: false,
     },
-    {
+    /* {
         name: 'Leopard',
         image: '/fabrics/IMG-1450.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1450.jpg',
         colors: ['browm', 'black', 'white'],
         limited: true,
-    },
+    }, */
     {
         name: 'Salamander Camo',
         image: '/fabrics/IMG_0442.jpg',
