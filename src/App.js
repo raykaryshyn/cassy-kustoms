@@ -23,6 +23,7 @@ import PhoneCases from './components/pages/PhoneCases';
 import Scrunchies from './components/pages/Scrunchies';
 import Shoes from './components/pages/Shoes';
 import Hats from './components/pages/Hats';
+import Other from './components/pages/Other';
 /* import Development from './Development'; */
 
 /* import TextField from '@material-ui/core/TextField';
@@ -118,6 +119,9 @@ export default function App() {
 							</Route>
 							<Route path="/shoes">
 								<Shoes />
+							</Route>
+							<Route path="/other">
+								<Other />
 							</Route>
 							<Route path="/hats">
 								<Hats />

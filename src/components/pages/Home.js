@@ -485,6 +485,19 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/other" style={{ backgroundImage: 'url(/gallery/other1-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Other
+                                        </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
                                     <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask1-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
