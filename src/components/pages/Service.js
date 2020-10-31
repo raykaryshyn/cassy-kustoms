@@ -478,7 +478,7 @@ export default function Service(props) {
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><SewIcon className={classes.subNavIconBig} /> Sewing:</Typography>
                             <NavLink to="/masks" className={classes.subNavButtonBig} activeClassName='active'>Face Masks</NavLink>
                             <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Scrunchies</NavLink>
-                            <NavLink to="/bucket-hats" className={classes.subNavButtonBig}>Bucket Hats</NavLink>
+                            <NavLink to="/hats" className={classes.subNavButtonBig}>Hats</NavLink>
                             <NavLink to="/clothes" className={classes.subNavButtonBig}>Clothes</NavLink>
                         </div>
                     </div>
@@ -494,11 +494,11 @@ export default function Service(props) {
                             </div>
                         </div>
                         <div className={classes.subNavSectionSmall}>
-                            <button onClick={() => toggleDropd('sew')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['sew'] ? 'active' : '', (location.pathname.includes('/masks') || location.pathname.includes('/scrunchies') || location.pathname.includes('/bucket-hats') || location.pathname.includes('/clothes')) ? 'on' : ''].join(' ')}><SewIcon className={classes.subNavIconSmall} /> Sewing <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['sew'] ? 'active' : ''].join(' ')} /></Typography></button>
+                            <button onClick={() => toggleDropd('sew')} className={classes.smallButtonDropd}><Typography variant="h4" component="h2" className={[classes.subNavTitleSmall, dropd['sew'] ? 'active' : '', (location.pathname.includes('/masks') || location.pathname.includes('/scrunchies') || location.pathname.includes('/hats') || location.pathname.includes('/clothes')) ? 'on' : ''].join(' ')}><SewIcon className={classes.subNavIconSmall} /> Sewing <ArrowDropDownIcon className={[classes.subNavArrowSmall, dropd['sew'] ? 'active' : ''].join(' ')} /></Typography></button>
                             <div className={[classes.subNavListSmall, dropd['sew'] ? 'active' : ''].join(' ')}>
                                 <NavLink to="/masks" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Face Masks</NavLink>
                                 <NavLink to="/scrunchies" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Scrunchies</NavLink>
-                                <NavLink to="/bucket-hats" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Bucket Hats</NavLink>
+                                <NavLink to="/hats" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Hats</NavLink>
                                 <NavLink to="/clothes" className={classes.subNavButtonSmall} activeClassName='active' onClick={() => toggleDropd()}>Clothes</NavLink>
                             </div>
                         </div>

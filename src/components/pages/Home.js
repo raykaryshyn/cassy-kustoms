@@ -511,12 +511,12 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/bucket-hats" style={{ backgroundImage: 'url(/gallery/bucket-hat1-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/hats" style={{ backgroundImage: 'url(/gallery/hat1-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
-                                                Bucket Hats
+                                                Hats
                                         </span>
                                         </div>
                                     </Link>

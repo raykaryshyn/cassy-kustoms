@@ -22,7 +22,7 @@ import WaterBottles from './components/pages/WaterBottles';
 import PhoneCases from './components/pages/PhoneCases';
 import Scrunchies from './components/pages/Scrunchies';
 import Shoes from './components/pages/Shoes';
-import BucketHats from './components/pages/BucketHats';
+import Hats from './components/pages/Hats';
 /* import Development from './Development'; */
 
 /* import TextField from '@material-ui/core/TextField';
@@ -119,8 +119,8 @@ export default function App() {
 							<Route path="/shoes">
 								<Shoes />
 							</Route>
-							<Route path="/bucket-hats">
-								<BucketHats />
+							<Route path="/hats">
+								<Hats />
 							</Route>
 							<Route exact path="/">
 								<Home />
