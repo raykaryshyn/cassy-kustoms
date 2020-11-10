@@ -6,16 +6,12 @@ import Service from './Service';
 
 
 export default function Other() {
-    const gallery = [
+    const gallery = Array.from({ length: 4 }, (_, i) => i + 1).reverse().map(x => (
         {
-            thumb: '/gallery/other2-thumbnail.jpg',
-            main: '/gallery/other2.jpg',
-        },
-        {
-            thumb: '/gallery/other1-thumbnail.jpg',
-            main: '/gallery/other1.jpg',
-        },
-    ];
+            thumb: `/gallery/other${x}-thumbnail.jpg`,
+            main: `/gallery/other${x}.jpg`,
+        }
+    ));
 
     return (
         <>
