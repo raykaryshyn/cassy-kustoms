@@ -869,7 +869,7 @@ export default function Fabrics() {
                                                                         >
                                                                             <option value={300}>300 (most breathable)</option>
                                                                             <option value={400}>400</option>
-                                                                            <option value={600}>600 (best filteration)</option>
+                                                                            <option value={600}>600 (best filtration)</option>
                                                                         </Select>
                                                                     </FormControl>
                                                                 </div>
