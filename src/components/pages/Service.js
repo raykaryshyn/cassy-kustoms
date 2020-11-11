@@ -82,7 +82,7 @@ export default function Service(props) {
             background: theme.palette.primary.light3,
             padding: '20px 0 10px',
             color: theme.palette.primary.dark1,
-            [theme.breakpoints.down(720)]: {
+            [theme.breakpoints.down(770)]: {
                 padding: '12px 0 28px',
             },
         },
@@ -120,7 +120,7 @@ export default function Service(props) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            [theme.breakpoints.down(720)]: {
+            [theme.breakpoints.down(770)]: {
                 display: 'none',
             },
         },
@@ -167,7 +167,7 @@ export default function Service(props) {
             fill: theme.palette.primary.dark1,
         },
         subNavSmall: {
-            [theme.breakpoints.up(720)]: {
+            [theme.breakpoints.up(770)]: {
                 display: 'none',
             },
             display: 'flex',

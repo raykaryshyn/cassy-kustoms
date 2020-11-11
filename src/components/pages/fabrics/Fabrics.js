@@ -13,7 +13,7 @@ import FabricsSettings from './FabricsSettings';
 import Button from '@material-ui/core/Button';
 
 import { FabricsContext, settings } from './FabricsContext';
-import { Snackbar, Typography } from '@material-ui/core';
+import { Snackbar, Typography, InputLabel, Select } from '@material-ui/core';
 /* import FabricsCounter from './FabricsCounter'; */
 import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -546,6 +546,29 @@ export default function Fabrics() {
                 height: 27,
             },
         },
+
+        threadGroup: {
+            display: 'flex',
+            flexDirection: 'column',
+
+        },
+
+        threadSelect: {
+            '& select': {
+                padding: 14,
+            },
+            '& .MuiOutlinedInput-notchedOutline legend': {
+                maxWidth: '0 !important',
+            },
+            marginBottom: 4,
+        },
+
+        threadLabel: {
+            color: '#666666',
+            fontSize: '0.75rem',
+            marginTop: 8,
+            marginBottom: 2,
+        },
     }));
     const classes = useStyles();
 
@@ -569,8 +592,8 @@ export default function Fabrics() {
         let clone = orderFabrics.slice(0);
 
         let num = 0;
-        for (const f in orderFabrics) {
-            if (orderFabrics[f].split('__')[0] === fabric) {
+        for (let i = 0; i < orderFabrics.length; i++) {
+            if (orderFabrics.includes(fabric + '__' + num)) {
                 num += 1;
             }
         }
@@ -579,22 +602,39 @@ export default function Fabrics() {
         clone.push(name);
         setOrderFabrics(clone);
 
+        console.log(name);
+
         handleSnackbarOpen();
     };
     const removeOrderFabrics = (fabric) => {
-        let clone = orderFabrics.slice(0);
-
-        if (fabric.split('__').length === 1) {
-            for (var i = orderFabrics.length - 1; i >= 0; i--) {
-                if (orderFabrics[i].split('__')[0] === fabric) {
-                    clone.splice(i, 1);
-                    setOrderFabrics(clone);
-                    break;
+        let measurementsObject = {};
+        orderFabrics.forEach((f) => {
+            if (f !== fabric) {
+                measurementsObject[f] = {};
+                const measurementInputs = document.getElementById(f).getElementsByTagName('input');
+                for (let i = 0; i < measurementInputs.length; i++) {
+                    const measurementInput = measurementInputs[i];
+                    measurementsObject[f] = { ...measurementsObject[f], [measurementInput.name.split('__')[2]]: measurementInput.value };
                 }
+                const threadSelect = document.getElementById(f + '__thread-count');
+                measurementsObject[f] = { ...measurementsObject[f], 'thread-count': threadSelect.value };
             }
-        } else {
-            clone = clone.filter(item => item !== fabric);
-            setOrderFabrics(clone);
+        });
+
+        let clone = orderFabrics.slice(0);
+        for (var i = 0; i < orderFabrics.length; i++) {
+            if (orderFabrics[i] === fabric) {
+                clone.splice(clone.indexOf(fabric), 1);
+                setOrderFabrics(clone);
+                break;
+            }
+        }
+
+        for (var key in measurementsObject) {
+            const measurementInputs = document.getElementById(key).getElementsByTagName('input');
+            for (let i = 0; i < measurementInputs.length; i++) {
+                measurementInputs[i].value = measurementsObject[key.split('__')[0] + "__" + key.split('__')[1]][measurementInputs[i].name.split('__')[2]];
+            }
         }
     };
     const context = {
@@ -647,8 +687,10 @@ export default function Fabrics() {
                 // const measurementInputValid = !(measurementInput.value === "");
                 const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
                 if (!measurementInputValid) allMeasurementsValid = false;
-                measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value, valid: measurementInputValid } };
+                measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value + ' in', valid: measurementInputValid } };
             }
+            const threadSelect = document.getElementById(fabric + '__thread-count');
+            measurementsObject = { ...measurementsObject, [fabric + '__thread-count']: { value: threadSelect.value } };
         });
         if (JSON.stringify(measurementsObject) === JSON.stringify({})) allMeasurementsValid = false;
         setMeasurements(measurementsObject);
@@ -678,7 +720,7 @@ export default function Fabrics() {
                 Object.keys(measurementsObject).forEach(i => {
                     out += i;
                     out += ': ';
-                    out += measurementsObject[i].value + ' in';
+                    out += measurementsObject[i].value;
                     out += '\n';
                 });
                 return out;
@@ -810,6 +852,26 @@ export default function Fabrics() {
                                                                         </FormControl>
                                                                         {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''} */}
                                                                     </div>
+                                                                </div>
+
+                                                                <div className={classes.threadGroup}>
+                                                                    <span className={classes.threadLabel}>Cotton Liner Fabric Thread Count</span>
+                                                                    <FormControl variant="outlined" className={[classes.formControl, classes.threadSelect, 'threadSelect'].join(' ')}>
+                                                                        <InputLabel htmlFor={orderFabrics[fabric] + '__thread-count'}></InputLabel>
+                                                                        <Select
+                                                                            native
+                                                                            label={orderFabrics[fabric] + '__thread-count'}
+                                                                            inputProps={{
+                                                                                name: orderFabrics[fabric] + '__thread-count',
+                                                                                id: orderFabrics[fabric] + '__thread-count',
+                                                                            }}
+                                                                            defaultValue={400}
+                                                                        >
+                                                                            <option value={300}>300 (most breathable)</option>
+                                                                            <option value={400}>400</option>
+                                                                            <option value={600}>600 (best filteration)</option>
+                                                                        </Select>
+                                                                    </FormControl>
                                                                 </div>
 
                                                                 <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /><span>Remove</span></button>

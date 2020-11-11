@@ -13,13 +13,13 @@ const fabricsList = [
         colors: ['brown'],
         limited: true,
     },
-    {
+    /* {
         name: 'Light Brown',
         image: '/fabrics/DSC-0042-Original.jpg',
         thumbnail: '/fabrics/thumbnails/DSC-0042-Original.jpg',
         colors: ['brown'],
         limited: false,
-    },
+    }, */
     {
         name: 'Faux Denim',
         image: '/fabrics/DSC_0562_Original.jpg',
@@ -27,13 +27,13 @@ const fabricsList = [
         colors: ['blue', 'grey', 'black'],
         limited: false,
     },
-    {
+    /* {
         name: 'Grey',
         image: '/fabrics/DSC_0576_Original.jpg',
         thumbnail: '/fabrics/thumbnails/DSC_0576_Original.jpg',
         colors: ['grey'],
         limited: false,
-    },
+    }, */
     {
         name: 'White',
         image: '/fabrics/DSC_0570_Original.jpg',
