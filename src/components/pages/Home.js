@@ -485,7 +485,7 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/other" style={{ backgroundImage: 'url(/gallery/other2-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/other" style={{ backgroundImage: 'url(/gallery/other4-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <PaintIcon className={classes.serviceIcon} />
@@ -498,7 +498,7 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask1-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask70-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
@@ -524,7 +524,7 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/hats" style={{ backgroundImage: 'url(/gallery/hat1-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/hats" style={{ backgroundImage: 'url(/gallery/hat3-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
