@@ -25,7 +25,7 @@ const fabricsList = [
         image: '/fabrics/DSC_0562_Original.jpg',
         thumbnail: '/fabrics/thumbnails/DSC_0562_Original.jpg',
         colors: ['blue', 'grey', 'black'],
-        limited: false,
+        limited: true,
     },
     /* {
         name: 'Grey',
@@ -326,15 +326,15 @@ const fabricsList = [
         image: '/fabrics/IMG_0413.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0413.jpg',
         colors: ['blue', 'white'],
-        limited: false,
+        limited: true,
     },
-    {
+    /* {
         name: 'Grey Paisley',
         image: '/fabrics/IMG_0403.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0403.jpg',
         colors: ['grey', 'white', 'black'],
         limited: true,
-    },
+    }, */
     {
         name: 'Green Paisley',
         image: '/fabrics/IMG_0404.jpg',
@@ -475,13 +475,13 @@ const fabricsList = [
         colors: ['pink'],
         limited: true,
     },
-    {
+    /* {
         name: 'Tickled Pink',
         image: '/fabrics/IMG-0747.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-0747.jpg',
         colors: ['pink', 'orange', 'white'],
         limited: true,
-    },
+    }, */
     {
         name: 'Ornamental Pastel',
         image: '/fabrics/IMG-1457.jpg',
@@ -580,13 +580,13 @@ const fabricsList = [
         colors: ['white', 'red', 'blue', 'green', 'yellow', 'rainbow'],
         limited: false,
     },
-    {
+    /* {
         name: 'Pac-Man',
         image: '/fabrics/IMG-1453.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1453.jpg',
         colors: ['black', 'blue', 'red', 'pink', 'yellow', 'orange', 'green', 'rainbow'],
         limited: false,
-    },
+    }, */
     {
         name: 'Tinker Bell',
         image: '/fabrics/IMG_0432.jpg',
@@ -634,7 +634,7 @@ const fabricsList = [
         image: '/fabrics/IMG-1448.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1448.jpg',
         colors: ['green', 'yellow', 'brown', 'white', 'black', 'rainbow'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Cookie',
@@ -697,7 +697,7 @@ const fabricsList = [
         image: '/fabrics/IMG-1466.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-1466.jpg',
         colors: ['green', 'yellow', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Dark Mode Nature',
@@ -797,7 +797,7 @@ const fabricsList = [
         image: '/fabrics/IMG-2178.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2178.jpg',
         colors: ['grey', 'blue', 'white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Bookshelves',
