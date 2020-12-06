@@ -6,32 +6,12 @@ import Service from './Service';
 
 
 export default function Shoes() {
-    const gallery = [
+    const gallery = Array.from({ length: 7 }, (_, i) => i + 1).reverse().map(x => (
         {
-            thumb: '/gallery/shoes6-thumbnail.jpg',
-            main: '/gallery/shoes6.jpg',
-        },
-        {
-            thumb: '/gallery/shoes5-thumbnail.jpg',
-            main: '/gallery/shoes5.jpg',
-        },
-        {
-            thumb: '/gallery/shoes4-thumbnail.jpg',
-            main: '/gallery/shoes4.jpg',
-        },
-        {
-            thumb: '/gallery/shoes3-thumbnail.jpg',
-            main: '/gallery/shoes3.jpg',
-        },
-        {
-            thumb: '/gallery/shoes2-thumbnail.jpg',
-            main: '/gallery/shoes2.jpg',
-        },
-        {
-            thumb: '/gallery/shoes1-thumbnail.jpg',
-            main: '/gallery/shoes1.jpg',
-        },
-    ];
+            thumb: `/gallery/shoes${x}-thumbnail.jpg`,
+            main: `/gallery/shoes${x}.jpg`,
+        }
+    ));
 
     return (
         <>
