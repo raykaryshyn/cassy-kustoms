@@ -90,10 +90,17 @@ const fabricsList = [
         colors: ['blue'],
         limited: false,
     },
-    {
+    /* {
         name: 'Purple',
         image: '/fabrics/DSC_0574_Original.jpg',
         thumbnail: '/fabrics/thumbnails/DSC_0574_Original.jpg',
+        colors: ['purple'],
+        limited: false,
+    }, */
+    {
+        name: 'Deep Purple',
+        image: '/fabrics/IMG-4613.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4613.jpg',
         colors: ['purple'],
         limited: false,
     },
@@ -111,13 +118,13 @@ const fabricsList = [
         colors: ['pink'],
         limited: false,
     },
-    /* {
+    {
         name: 'Black Mini Polka Dots',
-        image: '/fabrics/IMG_0396.jpg',
-        thumbnail: '/fabrics/thumbnails/IMG_0396.jpg',
+        image: '/fabrics/IMG-4625.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4625.jpg',
         colors: ['black', 'white'],
-        limited: true,
-    }, */
+        limited: false,
+    },
     {
         name: 'Grey Polka Dots',
         image: '/fabrics/IMG_0392.jpg',
@@ -818,6 +825,71 @@ const fabricsList = [
         image: '/fabrics/IMG-2181.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2181.jpg',
         colors: ['pink', 'orange', 'yellow', 'blue', 'purple', 'rainbow'],
+        limited: false,
+    },
+    
+
+    {
+        name: 'Snowflakes & Seashells',
+        image: '/fabrics/IMG-4615.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4615.jpg',
+        colors: ['blue', 'orange', 'white'],
+        limited: false,
+    },
+    {
+        name: 'Sage Rabbits',
+        image: '/fabrics/IMG-4617.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4617.jpg',
+        colors: ['blue', 'white', 'brown', 'orange', 'pink'],
+        limited: false,
+    },
+    {
+        name: 'Animal Party',
+        image: '/fabrics/IMG-4619.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4619.jpg',
+        colors: ['orange', 'yellow', 'blue', 'brown', 'green', 'grey', 'black', 'white', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Crazy Cats',
+        image: '/fabrics/IMG-4621.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4621.jpg',
+        colors: ['pink', 'orange', 'blue', 'green', 'purple', 'brown', 'white', 'black', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Teal Horses',
+        image: '/fabrics/IMG-4623.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4623.jpg',
+        colors: ['pink', 'blue', 'green', 'brown', 'grey', 'white', 'black', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Optical Illusion',
+        image: '/fabrics/IMG-4627.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4627.jpg',
+        colors: ['white', 'black', 'grey'],
+        limited: false,
+    },
+    {
+        name: 'Zebra',
+        image: '/fabrics/IMG-4705.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4705.jpg',
+        colors: ['white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Guinea Pig Garden',
+        image: '/fabrics/IMG-4706.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4706.jpg',
+        colors: ['black', 'blue', 'green', 'red', 'pink', 'white', 'brown', 'rainbow'],
+        limited: false,
+    },
+    {
+        name: 'Navy Guinea Pigs',
+        image: '/fabrics/IMG-4707.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-4707.jpg',
+        colors: ['blue', 'purple', 'brown', 'white', 'black', 'rainbow'],
         limited: false,
     },
 ];
