@@ -855,14 +855,14 @@ const fabricsList = [
         image: '/fabrics/IMG-4621.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4621.jpg',
         colors: ['pink', 'orange', 'blue', 'green', 'purple', 'brown', 'white', 'black', 'rainbow'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Teal Horses',
         image: '/fabrics/IMG-4623.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4623.jpg',
         colors: ['pink', 'blue', 'green', 'brown', 'grey', 'white', 'black', 'rainbow'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Optical Illusion',
@@ -876,21 +876,21 @@ const fabricsList = [
         image: '/fabrics/IMG-4705.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4705.jpg',
         colors: ['white', 'black'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Guinea Pig Garden',
         image: '/fabrics/IMG-4706.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4706.jpg',
         colors: ['black', 'blue', 'green', 'red', 'pink', 'white', 'brown', 'rainbow'],
-        limited: false,
+        limited: true,
     },
     {
         name: 'Navy Guinea Pigs',
         image: '/fabrics/IMG-4707.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4707.jpg',
         colors: ['blue', 'purple', 'brown', 'white', 'black', 'rainbow'],
-        limited: false,
+        limited: true,
     },
 ];
 
