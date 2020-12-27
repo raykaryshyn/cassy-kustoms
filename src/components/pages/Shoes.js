@@ -15,7 +15,7 @@ export default function Shoes() {
 
     return (
         <>
-            <Service title="Shoes" gallery={gallery} perPrice='$20 - $40' youProvide="You provide shoes" howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' />
+            <Service title="Shoes" gallery={gallery} perPrice='Starting at $30' youProvide="You provide shoes" howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' perPriceCustom={<><li className="uli">Price will vary</li></>} />
         </>
     );
 }

@@ -15,7 +15,7 @@ export default function Other() {
 
     return (
         <>
-            <Service title="Other" gallery={gallery} perPrice='$20 - $40' youProvide="You provide the item" howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' />
+            <Service title="Other" gallery={gallery} perPrice='Price will vary' youProvide="You provide the item" howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' />
         </>
     );
 }
