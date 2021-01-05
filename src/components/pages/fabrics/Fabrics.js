@@ -48,8 +48,6 @@ export default function Fabrics() {
         }
     ));
 
-    /* const fabrics = fabricsList; */
-
     const [selectedColors, setSelectedColors] = React.useState([]);
     const selectColor = (color) => {
         setSelectedColors([...selectedColors, color]);
@@ -57,21 +55,7 @@ export default function Fabrics() {
     const unselectColor = (color) => {
         setSelectedColors(selectedColors.filter(e => e !== color));
     };
-    /* const shouldShow = (colors) => {
-        if (selectedColors.length === 0) {
-            return true;
-        }
-        for (let i = 0; i < colors.length; i++) {
-            for (let j = 0; j < selectedColors.length; j++) {
-                if (colors[i] === selectedColors[j]) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }; */
-
-    /* const gridRef = React.useRef(); */
+    
     const [gridView, setGridViewState] = React.useState(
         canStore() && localStorage.getItem('gridView') !== null ?
             localStorage.getItem('gridView') === 'true' :
@@ -312,9 +296,6 @@ export default function Fabrics() {
                     marginLeft: 0,
                 },
             },
-            /* '&:first-of-type': {
-                marginTop: 20,
-            }, */
         },
         fabricSwatchContainer: {
             display: 'flex',
@@ -461,11 +442,9 @@ export default function Fabrics() {
             verticalAlign: 'middle',
             '& img': {
                 display: 'block',
-                /* marginBottom: 10, */
                 boxShadow: theme.shadows[10],
                 width: 'auto',
                 height: 'auto',
-                /* maxHeight: '100%', */
                 maxWidth: '100%',
                 maxHeight: 'calc(100vh - 50px)',
                 transition: theme.transitions.create('opacity', { duration: 500 }),
@@ -476,8 +455,6 @@ export default function Fabrics() {
         closeX: {
             position: 'absolute',
             top: 0,
-            /* left: '50%',
-            transform: 'translateX(calc(-50% - 16px))', */
             right: 0,
             background: theme.palette.background.paper,
             color: '#222',
@@ -519,8 +496,6 @@ export default function Fabrics() {
             padding: 10,
             [theme.breakpoints.up('sm')]: {
                 transform: 'translate(-50%, 10px)',
-                /* minWidth: 350, */
-                /* maxWidth: 350, */
             },
             [theme.breakpoints.up(520)]: {
                 minWidth: 490,
@@ -577,9 +552,10 @@ export default function Fabrics() {
     const [orderFabrics, setOrderFabricsState] = React.useState(
         canStore() && localStorage.getItem('orderFabrics') !== null ?
             JSON.parse(localStorage.getItem('orderFabrics')) :
-            []
+            {}
     );
     const setOrderFabrics = (fabrics) => {
+        console.log(fabrics);
         for (const fabric in fabrics) {
             if (fabrics[fabric] === 0) {
                 delete fabrics[fabric]
@@ -588,8 +564,10 @@ export default function Fabrics() {
         setOrderFabricsState(fabrics);
         if (canStore()) localStorage.setItem('orderFabrics', JSON.stringify(fabrics));
     };
+
     const addOrderFabrics = (fabric) => {
-        let clone = orderFabrics.slice(0);
+        console.log(orderFabrics);
+        let clone = { ...orderFabrics };
 
         let num = 0;
         for (let i = 0; i < orderFabrics.length; i++) {
@@ -599,7 +577,7 @@ export default function Fabrics() {
         }
 
         let name = fabric + '__' + num;
-        clone.push(name);
+        clone[name] = {};
         setOrderFabrics(clone);
 
         console.log(name);
@@ -608,7 +586,8 @@ export default function Fabrics() {
     };
     const removeOrderFabrics = (fabric) => {
         let measurementsObject = {};
-        orderFabrics.forEach((f) => {
+        for (const f in orderFabrics) {
+            console.log(f);
             if (f !== fabric) {
                 measurementsObject[f] = {};
                 const measurementInputs = document.getElementById(f).getElementsByTagName('input');
@@ -619,14 +598,16 @@ export default function Fabrics() {
                 const threadSelect = document.getElementById(f + '__thread-count');
                 measurementsObject[f] = { ...measurementsObject[f], 'thread-count': threadSelect.value };
             }
-        });
+        }
 
-        let clone = orderFabrics.slice(0);
-        for (var i = 0; i < orderFabrics.length; i++) {
-            if (orderFabrics[i] === fabric) {
-                clone.splice(clone.indexOf(fabric), 1);
+        let clone = { ...orderFabrics};
+        for (const f in orderFabrics) {
+            if (f === fabric) {
+                console.log(f, fabric);
+                console.log(clone);
+                /* clone.splice(clone.indexOf(fabric), 1);
                 setOrderFabrics(clone);
-                break;
+                break; */
             }
         }
 
@@ -636,6 +617,8 @@ export default function Fabrics() {
                 measurementInputs[i].value = measurementsObject[key.split('__')[0] + "__" + key.split('__')[1]][measurementInputs[i].name.split('__')[2]];
             }
         }
+
+        console.log(measurementsObject);
     };
     const context = {
         ...settings,
@@ -684,7 +667,6 @@ export default function Fabrics() {
             const measurementInputs = document.getElementById(fabric).getElementsByTagName('input');
             for (let i = 0; i < measurementInputs.length; i++) {
                 const measurementInput = measurementInputs[i];
-                // const measurementInputValid = !(measurementInput.value === "");
                 const measurementInputValid = !(measurementInput.value.trim() == null || measurementInput.value.trim() === "" || measurementInput.value === " " || isNaN(measurementInput.value) || parseFloat(measurementInput.value) === 0);
                 if (!measurementInputValid) allMeasurementsValid = false;
                 measurementsObject = { ...measurementsObject, [measurementInput.name]: { value: measurementInput.value + ' in', valid: measurementInputValid } };
@@ -802,18 +784,15 @@ export default function Fabrics() {
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
                                         {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
                                         {!(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
-                                        {/*                                         <p style={{fontSize: 14,}}>To add a mask, press a plus button under your selected fabric.</p>
- */}{/*                                         <p style={{fontSize: 14,}}>You will then be asked to enter your face measurements. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>
- */}{/*                                         {(orderFabrics === undefined || orderFabrics.length === 0) ? (gridView ? <img src={AddFabricGrid} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'grid'].join(' ')} /> : <img src={AddFabricList} alt="How to start a mask" className={[classes.fabricsHowToAdd, 'list'].join(' ')} />) : ''}
- */}                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && (
+                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && (
                                             <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                                 {
                                                     Object.keys(orderFabrics).map((fabric, i) => {
                                                         const fabricObj = fabricsList.find(obj => {
-                                                            return obj.name === orderFabrics[fabric].split('__')[0]
+                                                            return obj.name === fabric.split('__')[0]
                                                         });
                                                         return (
-                                                            <div key={i} id={orderFabrics[fabric]} className={classes.measurementsContainer}>
+                                                            <div key={i} id={fabric} className={classes.measurementsContainer}>
                                                                 <div className={classes.fabricSwatchContainer}>
                                                                     <div className={classes.thumbnailOrder}>
                                                                         <img
@@ -828,42 +807,40 @@ export default function Fabrics() {
 
                                                                     <div className={classes.measurementInputsValues}>
 
-                                                                        <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'error' : '') : ''}>
-                                                                            <FormHelperText>Nose to Ear {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
+                                                                        <FormControl variant="outlined" className={measurements.hasOwnProperty(fabric + '__ear') ? (!measurements[fabric + '__ear'].valid ? 'error' : '') : ''}>
+                                                                            <FormHelperText>Nose to Ear {measurements.hasOwnProperty(fabric + '__ear') ? (!measurements[fabric + '__ear'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
                                                                             <OutlinedInput
                                                                                 endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                                                 labelWidth={0}
 
-                                                                                name={orderFabrics[fabric] + '__ear'}
-                                                                                error={measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? !measurements[orderFabrics[fabric] + '__ear'].valid : false}
+                                                                                name={fabric + '__ear'}
+                                                                                error={measurements.hasOwnProperty(fabric + '__ear') ? !measurements[fabric + '__ear'].valid : false}
                                                                             />
                                                                         </FormControl>
-                                                                        {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__ear') ? (!measurements[orderFabrics[fabric] + '__ear'].valid ? 'Invalid number' : '') : ''} */}
 
-                                                                        <FormControl variant="outlined" className={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'error' : '') : ''}>
-                                                                            <FormHelperText>Nose to Chin {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
+                                                                        <FormControl variant="outlined" className={measurements.hasOwnProperty(fabric + '__chin') ? (!measurements[fabric + '__chin'].valid ? 'error' : '') : ''}>
+                                                                            <FormHelperText>Nose to Chin {measurements.hasOwnProperty(fabric + '__chin') ? (!measurements[fabric + '__chin'].valid ? ' (Invalid)' : '') : ''}</FormHelperText>
                                                                             <OutlinedInput
                                                                                 endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                                                 labelWidth={0}
 
-                                                                                name={orderFabrics[fabric] + '__chin'}
-                                                                                error={measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? !measurements[orderFabrics[fabric] + '__chin'].valid : false}
+                                                                                name={fabric + '__chin'}
+                                                                                error={measurements.hasOwnProperty(fabric + '__chin') ? !measurements[fabric + '__chin'].valid : false}
                                                                             />
                                                                         </FormControl>
-                                                                        {/* {measurements.hasOwnProperty(orderFabrics[fabric] + '__chin') ? (!measurements[orderFabrics[fabric] + '__chin'].valid ? 'Invalid number' : '') : ''} */}
                                                                     </div>
                                                                 </div>
 
                                                                 <div className={classes.threadGroup}>
                                                                     <span className={classes.threadLabel}>Cotton Liner Fabric Thread Count</span>
                                                                     <FormControl variant="outlined" className={[classes.formControl, classes.threadSelect, 'threadSelect'].join(' ')}>
-                                                                        <InputLabel htmlFor={orderFabrics[fabric] + '__thread-count'}></InputLabel>
+                                                                        <InputLabel htmlFor={fabric + '__thread-count'}></InputLabel>
                                                                         <Select
                                                                             native
-                                                                            label={orderFabrics[fabric] + '__thread-count'}
+                                                                            label={fabric + '__thread-count'}
                                                                             inputProps={{
-                                                                                name: orderFabrics[fabric] + '__thread-count',
-                                                                                id: orderFabrics[fabric] + '__thread-count',
+                                                                                name: fabric + '__thread-count',
+                                                                                id: fabric + '__thread-count',
                                                                             }}
                                                                             defaultValue={400}
                                                                         >
@@ -874,7 +851,7 @@ export default function Fabrics() {
                                                                     </FormControl>
                                                                 </div>
 
-                                                                <button onClick={() => removeOrderFabrics(orderFabrics[fabric])} className={classes.removeFabric}><DeleteOutlineIcon /><span>Remove</span></button>
+                                                                <button onClick={() => removeOrderFabrics(fabric)} className={classes.removeFabric}><DeleteOutlineIcon /><span>Remove</span></button>
                                                             </div>
                                                         );
                                                     })
@@ -921,39 +898,6 @@ export default function Fabrics() {
                         <Typography component="h2" variant="h2" className={classes.subTitle}>Fabric Choices</Typography>
                         <FabricsSettings />
 
-                        {/* {gridView ?
-                            <Grid container spacing={4} className={classes.grid} ref={gridRef}>
-                                {fabrics.map((fabric, i) => {
-                                    if (shouldShow(fabric.colors)) {
-                                        return (
-                                            <Grid item xs={12} sm={6} md={4} key={i}>
-                                                <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-
-                                                <FabricsCounter id={i} />
-                                            </Grid>
-                                        )
-                                    } else {
-                                        return '';
-                                    }
-                                })}
-                            </Grid>
-                            :
-                            <Grid container spacing={2} className={classes.grid} ref={gridRef}>
-                                {fabrics.map((fabric, i) => {
-                                    if (shouldShow(fabric.colors)) {
-                                        return (
-                                            <Grid item xs={12} md={6} key={i} className={classes.gridListItem}>
-                                                <FabricDialog fabric={fabric} id={i + 1}><FabricCard gridView={gridView} fabric={fabric} id={i + 1} /></FabricDialog>
-
-                                                <FabricsCounter id={i} />
-                                            </Grid>
-                                        )
-                                    } else {
-                                        return '';
-                                    }
-                                })}
-                            </Grid>
-                        } */}
                         <FabricGallery />
                     </>
                 } />
