@@ -885,13 +885,13 @@ const fabricsList = [
         colors: ['black', 'blue', 'green', 'red', 'pink', 'white', 'brown', 'rainbow'],
         limited: true,
     },
-    {
+    /* {
         name: 'Navy Guinea Pigs',
         image: '/fabrics/IMG-4707.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4707.jpg',
         colors: ['blue', 'purple', 'brown', 'white', 'black', 'rainbow'],
         limited: true,
-    },
+    }, */
 ];
 
 export default fabricsList;
