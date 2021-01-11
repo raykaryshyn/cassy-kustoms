@@ -188,13 +188,13 @@ const fabricsList = [
         colors: ['yellow', 'white'],
         limited: false,
     },
-    {
+    /* {
         name: 'Pink Gingham',
         image: '/fabrics/IMG_0398.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0398.jpg',
         colors: ['pink', 'white'],
         limited: true,
-    },
+    }, */
     {
         name: 'Thin Blue Stripes',
         image: '/fabrics/IMG-0743.jpg',
