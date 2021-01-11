@@ -17,8 +17,8 @@ export default function FabricsCounter(props) {
 
     /* const amt = orderFabrics[name] ? orderFabrics[name] : 0; */
     var amt = 0;
-    for (var i = 0; i < orderFabrics.length; i++) {
-        if (orderFabrics[i].split('__')[0] === name) {
+    for (const f in orderFabrics) {
+        if (f.split('__')[0] === name) {
             amt++;
         }
     }

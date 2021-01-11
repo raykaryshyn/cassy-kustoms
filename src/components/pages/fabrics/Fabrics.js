@@ -570,8 +570,9 @@ export default function Fabrics() {
         let clone = { ...orderFabrics };
 
         let num = 0;
-        for (let i = 0; i < orderFabrics.length; i++) {
-            if (orderFabrics.includes(fabric + '__' + num)) {
+        for (const f in orderFabrics) {
+            console.log(f);
+            if (Object.keys(orderFabrics).includes(fabric + '__' + num)) {
                 num += 1;
             }
         }
@@ -600,25 +601,26 @@ export default function Fabrics() {
             }
         }
 
-        let clone = { ...orderFabrics};
+        let clone = { ...measurementsObject};
         for (const f in orderFabrics) {
             if (f === fabric) {
                 console.log(f, fabric);
                 console.log(clone);
-                /* clone.splice(clone.indexOf(fabric), 1);
+                delete clone[fabric];                
                 setOrderFabrics(clone);
-                break; */
+                break;
             }
         }
 
-        for (var key in measurementsObject) {
+        /* for (var key in measurementsObject) {
             const measurementInputs = document.getElementById(key).getElementsByTagName('input');
             for (let i = 0; i < measurementInputs.length; i++) {
                 measurementInputs[i].value = measurementsObject[key.split('__')[0] + "__" + key.split('__')[1]][measurementInputs[i].name.split('__')[2]];
             }
-        }
+        } */
 
         console.log(measurementsObject);
+        setOrderFabrics(measurementsObject);
     };
     const context = {
         ...settings,
@@ -781,10 +783,10 @@ export default function Fabrics() {
                                 {!ordered && (<>
                                     <Typography variant="h5" component="h2" className={classes.title}>My Order</Typography>
                                     <div className={classes.myOrderForm}>
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
-                                        {(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
-                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && <p style={{ fontSize: 14, }}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
-                                        {!(orderFabrics === undefined || orderFabrics.length === 0) && (
+                                        {(orderFabrics === undefined || Object.keys(orderFabrics).length === 0) && <p style={{ fontSize: 14, }}>There are currently no fabrics selected.</p>}
+                                        {(orderFabrics === undefined || Object.keys(orderFabrics).length === 0) && <p style={{ fontSize: 14, marginTop: 10, }}>Please refer to the "How to Order" instructions to start your order.</p>}
+                                        {!(orderFabrics === undefined || Object.keys(orderFabrics).length === 0) && <p style={{ fontSize: 14, }}>Enter measurements for each mask. <button className={classes.measurementsHowToLink} style={{ textDecoration: 'underline', cursor: 'pointer', outline: 'none', border: 'none', background: 'none', padding: 0, fontSize: 'inherit' }} onClick={() => document.getElementById('backdrop').style.display = 'block'}>How do I measure?</button></p>}
+                                        {!(orderFabrics === undefined || Object.keys(orderFabrics).length === 0) && (
                                             <div className={classes.myOrderFabrics} ref={fabricsRef}>
                                                 {
                                                     Object.keys(orderFabrics).map((fabric, i) => {
@@ -812,7 +814,7 @@ export default function Fabrics() {
                                                                             <OutlinedInput
                                                                                 endAdornment={<InputAdornment position="end">in</InputAdornment>}
                                                                                 labelWidth={0}
-
+                                                                                defaultValue={9}
                                                                                 name={fabric + '__ear'}
                                                                                 error={measurements.hasOwnProperty(fabric + '__ear') ? !measurements[fabric + '__ear'].valid : false}
                                                                             />
