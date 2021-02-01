@@ -786,6 +786,13 @@ const fabricsList = [
         limited: false,
     },
     {
+        name: 'Batman',
+        image: '/fabrics/IMG-1644.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-1644.jpg',
+        colors: ['black', 'blue', 'yellow', 'red', 'green', 'purple', 'white', 'grey', 'rainbow'],
+        limited: false,
+    },
+    {
         name: 'Dogs',
         image: '/fabrics/IMG-2176.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-2176.jpg',
