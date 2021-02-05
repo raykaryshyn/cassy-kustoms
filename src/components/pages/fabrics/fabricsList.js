@@ -864,13 +864,13 @@ const fabricsList = [
         colors: ['pink', 'orange', 'blue', 'green', 'purple', 'brown', 'white', 'black', 'rainbow'],
         limited: true,
     },
-    {
+    /* {
         name: 'Teal Horses',
         image: '/fabrics/IMG-4623.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-4623.jpg',
         colors: ['pink', 'blue', 'green', 'brown', 'grey', 'white', 'black', 'rainbow'],
         limited: true,
-    },
+    }, */
     {
         name: 'Optical Illusion',
         image: '/fabrics/IMG-4627.jpg',
