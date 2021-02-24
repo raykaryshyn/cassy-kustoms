@@ -349,13 +349,13 @@ const fabricsList = [
         colors: ['green', 'white', 'black'],
         limited: true,
     },
-    {
+    /* {
         name: 'Purple Paisley',
         image: '/fabrics/IMG_0405.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0405.jpg',
         colors: ['purple', 'white', 'black'],
         limited: true,
-    },
+    }, */
     {
         name: 'Light Purple Paisley',
         image: '/fabrics/IMG_0406.jpg',
