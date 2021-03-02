@@ -41,7 +41,7 @@ function Alert(props) {
 
 
 export default function Fabrics() {
-    const gallery = Array.from({ length: 129 }, (_, i) => i + 1).reverse().map(x => (
+    const gallery = Array.from({ length: 133 }, (_, i) => i + 1).reverse().map(x => (
         {
             thumb: `/gallery/face-mask${x}-thumbnail.jpg`,
             main: `/gallery/face-mask${x}.jpg`,

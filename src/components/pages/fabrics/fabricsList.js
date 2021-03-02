@@ -196,6 +196,13 @@ const fabricsList = [
         limited: true,
     }, */
     {
+        name: 'Blue Stripes',
+        image: '/fabrics/IMG-2212.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-2212.jpg',
+        colors: ['blue', 'black', 'white'],
+        limited: true,
+    },
+    {
         name: 'Thin Blue Stripes',
         image: '/fabrics/IMG-0743.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-0743.jpg',
