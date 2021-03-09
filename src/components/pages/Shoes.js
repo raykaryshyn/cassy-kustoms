@@ -6,7 +6,7 @@ import Service from './Service';
 
 
 export default function Shoes() {
-    const gallery = Array.from({ length: 9 }, (_, i) => i + 1).reverse().map(x => (
+    const gallery = Array.from({ length: 10 }, (_, i) => i + 1).reverse().map(x => (
         {
             thumb: `/gallery/shoes${x}-thumbnail.jpg`,
             main: `/gallery/shoes${x}.jpg`,
