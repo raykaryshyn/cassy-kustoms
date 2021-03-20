@@ -8,6 +8,10 @@ import Service from './Service';
 export default function PhoneCases() {
     const gallery = [
         {
+            thumb: '/gallery/phone-case7-thumbnail.jpg',
+            main: '/gallery/phone-case7.jpg',
+        },
+        {
             thumb: '/gallery/phone-case6-thumbnail.jpg',
             main: '/gallery/phone-case6.jpg',
         },

@@ -349,13 +349,13 @@ const fabricsList = [
         colors: ['grey', 'white', 'black'],
         limited: true,
     }, */
-    {
+    /* {
         name: 'Green Paisley',
         image: '/fabrics/IMG_0404.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0404.jpg',
         colors: ['green', 'white', 'black'],
         limited: true,
-    },
+    }, */
     /* {
         name: 'Purple Paisley',
         image: '/fabrics/IMG_0405.jpg',
@@ -363,12 +363,194 @@ const fabricsList = [
         colors: ['purple', 'white', 'black'],
         limited: true,
     }, */
-    {
+    /* {
         name: 'Light Purple Paisley',
         image: '/fabrics/IMG_0406.jpg',
         thumbnail: '/fabrics/thumbnails/IMG_0406.jpg',
         colors: ['purple', 'white', 'black'],
         limited: true,
+    }, */
+    {
+        name: 'Brown Bandana',
+        image: '/fabrics/IMG-3656.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3656.jpg',
+        colors: ['brown', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Black & Pink Bandana',
+        image: '/fabrics/IMG-3657.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3657.jpg',
+        colors: ['pink', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Black & Green Bandana',
+        image: '/fabrics/IMG-3658.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3658.jpg',
+        colors: ['green', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Black & Red Bandana',
+        image: '/fabrics/IMG-3659.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3659.jpg',
+        colors: ['red', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Black Bandana',
+        image: '/fabrics/IMG-3660.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3660.jpg',
+        colors: ['black', 'white'],
+        limited: false,
+    },
+    {
+        name: 'Red Bandana',
+        image: '/fabrics/IMG-3661.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3661.jpg',
+        colors: ['red', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Grey Bandana',
+        image: '/fabrics/IMG-3662.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3662.jpg',
+        colors: ['grey', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Burgundy Bandana',
+        image: '/fabrics/IMG-3663.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3663.jpg',
+        colors: ['red', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Olive Bandana',
+        image: '/fabrics/IMG-3664.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3664.jpg',
+        colors: ['green', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Navy Bandana',
+        image: '/fabrics/IMG-3665.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3665.jpg',
+        colors: ['blue', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Dusky Teal Bandana',
+        image: '/fabrics/IMG-3666.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3666.jpg',
+        colors: ['green', 'blue', 'white', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Purple Bandana',
+        image: '/fabrics/IMG-3667.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3667.jpg',
+        colors: ['purple', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Green Bandana',
+        image: '/fabrics/IMG-3668.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3668.jpg',
+        colors: ['green', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Light Green Bandana',
+        image: '/fabrics/IMG-3669.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3669.jpg',
+        colors: ['green', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Indigo Bandana',
+        image: '/fabrics/IMG-3670.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3670.jpg',
+        colors: ['blue', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Blueberry Bandana',
+        image: '/fabrics/IMG-3671.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3671.jpg',
+        colors: ['blue', 'white', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Hot Pink Bandana',
+        image: '/fabrics/IMG-3672.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3672.jpg',
+        colors: ['pink', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Orange Bandana',
+        image: '/fabrics/IMG-3673.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3673.jpg',
+        colors: ['orange', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Yellow Bandana',
+        image: '/fabrics/IMG-3674.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3674.jpg',
+        colors: ['yellow', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Mango Bandana',
+        image: '/fabrics/IMG-3675.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3675.jpg',
+        colors: ['orange', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Light Pink Bandana',
+        image: '/fabrics/IMG-3676.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3676.jpg',
+        colors: ['pink', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'Light Blue Bandana',
+        image: '/fabrics/IMG-3677.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3677.jpg',
+        colors: ['blue', 'white', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Mint Bandana',
+        image: '/fabrics/IMG-3678.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3678.jpg',
+        colors: ['blue', 'green', 'white', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Tan Bandana',
+        image: '/fabrics/IMG-3679.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3679.jpg',
+        colors: ['brown', 'white', 'black'],
+        limited: false,
+    },
+    {
+        name: 'White Bandana',
+        image: '/fabrics/IMG-3680.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3680.jpg',
+        colors: ['white', 'black'],
+        limited: true,
+    },
+    {
+        name: 'Light Purple Bandana',
+        image: '/fabrics/IMG-3681.jpg',
+        thumbnail: '/fabrics/thumbnails/IMG-3681.jpg',
+        colors: ['purple', 'white', 'black'],
+        limited: false,
     },
     {
         name: 'Blue Floral Paisley',
@@ -454,13 +636,13 @@ const fabricsList = [
         colors: ['pink', 'white'],
         limited: true,
     },
-    {
+    /* {
         name: 'Pink Mini Flowers',
         image: '/fabrics/IMG-0746.jpg',
         thumbnail: '/fabrics/thumbnails/IMG-0746.jpg',
         colors: ['pink', 'white'],
         limited: true,
-    },
+    }, */
     {
         name: 'Ornamental Pink',
         image: '/fabrics/IMG_0429.jpg',
@@ -841,7 +1023,7 @@ const fabricsList = [
         colors: ['pink', 'orange', 'yellow', 'blue', 'purple', 'rainbow'],
         limited: false,
     },
-    
+
 
     {
         name: 'Snowflakes & Seashells',

@@ -8,6 +8,10 @@ import Service from './Service';
 export default function AirPods() {
     const gallery = [
         {
+            thumb: '/gallery/airpods-case7-thumbnail.jpg',
+            main: '/gallery/airpods-case7.jpg',
+        },
+        {
             thumb: '/gallery/airpods-case6-thumbnail.jpg',
             main: '/gallery/airpods-case6.jpg',
         },
