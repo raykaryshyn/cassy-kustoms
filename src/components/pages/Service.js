@@ -543,12 +543,6 @@ export default function Service(props) {
                 <Container maxWidth="lg" className={classes.orderContainer}>
                     {props.order ? props.order :
                         <>
-                            {
-                                (location.pathname.includes('/phone-cases') || location.pathname.includes('/airpods-cases') || location.pathname.includes('/water-bottles') || location.pathname.includes('/shoes') || location.pathname.includes('/other')) ?
-                                    <p className={classes.noticeMsg}>Notice: NOT ACCEPTING ANYMORE CUSTOM ART ORDERS AT THIS TIME.</p>
-                                    :
-                                    ''
-                            }
                             {props.youProvide && <div className={classes.infoWrapper}><div className={classes.info}><InfoIcon /><span>{props.youProvide}</span></div></div>}
                             <div className={classes.myOrder}>
                                 <div className={classes.cardWrapper}>
