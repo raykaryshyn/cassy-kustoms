@@ -385,7 +385,7 @@ export default function Home() {
                     <Container maxWidth="md" className={classes.welcomeContainer}>
                         <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
                             WELCOME
-                    </Typography>
+                        </Typography>
                     </Container>
                     <div className={classes.sectionGoto} id="about">&nbsp;</div>
                 </div>
@@ -394,17 +394,17 @@ export default function Home() {
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                         <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
-                            I am an artist and seamtress located near D.C. and I love to customize everyday objects. I work with
-                            a variety of media such as acrylic paints, markers, and nail polish depending on the painting surface.
-                            I also enjoy working with a range of fabrics and patterns to sew clothes, hats and more. Recently,
-                            my sewing skills have focused on making face masks as a way to help during this pandemic.
+                            I am a 17-year-old independent artist and seamstress based in the DMV area.
+                            Painting and sewing have been a passion of mine since I was very young, and now I get to use my creativity for others across the world.
+                            I started this business during the COVID-19 pandemic and since then I have had my work featured on Sharpie, The Custom Movement, and other popular pages on Instagram.
+                            I love to customize a variety of objects such as shoes, phone cases, clothes, and water bottles.
+                            I also make some of the coolest bucket hats you'll ever see.
 
-                        <br /><br />
+                            <br /><br />
 
-                        Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
+                            Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
 
-
-                        <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
+                            <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
                         </Typography>
                         <div className={classes.profilePic}>
                             <img src="/about_image.jpg" alt="Profile" />
@@ -424,11 +424,11 @@ export default function Home() {
                         <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                         <Typography className={classes.sectionSubtitle}>
                             Here are my painting and sewing services.
-                        <br />
-                        The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
-                        <br />
-                        Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
-                    </Typography>
+                            <br />
+                            The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
+                            <br />
+                            Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
+                        </Typography>
 
                         <Grid container spacing={3} className={classes.servicesContainer}>
                             <Grid item xs={12} sm={6} md={4}>
@@ -439,7 +439,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Phone Cases
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -452,7 +452,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 AirPods Cases
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -465,7 +465,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Water Bottles
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -478,7 +478,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Shoes
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -491,7 +491,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Other
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -504,7 +504,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Face Masks
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -517,7 +517,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Scrunchies
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -530,7 +530,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Hats
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -543,7 +543,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Clothes
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
