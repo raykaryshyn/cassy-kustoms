@@ -481,18 +481,18 @@ export default function Service(props) {
                     <div className={classes.subNavBig}>
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><PaintIcon className={classes.subNavIconBig} /> Painting:</Typography>
+                            <NavLink to="/shoes" className={classes.subNavButtonBig}>Shoes</NavLink>
                             <NavLink to="/phone-cases" className={classes.subNavButtonBig}>Phone Cases</NavLink>
                             <NavLink to="/airpods-cases" className={classes.subNavButtonBig}>AirPods Cases</NavLink>
                             <NavLink to="/water-bottles" className={classes.subNavButtonBig}>Water Bottles</NavLink>
-                            <NavLink to="/shoes" className={classes.subNavButtonBig}>Shoes</NavLink>
                             <NavLink to="/other" className={classes.subNavButtonBig}>Other</NavLink>
                         </div>
                         <div className={classes.subNavSectionBig}>
                             <Typography variant="h4" component="h2" className={classes.subNavTitleBig}><SewIcon className={classes.subNavIconBig} /> Sewing:</Typography>
-                            <NavLink to="/masks" className={classes.subNavButtonBig} activeClassName='active'>Face Masks</NavLink>
-                            <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Scrunchies</NavLink>
                             <NavLink to="/hats" className={classes.subNavButtonBig}>Hats</NavLink>
                             <NavLink to="/clothes" className={classes.subNavButtonBig}>Clothes</NavLink>
+                            <NavLink to="/scrunchies" className={classes.subNavButtonBig}>Scrunchies</NavLink>
+                            <NavLink to="/masks" className={classes.subNavButtonBig} activeClassName='active'>Face Masks</NavLink>
                         </div>
                     </div>
 
@@ -569,7 +569,7 @@ export default function Service(props) {
                                     <p style={{ maxWidth: 700, fontSize: '1rem', margin: '16px 0 10px' }}>
                                         You will receive a request for payment via PayPal.<br />
                                         <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
-                                        Payment upon pickup or delivery available for locals.</span>
+                                            Payment upon pickup or delivery available for locals.</span>
                                     </p>
                                 </div>
                             </div>

@@ -423,9 +423,7 @@ export default function Home() {
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                         <Typography className={classes.sectionSubtitle}>
-                            Here are my painting and sewing services.
-                            <br />
-                            The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
+                            Check out all my painting and sewing projects!
                             <br />
                             Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
                         </Typography>
@@ -433,7 +431,20 @@ export default function Home() {
                         <Grid container spacing={3} className={classes.servicesContainer}>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case1-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes7-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <PaintIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Shoes
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/phone-cases" style={{ backgroundImage: 'url(/gallery/phone-case7-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <PaintIcon className={classes.serviceIcon} />
@@ -472,19 +483,6 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/shoes" style={{ backgroundImage: 'url(/gallery/shoes7-thumbnail.jpg)' }}>
-                                        <div className={classes.serviceContent}>
-                                            <div className={classes.backdrop}></div>
-                                            <PaintIcon className={classes.serviceIcon} />
-                                            <span>
-                                                Shoes
-                                            </span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} sm={6} md={4}>
-                                <div className={classes.serviceItem}>
                                     <Link className={classes.serviceCard} to="/other" style={{ backgroundImage: 'url(/gallery/other4-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
@@ -498,12 +496,25 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask70-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/hats" style={{ backgroundImage: 'url(/gallery/hat16-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
-                                                Face Masks
+                                                Hats
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Grid>
+                            <Grid item xs={12} sm={6} md={4}>
+                                <div className={classes.serviceItem}>
+                                    <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes21-thumbnail.jpg)' }}>
+                                        <div className={classes.serviceContent}>
+                                            <div className={classes.backdrop}></div>
+                                            <SewIcon className={classes.serviceIcon} />
+                                            <span>
+                                                Clothes
                                             </span>
                                         </div>
                                     </Link>
@@ -524,25 +535,12 @@ export default function Home() {
                             </Grid>
                             <Grid item xs={12} sm={6} md={4}>
                                 <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/hats" style={{ backgroundImage: 'url(/gallery/hat3-thumbnail.jpg)' }}>
+                                    <Link className={classes.serviceCard} to="/masks" style={{ backgroundImage: 'url(/gallery/face-mask70-thumbnail.jpg)' }}>
                                         <div className={classes.serviceContent}>
                                             <div className={classes.backdrop}></div>
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
-                                                Hats
-                                            </span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} sm={6} md={4}>
-                                <div className={classes.serviceItem}>
-                                    <Link className={classes.serviceCard} to="/clothes" style={{ backgroundImage: 'url(/gallery/clothes15-thumbnail.jpg)' }}>
-                                        <div className={classes.serviceContent}>
-                                            <div className={classes.backdrop}></div>
-                                            <SewIcon className={classes.serviceIcon} />
-                                            <span>
-                                                Clothes
+                                                Face Masks
                                             </span>
                                         </div>
                                     </Link>
