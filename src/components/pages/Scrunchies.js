@@ -532,8 +532,8 @@ export default function Scrunchies() {
                                     Pricing
                                 </Typography>
                                 <ul className={classes.cardContent}>
-                                    <li className="uli">$2 per scrunchie</li>
-                                    <li className="uli">$3 - $8 shipping</li>
+                                    <li className="uli">$1 per scrunchie</li>
+                                    <li className="uli">$2 shipping</li>
                                 </ul>
                             </CardContent>
                         </Card>

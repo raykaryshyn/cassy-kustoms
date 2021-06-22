@@ -554,7 +554,8 @@ export default function Service(props) {
                                             <ul className={classes.cardContent}>
                                                 {props.perPrice && <li className="uli">{props.perPrice}</li>}
                                                 {props.perPriceCustom}
-                                                <li className="uli">{props.shippingPrice ? props.shippingPrice : '$3 - $8 shipping'}</li>
+                                                <li className="uli">{props.shippingPrice ? props.shippingPrice : 'Shipping $3 - $5'}</li>
+                                                {props.international && <li className="uli">International shipping available!</li>}
                                             </ul>
                                         </CardContent>
                                     </Card>
@@ -569,7 +570,7 @@ export default function Service(props) {
                                     <p style={{ maxWidth: 700, fontSize: '1rem', margin: '16px 0 10px' }}>
                                         You will receive a request for payment via PayPal.<br />
                                         <span className={classes.small}>Please let me know if you need to arrange a different form of payment.<br />
-                                            Payment upon pickup or delivery available for locals.</span>
+                                            Payment upon pickup available for locals.</span>
                                     </p>
                                 </div>
                             </div>

@@ -47,7 +47,7 @@ export default function AirPods() {
 
     return (
         <>
-            <Service title="AirPods Cases" gallery={gallery} perPrice='$15 - $25' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' youProvide='You provide Airpods case' />
+            <Service title="AirPods Cases" gallery={gallery} perPrice='Custom art ranges from $15 - $50 (not including airpods case)' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you! I only work on cases that you provide so it must be sent to me via USPS (or dropped off at my home if local).' shippingPrice="Shipping $5" youProvide='You provide Airpods case' international />
         </>
     );
 }

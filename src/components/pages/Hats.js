@@ -15,7 +15,7 @@ export default function Hats() {
 
     return (
         <>
-            <Service title="Hats" gallery={gallery} howToOrder="Let me know what kind of hat you want based on the hats in my gallery. You can even tell me what colors you want included in your hat!" perPriceCustom={<><li className="uli">Solid bucket hat: $20</li><li className="uli">Patchwork bucket hat: $30</li><li className="uli">Other: Price will vary</li></>} />
+            <Service title="Hats" gallery={gallery} howToOrder='Let me know what kind of hat you would like! I love turning all my sewing scraps into unique and colorful patchwork bucket hats. All bucket hats are reversible and you can pick whatever color/fabric you want! I also make bandana patch, denim, other fun bucket hats, and "Sun-Bun" hats, which are adjustable and can roll up.' perPriceCustom={<><li className="uli">Solid bucket hat $25</li><li className="uli">Bandana patch bucket hat $35</li><li className="uli">Patchwork bucket hat $40</li><li className="uli">Sun-Bun hat $30</li></>} international />
         </>
     );
 }

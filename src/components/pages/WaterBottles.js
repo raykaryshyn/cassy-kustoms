@@ -47,7 +47,7 @@ export default function HydroFlasks() {
 
     return (
         <>
-            <Service title="Water Bottles" gallery={gallery} perPrice='$20 - $30' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' youProvide="You provide water bottle" />
+            <Service title="Water Bottles" gallery={gallery} perPrice='Custom art ranges from $20 to $60 (not including the price of the bottle)' shippingPrice="Shipping starting at $8" howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you! Please include what water bottle you would like and I can order it after receiving your payment. If you want to provide the bottle, it must be new and sent to me via USPS.' international />
         </>
     );
 }

@@ -39,7 +39,7 @@ export default function PhoneCases() {
 
     return (
         <>
-            <Service title="Phone Cases" gallery={gallery} perPrice='$15 - $25' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you!' youProvide="You provide phone case" />
+            <Service title="Phone Cases" gallery={gallery} perPrice='Custom art ranges from $20 to $50 (not including the price of the case)' howToOrder='Let me know what you want painted and we will work together to create the perfect design Kustomized just for you! Please include what phone case/size you would like and I will order it and add the price to your total. If you want to provide the case, it must be new and sent to me via USPS.' international />
         </>
     );
 }
