@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 import vanillaSmoothie from 'vanilla-smoothie';
+import SalesMap from '../SalesMap';
 
 
 export default function Home() {
@@ -385,7 +386,7 @@ export default function Home() {
                     <Container maxWidth="md" className={classes.welcomeContainer}>
                         <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
                             WELCOME
-                    </Typography>
+                        </Typography>
                     </Container>
                     <div className={classes.sectionGoto} id="about">&nbsp;</div>
                 </div>
@@ -399,12 +400,12 @@ export default function Home() {
                             I also enjoy working with a range of fabrics and patterns to sew clothes, hats and more. Recently,
                             my sewing skills have focused on making face masks as a way to help during this pandemic.
 
-                        <br /><br />
+                            <br /><br />
 
-                        Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
+                            Check out my work in the <a href="/#services" onClick={handleLinkClick} className={classes.link}>services</a> section where you can also place an order.
 
 
-                        <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
+                            <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
                         </Typography>
                         <div className={classes.profilePic}>
                             <img src="/about_image.jpg" alt="Profile" />
@@ -419,16 +420,17 @@ export default function Home() {
                     <div className={classes.sectionGoto} id="services">&nbsp;</div>
                 </div>
                 <div className={[classes.paintLineWrapper, classes.aboutBottomPaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
+                <SalesMap />
                 <div>
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={classes.sectionTitle}>Services</Typography>
                         <Typography className={classes.sectionSubtitle}>
                             Here are my painting and sewing services.
-                        <br />
-                        The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
-                        <br />
-                        Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
-                    </Typography>
+                            <br />
+                            The face mask section includes 100+ available <a href="/masks/order" className={classes.link}>fabric choices</a> for a Kustom-fitted face mask!
+                            <br />
+                            Don't see what you're looking for? <a href="/#contact" onClick={handleLinkClick} className={classes.link}>Contact me</a> and I'll see what I can do!
+                        </Typography>
 
                         <Grid container spacing={3} className={classes.servicesContainer}>
                             <Grid item xs={12} sm={6} md={4}>
@@ -439,7 +441,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Phone Cases
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -452,7 +454,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 AirPods Cases
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -465,7 +467,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Water Bottles
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -478,7 +480,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Shoes
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -491,7 +493,7 @@ export default function Home() {
                                             <PaintIcon className={classes.serviceIcon} />
                                             <span>
                                                 Other
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -504,7 +506,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Face Masks
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -517,7 +519,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Scrunchies
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -530,7 +532,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Hats
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
@@ -543,7 +545,7 @@ export default function Home() {
                                             <SewIcon className={classes.serviceIcon} />
                                             <span>
                                                 Clothes
-                                        </span>
+                                            </span>
                                         </div>
                                     </Link>
                                 </div>
