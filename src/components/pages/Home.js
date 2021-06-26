@@ -14,6 +14,9 @@ import { ReactComponent as PaintIcon } from '../CassyKustom_icon_painting.svg';
 import { ReactComponent as SewIcon } from '../CassyKustom_icon_sewing.svg';
 import vanillaSmoothie from 'vanilla-smoothie';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 
 export default function Home() {
     const useStyles = makeStyles(theme => ({
@@ -23,30 +26,37 @@ export default function Home() {
         welcomeSection: {
             /*  background: `linear-gradient(-45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`, */
             backgroundColor: '#23270d',
-            backgroundImage: 'url(/header-bg.jpg)',
-            marginTop: 20,
-            padding: '75px 0 0',
-            overflow: 'hidden',
-            minHeight: 600,
-            [theme.breakpoints.down(950)]: {
-                minHeight: 500,
-            },
-            [theme.breakpoints.down(700)]: {
-                minHeight: 400,
-            },
-            [theme.breakpoints.down(500)]: {
-                minHeight: 250,
+            /* backgroundImage: 'url(/header-bg.jpg)', */
+            marginTop: 30,
+            /* padding: '75px 0 0', */
+            /* overflow: 'hidden', */
+            '& .carousel': {
+                height: 600,
+                [theme.breakpoints.down(950)]: {
+                    height: 500,
+                },
+                [theme.breakpoints.down(700)]: {
+                    height: 400,
+                },
+                [theme.breakpoints.down(500)]: {
+                    height: 250,
+                },
             },
             display: 'flex',
             flexDirection: 'column',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
+            position: 'relative'
         },
         welcomeContainer: {
             flex: 1,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            padding: 0,
+            width: '100%',
+            maxWidth: 'unset',
+            maxWidth: 2000,
         },
         welcomeTitle: {
             textAlign: 'center',
@@ -85,19 +95,36 @@ export default function Home() {
         },
         paintLineWrapper: {
             overflow: 'hidden',
+            width: '100%',
         },
         welcomePaintLineTop: {
-            transform: 'translateY(25px)',
+            position: 'absolute',
+            top: 0,
+            zIndex: 1000,
+            transform: 'translateY(-4.75px)',
+            '& img': {
+                height: 9.5,
+            }
+        },
+        welcomePaintLineBottom: {
+            position: 'absolute',
+            bottom: 0,
+            zIndex: 1000,
+            transform: 'translateY(5.25px) scale(-1, 1)',
             '& img': {
                 height: 9.5,
             }
         },
         welcomePaintLine: {
             marginTop: -10,
+            '&#footerPaintLine': {
+                transform: 'scale(-1, 1)'
+            }
         },
         aboutBottomPaintLine: {
-            transform: 'scale(-1, -1)',
-            marginTop: -16,
+            transform: 'scale(1, -1)',
+            marginTop: -20,
+            background: 'white',
         },
         aboutSection: {
             background: theme.palette.primary.light3,
@@ -109,9 +136,13 @@ export default function Home() {
         },
         sectionGoto: {
             display: 'block',
+            '&#about': {
+                marginTop: '-25px',
+            }
         },
         contactSection: {
             background: theme.palette.primary.light3,
+            paddingTop: 15
         },
         sectionTitle: {
             textAlign: 'center',
@@ -334,6 +365,85 @@ export default function Home() {
                     maxWidth: '312px',
                 },
             },
+        },
+        carousel: {
+            position: 'relative',
+            '& .control-arrow': {
+                background: 'rgba(0,0,0,0.1) !important',
+                opacity: '1 !important',
+                height: 45,
+                borderRadius: '50%',
+                width: 45,
+                top: '50% !important',
+                transform: 'translateY(-50%)',
+                display: 'inline-block',
+                fontStyle: 'normal',
+                fontVariant: 'normal',
+                textRendering: 'auto',
+                lineHeight: 1,
+                fontFamily: '"Font Awesome 5 Free" !important',
+                fontWeight: 900,
+                '@media (hover: hover)': {
+                    '&:hover': {
+                        background: `${theme.palette.primary.main} !important`,
+                    },
+                },
+                transition: `${theme.transitions.create('all', { duration: 250 })} !important`,
+                '&.control-prev': {
+                    marginLeft: 10,
+                    '&:before': {
+                        content: '"\\f053"',
+                        border: 'none',
+                        display: 'block',
+                        fontSize: '1.2rem',
+                        margin: '0 1px 0 0'
+                    }
+                },
+                '&.control-next': {
+                    marginRight: 10,
+                    '&:before': {
+                        content: '"\\f054"',
+                        border: 'none',
+                        display: 'block',
+                        fontSize: '1.2rem',
+                        margin: '0 0 0 1px'
+                    }
+                },
+                [theme.breakpoints.down(500)]: {
+                    width: 38,
+                    height: 38,
+                    '&.control-prev': {
+                        marginLeft: 10,
+                        '&:before': {
+                            fontSize: '1rem !important'
+                        }
+                    },
+                    '&.control-next': {
+                        marginRight: 10,
+                        '&:before': {
+                            fontSize: '1rem !important'
+                        }
+                    },
+                }
+            },
+            '& .control-dots': {
+                marginBottom: 20,
+                [theme.breakpoints.down(500)]: {
+                    marginBottom: 10,
+                },
+                '& .dot': {
+                    '&.selected': {
+                        boxShadow: '0 0 7px rgba(0,0,0,0.7)',
+                    },
+                    boxShadow: '0 0 6px rgba(0,0,0,0.4)',
+                    transition: theme.transitions.create('all', { duration: 250 }),
+                    '@media (hover: hover)': {
+                        '&:hover': {
+                            background: `rgba(255,255,255,0.75) !important`,
+                        },
+                    },
+                }
+            }
         }
     }));
     const classes = useStyles();
@@ -380,17 +490,36 @@ export default function Home() {
             <div className={classes.body}>
                 <Nav />
 
-                <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
+
                 <div id="welcome" className={classes.welcomeSection}>
+                    <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
                     <Container maxWidth="md" className={classes.welcomeContainer}>
-                        <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
+                        {/* <Typography component="h1" variant="h1" className={classes.welcomeTitle}>
                             WELCOME
-                        </Typography>
+                        </Typography> */}
+                        <Carousel className={classes.carousel} autoPlay={true} interval="3000" stopOnHover={false} showThumbs={false} showStatus={false} infiniteLoop={true} dynamicHeight={true}>
+                            <div>
+                                <img src="/gallery/shoes9-carousel.jpg" alt="Shoes" />
+                            </div>
+                            <div>
+                                <img src="/gallery/phone-case5-carousel.jpg" alt="Phone Case" />
+                            </div>
+                            <div>
+                                <img src="/gallery/other4-carousel.jpg" alt="Painted Jacket" />
+                            </div>
+                            <div>
+                                <img src="/gallery/water-bottle3.jpg" alt="Water Bottle" />
+                            </div>
+                            <div>
+                                <img src="/gallery/hat14.jpg" alt="Hat" />
+                            </div>
+                        </Carousel>
                     </Container>
-                    <div className={classes.sectionGoto} id="about">&nbsp;</div>
+                    <div className={[classes.paintLineWrapper, classes.welcomePaintLineBottom].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div>
+                    {/* <div className={[classes.paintLineWrapper, classes.welcomePaintLineTop].join(' ')}><img src={PaintLineLone} className={classes.paintLine} alt="Paint Line" /></div> */}
                 </div>
-                <div className={[classes.paintLineWrapper, classes.welcomePaintLine].join(' ')}><img src={PaintLine} className={classes.paintLine} alt="Paint Line" /></div>
                 <div className={[classes.aboutSection].join(' ')}>
+                    <div className={classes.sectionGoto} id="about">&nbsp;</div>
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                         <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>

@@ -156,8 +156,10 @@ export default function Nav(props) {
             '&.active': {
                 color: theme.palette.secondary.main,
             },
-            '&:hover': {
-                color: theme.palette.secondary.main,
+            '@media (hover: hover)': {
+                '&:hover': {
+                    color: theme.palette.secondary.main,
+                },
             },
             letterSpacing: 3,
             fontFamily: theme.typography.fonts.header,
@@ -185,12 +187,16 @@ export default function Nav(props) {
                 color: '#fff',
                 textShadow: `0 0 8px ${theme.palette.primary.dark3}`,
                 opacity: 1,
-                '&:hover': {
-                    color: '#fff',
+                '@media (hover: hover)': {
+                    '&:hover': {
+                        color: '#fff',
+                    },
                 },
             },
-            '&:hover': {
-                color: 'rgba(255,255,255,0.9)',
+            '@media (hover: hover)': {
+                '&:hover': {
+                    color: 'rgba(255,255,255,0.9)',
+                },
             },
             fontFamily: theme.typography.fonts.header,
             letterSpacing: '0.175rem',
