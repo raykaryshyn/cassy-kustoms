@@ -407,7 +407,7 @@ export default function Home() {
                             <span className={classes.cursive}>Let me know if you want anything Kustomized!</span>
                         </Typography>
                         <div className={classes.profilePic}>
-                            <img src="/about_image.jpg" alt="Profile" />
+                            <img src="/about_image2.jpg" alt="Profile" />
                         </div>
                         <div className={classes.instagramWrapper}>
                             <a href="https://www.instagram.com/cassykustoms/" target="_blank" rel="noopener noreferrer">
