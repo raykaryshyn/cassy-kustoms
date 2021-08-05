@@ -533,7 +533,7 @@ export default function Service(props) {
                 <Tab label={<Link to={'/' + location.pathname.split('/')[1] + '/order'}>Order</Link>} className={classes.tabLabel} />
             </Tabs>
             <TabPanel value={tab} index={0}>
-                <Container maxWidth="lg">
+                <Container maxWidth="lg" className={classes.orderContainer}>
                     <Grid container spacing={2} className={classes.galleryContainer}>
                         <Gallery urls={props.gallery} />
                     </Grid>
