@@ -8,6 +8,14 @@ import Service from './Service';
 export default function Hats() {
     const gallery = [
         {
+            "thumb": "/gallery/hat34-thumbnail.jpg",
+            "main": "/gallery/hat34.jpg"
+        },
+        {
+            "thumb": "/gallery/hat33-thumbnail.jpg",
+            "main": "/gallery/hat33.jpg"
+        },
+        {
             "thumb": "/gallery/hat31-thumbnail.jpg",
             "main": "/gallery/hat31.jpg"
         },
