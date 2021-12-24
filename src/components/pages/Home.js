@@ -394,7 +394,7 @@ export default function Home() {
                     <Container maxWidth="lg">
                         <Typography variant="h3" component="h2" className={[classes.sectionTitle, classes.sectionTitleSecondary].join(' ')}>About</Typography>
                         <Typography className={[classes.sectionSubtitle, classes.sectionSubtitleSecondary, classes.aboutSubtitle].join(' ')}>
-                            I am an independent artist and seamstress based in the Washington D.C. metro area.
+                            I am an independent artist and seamstress based in the Washington, D.C. metro area.
                             Painting and sewing have been a passion of mine since I was very young, and now I get to use my creativity for others across the world.
                             I started this business during the COVID-19 pandemic and since then I have had my work featured on Sharpie, The Custom Movement, and other popular pages on Instagram.
                             I love to customize a variety of objects such as shoes, phone cases, clothes, and water bottles.
