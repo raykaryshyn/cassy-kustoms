@@ -150,11 +150,11 @@ export default function ContactDialog(props) {
     }));
     const classes = useStyles();
 
-    function encode(data) {
+    /* function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&");
-    }
+    } */
 
     function ValidateEmail(emailAddr) {
         if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(emailAddr)) {
@@ -173,7 +173,7 @@ export default function ContactDialog(props) {
         console.log(id, value);
     };
     const handleSubmit = e => {
-        const form = 'contact';
+        /* const form = 'contact'; */
         var formName = formState.hasOwnProperty('name') ? formState['name'] : '';
         var formEmail = formState.hasOwnProperty('email') ? formState['email'] : '';
         var formMessage = formState.hasOwnProperty('message') ? formState['message'] : '';
@@ -202,7 +202,7 @@ export default function ContactDialog(props) {
         }
 
         if (formFlag) {
-            fetch("/", {
+            /* fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: encode({
@@ -212,18 +212,18 @@ export default function ContactDialog(props) {
             })
                 .then(() => {
                     console.log(formState);
-                    setFormState({});
+                    setFormState({}); */
                     document.getElementById('formRef').style.display = 'none';
                     document.getElementById('thanksRef').style.display = 'block';
                     if (!props.secondary && !props.noCancel) {
                         document.getElementById('closeBtn').style.display = 'flex';
                     }
-                })
+                /*  })
                 .catch(error => {
-                    console.log(error);
+                    console.log(error); */
                     document.getElementById('thanksRef').style.display = 'none';
                     document.getElementById('failRef').style.display = 'block';
-                });
+               /*  }); */
         }
     };
 
