@@ -92,10 +92,12 @@ export default function ContactDialog(props) {
             [theme.breakpoints.down(510)]: {
                 flexDirection: 'column',
             },
-            flexWrap: 'wrap',
+            /* flexWrap: 'wrap', */
             justifyContent: 'center',
             alignItems: 'center',
             padding: 10,
+            maxWidth: 750,
+            margin: '0 auto',
         },
         endingIcon: {
             fontSize: 70,
