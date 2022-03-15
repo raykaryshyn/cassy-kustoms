@@ -147,6 +147,12 @@ export default function ContactDialog(props) {
                 background: '#e7e7e7',
             },
         },
+        contactLink: {
+            color: theme.palette.primary.main,
+            textDecoration: 'underline',
+            display: 'inline-block',
+            cursor: 'pointer',
+        },
     }));
     const classes = useStyles();
 
@@ -271,7 +277,7 @@ export default function ContactDialog(props) {
                     <ErrorIcon className={[classes.endingIcon, classes.errorIcon].join(' ')} />
                     <div>
                         <Typography component="h3" variant="h3" className={classes.endingTitle}>Sorry!</Typography>
-                        <p className={classes.endingText}>Your message was not able to be sent at this time.</p>
+                        <p className={classes.endingText}>Your message was not able to be sent at this time. Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank you.</p>
                     </div>
                 </div>
             </div>

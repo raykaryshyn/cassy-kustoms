@@ -370,11 +370,11 @@ export default function Scrunchies() {
 
     const [ordered, setOrdered] = React.useState(false);
 
-    function encode(data) {
+    /* function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&");
-    }
+    } */
 
     const handleSubmit = () => {
         const name = document.getElementById('formNameRef').value;
@@ -425,7 +425,7 @@ export default function Scrunchies() {
         if (nameValid && emailValid && allWantsValid) {
             console.log("ready to go");
 
-            const message = () => {
+            /* const message = () => {
                 var text = '';
                 Object.keys(select).forEach(i => {
                     text += '#' + (parseInt(select[i].num) + 1) + ' ' + metadata[select[i].num].name + ': ' + select2[i].quantity + '\n';
@@ -450,7 +450,7 @@ export default function Scrunchies() {
                     console.log(body);
                     setOrdered('ok');
                 })
-                .catch(error => { console.log(error); alert('error'); setOrdered('error'); });
+                .catch(error => { console.log(error); alert('error'); */ setOrdered('error'); /* }); */
         } else {
             console.log("errors.");
         }
@@ -648,7 +648,8 @@ export default function Scrunchies() {
                             <>
                                 <Typography variant="h5" component="h2" className={classes.title}>Sorry, there was an error on our end.</Typography>
                                 <p style={{ maxWidth: 600, fontSize: '0.9rem', margin: '10px 0' }}>
-                                    Please try again or <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog> with your order. Thank you.
+                                    {/* Please try again or <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog> with your order. Thank you. */}
+                                    Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank you.
                                 </p>
                             </>
                         )}
