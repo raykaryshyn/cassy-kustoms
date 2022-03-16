@@ -154,6 +154,7 @@ export default function Home() {
         },
         contactForm: {
             marginTop: 30,
+            paddingBottom: 30,
         },
         servicesContainer: {
             marginTop: 30,

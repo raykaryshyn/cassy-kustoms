@@ -75,7 +75,7 @@ export default function ContactDialog(props) {
         },
 
         actionBar: {
-            padding: props.noContainer ? '8px 0 0' : props.secondary ? '8px 0 120px' : '0 24px 24px 0',
+            padding: props.noContainer ? '8px 0 0' : props.secondary ? '8px 0 90px' : '0 24px 24px 0',
         },
 
         ending: {
