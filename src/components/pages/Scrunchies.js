@@ -649,7 +649,7 @@ export default function Scrunchies() {
                                 <Typography variant="h5" component="h2" className={classes.title}>Sorry, there was an error on our end.</Typography>
                                 <p style={{ maxWidth: 600, fontSize: '0.9rem', margin: '10px 0' }}>
                                     {/* Please try again or <ContactDialog className={classes.contactLink}><span>contact me</span></ContactDialog> with your order. Thank you. */}
-                                    Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank you.
+                                    Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank&nbsp;you.
                                 </p>
                             </>
                         )}

@@ -279,7 +279,7 @@ export default function ContactDialog(props) {
                     <ErrorIcon className={[classes.endingIcon, classes.errorIcon].join(' ')} />
                     <div>
                         <Typography component="h3" variant="h3" className={classes.endingTitle}>Sorry!</Typography>
-                        <p className={classes.endingText}>Your message was not able to be sent at this time. Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank you.</p>
+                        <p className={classes.endingText}>Your message was not able to be sent at this time. Please try emailing me at <a href="mailto:cassykustoms@gmail.com" className={classes.contactLink}>cassykustoms@gmail.com</a> instead. Thank&nbsp;you.</p>
                     </div>
                 </div>
             </div>
