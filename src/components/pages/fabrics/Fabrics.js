@@ -671,11 +671,11 @@ export default function Fabrics() {
 
     const [measurements, setMeasurements] = React.useState({});
 
-    /* function encode(data) {
+    function encode(data) {
         return Object.keys(data)
             .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
             .join("&");
-    } */
+    }
     const handleSubmit = e => {
 
         let measurementsObject = {};
@@ -715,7 +715,7 @@ export default function Fabrics() {
 
         if (nameValid && emailValid && allMeasurementsValid) {
             console.log("ready to go");
-            /* let measurements = () => {
+            let measurements = () => {
                 var out = '';
                 Object.keys(measurementsObject).forEach(i => {
                     out += i;
@@ -724,8 +724,8 @@ export default function Fabrics() {
                     out += '\n';
                 });
                 return out;
-            }; */
-            /* const body = {
+            };
+            const body = {
                 'name': name,
                 'email': email,
                 'measurements': measurements(),
@@ -739,11 +739,11 @@ export default function Fabrics() {
                 })
             })
                 .then(() => {
-                    console.log(body); */
+                    console.log(body);
                     cancelOrder();
-                    /* setOrdered('ok');
+                    setOrdered('ok');
                 })
-                .catch(error => {  console.log(error); alert('error'); */ setOrdered('error'); /* }); */
+                .catch(error => {  console.log(error); alert('error'); setOrdered('error'); });
         } else {
             console.log("errors.");
         }
